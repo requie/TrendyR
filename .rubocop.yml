@@ -1,0 +1,18 @@
+# Default configuration - https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+AllCops:
+  # Exclude some files for now
+  Exclude:
+    - 'bin/**/*' # Spring has very dirty files, but it's better not to edit them
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/Documentation:
+  Enabled: false
