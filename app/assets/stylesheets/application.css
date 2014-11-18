@@ -1,4 +1,8 @@
 /*
+  You should put original styles under `vendor` folder.
+  Add developer styles in dev.scss
+  Override paths from original styles in paths.scss
+
  *= require paths
  *= require dev
  */
