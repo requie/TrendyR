@@ -1,0 +1,7 @@
+= form_for @profile, url: uploads_path, html: { multipart: true } do |form|
+  = form.fields_for :wallpaper do |wallpaper_form|
+   = wallpaper_form.file_field :attachment
+  = form.submit 'Submit'
+
+- @profiles.each do |profile|
+  = image_tag profile.wallpaper_url(:tiny)

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     get 'homepage'
   end
 
+  # Test routes for uploads, must remove it before rolling out to production
+  resources :uploads
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

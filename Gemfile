@@ -54,6 +54,12 @@ group :development do
   # A static analysis security vulnerability scanner for Ruby on Rails applications
   # https://github.com/presidentbeef/brakeman
   gem 'brakeman', require: false
+  # Better Errors replaces the standard Rails error page with a much better and more useful error page
+  # https://github.com/charliesome/better_errors
+  gem 'better_errors'
+  # work with JSHint - the js code check tool that does not tyrannize your code, by jshint community
+  # https://github.com/Bgouveia/jshint_on_rails
+  gem 'jshint_on_rails'
 end
 
 group :development, :production do

@@ -30,7 +30,7 @@ Trendy Reggae
 * use `slim` to compose views
 * use `foreigner` for adding and removing foreign key constraints on a database level
 * use `draper` to move decorational methods out of models to separate classes
-* use `rubocop` and `brakeman` to check your code for following style guides and vulnerabilities
+* use `rubocop`, `brakeman`, `rake jshint` to check your code for following style guides and vulnerabilities
 
 ### Git Flow
 
@@ -67,5 +67,6 @@ git push origin mytask
 * [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 ##### Tools
-* `rubocop` - check your code for following coding standarts
-* `brakeman` - check your code for vulnerabilities
+* `rubocop` - check your Rails code for following coding standarts
+* `brakeman` - check your Rails code for vulnerabilities
+* `rake jshint` - checl your JavaScript code for following coding standarts and vulnerabilities
