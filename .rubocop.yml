@@ -1,9 +1,10 @@
 # Default configuration - https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
 AllCops:
-  # Exclude some files for now
+  # Exclude some files from check
   Exclude:
     - 'bin/**/*' # Spring has very dirty files, but it's better not to edit them
+  RunRailsCops: true
 
 Metrics/ClassLength:
   Enabled: false

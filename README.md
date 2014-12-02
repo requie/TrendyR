@@ -4,13 +4,13 @@ Trendy Reggae
 ### Sofware Requirements
 - Web-server: nginx ([how to configure](https://bitbucket.org/ikantam/trendy-reggae/wiki/nginx%20virtualhost%20configuration))
 - Language: Ruby 2.1.5
-- Database: PostreSQL
+- Database: PostgreSQL
 
 ### Environment configurations
 
-* copy */config/database.sample.yml* to */config/database.yml* and set database connection settings for your local installation
+* copy *config/database.sample.yml* to *config/database.yml* and set database connection settings for your local installation
 
-* copy */config/secrets.sample.yml* to */config/secrets.yml* and set appropriate values for your local installation
+* copy *config/secrets.sample.yml* to *config/secrets.yml* and set appropriate values for your local installation
 
 ### Database and seeds
 
@@ -20,6 +20,17 @@ Trendy Reggae
 
 ### Unicorn
 * use `bin/unicorn start|restart|stop` to manage unicorn server state
+
+### Workflow requirements
+* when updating assets make sure to place all styles, images, fonts, etc under *vendor* directory
+  * update *app/assets/stylesheets/paths.scss* if there are any paths updates in styles
+* before sending a PR check how your code works in **production** environment
+* use namespaces for controllers, views, routes, etc to split funcionality for diffrerent user roles on separate modules
+* use `pundit` to define access rules throughout the application
+* use `slim` to compose views
+* use `foreigner` for adding and removing foreign key constraints on a database level
+* use `draper` to move decorational methods out of models to separate classes
+* use `rubocop` and `brakeman` to check your code for following style guides and vulnerabilities
 
 ### Git Flow
 
@@ -36,7 +47,7 @@ Trendy Reggae
 git checkout develop
 git pull upstream develop
 git checkout -b mytask
-// making task
+// doing task
 git checkout develop
 git pull upstream develop
 git checkout mytask
@@ -56,5 +67,5 @@ git push origin mytask
 * [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 ##### Tools
-* type `rubocop` in your console from your working directory to check your code for following coding standarts
-* type `brakeman` in your console from your woking directory to check your code for vulnerabilities
+* `rubocop` - check your code for following coding standarts
+* `brakeman` - check your code for vulnerabilities

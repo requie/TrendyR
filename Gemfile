@@ -22,6 +22,15 @@ gem 'js_assets', '~> 0.0.9'
 # Adds foreign key helpers to migrations and correctly dumps foreign keys to schema.rb
 # https://github.com/matthuhiggins/foreigner
 gem 'foreigner', '~> 1.6.1'
+# Minimal authorization through OO design and pure Ruby classes
+# https://github.com/elabs/pundit
+gem 'pundit', '~> 0.3.0'
+# Easy file attachment management for ActiveRecord
+# https://github.com/thoughtbot/paperclip
+gem 'paperclip', '~> 4.2.0'
+# Decorators/View-Models for Rails Applications
+# https://github.com/drapergem/draper
+gem 'draper', '~> 1.4.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
