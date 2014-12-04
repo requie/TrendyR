@@ -1,0 +1,110 @@
+/*!
+ *  Written for: ?
+ *  Further changes: @author
+ *  Updated:
+ */
+ 
+select{
+    padding:3px;
+}
+select, textarea, input, option{
+    border: 1px solid #e3e3e3 !important;
+    border-radius: 4px;
+}
+.footer{
+    bottom: 0;
+}
+#moveUp{
+    right: 10%;
+    bottom:140px;
+    position:fixed;
+    background-color: black;
+    width: 44px;
+    height: 44px;
+}
+.icon-up{
+    width: 34px;
+    height:20px;
+    background-position:-20px -18px;
+    top:13px;
+    left:9px;
+}
+.container{
+    padding:0;
+}
+.navbar-nav li{
+    list-style: none;
+}
+.pg-content {    
+    min-height: 100%;    
+}
+.page{
+    background-color: #e3e3e3;
+}
+.pg{
+    background-color:white;
+
+    box-shadow:10px 0px 15px 0 rgba(0, 0, 0, 0.1), -10px 0px 15px 0 rgba(0, 0, 0, 0.1);
+    padding-left:0 !important;
+    padding-right:0 !important;
+}
+.title{
+    padding: 6px 12px;
+}
+.description{
+    margin-top:10px;
+    padding: 0 12px;
+}
+input.uploadbtn, input.uploadfile{
+    display:none !important;
+}
+.drop-files{
+    text-align:center;
+    background: url('../images/icons/upload-cover.png') center no-repeat;
+    height:113px;
+}
+.well{
+    padding:17px !important;
+    margin-bottom:0px !important;
+}
+.cover{
+    padding-top:35px;
+}
+.cover p{
+    color:#a9a9a9;
+}
+.fileSelect p{
+    color:white;
+    margin:0;
+}
+.newSelect{
+    border-radius:4px 0 0 4px;
+    border:1px solid #e3e3e3 !important;
+    border-right:none !important;
+    float:left;
+    color:#a9a9a9;
+    line-height:1.5;
+}
+.newSelect:hover{
+    border:1px solid #e3e3e3;
+    border-right:none;
+    color:black;
+    background: none;
+}
+.browse{
+    padding-right:15px !important;
+}
+.browse p{
+    float:left;
+    padding:5px 20px 0 0;
+}
+.album-track{
+    padding:0;
+}
+.album-track .track{
+    background: none;
+    border:none;
+}
+.inner{
+    padding-top:15px;
+}

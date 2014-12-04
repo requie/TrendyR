@@ -1,0 +1,21 @@
+doctype html
+| <!--[if !IE]><!--><script>if(/*@cc_on!@*/false){document.documentElement.className+=' ie10';}</script><!--<![endif]-->
+| <!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+| <!--[if IE 9 ]><html class="ie9"><![endif]-->
+| <!--[if IE 8 ]><html class="ie8"><![endif]-->
+html
+  = render 'layouts/blocks/head'
+  body.sign-in
+    /[if lte IE 8]
+      | <div id="browser-status">Dear Web User, your browser is out of date! <a href="http://browsehappy.com/" target="_blank">Please Upgrade Your Browser</a></div>
+    #page-wrapper
+      .page
+        .sign-in
+          = render 'blocks/header_sign'
+          .container.pg
+            .login.clearfix
+              .col-lg-6.col-sm-8.col-xs-10.centered
+                .login-block
+                  = yield
+            = render 'blocks/footer'
+    = render 'layouts/blocks/footer'

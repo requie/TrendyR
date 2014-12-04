@@ -1,0 +1,20 @@
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name), defaults: {input_html: { class: 'form-control' }}) do |f|
+  h2.text-uc Sign in
+  = render 'blocks/social'
+  .col-xs-9.col-sm-10.centered
+    .log-pass.clearfix
+      .row
+        h4.pull-left.col-xs-12.col-sm-4.text-left type="submit" Sign In
+        p.pull-right.col-xs-12.col-sm-8.text-right.clearfix
+          | Don't have an account?
+          a.link href="#{new_user_registration_path}"  Sign up
+      .form-group
+        = f.input :email, placeholder: 'Email', autofocus: true,
+          input_html: { 'data-required' => true, 'data-type' => 'email', 'data-maxlength' => '100', 'data-trim-value' => true }
+        = f.input :password, placeholder: 'Password',
+          input_html: { 'data-required' => true, 'data-maxlength' => '100', 'data-trim-value' => true }
+      a.link.pull-left href="#"  Forgot-password?
+      .pull-right
+        button.btn.btn-primary Submit
+= content_for :javascript do
+  script src=asset_path('parsley')

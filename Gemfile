@@ -32,6 +32,9 @@ gem 'paperclip', '~> 4.2.0'
 # https://github.com/drapergem/draper
 gem 'draper', '~> 1.4.0'
 
+gem 'devise', '~> 3.4.1'
+gem 'simple_form', '~> 3.1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -60,6 +63,7 @@ group :development do
   # work with JSHint - the js code check tool that does not tyrannize your code, by jshint community
   # https://github.com/Bgouveia/jshint_on_rails
   gem 'jshint_on_rails'
+  gem 'pry-rails'
 end
 
 group :development, :production do

@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
 
-  root 'guest/homepage#index'
+  devise_for :users, controllers: {
+    confirmations: 'users/confirmations'
+  }
 
   namespace :guest do
     get 'homepage'
+  end
+
+  devise_scope :user do
+    authenticated :user do
+      root to: 'guest/homepage#index', as: :authenticated_root
+    end
+
+    root to: 'devise/sessions#new'
   end
 
   # Test routes for uploads, must remove it before rolling out to production

@@ -1,0 +1,32 @@
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), defaults: {input_html: { class: 'form-control' }}) do |f|
+  h2.text-uc Sign up
+  = render 'blocks/social'
+  .col-xs-9.col-sm-10.centered
+    .log-pass.clearfix
+      .row
+        h4.pull-left.col-xs-12.col-sm-4.text-left Sign Up
+        p.pull-right.col-xs-12.col-sm-8.text-right.clearfix
+          | Already have an account?
+          a.link href="#{new_user_session_path}"  Sign in
+      .form-group
+        = f.input :first_name, placeholder: 'First Name', autofocus: true,
+          input_html: { 'data-required' => true, 'data-maxlength' => '100', 'data-pattern' => '^[aA-zZаА-яЯЁё \-\.]+$', 'data-trim-value' => true }
+        = f.input :last_name, placeholder: 'Last Name',
+          'data-required' => true, 'data-maxlength' => '100', 'data-pattern' => '^[aA-zZаА-яЯЁё \-\.]+$', 'data-trim-value' => true
+        = f.association :roles, prompt: 'Who are you?', input_html: { multiple: false, 'data-required' => true }, include_blank: false, label: false
+        = f.input :email, placeholder: 'Email',
+          input_html: { 'data-required' => true, 'data-type' => 'email', 'data-maxlength' => '100','data-trim-value' => true }
+        = f.input :password, placeholder: 'Password',
+          input_html: { 'data-required' => true, 'data-minlength' => '8','data-maxlength' => '100', 'data-trim-value' => true }
+        = f.input :password_confirmation, placeholder: 'Password confirmation',
+          input_html: { 'data-required' => true, 'data-equalto' => '#user_password', 'data-equalto-message' => 'confirmation failed', 'data-trim-value' => true }
+      .row
+        span.pull-left.col-xs-9
+          | By signing up with Trendy Reggae, you are apply
+          a.link href="#"  Terms & Conditions
+          '  and
+          a.link href="#"  Privacy policy
+        .pull-right.col-xs-3.text-right
+          button.btn.btn-primary Submit
+= content_for :javascript do
+  script src=asset_path('parsley')
