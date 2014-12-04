@@ -34,4 +34,15 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Configure mailer
+  # Mailcatcher gem is used to test emails locally
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+
+  # Mailcatcher settings, use either this or thing below
+  config.action_mailer.smtp_settings = {
+    address: 'localhost',
+    port: 1025
+  }
 end

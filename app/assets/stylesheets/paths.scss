@@ -4,3 +4,82 @@
   asset-url("rails.png") becomes url(/assets/rails.png)
   asset-path("rails.png") becomes "/assets/rails.png"
  */
+.discovery-banner {
+  background-image: asset-url("banners/discovery.jpg");
+}
+
+.discovery-gigs-banner {
+  background-image: asset-url("banners/discovery-page.jpg");
+}
+
+.discovery-music-banner {
+  background-image: asset-url("banners/discovery-music.jpg");
+}
+
+.discovery-promoters-banner {
+  background-image: asset-url("banners/discovery-promoters.jpg");
+}
+
+.discovery-managers-banner {
+  background-image: asset-url("banners/discovery-managers.jpg");
+}
+
+.discovery-producer-banner {
+  background-image: asset-url("banners/discovery-produser.jpg");
+}
+
+.discovery-label-banner {
+  background-image: asset-url("banners/discovery-label.jpg");
+}
+
+.djs-block [class*=album-logo]:after, .gigs-block [class*=album-logo]:after {
+  background: asset-url("icons/sprite.png") -70px -141px;
+}
+.djs-block .album-logo-promo:before, .gigs-block .album-logo-promo:before {
+  background: asset-url("icons/sprite.png") -1px -163px;
+}
+
+.djs-block .album-logo-manager:before, .gigs-block .album-logo-manager:before {
+  background: asset-url("icons/sprite.png") -1px -163px;
+}
+
+.djs-content .all-content .gigs_content .promo-logo-now:after {
+  background: asset-url("icons/sprite.png") -102px -201px;
+}
+
+.djs-content .all-content .gigs_content .promo-logo-days:after {
+  background: asset-url("icons/sprite.png") -41px -201px;
+}
+
+.sign-in .login {
+  background: asset-url("background/sign-in.png") no-repeat #fff;
+  background-size: cover;
+}
+
+[class^="icon-"], [class*="icon-"] {
+  background-image: asset-url("icons/sprite.png");
+}
+
+.callout-banner.banner-intro {
+  background-image: asset-url("banners/landing-banner.jpg");
+}
+
+.callout-banner.banner-bottom {
+  background-image: asset-url("banners/bottom-banner.jpg");
+}
+
+.drop-files{
+  background: asset-url("icons/upload-cover.png") center no-repeat;
+}
+
+.profile-public .public .public-name {
+  background: asset-url("background/public-name.png") repeat;
+}
+
+.profile-public .public .public-foto:before {
+  background: asset-url("icons/sprite.png") -1px -163px;
+}
+
+.profile-public {
+  background: asset-url("banners/public-manager-home.jpg") no-repeat;
+}

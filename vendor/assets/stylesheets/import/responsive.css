@@ -1,0 +1,159 @@
+@media all and (min-width: 1201px) {
+    .footer .inner-footer .navbar-left li+li{
+        margin-left:25px !important;
+    }
+
+}
+@media all and (max-width: 1200px){
+    .subscribe{
+        float:left !important;
+        margin-top:-7px;
+    }
+    .p-l0{
+        top:0px !important;
+    }
+    .top-music ul li:nth-child(5){
+        display:none;
+    }
+
+}
+@media all and (min-width: 993px){
+    .icon-globe, .icon-add, .icon-magnify{
+        float:left;
+    }
+}
+@media all and (max-width: 991px){
+    .public .eventName{
+        text-align:left !important;
+    }
+    .subscribe{
+        float:left !important;
+        margin-left:-15px !important;
+        margin-top:10px;
+    }
+    .footer .inner-footer .navbar-left li + li{
+        margin-left:20px !important;
+    }
+    #moveUp{
+        right:15%;
+    }
+    .album-logo, .album-logo-promo{
+        display:none;
+    }
+    .music-block .responsive-table .track-details,
+    .music-block .responsive-table .track-status,
+    .music-block .responsive-table .title-track,
+    .music-block .responsive-table .track-time,
+    .top-music ul li:nth-child(4),
+    .top-music ul li:nth-child(5),
+    .m-l1 span,
+    .gigs .view	{
+        display:none;
+    }
+    .poster{
+        border-left:none !important;
+    }
+    .applied button{
+        float:right;
+    }
+    .applied h5{
+        float:right;
+    }
+    .applied img{
+        float:left;
+    }
+    .icon-close{
+        display:block;
+    }
+    .poster{
+        padding-left:0 !important;
+        width:100% !important;
+    }
+    .poster .btn{
+        width:auto;
+    }
+    .gigs .genres li a {
+        border:none !important;
+        padding:5px !important;
+    }
+    .djs-content .all-content .promoter_content .poster{
+        margin-top:0 !important;
+    }
+    .promoter_content h3 .text-left, .promoter_content .eventName{
+        position:relative;
+        top:30px;
+    }
+    .djs-content .all-content .music-block .table tr td.type_band p{
+        padding-left:5px !important;
+    }
+    .djs-block.manager p{
+        margin-top:20px;
+    }
+    .djs-block.manager h2{
+        margin-top:55px;
+        margin-bottom:15px !important;
+    }
+    .sign-in .login-block {
+        margin-top:0 !important;
+    }
+}
+@media all and (min-width: 768px){
+    .tinynav1{
+        display:none;
+    }
+}
+@media all and (max-width: 767px){
+    #foo-menu{
+        display:none;
+    }
+    .tinynav1{
+        width:100%;
+    }
+    #moveUp{
+        right:5%;
+    }
+    .active{
+        float:left;
+    }
+    .navbar-header{
+        float:left;
+    }
+    .social{
+        margin:10px 0px 0px 0px  !important;
+    }
+    .p-l0{
+        margin-left:0px !important;
+    }
+    .top-music ul li:nth-child(3){
+        display:none;
+    }
+    .btn-signIn{
+        max-width:190px;
+    }
+    .btn-signIn .col-sm-6{
+        min-height:0 !important;
+    }
+    .logFacebook, .logTwitter, .logGoogle {
+        width:40px !important;
+        float:left;
+        margin-left:10px;
+    }
+    .logFacebook p, .logTwitter p, .logGoogle p{
+        display:none;
+    }
+    .logFacebook i,  .logTwitter i, .logGoogle i {
+        border-right:none !important;
+    }
+    .log-pass p, .log-pass h4{
+        text-align:center;
+    }
+
+    .header-nav.navbar-nav{
+        margin-top:0px !important;
+        margin-bottom:0px !important;
+    }
+    .header-nav.navbar-nav > li > a{
+        padding-top:20px;
+        padding-bottom:20px;
+    }
+}
