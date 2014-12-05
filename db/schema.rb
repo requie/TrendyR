@@ -11,10 +11,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203103452) do
+ActiveRecord::Schema.define(version: 20141204124726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: true do |t|
+    t.boolean  "is_active",  default: true
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.text     "description_text"
+    t.decimal  "price"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.boolean  "is_active",        default: true
+    t.integer  "owner_profile_id"
+    t.integer  "location_id"
+    t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gigs", force: true do |t|
+    t.string   "title"
+    t.decimal  "price"
+    t.text     "overview_text"
+    t.text     "opportunity_text"
+    t.text     "band_text"
+    t.text     "gig_text"
+    t.text     "terms_text"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.boolean  "is_active",        default: true
+    t.integer  "owner_profile_id"
+    t.integer  "location_id"
+    t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "labels", force: true do |t|
+    t.boolean  "is_active",  default: true
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "source"
+    t.string   "source_id"
+    t.string   "source_place_id"
+    t.string   "address"
+    t.string   "types"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.integer  "creator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photos", force: true do |t|
     t.string   "attachment_file_name"
@@ -46,6 +105,7 @@ ActiveRecord::Schema.define(version: 20141203103452) do
     t.integer  "wallpaper_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
 
   create_table "role_users", id: false, force: true do |t|
@@ -81,8 +141,23 @@ ActiveRecord::Schema.define(version: 20141203103452) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "artists", "profiles", name: "artists_profile_id_fk"
+
+  add_foreign_key "events", "locations", name: "events_location_id_fk"
+  add_foreign_key "events", "photos", name: "events_photo_id_fk"
+  add_foreign_key "events", "profiles", name: "events_owner_profile_id_fk", column: "owner_profile_id"
+
+  add_foreign_key "gigs", "locations", name: "gigs_location_id_fk"
+  add_foreign_key "gigs", "photos", name: "gigs_photo_id_fk"
+  add_foreign_key "gigs", "profiles", name: "gigs_owner_profile_id_fk", column: "owner_profile_id"
+
+  add_foreign_key "labels", "profiles", name: "labels_profile_id_fk"
+
+  add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
+
   add_foreign_key "photos", "users", name: "photos_uploader_id_fk", column: "uploader_id"
 
+  add_foreign_key "profiles", "locations", name: "profiles_location_id_fk"
   add_foreign_key "profiles", "photos", name: "profiles_photo_id_fk"
   add_foreign_key "profiles", "photos", name: "profiles_wallpaper_id_fk", column: "wallpaper_id"
   add_foreign_key "profiles", "users", name: "profiles_user_id_fk"

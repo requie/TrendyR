@@ -20,6 +20,7 @@ Trendy Reggae
 
 ### Unicorn
 * use `bin/unicorn start|restart|stop` to manage unicorn server state
+* sometimes when you add new files under *app* folder unicorn may not see changes, also `bin/unicorn restart` seems to be useful, use `bin/unicorn stop && bin/unicorn start` instead
 
 ### Workflow requirements
 * when updating assets make sure to place all styles, images, fonts, etc under *vendor* directory
