@@ -1,4 +1,5 @@
 class Profile < ActiveRecord::Base
+  extend Photoable
   include Locationable
 
   belongs_to :user
@@ -8,6 +9,8 @@ class Profile < ActiveRecord::Base
   has_many :owned_events, class_name: 'Event', foreign_key: :owner_profile_id
 
   accepts_nested_attributes_for :photo, :wallpaper
+
+  bind_photo_accessors :photo, :wallpaper
 
   def entity
     "#{user.role.capitalize}".constantize.find_by_profile_id(id)

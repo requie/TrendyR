@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
   def index
-    @profiles = Profile.all.decorate
+    @profiles = Profile.all
     @profile = Profile.new
     @profile.build_wallpaper
   end

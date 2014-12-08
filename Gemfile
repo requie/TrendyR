@@ -25,9 +25,9 @@ gem 'foreigner', '~> 1.6.1'
 # Minimal authorization through OO design and pure Ruby classes
 # https://github.com/elabs/pundit
 gem 'pundit', '~> 0.3.0'
-# Easy file attachment management for ActiveRecord
-# https://github.com/thoughtbot/paperclip
-gem 'paperclip', '~> 4.2.0'
+# A Ruby gem for on-the-fly processing - suitable for image uploading in Rails
+# https://github.com/markevans/dragonfly
+gem 'dragonfly', '~> 1.0.7'
 # Decorators/View-Models for Rails Applications
 # https://github.com/drapergem/draper
 gem 'draper', '~> 1.4.0'
