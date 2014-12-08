@@ -105,18 +105,17 @@ ActiveRecord::Schema.define(version: 20141208110618) do
     t.integer  "location_id"
   end
 
-  create_table "role_users", id: false, force: true do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  default: true
+    t.boolean  "is_public",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "roles", force: true do |t|
-    t.string   "name"
-    t.boolean  "is_active",  default: true
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "roles_users", id: false, force: true do |t|
+    t.integer "role_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "users", force: true do |t|
@@ -158,5 +157,8 @@ ActiveRecord::Schema.define(version: 20141208110618) do
   add_foreign_key "profiles", "photos", name: "profiles_photo_id_fk"
   add_foreign_key "profiles", "photos", name: "profiles_wallpaper_id_fk", column: "wallpaper_id"
   add_foreign_key "profiles", "users", name: "profiles_user_id_fk"
+
+  add_foreign_key "roles_users", "roles", name: "roles_users_role_id_fk"
+  add_foreign_key "roles_users", "users", name: "roles_users_user_id_fk"
 
 end

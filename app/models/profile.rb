@@ -12,7 +12,8 @@ class Profile < ActiveRecord::Base
 
   bind_photo_accessors :photo, :wallpaper
 
+  # entity instance
   def entity
-    "#{user.role.capitalize}".constantize.find_by_profile_id(id)
+    user.entity_class.find_by_profile_id(id)
   end
 end
