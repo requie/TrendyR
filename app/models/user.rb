@@ -14,18 +14,24 @@ class User < ActiveRecord::Base
 
   delegate :entity, to: :profile
 
-  # name of a user role like "artist" or "label"
-  def role_name
-    roles.first.name
+  # as we now have only one roles for user, get the first one
+  def role
+    roles.first
+  end
+
+  def role?(role_name_sym)
+    roles.pluck(:name).include?(role_name_sym.to_s)
   end
 
   # user's entity class like Artist or Label
+  # use carefully, because it depends on declared classes
   def entity_class
-    "#{role_name.capitalize}".constantize
+    "#{role.name.capitalize}".constantize
   end
 
   # build Profile and relate to current user
   # also build entity according to selected role and connect it to profile
+  # make sure you call this method when creating users manually
   def after_confirmation
     entity_class.create(profile: build_profile)
     save!

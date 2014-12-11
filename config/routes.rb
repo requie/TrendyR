@@ -4,16 +4,24 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  namespace :guest do
-    get 'homepage'
-  end
-
   devise_scope :user do
-    authenticated :user do
-      root to: 'guest/homepage#index', as: :authenticated_root
+    authenticated :user, ->(user) { user.role?(:admin) } do
+      root to: 'admin/dashboard#index', as: :admin_root
     end
 
-    root to: 'devise/sessions#new'
+    authenticated :user do
+      root to: 'base/home#index', as: :authenticated_root
+    end
+  end
+
+  root to: 'devise/sessions#new'
+
+  namespace :base, path: nil do
+    resources :home, :gigs
+  end
+
+  namespace :admin do
+    resources :dashboard
   end
 
   # Test routes for uploads, must remove it before rolling out to production

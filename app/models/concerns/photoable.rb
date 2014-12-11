@@ -2,7 +2,7 @@ module Photoable
   extend ActiveSupport::Concern
 
   # use this module by calling in models
-  #   extend Photobable
+  #   extend Photoable
   #
   # then for example call this method
   #
