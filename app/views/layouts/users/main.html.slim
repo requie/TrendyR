@@ -1,0 +1,16 @@
+= render 'layouts/blocks/doctype'
+html
+  = render 'layouts/blocks/head'
+  body.sign-in
+    = render 'layouts/blocks/outdated_browser'
+    #page-wrapper
+      .page
+        .sign-in
+          = render 'layouts/users/blocks/header'
+          .container.pg
+            .login.clearfix
+              .col-lg-6.col-sm-8.col-xs-10.centered
+                .login-block
+                  = yield
+            = render 'layouts/blocks/footer'
+    = render 'layouts/blocks/js'

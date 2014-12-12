@@ -2,6 +2,8 @@ module Base
   # BaseController is a parent class for all controllers under Base module
   # Do not add any actions to it, extend each controller under Base module with it
   class BaseController < ApplicationController
+    layout 'base/main'
+
     before_action :authenticate_user!, :authorize_namespace!
     before_action :set_entity
     before_action :authorize_user!

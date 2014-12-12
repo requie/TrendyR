@@ -1,0 +1,12 @@
+= render 'layouts/blocks/doctype'
+html
+  = render 'layouts/blocks/head'
+  body
+    = render 'layouts/base/blocks/header'
+    #page-wrapper
+      .container-fluid.page
+        .container.pg
+          = yield
+          .clearfix
+          = render 'layouts/blocks/footer'
+    = render 'layouts/blocks/js'

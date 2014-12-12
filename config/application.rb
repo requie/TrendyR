@@ -23,8 +23,8 @@ module TrendyReggae
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     config.to_prepare do
-      Devise::SessionsController.layout 'devise'
-      Devise::RegistrationsController.layout 'devise'
+      Devise::SessionsController.layout 'users/main'
+      Devise::RegistrationsController.layout 'users/main'
     end
   end
 end

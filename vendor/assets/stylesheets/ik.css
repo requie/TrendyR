@@ -12,7 +12,7 @@ select, textarea, input, option{
     border-radius: 4px;
 }
 .footer{
-    bottom: 0;
+    bottom: 0;  
 }
 #moveUp{
     right: 10%;
@@ -43,7 +43,7 @@ select, textarea, input, option{
 }
 .pg{
     background-color:white;
-
+    padding-top:60px;
     box-shadow:10px 0px 15px 0 rgba(0, 0, 0, 0.1), -10px 0px 15px 0 rgba(0, 0, 0, 0.1);
     padding-left:0 !important;
     padding-right:0 !important;

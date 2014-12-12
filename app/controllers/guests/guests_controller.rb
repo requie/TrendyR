@@ -2,7 +2,7 @@ module Guests
   # GuestsController is a parent class for all controllers under Guests module
   # Do not add any actions to it, extend each controller under Guests module with it
   class GuestsController < ApplicationController
-    layout 'guests'
+    layout 'guests/main'
 
     before_action :authorize_namespace!
 
