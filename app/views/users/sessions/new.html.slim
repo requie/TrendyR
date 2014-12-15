@@ -13,6 +13,6 @@
           input_html: { 'data-required' => true, 'data-type' => 'email', 'data-maxlength' => '100', 'data-trim-value' => true }
         = f.input :password, placeholder: 'Password',
           input_html: { 'data-required' => true, 'data-maxlength' => '100', 'data-trim-value' => true }
-      a.link.pull-left href="#"  Forgot-password?
+      a.link.pull-left href="#{new_user_password_path}"  Forgot-password?
       .pull-right
         button.btn.btn-primary Submit

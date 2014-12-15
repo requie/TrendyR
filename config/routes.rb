@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {
-    confirmations: 'users/confirmations'
+    confirmations: 'users/confirmations',
+    passwords: 'users/passwords'
   }
 
   devise_scope :user do
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
     authenticated :user do
       root to: 'base/home#index', as: :authenticated_root
     end
+
+    get 'users/password/recover' => 'users/passwords#password_recover_instructions', as: :recover
   end
 
   root to: 'devise/sessions#new'

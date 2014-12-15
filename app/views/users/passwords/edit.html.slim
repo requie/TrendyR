@@ -1,22 +1,12 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+.pass-block
+  .col-sm-9.centered
+    h4 Choose a new password
+    .form-group
+      = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put },
+          defaults: {input_html: { class: 'form-control' }}) do |f|
+        = f.hidden_field :reset_password_token
+        = f.input :password, placeholder: 'Password',
+          input_html: { 'data-required' => true, 'data-minlength' => '8','data-maxlength' => '100', 'data-trim-value' => true }
+        = f.input :password_confirmation, placeholder: 'Password confirmation',
+          input_html: { 'data-required' => true, 'data-equalto' => '#user_password', 'data-equalto-message' => 'confirmation failed', 'data-trim-value' => true }
+        button.btn.btn-primary Save password
