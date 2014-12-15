@@ -11,6 +11,7 @@
 //= require tinynav.min
 //= require scripts
 //= require checkBo.min
+//= require parsley
 
 (function($) {
   $(function() {

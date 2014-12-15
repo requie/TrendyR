@@ -37,7 +37,10 @@ Rails.application.configure do
 
   # Configure mailer
   # Mailcatcher gem is used to test emails locally
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = {
+    host: Rails.application.secrets['host'],
+    port: Rails.application.secrets['port']
+  }
   config.action_mailer.delivery_method = :smtp
 
   # Mailcatcher settings, use either this or thing below
