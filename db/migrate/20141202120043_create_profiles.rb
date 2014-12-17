@@ -21,7 +21,7 @@ class CreateProfiles < ActiveRecord::Migration
   # because of rubocop
   def change_references(t)
     t.references :user
-    t.foreign_key :users
+    t.foreign_key :users, dependent: :delete
 
     t.references :photo
     t.foreign_key :photos

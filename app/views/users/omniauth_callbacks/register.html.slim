@@ -1,0 +1,12 @@
+.pass-block
+  .col-sm-9.centered
+    h4 Who are you?
+    .form-group
+      = simple_form_for(@user, as: :user, url: user_omniauth_register_path, html: { method: :post },
+            defaults: {input_html: { class: 'form-control' }}) do |f|
+        - unless @user.email.present?
+          = f.input :email, placeholder: 'Email',
+              input_html: { 'data-required' => true, 'data-type' => 'email', 'data-maxlength' => '100','data-trim-value' => true }
+        = f.association :roles, collection: Role.is_public, label_method: :public_labels,
+            include_blank: false, label: false, input_html: { multiple: false, 'data-required' => true }
+        button.btn.btn-primary Continue registration

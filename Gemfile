@@ -33,6 +33,10 @@ gem 'dragonfly', '~> 1.0.7'
 gem 'draper', '~> 1.4.0'
 
 gem 'devise', '~> 3.4.1'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-twitter', '~> 1.1.0'
+gem 'omniauth-facebook', '~> 2.0.0'
+gem 'omniauth-google-oauth2', '~> 0.2.6'
 gem 'simple_form', '~> 3.1.0'
 
 # Use ActiveModel has_secure_password

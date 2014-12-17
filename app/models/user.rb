@@ -2,15 +2,19 @@ class User < ActiveRecord::Base
   MAX_LENGTH = 100
   NAME_FORMAT = /\A[aA-zZаА-яЯЁё\-\. ]+\z/
 
-  # :lockable, :timeoutable, :rememberable, :trackable and :omniauthable
+  # :lockable, :timeoutable, :rememberable, :trackable
   devise :database_authenticatable, :registerable, :recoverable, :validatable, :confirmable
+  devise :omniauthable, omniauth_providers: [:twitter, :facebook, :google_oauth2]
 
   has_one :profile
+  has_one :identity
   has_many :role_user
   has_many :roles, through: :role_user
 
-  validates :first_name, :last_name, presence: true, length: { maximum: MAX_LENGTH }, format: { with: NAME_FORMAT }
+  validates :first_name, :last_name, length: { maximum: MAX_LENGTH }, format: { with: NAME_FORMAT }, allow_blank: true
   validates :roles, presence: true
+
+  accepts_nested_attributes_for :identity
 
   delegate :entity, to: :profile
 

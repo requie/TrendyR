@@ -24,6 +24,7 @@ module TrendyReggae
       Devise::SessionsController.layout 'users/main'
       Devise::RegistrationsController.layout 'users/main'
       Devise::PasswordsController.layout 'users/main'
+			DeviseController.layout 'users/main'
     end
   end
 end

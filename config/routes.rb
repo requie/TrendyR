@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
-    passwords: 'users/passwords'
+    passwords: 'users/passwords',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   devise_scope :user do
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     end
 
     get 'users/password/recover' => 'users/passwords#password_recover_instructions', as: :recover
+    post 'users/auth/registration' => 'users/omniauth_callbacks#create', as: :user_omniauth_register
   end
 
   root to: 'devise/sessions#new'

@@ -4,14 +4,14 @@
 # incrementally modify your database, and then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
+# database schema. If you need to register the application database on another
 # system, you should be using db:schema:load, not running all the migrations
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208110618) do
+ActiveRecord::Schema.define(version: 20141215141027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 20141208110618) do
     t.integer  "owner_profile_id"
     t.integer  "location_id"
     t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "identities", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.text     "data"
+    t.datetime "token_expires_at"
+    t.boolean  "is_active",        default: true
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,7 +150,7 @@ ActiveRecord::Schema.define(version: 20141208110618) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "artists", "profiles", name: "artists_profile_id_fk"
+  add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
 
   add_foreign_key "events", "locations", name: "events_location_id_fk"
   add_foreign_key "events", "photos", name: "events_photo_id_fk"
@@ -147,7 +160,9 @@ ActiveRecord::Schema.define(version: 20141208110618) do
   add_foreign_key "gigs", "photos", name: "gigs_photo_id_fk"
   add_foreign_key "gigs", "profiles", name: "gigs_owner_profile_id_fk", column: "owner_profile_id"
 
-  add_foreign_key "labels", "profiles", name: "labels_profile_id_fk"
+  add_foreign_key "identities", "users", name: "identities_user_id_fk", dependent: :delete
+
+  add_foreign_key "labels", "profiles", name: "labels_profile_id_fk", dependent: :delete
 
   add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 
@@ -156,9 +171,9 @@ ActiveRecord::Schema.define(version: 20141208110618) do
   add_foreign_key "profiles", "locations", name: "profiles_location_id_fk"
   add_foreign_key "profiles", "photos", name: "profiles_photo_id_fk"
   add_foreign_key "profiles", "photos", name: "profiles_wallpaper_id_fk", column: "wallpaper_id"
-  add_foreign_key "profiles", "users", name: "profiles_user_id_fk"
+  add_foreign_key "profiles", "users", name: "profiles_user_id_fk", dependent: :delete
 
-  add_foreign_key "roles_users", "roles", name: "roles_users_role_id_fk"
-  add_foreign_key "roles_users", "users", name: "roles_users_user_id_fk"
+  add_foreign_key "roles_users", "roles", name: "roles_users_role_id_fk", dependent: :delete
+  add_foreign_key "roles_users", "users", name: "roles_users_user_id_fk", dependent: :delete
 
 end

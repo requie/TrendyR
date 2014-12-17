@@ -4,7 +4,7 @@ class CreateLabels < ActiveRecord::Migration
       t.boolean :is_active, default: true
 
       t.references :profile
-      t.foreign_key :profiles
+      t.foreign_key :profiles, dependent: :delete
 
       t.timestamps
     end

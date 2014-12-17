@@ -43,5 +43,11 @@
       fitHeight();
     });
 
+    $('.logFacebook, .logTwitter, .logGoogle').on('click', function(e) {
+      e.preventDefault();
+      var url = $(this).attr('data-url');
+      window.location.href = url;
+    });
+
   });
 })(jQuery);
