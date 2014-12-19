@@ -16,10 +16,10 @@
 (function($) {
   $(function() {
 
-    var $userForm = $('.simple_form.new_user');
+    var $parsleyForm = $('.parsley-form');
 
-    if ($userForm.length) {
-      $userForm.parsley({
+    if ($parsleyForm.length) {
+      $parsleyForm.parsley({
         namespace: 'data-',
         errorsWrapper: '<div class="error-message"></div>',
         errorTemplate: '<span></span>'

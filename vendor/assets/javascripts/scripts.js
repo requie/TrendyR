@@ -58,11 +58,31 @@ $.fn.correctLines = function( maxLine, moreText ) {
     clone.remove();
   });
 }
+var hideBlock = function hideBlock ($mainBlock, $hideBlock){
+  $mainBlock.click(function(e) {
+    if ($hideBlock.css('display') != 'block') {
+      $hideBlock.show();
+      var firstClick = true;
+      $(document).bind('click.myEvent', function(e) {
+        if (!firstClick && $(e.target).closest($hideBlock).length == 0) {
+          $hideBlock.hide();
+          $(document).unbind('click.myEvent');
+        }
+        firstClick = false;
+      });
+    }
+    e.preventDefault();
+  })
+}
 $(document).ready(function(){
   var fooHeight = $('#footer').height(),
     docHeight = $(document).height(),
     navHeight = $('#nav').height();
-  loginBlockHeight = docHeight - /*fooHeight*2 */ navHeight + 'px';
+  loginBlockHeight = docHeight - navHeight + 'px';
+  //pgHeight = docHeight /*navHeight  fooHeight -*/+ 45 +'px'
+  //$('.pg').height(pgHeight);
+  page = docHeight - navHeight - fooHeight + 'px';
+  $('.strPage').height(page);
   loginHeight = $('.login').height();
   if (loginBlockHeight > loginHeight){
     $('.login-block').height(loginHeight);
@@ -70,10 +90,23 @@ $(document).ready(function(){
   else{
     $('.login-block').height(loginBlockHeight);
   }
+  $('.custom-form').checkBo();
+
+  $('.cb-checkbox').click(function(){
+    $(this).closest('.gallery').toggleClass('settingVis');
+  });
+
+  $(".nav-page").tinyNav();
 
   $("#foo-menu").tinyNav();
 
   $("td .nameMessage p").correctLines( 1, '&nbsp;...' );
+  $(".inboxMess p").correctLines( 1, '&nbsp;...' );
+
+  hideBlock ($('.mob-menu'), $('.mobile-menu'));
+  hideBlock ($('a .icon-message'), $('.inboxMess'));
+  hideBlock ($('a .icon-ring'), $('.inboxRing'));
+  hideBlock ($('a.nameUser'), $('.userInform'));
 
   $('tr.message .icon-delete').click(function(){
     $(this).closest('tr.message').remove();
@@ -85,8 +118,9 @@ $(document).ready(function(){
   $('.icon-close-block').click(function(){
     $(this).parent().slideToggle(100);
   })
-  $('.error-message').closest('.form-group').find('input').attr('style', 'border:1px solid red !important');
+  $('.error-message').closest('.form-group').find('input, textarea').attr('style', 'border:1px solid red !important');
 
+  $('.inputDate').datepicker({});
 
   $('.faqQuestion').click(function(){
     $(this).find('p').slideToggle(100);
@@ -106,4 +140,5 @@ $(document).ready(function(){
       $(this).toggleClass('menuActive');
     }
   })
+  //$('<span class="arrow">&nbsp;</span>').prependTo($('.ui-datepicker'));
 })

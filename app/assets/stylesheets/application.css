@@ -10,6 +10,7 @@
  *= require import/responsive
  *= require bootstrap/bootstrap
  *= require import/checkBo
+ *= require font-awesome
  *= require paths
  *= require dev
  */

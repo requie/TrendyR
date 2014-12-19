@@ -11,14 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141215141027) do
+=======
+ActiveRecord::Schema.define(version: 20141219085726) do
+>>>>>>> added ability to create and edit awards. some ui fixes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: true do |t|
-    t.boolean  "is_active",  default: true
+    t.boolean  "is_active",   default: true
     t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_featured", default: false
+  end
+
+  create_table "awards", force: true do |t|
+    t.string   "title"
+    t.text     "description_text"
+    t.datetime "earned_at"
+    t.boolean  "is_active",        default: true
+    t.integer  "owner_profile_id"
+    t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -33,6 +49,14 @@ ActiveRecord::Schema.define(version: 20141215141027) do
     t.integer  "owner_profile_id"
     t.integer  "location_id"
     t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "features", force: true do |t|
+    t.string   "title"
+    t.integer  "weight",     default: 0
+    t.boolean  "is_active",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +77,7 @@ ActiveRecord::Schema.define(version: 20141215141027) do
     t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_featured",      default: false
   end
 
   create_table "identities", force: true do |t|
@@ -151,6 +176,9 @@ ActiveRecord::Schema.define(version: 20141215141027) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
+
+  add_foreign_key "awards", "photos", name: "awards_photo_id_fk"
+  add_foreign_key "awards", "profiles", name: "awards_owner_profile_id_fk", column: "owner_profile_id"
 
   add_foreign_key "events", "locations", name: "events_location_id_fk"
   add_foreign_key "events", "photos", name: "events_photo_id_fk"

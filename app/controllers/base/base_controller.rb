@@ -3,6 +3,7 @@ module Base
   # Do not add any actions to it, extend each controller under Base module with it
   class BaseController < ApplicationController
     layout 'base/main'
+    respond_to :html, :json
 
     before_action :authenticate_user!, :authorize_namespace!
     before_action :set_entity

@@ -60,7 +60,7 @@ input.uploadbtn, input.uploadfile{
 }
 .drop-files{
     text-align:center;
-    background: url('../images/icons/upload-cover.png') center no-repeat;
+    background: url('../../../app/assets/images/icons/upload-cover.png') center no-repeat;
     height:113px;
 }
 .well{

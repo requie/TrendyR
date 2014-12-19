@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   root to: 'devise/sessions#new'
 
   namespace :base, path: nil do
-    resources :home, :gigs
+    resources :home, :gigs, :awards
   end
 
   namespace :admin do

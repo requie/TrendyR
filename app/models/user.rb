@@ -40,4 +40,8 @@ class User < ActiveRecord::Base
     entity_class.create(profile: build_profile)
     save!
   end
+
+  def username
+    "#{first_name} #{last_name}"
+  end
 end

@@ -1,65 +1,164 @@
-.navbar.navbar-fixed-top role="navigation"
+#nav.navbar.navbar-fixed-top role="navigation"
   .navbar-inverse
     .container
       .navbar-header
-        a.navbar-brand href=""
-          img src=asset_path('logo.png') alt="Trendy Reggae" title="Trendy Reggae"
+        a.navbar-brand href="#"
+          img alt="Trendy Reggae" title="Trendy Reggae" src=image_path('logo.png')
       .pull-right
-        button.mob-menu.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target=""
+        button.mob-menu.navbar-toggle.collapsed data-target="" data-toggle="collapse" type="button"
           span.sr-only Toggle navigation
           span.icon-bar
           span.icon-bar
           span.icon-bar
-      .mobile-menu
-        ul.head-icon.nav-navbar-nav-navbar-right
+      .mobile-menu.menu
+        ul.head-icon.nav.navbar-nav.navbar-right
           li
-            a href=""
+            a href="#"
               i.icon-message.inbox
                 span.count 3
           li
-            a href=""
-              i.icon-ring
+            a href="#"
+              i.icon-ring.inbox
+                span.count 5
           li
-            a href=""
-              img.avatar.avatar-xs.pull-left
-              span.m-l5 User Name
+            a href="#"
+              img.avatar.avatar-xs.pull-left alt="UserName" src=image_path('users/xs-avatar.png')
+              span.m-l5
+                = current_user.username
         ul.nav.navbar-nav.text-uc
           li.active.m-l1
-            a href=""
+            a href="#"
               i.icon-globe
               span Discover
           li.active.m-l1
-            a href=""
+            a href="#"
               i.icon-add
               span Post a gig
-          li.active.ml1
-            a href=""
+          li.active.m-l1
+            a href="#"
               i.icon-magnify
               span Search
       .descktop-menu
         .col-xs-4.centered.col-md-5
           ul.nav.navbar-nav.text-uc
             li.active.m-l1
-              a href=""
+              a href="#"
                 i.icon-globe
                 span Discover
             li.active.m-l1
-              a href=""
+              a href="#"
                 i.icon-add
                 span Post a gig
             li.active.m-l1
-              a href=""
+              a href="#"
                 i.icon-magnify
                 span Search
         ul.nav.navbar-nav.navbar-right
           li
-            a href=""
+            a href="#"
               i.icon-message.inbox
                 span.count 3
+            .inboxMess
+              ul
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  a href="#"
+                  p One morning, when Gregor Samsa woke gdg dgdgb from sfbnsn dfsb sfbnsfnsfdn dgmfryktugkgh dgjzdb shsjhjtroubled dreams, he found
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  a href="#"
+                  p One morning, when Gregor Samsa woke gdg dgdgb from sfbnsn dfsb sfbnsfnsfdn dgmfryktugkgh dgjzdb shsjhjtroubled dreams, he found
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  a href="#"
+                  p One morning, when Gregor Samsa woke gdg dgdgb from sfbnsn dfsb sfbnsfnsfdn dgmfryktugkgh dgjzdb shsjhjtroubled dreams, he found
           li
-            a href=""
-              i.icon-ring
+            a href="#"
+              i.icon-ring.inbox
+                span.count 5
+            .inboxRing
+              ul
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  p
+                    | invite you to
+                    a href="#"  Some gig game
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  p
+                    | invite you to
+                    a href="#"  Some gig game
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  p
+                    | invite you to
+                    a href="#"  Some gig game
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  p
+                    | invite you to
+                    a href="#"  Some gig game
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  p
+                    | invite you to
+                    a href="#"  Some gig game
+                li
+                  a href="#"
+                    img src=image_path('icons/user-foto.jpg')
+                  a href="#"
+                    span.nameFriend Kim
+                  p
+                    | invite you to
+                    a href="#"  Some gig game
           li
-            a href=""
-              img.avatar.avatar-xs.pull-left
-              span.m-l5 User Name
+            a.nameUser href="#"
+              img.avatar.avatar-xs.pull-left alt="UserName" src=image_path('users/xs-avatar.png')
+              span.m-l5
+                = current_user.username
+            .userInform
+              ul
+                li
+                  a href="#"
+                    i.icon-invitation
+                    | Booking Invitation
+                li
+                  a href="#"
+                    i.icon-settings
+                    | Profile Settings
+                li
+                  a href="#"
+                    i.icon-mes
+                    | Messages
+                li
+                  a href="#"
+                    i.icon-pay
+                    | Payments
+                li
+                  a href=destroy_user_session_path
+                    i.icon-logOut
+                    | Log Out
