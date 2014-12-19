@@ -11,16 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141219085726) do
+=======
+ActiveRecord::Schema.define(version: 20141218130254) do
+>>>>>>> added admin page. added ability to select content of homepage
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "artists", force: true do |t|
-    t.boolean  "is_active",  default: true
+    t.boolean  "is_active",   default: true
     t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_featured", default: false
   end
 
   create_table "awards", force: true do |t|
@@ -48,6 +53,14 @@ ActiveRecord::Schema.define(version: 20141219085726) do
     t.datetime "updated_at"
   end
 
+  create_table "features", force: true do |t|
+    t.string   "title"
+    t.integer  "weight",     default: 0
+    t.boolean  "is_active",  default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "gigs", force: true do |t|
     t.string   "title"
     t.decimal  "price"
@@ -64,6 +77,7 @@ ActiveRecord::Schema.define(version: 20141219085726) do
     t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_featured",      default: false
   end
 
   create_table "identities", force: true do |t|

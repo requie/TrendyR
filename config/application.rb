@@ -20,11 +20,14 @@ module TrendyReggae
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    SimpleNavigation.config_file_paths << File.expand_path('../navigation', __FILE__)
     config.to_prepare do
       Devise::SessionsController.layout 'users/main'
       Devise::RegistrationsController.layout 'users/main'
       Devise::PasswordsController.layout 'users/main'
       DeviseController.layout 'users/main'
     end
+
+    config.autoload_paths += Dir["#{config.root}/app/navigation_renderers/"]
   end
 end

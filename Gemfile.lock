@@ -83,6 +83,9 @@ GEM
     hike (1.2.3)
     hookup (1.2.4)
     i18n (0.6.11)
+    jquery-rails (3.1.2)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
     js-routes (0.9.9)
       railties (>= 3.2)
       sprockets-rails
@@ -90,7 +93,13 @@ GEM
       rails
     jshint_on_rails (1.0.3)
     json (1.8.1)
+<<<<<<< HEAD
     jwt (1.2.0)
+=======
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+>>>>>>> added admin page. added ability to select content of homepage
     kgio (2.9.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -201,6 +210,8 @@ GEM
       sprockets (~> 2.8, < 2.12)
       sprockets-rails (~> 2.0)
     sexp_processor (4.4.4)
+    simple-navigation (3.13.0)
+      activesupport (>= 2.3.2)
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -265,9 +276,11 @@ DEPENDENCIES
   draper (~> 1.4.0)
   foreigner (~> 1.6.1)
   hookup
+  jquery-rails (~> 3.1.2)
   js-routes (~> 0.9.9)
   js_assets (~> 0.0.9)
   jshint_on_rails
+  kaminari (~> 0.16.1)
   mailcatcher
   meta_request
   omniauth (~> 1.2.2)
@@ -280,6 +293,7 @@ DEPENDENCIES
   rails (= 4.1.7)
   rubocop
   sass-rails (~> 4.0.4)
+  simple-navigation (~> 3.13.0)
   simple_form (~> 3.1.0)
   slim-rails (~> 2.1.5)
   spring

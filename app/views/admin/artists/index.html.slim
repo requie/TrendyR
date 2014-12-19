@@ -1,0 +1,29 @@
+.row
+  .col-lg-12
+    h1.page-header Artists
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-body
+          .table-responsive
+            = form_tag(admin_artists_featured_update_path) do
+              table.table.table-striped.table-bordered.table-hover
+                thead
+                  tr
+                    th.text-center.col-xs-1
+                      input type="checkbox" id="batch-checkbox"
+                    th Name
+                    th.col-xs-2 Website
+                tbody
+                  - @artists.each do |artist|
+                    = simple_fields_for 'artists[]', artist do |f|
+                      tr
+                        td.text-center
+                          = f.input_field :id, as: :hidden
+                          = f.input_field :is_featured, class: 'batch-checkbox'
+                        td
+                          = artist.profile.name
+                        td
+                          = artist.profile.website
+              button.btn.btn-default.pull-right type="submit" Submits
+            = paginate @artists

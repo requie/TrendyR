@@ -1,0 +1,1 @@
+SimpleNavigation.register_renderer admin_renderer: AdminMenuRenderer

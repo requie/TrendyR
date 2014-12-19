@@ -38,6 +38,9 @@ gem 'omniauth-twitter', '~> 1.1.0'
 gem 'omniauth-facebook', '~> 2.0.0'
 gem 'omniauth-google-oauth2', '~> 0.2.6'
 gem 'simple_form', '~> 3.1.0'
+gem 'simple-navigation', '~> 3.13.0'
+gem 'kaminari', '~> 0.16.1'
+gem 'jquery-rails', '~> 3.1.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

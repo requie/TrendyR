@@ -1,0 +1,16 @@
+.row
+  .col-lg-12
+    h1.page-header Features#Edit
+  .row
+    .col-lg-4
+      .panel.panel-default
+        .panel-body
+          = simple_form_for(@feature, url: admin_feature_path(@feature), method: :put) do |f|
+            .form-group
+              label Title
+              = f.input_field :title, class: 'form-control', autofocus: true, as: :text
+            .checkbox
+              label
+                = f.input_field :is_active
+                | Is active
+            button.btn.btn-default type="submit" Edit

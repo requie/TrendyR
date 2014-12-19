@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
     get 'users/password/recover' => 'users/passwords#password_recover_instructions', as: :recover
     post 'users/auth/registration' => 'users/omniauth_callbacks#create', as: :user_omniauth_register
+    get 'admin/sign_in' => 'devise/sessions#new'
   end
 
   root to: 'devise/sessions#new'
@@ -26,7 +27,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :dashboard
+    post 'artists/featured_update' => 'artists#featured_update'
+    post 'gigs/featured_update' => 'gigs#featured_update'
+    resources :features
+    resources :dashboard, :artists, :gigs
   end
 
   # Test routes for uploads, must remove it before rolling out to production

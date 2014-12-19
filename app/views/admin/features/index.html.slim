@@ -1,0 +1,28 @@
+.row
+  .col-lg-12
+    h1.page-header Features#List
+  .row
+    .col-lg-12
+      .panel.panel-default
+        .panel-body
+          .row
+            .col-sm-6.add-feature-btn
+              = link_to 'Add Feature', new_admin_feature_path, class: 'btn btn-primary'
+          .table-responsive
+            table.table.table-striped.table-bordered.table-hover
+              thead
+                tr
+                  th Title
+                  th.text-center Active
+                  th.actions
+              tbody
+                - @features.each do |feature|
+                  tr
+                    td
+                      = feature.title
+                    td.col-sm-1.text-center
+                      = feature.is_active
+                    td.actions.text-center
+                      a.btn.btn-primary href=edit_admin_feature_path(feature) Edit
+                      = link_to 'Delete', admin_feature_path(feature), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
+            = paginate @features

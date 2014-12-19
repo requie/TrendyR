@@ -1,0 +1,35 @@
+.row
+  .col-lg-12
+    h1.page-header Gigs
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-body
+        .table-responsive
+          = form_tag(admin_gigs_featured_update_path) do
+            table.table.table-striped.table-bordered.table-hover
+              thead
+                tr
+                  th.text-center.col-xs-1
+                    input type="checkbox" id="batch-checkbox"
+                  th.col-xs-6 Title
+                  th Price
+                  th.col-xs-2 Started at
+                  th.col-xs-2 Finished at
+              tbody
+                - @gigs.each do |gig|
+                  = simple_fields_for 'gigs[]', gig do |f|
+                    tr
+                      td.text-center
+                        = f.input_field :id, as: :hidden
+                        = f.input_field :is_featured, class: 'batch-checkbox'
+                      td
+                        = gig.title
+                      td
+                        = gig.price
+                      td
+                        = gig.started_at
+                      td
+                        = gig.finished_at
+            button.btn.btn-default.pull-right type="submit" Submit
+          = paginate @gigs

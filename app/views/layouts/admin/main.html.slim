@@ -1,0 +1,8 @@
+= render 'layouts/blocks/doctype'
+html
+  = render 'layouts/admin/blocks/head'
+  body
+    #wrapper
+      = render 'layouts/admin/blocks/navbar'
+      #page-wrapper
+        = yield
