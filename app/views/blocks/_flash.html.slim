@@ -1,0 +1,10 @@
+- if flash[:notice].present? && flash[:notice].is_a?(String)
+  .validate-green
+    p
+      = flash[:notice]
+    i.icon-close-block
+- if flash[:alert].present? && flash[:alert].is_a?(String)
+  .validate-red
+    p
+      = flash[:alert]
+    i.icon-close-block

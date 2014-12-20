@@ -21,9 +21,6 @@ Metrics/MethodLength:
 Style/Documentation:
   Enabled: false
 
-Metrics/AbcSize:
-  Max: 38
-
 Rails/Output:
   Exclude:
     - 'db/seeds.rb' # Allow use 'puts' in seeds
