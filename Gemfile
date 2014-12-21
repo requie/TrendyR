@@ -71,6 +71,15 @@ group :development do
   # https://github.com/Bgouveia/jshint_on_rails
   gem 'jshint_on_rails'
   gem 'pry-rails'
+  # Remote multi-server automation tool
+  # https://github.com/capistrano/capistrano
+  gem 'capistrano', '~> 3.3.5'
+  # Official Ruby on Rails specific tasks for Capistrano
+  # https://github.com/capistrano/rails
+  gem 'capistrano-rails', '~> 1.1.2'
+  # RVM support for Capistrano v3
+  # https://github.com/capistrano/rvm
+  gem 'capistrano-rvm', '~> 0.1.2'
 end
 
 group :development, :production do

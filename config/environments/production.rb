@@ -75,4 +75,30 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Configure mailer
+  config.action_mailer.default_url_options = {
+    host: Rails.application.secrets['host'],
+    port: Rails.application.secrets['port']
+  }
+  config.action_mailer.delivery_method = :smtp
+
+  # Set mail sender
+  # Comment it and uncomment thing above to use mailcatcher
+  config.action_mailer.smtp_settings = {
+    address: Rails.application.secrets['mail']['address'],
+    port: Rails.application.secrets['mail']['port'],
+    user_name: Rails.application.secrets['mail']['username'],
+    password: Rails.application.secrets['mail']['password'],
+    authentication: :login,
+    enable_starttls_auto: true
+  }
+  # Set mailer default options
+  config.action_mailer.default_options = {
+    from: Rails.application.secrets['mail']['from'],
+    reply_to: Rails.application.secrets['mail']['reply_to']
+  }
+  # Ignore bad email addresses and do not raise email delivery errors.
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  config.action_mailer.raise_delivery_errors = false
 end

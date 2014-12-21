@@ -48,4 +48,10 @@ Rails.application.configure do
     address: 'localhost',
     port: 1025
   }
+
+  # Set mailer default options
+  config.action_mailer.default_options = {
+    from: Rails.application.secrets['mail']['from'],
+    reply_to: Rails.application.secrets['mail']['reply_to']
+  }
 end
