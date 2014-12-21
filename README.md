@@ -9,8 +9,8 @@ Trendy Reggae
 ### Environment configurations
 
 * copy *config/database.sample.yml* to *config/database.yml* and set database connection settings for your local installation
-
 * copy *config/secrets.sample.yml* to *config/secrets.yml* and set appropriate values for your local installation
+  * when creating dev apps for social networks use callback url like `protocol://host.domain/auth/:provider/callback` (for example `http://trendy-reggae.com/auth/twitter/callback` or `http://localhost:3000/auth/facebook/callback`
 
 ### Database and seeds
 
