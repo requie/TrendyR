@@ -93,13 +93,10 @@ GEM
       rails
     jshint_on_rails (1.0.3)
     json (1.8.1)
-<<<<<<< HEAD
     jwt (1.2.0)
-=======
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
->>>>>>> added admin page. added ability to select content of homepage
     kgio (2.9.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
