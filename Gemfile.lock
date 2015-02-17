@@ -98,7 +98,10 @@ GEM
     highline (1.6.21)
     hike (1.2.3)
     hookup (1.2.4)
-    i18n (0.6.11)
+    i18n (0.7.0)
+    jbuilder (2.2.7)
+      activesupport (>= 3.0.0, < 5)
+      multi_json (~> 1.2)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -108,7 +111,7 @@ GEM
     js_assets (0.0.9)
       rails
     jshint_on_rails (1.0.3)
-    json (1.8.1)
+    json (1.8.2)
     jwt (1.2.0)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
@@ -132,7 +135,7 @@ GEM
       railties (>= 3.0.0, < 5.0.0)
     method_source (0.8.2)
     mime-types (2.4.3)
-    minitest (5.4.3)
+    minitest (5.5.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -299,6 +302,7 @@ DEPENDENCIES
   draper (~> 1.4.0)
   foreigner (~> 1.6.1)
   hookup
+  jbuilder
   jquery-rails (~> 3.1.2)
   js-routes (~> 0.9.9)
   js_assets (~> 0.0.9)
