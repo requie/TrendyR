@@ -19,4 +19,8 @@ class UploadsController < ApplicationController
   def profile_params
     params.require(:profile).permit(wallpaper_attributes: [:attachment])
   end
+
+  def verify_authorized
+    true
+  end
 end

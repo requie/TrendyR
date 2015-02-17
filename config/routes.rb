@@ -36,6 +36,12 @@ Rails.application.routes.draw do
   # Test routes for uploads, must remove it before rolling out to production
   resources :uploads
 
+  resources :photos, only: [:new, :create] do
+    member do
+      post 'crop'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
