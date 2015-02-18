@@ -1,6 +1,5 @@
 class Role < ActiveRecord::Base
-  PUBLIC = %w(artist label)
-  # PUBLIC = %w(artist label manager producer venue)
+  PUBLIC = %w(artist label manager producer venue)
   PRIVATE = %w(admin)
   ALL = PUBLIC + PRIVATE
 

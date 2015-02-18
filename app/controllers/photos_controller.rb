@@ -1,11 +1,13 @@
 class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
+    authorize @photo
     @photo.save
   end
 
   def crop
     @photo = Photo.find(params[:id])
+    authorize @photo
     @photo.update(crop_photo_params)
   end
 
