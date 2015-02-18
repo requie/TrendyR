@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219085726) do
+ActiveRecord::Schema.define(version: 20150218131848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,13 @@ ActiveRecord::Schema.define(version: 20141219085726) do
     t.datetime "updated_at"
   end
 
+  create_table "managers", force: true do |t|
+    t.boolean  "is_active",  default: true
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "photos", force: true do |t|
     t.integer  "crop_x"
     t.integer  "crop_y"
@@ -118,6 +125,13 @@ ActiveRecord::Schema.define(version: 20141219085726) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "attachment_uid"
+  end
+
+  create_table "producers", force: true do |t|
+    t.boolean  "is_active",  default: true
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "profiles", force: true do |t|
@@ -171,6 +185,13 @@ ActiveRecord::Schema.define(version: 20141219085726) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "venues", force: true do |t|
+    t.boolean  "is_active",  default: true
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
 
   add_foreign_key "awards", "photos", name: "awards_photo_id_fk"
@@ -190,7 +211,11 @@ ActiveRecord::Schema.define(version: 20141219085726) do
 
   add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 
+  add_foreign_key "managers", "profiles", name: "managers_profile_id_fk", dependent: :delete
+
   add_foreign_key "photos", "users", name: "photos_uploader_id_fk", column: "uploader_id"
+
+  add_foreign_key "producers", "profiles", name: "producers_profile_id_fk", dependent: :delete
 
   add_foreign_key "profiles", "locations", name: "profiles_location_id_fk"
   add_foreign_key "profiles", "photos", name: "profiles_photo_id_fk"
@@ -199,5 +224,7 @@ ActiveRecord::Schema.define(version: 20141219085726) do
 
   add_foreign_key "roles_users", "roles", name: "roles_users_role_id_fk", dependent: :delete
   add_foreign_key "roles_users", "users", name: "roles_users_user_id_fk", dependent: :delete
+
+  add_foreign_key "venues", "profiles", name: "venues_profile_id_fk", dependent: :delete
 
 end
