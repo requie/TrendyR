@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218131848) do
+ActiveRecord::Schema.define(version: 20150223125310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(version: 20150218131848) do
     t.boolean  "is_active",  default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres_profiles", id: false, force: true do |t|
+    t.integer "genre_id",   null: false
+    t.integer "profile_id", null: false
   end
 
   create_table "gigs", force: true do |t|
@@ -192,22 +204,8 @@ ActiveRecord::Schema.define(version: 20150218131848) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
-
-  add_foreign_key "awards", "photos", name: "awards_photo_id_fk"
-  add_foreign_key "awards", "profiles", name: "awards_owner_profile_id_fk", column: "owner_profile_id"
-
-  add_foreign_key "events", "locations", name: "events_location_id_fk"
-  add_foreign_key "events", "photos", name: "events_photo_id_fk"
-  add_foreign_key "events", "profiles", name: "events_owner_profile_id_fk", column: "owner_profile_id"
-
-  add_foreign_key "gigs", "locations", name: "gigs_location_id_fk"
-  add_foreign_key "gigs", "photos", name: "gigs_photo_id_fk"
-  add_foreign_key "gigs", "profiles", name: "gigs_owner_profile_id_fk", column: "owner_profile_id"
-
-  add_foreign_key "identities", "users", name: "identities_user_id_fk", dependent: :delete
-
-  add_foreign_key "labels", "profiles", name: "labels_profile_id_fk", dependent: :delete
+  add_foreign_key "genres_profiles", "genres", name: "genres_profiles_genre_id_fk", dependent: :delete
+  add_foreign_key "genres_profiles", "profiles", name: "genres_profiles_profile_id_fk", dependent: :delete
 
   add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 

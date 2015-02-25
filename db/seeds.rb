@@ -25,4 +25,10 @@ Role::ALL.each do |role_name|
   create_user_by_role(role_name)
 end
 
+# Create genres
+Genre::ALL.each do |name|
+  Genre.find_or_create_by(name: name)
+  puts "- #{name} genre"
+end
+
 puts 'Done.'

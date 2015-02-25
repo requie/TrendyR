@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
     passwords: 'users/passwords',
@@ -23,7 +22,7 @@ Rails.application.routes.draw do
   root to: 'devise/sessions#new'
 
   namespace :base, path: nil do
-    resources :home, :gigs, :awards
+    resources :home, :gigs, :awards, :profiles
   end
 
   namespace :admin do
