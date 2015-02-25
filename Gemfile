@@ -81,6 +81,8 @@ group :development do
   # RVM support for Capistrano v3
   # https://github.com/capistrano/rvm
   gem 'capistrano-rvm', '~> 0.1.2'
+
+  gem 'web-console'
 end
 
 group :development, :production do

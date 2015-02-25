@@ -1,0 +1,92 @@
+.manadgmentFoto.clearfix
+  .col-md-8.col-md-offset-2
+    .row
+      .col-xs-4.col-sm-3.col-md-4.col-lg-3
+        .managerAvatar
+          = image_tag 'icons/avatar-user.png'
+          .btn.btn-primary.fileSelect
+            p Upload photo
+      .form-group
+        button.btn.btn-primary.newSelect Upload wallpaper
+.manadgMenu.clearfix
+  .col-md-8.col-md-offset-2
+    ul
+      li
+        a.menuActive href="#"  Home
+      li
+        a href="#"  My gigs
+      li
+        a href="#"  My events
+      li
+        a href="#"  My gallery
+.col-md-8.col-md-offset-2.custom-form
+  .profile.clearfix
+    h5.static-content
+      | About
+    = simple_form_for [:base, @profile] do |f|
+      .row
+        .col-sm-6
+          = f.input :name, input_html: { class: 'form-control', 'data-required' => true }, placeholder: @profile.name_placeholder
+        .col-sm-6
+          = f.input :website, input_html: { class: 'form-control', 'data-required' => true }, placeholder:"Website"
+      .row
+        .col-xs-12
+          .form-group
+            = text_field_tag "autocomplete", @profile.location_address, class:"form-control", "data-required" => true
+          = fields_for :location, @profile.location do |l|
+            = l.hidden_field :source, as: :hidden
+            = l.hidden_field :source_id, as: :hidden
+            = l.hidden_field :source_place_id, as: :hidden
+            = l.hidden_field :address, as: :hidden
+            = l.hidden_field :types, as: :hidden
+            = l.hidden_field :latitude, as: :hidden
+            = l.hidden_field :longitude, as: :hidden
+      h5.static-content
+        | Description
+      .row
+        .col-xs-12
+          = f.input :description_text,
+            input_html: { class: 'form-control',
+                          rows:"10",
+                          'data-required' => true,
+                          'data-trim-value' => true }
+      h5.static-content
+        | Genres
+      = f.collection_check_boxes :genre_ids, Genre.all, :id, :name  do |cb|
+        = cb.label(class: 'cb-checkbox') { cb.check_box + cb.text } + ' '
+
+      - if policy(:ProfileHeadless).show_music_links?
+        h5.static-content
+          | Spoitfy link
+        .row
+          .col-xs-12
+            = f.input :spotify_url, input_html: { class: 'form-control' }
+        h5.static-content
+          | Rdio link
+        .row
+          .col-xs-12
+            = f.input :rdio_url, input_html: { class: 'form-control' }
+      h5.static-content
+        | Social links
+      .clearfix
+        i.icon-facebook-gray
+        .col-xs-8
+          = f.input :facebook_url, input_html: { class: 'form-control' }, placeholder:"Facebook link"
+      .clearfix
+        i.icon-twitter-gray
+        .col-xs-8
+          = f.input :twitter_url, input_html: { class: 'form-control' }, placeholder:"Twitter link"
+      .clearfix
+        i.icon-google-gray
+        .col-xs-8
+          = f.input :google_plus_url, input_html: { class: 'form-control' }, placeholder:"Google link"
+      .clearfix
+        i.icon-insta-gray
+        .col-xs-8
+          = f.input :instagram_url, input_html: { class: 'form-control' }, placeholder:"Instagram link"
+      .form-group
+        button.btn.btn-primary.pull-right Save updates
+
+= content_for :javascript do
+  script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
+  = javascript_include_tag 'controllers/base/profiles/edit'

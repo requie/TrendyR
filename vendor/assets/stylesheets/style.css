@@ -27,7 +27,7 @@
 }
 
 .ui-datepicker table thead tr th span {
-    colot: #a9a9a9;
+    color: #a9a9a9;
     font-weight: 400;
     font-size: 12px
 }
@@ -615,31 +615,31 @@
 }
 
 .discovery-banner {
-    background-image: url(../../../app/assets/images/banners/discovery.jpg)
+    background-image: url(../images/banners/discovery.jpg)
 }
 
 .discovery-gigs-banner {
-    background-image: url(../../../app/assets/images/banners/discovery-page.jpg)
+    background-image: url(../images/banners/discovery-page.jpg)
 }
 
 .discovery-music-banner {
-    background-image: url(../../../app/assets/images/banners/discovery-music.jpg)
+    background-image: url(../images/banners/discovery-music.jpg)
 }
 
 .discovery-promoters-banner {
-    background-image: url(../../../app/assets/images/banners/discovery-promoters.jpg)
+    background-image: url(../images/banners/discovery-promoters.jpg)
 }
 
 .discovery-managers-banner {
-    background-image: url(../../../app/assets/images/banners/discovery-managers.jpg)
+    background-image: url(../images/banners/discovery-managers.jpg)
 }
 
 .discovery-producer-banner {
-    background-image: url(../../../app/assets/images/banners/discovery-produser.jpg)
+    background-image: url(../images/banners/discovery-produser.jpg)
 }
 
 .discovery-label-banner {
-    background-image: url(../../../app/assets/images/banners/discovery-label.jpg)
+    background-image: url(../images/banners/discovery-label.jpg)
 }
 
 .top-menu {
@@ -740,7 +740,7 @@
     height: 35px;
     width: 80px;
     position: absolute;
-    background: url(../../../app/assets/images/icons/sprite.png) -70px -141px;
+    background: url(../images/icons/sprite.png) -70px -141px;
     top: 15px;
     left: -10px;
     text-align: center;
@@ -782,7 +782,7 @@
     height: 25px;
     width: 25px;
     position: absolute;
-    background: url(../../../app/assets/images/icons/sprite.png) -1px -163px;
+    background: url(../images/icons/sprite.png) -1px -163px;
     bottom: 5px;
     left: 5px;
     content: '';
@@ -823,7 +823,7 @@
     height: 25px;
     width: 25px;
     position: absolute;
-    background: url(../../../app/assets/images/icons/sprite.png) -1px -163px;
+    background: url(../images/icons/sprite.png) -1px -163px;
     bottom: 10px;
     left: 10px;
     content: '';
@@ -1425,19 +1425,19 @@
 }
 
 .logo-now {
-    background: url(../../../app/assets/images/icons/sprite.png) -102px -201px;
+    background: url(../images/icons/sprite.png) -102px -201px;
     height: 25px;
     width: 45px
 }
 
 .logo-days {
-    background: url(../../../app/assets/images/icons/sprite.png) -41px -201px;
+    background: url(../images/icons/sprite.png) -41px -201px;
     width: 63px;
     height: 35px
 }
 
 .logo-month {
-    background: url(../../../app/assets/images/icons/sprite.png) no-repeat -93px -355px;
+    background: url(../images/icons/sprite.png) no-repeat -93px -355px;
     width: 51px;
     height: 26px
 }
@@ -1629,7 +1629,7 @@
 }
 
 .sign-in .login {
-    background: url(../../../app/assets/images/background/sign-in.png) no-repeat #fff;
+    background: url(../images/background/sign-in.png) no-repeat #fff;
     background-size: cover;
     position: relative;
     z-index: 1;
@@ -1863,13 +1863,14 @@ ul.navbar-nav {
     padding: 10px 0
 }
 
-.manadgmentFoto {
-    background: url(../../../app/assets/images/enot-derevo-priroda.jpg);
+
+.manadgmentFoto.backNone {
+    background: url(../images/background/profile.png);
     background-size: cover
 }
 
 .manadgmentFoto .managerAvatar {
-    margin-top: 40px;
+    margin-top: 90px;
     position: relative
 }
 
@@ -1895,7 +1896,7 @@ ul.navbar-nav {
     margin-top: 10px;
     margin-bottom: 10px;
     border: none !important;
-    z-index: 9999
+    z-index: 1029
 }
 
 @media all and (min-width: 767px) {
@@ -1976,6 +1977,31 @@ label {
     font-weight: 400
 }
 
+.cb-checkbox .cb-inner {
+    background: none !important;
+    border: 1px solid #e1e1e1 !important
+}
+
+.cb-checkbox.checked i {
+    background-color: #0fa15e;
+    top: 2px;
+    bottom: 2px;
+    right: 2px;
+    left: 2px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    width: 12px;
+    height: 12px
+}
+
+.cb-checkbox.checked i:before {
+    height: 0 !important
+}
+
+.cb-checkbox.checked i:after {
+    height: 0 !important
+}
+
 .gallery {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -1989,31 +2015,6 @@ label {
 .gallery .cb-checkbox {
     float: left;
     margin-top: 50px
-}
-
-.gallery .cb-checkbox .cb-inner {
-    background: none !important;
-    border: 1px solid #e1e1e1 !important
-}
-
-.gallery .cb-checkbox.checked i {
-    background-color: #0fa15e;
-    top: 2px;
-    bottom: 2px;
-    right: 2px;
-    left: 2px;
-    margin-right: 2px;
-    margin-bottom: 2px;
-    width: 12px;
-    height: 12px
-}
-
-.gallery .cb-checkbox.checked i:before {
-    height: 0 !important
-}
-
-.gallery .cb-checkbox.checked i:after {
-    height: 0 !important
 }
 
 .gallery img {
@@ -2082,7 +2083,7 @@ label {
 }
 
 .profile-public {
-    background: url(../../../app/assets/images/banners/public-manager-home.jpg) no-repeat;
+    background: url(../images/banners/public-manager-home.jpg) no-repeat;
     position: relative
 }
 
@@ -2106,7 +2107,7 @@ label {
     height: 25px;
     width: 25px;
     position: absolute;
-    background: url(../../../app/assets/images/icons/sprite.png) -1px -163px;
+    background: url(../images/icons/sprite.png) -1px -163px;
     bottom: 5px;
     left: 5px;
     content: '';
@@ -2114,7 +2115,7 @@ label {
 }
 
 .profile-public .public-name {
-    background: url(../../../app/assets/images/background/public-name.png) repeat;
+    background: url(../images/background/public-name.png) repeat;
     bottom: 0;
     position: absolute;
     width: 100%;
@@ -2206,7 +2207,7 @@ label {
 .date:after {
     content: '';
     position: absolute;
-    background: url(../../../app/assets/images/icons/sprite.png) no-repeat -25px -68px;
+    background: url(../images/icons/sprite.png) no-repeat -25px -68px;
     width: 16px;
     height: 16px;
     right: 15px;
@@ -2358,6 +2359,38 @@ label {
     font-size: 14px
 }
 
+.sidebar ul {
+    margin-bottom: 20px
+}
+
+.sidebar ul li {
+    float: left;
+    margin-right: 20px;
+    padding-bottom: 10px
+}
+
+.sidebar ul li:active {
+    border-bottom: 1px solid #149d5e !important
+}
+
+.form-group {
+    position: relative
+}
+
+.form-group .error-message {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: red
+}
+
+pre.prettyprint {
+    padding: 20px 20px 0 20px !important;
+    border: 0 !important;
+    font-family: consolas;
+    font-size: 13.5px
+}
+
 .navbar-brand img {
     z-index: 9999;
     position: relative
@@ -2502,19 +2535,4 @@ p strong {
 
 .inner-footer ul li {
     float: left
-}
-.form-group, textarea{
-    position: relative;
-}
-.form-group .error-message {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    color: red;
-}
-.form-group input.parsley-error, textarea.parsley-error {
-    border: 1px solid red !important;
-    box-sizing: border-box;
-    position: relative;
-    display: block
 }

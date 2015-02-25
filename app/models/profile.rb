@@ -12,6 +12,9 @@ class Profile < ActiveRecord::Base
 
   bind_photo_accessors :photo, :wallpaper
 
+  has_many :genre_profile
+  has_many :genres, through: :genre_profile
+
   # entity instance
   def entity
     user.entity_class.find_by_profile_id(id)
