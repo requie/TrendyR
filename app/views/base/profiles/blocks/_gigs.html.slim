@@ -1,0 +1,73 @@
+.borderTop
+  .clearfix.onTop
+    h4.regRoboto.headSize.standart.pull-left My gigs
+    a.pull-right.link View all
+    - object.owned_gigs.order(:started_at).each do |g|
+      .promo_more.mobile-center.gigs.clearfix
+      .promo-logo-now
+        a href=""
+          = image_tag 'album_image/promoter.jpg', class: 'mobile-center'
+          .logo-now NOW
+      h4.static-content #{g.title}
+      .gigName.mobile-center
+        p
+          i.icon-dark-calendar
+          | #{g.started_at.strftime("%b %d, %Y") if g.started_at} - #{g.finished_at.strftime("%b %d, %Y") if  g.finished_at}
+          p
+          i.icon-dark-place
+          - if g.location
+            = g.location.address
+          - else
+            br
+        p
+          i.icon-dark-money
+          | $ #{g.price}
+
+    .promo_more.mobile-center.gigs.clearfix
+    .promo-logo-now
+      a href=""
+        = image_tag 'album_image/promoter.jpg', class:'mobile-center'
+        .logo-now NOW
+    h4.static-content Breakthrough to Blue 'n' Roots
+    .eventName.mobile-center
+      p
+        i.icon-dark-calendar
+        | Jul 18, 2014 - Jul 20, 2014
+      p
+        i.icon-dark-place
+        | Painesville, Ohio, USA
+      p
+        i.icon-dark-money
+        | $ 40.000
+    .promo_more.mobile-center.gigs.clearfix
+    .promo-logo-days
+      a href=""
+        = image_tag 'album_image/promoter.jpg', class:'mobile-center'
+        .logo-days 15 days
+    h4.static-content Breakthrough to Blue 'n' Roots
+    .eventName.mobile-center
+      p
+        i.icon-dark-calendar
+        | Jul 18, 2014 - Jul 20, 2014
+      p
+        i.icon-dark-place
+        | Painesville, Ohio, USA
+      p
+        i.icon-dark-money
+        | $ 40.00
+    .promo_more.mobile-center.gigs.clearfix
+    .promo-logo-month
+      a href=""
+        = image_tag 'album_image/promoter.jpg', class:'mobile-center'
+        .logo-month 5 mth
+    h4.static-content Breakthrough to Blue 'n' Roots
+    .eventName.mobile-center
+      p
+        i.icon-dark-calendar
+        | Jul 18, 2014 - Jul 20, 2014
+      p
+        i.icon-dark-place
+        | Painesville, Ohio, USA
+      p
+        i.icon-dark-money
+        | $ 40.00

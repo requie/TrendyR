@@ -3,7 +3,7 @@ module Base
     before_action :set_profile, only: [:edit, :update]
 
     def show
-      @profile = Profile.find(params[:id])
+      @profile = ProfileDecorator.find(params[:id])
       authorize @profile
     end
 

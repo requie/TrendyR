@@ -1,0 +1,35 @@
+.manadgMenu.clearfix
+  .container
+    .menu-press.mobile-center
+      div
+        - if object.user.role?(:artist)
+          a href="#"
+            i.icon-kit
+          p.text-uc book me
+        - else
+          a href="#"
+            i.icon-kit
+          p.text-uc press kit
+      div
+        a href="#"
+          i.icon-mess
+        p.text-uc message
+    = render_navigation context: :profile
+    .social-gray.pull-right
+      ul
+        - if object.facebook_url.present?
+          li
+            a href="#{object.facebook_url}"
+              i.icon-facebook-gray
+        - if object.twitter_url.present?
+          li
+            a href="#{object.twitter_url}"
+              i.icon-twitter-gray
+        - if object.google_plus_url.present?
+          li
+            a href="#{object.google_plus_url}"
+              i.icon-google-gray
+        - if object.instagram_url.present?
+          li
+            a href="#{object.instagram_url}"
+              i.icon-insta-gray

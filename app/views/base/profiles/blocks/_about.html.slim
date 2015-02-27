@@ -1,0 +1,8 @@
+h5.regRoboto.headSize.standart
+  | About
+= object.description_text
+ul.genres.gray.clearfix
+  - object.genre_ids.each do |g|
+    li
+      a href=""
+        = Genre.find(g).name

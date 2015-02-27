@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
     roles.pluck(:name).include?(role_name_sym.to_s)
   end
 
+  def roles?(role_name_array)
+    user_roles = roles.pluck(:name).to_set
+    user_roles.subset? role_name_array.to_set
+  end
+
   # user's entity class like Artist or Label
   # use carefully, because it depends on declared classes
   def entity_class

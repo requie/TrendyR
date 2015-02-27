@@ -1,159 +1,306 @@
 @media all and (min-width: 1201px) {
-    .footer .inner-footer .navbar-left li+li{
-        margin-left:25px !important;
-    }
-
+	.footer .inner-footer .navbar-left li+li{
+		margin-left:25px !important;
+	}
+	th.nameArtist {min-width:90px;}
 }
 @media all and (max-width: 1200px){
-    .subscribe{
-        float:left !important;
-        margin-top:-7px;
-    }
-    .p-l0{
-        top:0px !important;
-    }
-    .top-music ul li:nth-child(5){
-        display:none;
-    }
-
+	.subscribe{
+		float:left !important;		
+		margin-top:-7px;
+	}
+	.p-l0{
+		top:0px !important;
+	}
+	.top-music ul li:nth-child(5){
+		display:none;
+	}
+	.social-gray{
+		float:right;
+	}
+	th.nameArtist {min-width:90px;}
+	th.location{min-width:105px;}
+}
+@media all and (min-width: 993px) and (max-width: 1199px){
+	.big-gallery a img{
+		width:150px;
+	}
+	th.nameArtist{min-width:90px;}
+	th.title-track{min-width:90px;}
+	th.track-time{max-width:90px;}
+	.time{max-width:90px;}
 }
 @media all and (min-width: 993px){
-    .icon-globe, .icon-add, .icon-magnify{
-        float:left;
-    }
+	.icon-globe, .icon-add, .icon-magnify{
+		float:left;
+	}
 }
-@media all and (max-width: 991px){
-    .public .eventName{
-        text-align:left !important;
-    }
-    .subscribe{
-        float:left !important;
-        margin-left:-15px !important;
-        margin-top:10px;
-    }
-    .footer .inner-footer .navbar-left li + li{
-        margin-left:20px !important;
-    }
-    #moveUp{
-        right:15%;
-    }
-    .album-logo, .album-logo-promo{
-        display:none;
-    }
-    .music-block .responsive-table .track-details,
-    .music-block .responsive-table .track-status,
-    .music-block .responsive-table .title-track,
-    .music-block .responsive-table .track-time,
-    .top-music ul li:nth-child(4),
-    .top-music ul li:nth-child(5),
-    .m-l1 span,
-    .gigs .view	{
-        display:none;
-    }
-    .poster{
-        border-left:none !important;
-    }
-    .applied button{
-        float:right;
-    }
-    .applied h5{
-        float:right;
-    }
-    .applied img{
-        float:left;
-    }
-    .icon-close{
-        display:block;
-    }
-    .poster{
-        padding-left:0 !important;
-        width:100% !important;
-    }
-    .poster .btn{
-        width:auto;
-    }
-    .gigs .genres li a {
-        border:none !important;
-        padding:5px !important;
-    }
-    .djs-content .all-content .promoter_content .poster{
-        margin-top:0 !important;
-    }
-    .promoter_content h3 .text-left, .promoter_content .eventName{
-        position:relative;
-        top:30px;
-    }
-    .djs-content .all-content .music-block .table tr td.type_band p{
-        padding-left:5px !important;
-    }
-    .djs-block.manager p{
-        margin-top:20px;
-    }
-    .djs-block.manager h2{
-        margin-top:55px;
-        margin-bottom:15px !important;
-    }
-    .sign-in .login-block {
-        margin-top:0 !important;
-    }
+@media all and (max-width: 992px){
+	.videoBlock{
+		height:auto;
+	}
+	.profile-public .eventName{
+		text-align:left !important;
+	}
+	.subscribe{
+		float:left !important;
+		margin-left:-15px !important;
+		margin-right:-15px !important;
+		margin-top:10px;
+	}
+	.footer .inner-footer .navbar-left li + li{
+		margin-left:20px !important;
+	}
+	#moveUp{
+		right:15%;
+	}
+	.album-logo, .album-logo-promo{
+		display:none;
+	}	
+	.top-music ul li:nth-child(4),
+	.top-music ul li:nth-child(5),
+	.active span, 
+	.gigs .view	{
+		display:none;
+	}	
+	.poster{
+		border-left:none !important;
+	}
+	.applied button{
+		float:right;
+	}
+	.applied h5{
+		float:right;
+	}
+	.applied img{
+		float:left;
+	}
+	.icon-close{
+		display:block;
+	}
+	.poster{
+		padding-left:0 !important;
+		width:100% !important;
+	}
+	.poster .btn{
+		 width:auto;
+	}
+	.gigs .genres li a {
+		border:none !important;
+		padding:5px !important;
+	}
+	.djs-content .all-content .promoter_content .poster{
+		margin-top:0 !important;
+	}
+	.promoter_content h3 .text-left, .promoter_content .eventName{
+		position:relative;
+		top:30px;
+	}
+	.djs-content .all-content .music-block .table tr td.type_band p{
+		padding-left:5px !important;
+	}
+	.djs-block.manager p{
+		margin-top:20px;
+	}
+	.djs-block.manager h2{
+		margin-top:55px;
+		margin-bottom:15px !important;
+	}
+	.sign-in .login-block {
+		margin-top:0 !important;
+	}
 }
 @media all and (min-width: 768px){
-    .tinynav1{
-        display:none;
-    }
+	.tinynav{
+		display:none;
+	}
+	.promo-logo-now a, .promo-logo-days a, .promo-logo-month a{
+		float:left;
+	}
+	.logo-now, .logo-days, .logo-month{
+		top: 15px;		
+	}
+	.social-gray{
+		float:right;
+	}
+	.message-list tr td:first-child{
+		width:40% !important;
+	}
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+	.manadgmentFoto, .backNone{
+		background-position: -200px 0px;
+	}
+	.social{
+		margin-top: -25px !important;
+	}
 }
 @media all and (max-width: 767px){
-    #foo-menu{
-        display:none;
-    }
-    .tinynav1{
-        width:100%;
-    }
-    #moveUp{
-        right:5%;
-    }
-    .active{
-        float:left;
-    }
-    .navbar-header{
-        float:left;
-    }
-    .social{
-        margin:10px 0px 0px 0px  !important;
-    }
-    .p-l0{
-        margin-left:0px !important;
-    }
-    .top-music ul li:nth-child(3){
-        display:none;
-    }
-    .btn-signIn{
-        max-width:190px;
-    }
-    .btn-signIn .col-sm-6{
-        min-height:0 !important;
-    }
-    .logFacebook, .logTwitter, .logGoogle {
-        width:40px !important;
-        float:left;
-        margin-left:10px;
-    }
-    .logFacebook p, .logTwitter p, .logGoogle p{
-        display:none;
-    }
-    .logFacebook i,  .logTwitter i, .logGoogle i {
-        border-right:none !important;
-    }
-    .log-pass p, .log-pass h4{
-        text-align:center;
-    }
-
-    .header-nav.navbar-nav{
-        margin-top:0px !important;
-        margin-bottom:0px !important;
-    }
-    .header-nav.navbar-nav > li > a{
-        padding-top:20px;
-        padding-bottom:20px;
-    }
+	p.nameTrack{
+		position: relative !important;
+		left:0px !important;
+		top: 10px;
+		margin-bottom: 0px;
+	}
+	.audioTrack_link{
+		position:static;
+	}
+	.audiojs .play-pause {			
+		top: 40px;
+		position: absolute;
+		z-index: 9999;
+		left: 35px;
+	}
+	.audiojs .scrubber {display:none;}
+	.audiojs {margin:-17px auto 0 auto; width:300px;}
+	.audiojs .time {float:right;}
+	.manadgmentFoto{
+		background-position: -400px 0px;
+	}	
+	.audiojs .time{
+		display:none;
+	}
+	.responsive-table .table-header{display:none}
+	.responsive-table td{display:block;text-align:left;line-height:100%;border-width:0 !important}	
+	.responsive-table td:before{font-weight:bold;display:inline-block;content:attr(data-th) ": "}
+	.music-block tr td{ text-align: center; }
+	.music-block tr td img{display:none;}
+	.music-block tr td strong {top:0px !important;}
+	.responsive-table td:nth-child(odd){background-color:#f1f1f1}
+	.music-block tr:hover{background:none !important;}
+	.music-block .track-list{ margin-left:35%}
+	.music-block .table tr td{ padding-bottom:10px !important;}
+	.descktop-menu{
+		display:none !important;
+	}
+	.promo-logo-now .logo-now,
+	.promo-logo-days .logo-days,
+	.promo-logo-month .logo-month{
+		bottom: 100%;		
+	}
+	.message-list tr td{
+		text-align:center;
+	}
+	.icon-dark-calendar, .icon-dark-place, .icon-dark-money{
+		display:none;
+	}
+	.managerAvatar{
+		width:150px;
+		height:150px;
+		margin:0 auto;
+	}	
+	.big-gallery a img{
+		width:165px;
+	}
+	.mini-gallery{
+		display:none;
+	}
+	#foo-menu{
+		display:none;
+	}
+	.tinynav{
+		width:100%;
+	}
+	#moveUp{
+		right:5%;
+	}
+	.active{
+		float:left;
+	}
+	.navbar-header{
+		float:left;
+	}
+	.social{
+		margin:10px 0px 0px 0px  !important;		
+	}
+	.p-l0{
+		margin-left:0px !important;
+	}
+	.top-music ul li:nth-child(3){
+		display:none;
+	}
+	.btn-signIn{
+		max-width:190px;
+	}
+	.btn-signIn .col-sm-6{
+		min-height:0 !important;
+	}
+	.logFacebook, .logTwitter, .logGoogle {
+		width:40px !important;
+		float:left;
+		margin-left:10px;
+	}
+	.logFacebook p, .logTwitter p, .logGoogle p{
+		display:none;
+	}
+	.logFacebook i,  .logTwitter i, .logGoogle i {
+		border-right:none !important;
+	}
+	.log-pass p, .log-pass h4{
+		text-align:center;
+	}	
+	.header-nav.navbar-nav{
+		margin-top:0px !important;
+		margin-bottom:0px !important;
+	}
+	.header-nav.navbar-nav > li > a{
+		padding-top:20px;
+		padding-bottom:20px;
+	}
+	.fancybox-next, .fancybox-prev {
+		right: 10px !important;
+	}
+	.fancybox-prev{
+		left:10px !important;
+	}
+	.nav-page{
+		display:none;
+	}
+	.mobile-center{
+		float:none !important;
+		margin-left:auto !important;
+		margin-right:auto !important;
+		text-align:center !important;
+	}
+	.profile-public .public-name{
+		float:left;
+		position:static;
+		padding-left:0px !important;
+	}
+	.social-gray{
+		float:none !important;
+		margin:0 auto;
+	}
+	.video-js{
+		width:250px !important;
+		height:150px !important;
+	}
+}
+@media all and (max-width: 600px){
+	.manadgmentFoto, .backNone{
+		background-position: -500px 0px;
+	}
+}
+@media all and (max-width: 400px){
+	.audiojs .play-pause {			
+		left: 40px;
+	}
+	.big-gallery a{		
+		margin:0 auto;
+		float:none;
+	}
+	.big-gallery a img{
+		width:100%;
+	}
+	.music-block .track-list{ 
+		margin-left:25%
+	}
+	.manadgmentFoto, .backNone{
+		background-position: -600px 0px;
+	}
+	.audiojs .time{
+		display:none;
+	}
+	.audiojs {margin:-10px auto; width:160px;}
+	.audiojs .play-pause {margin-left: 0px;}
 }

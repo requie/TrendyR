@@ -7,7 +7,8 @@ class Profile < ActiveRecord::Base
   belongs_to :wallpaper, class_name: 'Profile::Wallpaper'
 
   has_many :owned_events, class_name: 'Event', foreign_key: :owner_profile_id
-
+  has_many :owned_gigs, class_name: 'Gig', foreign_key: :owner_profile_id
+  has_many :owned_awards, class_name: 'Award', foreign_key: :owner_profile_id
   accepts_nested_attributes_for :photo, :wallpaper
 
   bind_photo_accessors :photo, :wallpaper

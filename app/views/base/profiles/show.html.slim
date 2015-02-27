@@ -1,122 +1,30 @@
 .profile-public.clearfix
-  .public
-    .container
-      .public-foto
-        a href="" 
-          img alt=("Name User") src="dest/images/banners/public-manager-home.jpg" 
-      .col-xs-12
-        .public-name
-          .col-md-9.col-xs-12
-            .name
-              h2 K7 Manadgment
-          .col-md-3.col-xs-12
-            .eventName.pull-right
-              i.icon-place
-              p.empty Painesville, Ohio, USA
-              a href=""  momoroots.de
-.manadgMenu.clearfix
-  .container
-    .menu-press
-      div
-        a href="#" 
-          i.icon-kit
-        p.text-uc press kit
-      div
-        a href="#" 
-          i.icon-mess
-        p.text-uc message
-    ul
-      li
-        a.menuActive href="#"  Home
-      li
-        a href="#"  Artist
-    .social-gray.pull-right
-      ul
-        li
-          a
-            i.icon-facebook-gray
-        li
-          a
-            i.icon-twitter-gray
-        li
-          a
-            i.icon-google-gray
-        li
-          a
-            i.icon-insta-gray
+  .col-xs-12
+    .public-foto.mobile-center
+      a href="" 
+        = image_tag 'banners/public-manager-home.jpg',alt:'Name User'
+  .public-name
+    .col-md-9.col-xs-12
+      .name.mobile-center
+        h2
+          = @profile.name
+    .col-xs-12.col-sm-3.mobile-center
+      .eventName.pull-right
+        i.icon-place
+        p.empty
+          = @profile.location_address
+        a href=""
+          = @profile.website
+= render 'base/profiles/blocks/manadgMenu', object: @profile
 .container.onTop.onBottom
-  .col-md-8.borderRight
-    h5.static-content About
-    = @profile.description_text
-      a.link href=""  see more...
-    ul.genres.gray.clearfix
-      li
-        a href=""  Pop
-      li
-        a href=""  Reggae-Pop
-      li
-        a href=""  Calypso
-      li
-        a href=""  Soca
-    .borderTop
-      .clearfix.onTop
-        h4.static-content.pull-left My upcoming events
-        a.pull-right.link View all
-      .promo_more.gigs.clearfix
-        .promo-logo-now
-          img src="/dest/images/album_image/promoter.jpg" 
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
-      .promo_more.gigs.clearfix
-        .promo-logo-now
-          img src="/dest/images/album_image/promoter.jpg"
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
-      .promo_more.gigs.clearfix
-        .promo-logo-days
-          img src="/dest/images/album_image/promoter.jpg"
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
-      .promo_more.gigs.clearfix
-        .promo-logo-days
-          img src="/dest/images/album_image/promoter.jpg"
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            a.link href=""  Free
-  .col-md-4
-    h5.static-content Location
+  .row
+    .col-md-8.borderRight
+      = render 'base/profiles/blocks/about', object: @profile
+      = render 'base/profiles/blocks/gigs', object: @profile if policy(@profile).show_gigs?
+      = render 'base/profiles/blocks/events', object: @profile if policy(@profile).show_events?
+      = render 'base/profiles/blocks/awards', object: @profile if policy(@profile).show_awards?
+    .col-md-4.col-xs-12
+      = render 'base/profiles/blocks/photos', object: @profile if policy(@profile).show_photos?
+      = render 'base/profiles/blocks/music', object: @profile if policy(@profile).show_music?
+      = render 'base/profiles/blocks/videos', object: @profile if policy(@profile).show_videos?
+      = render 'base/profiles/blocks/location', object: @profile if policy(@profile).show_location?
