@@ -1,8 +1,14 @@
 h5.regRoboto.headSize.standart
   | About
-= object.description_text
-ul.genres.gray.clearfix
-  - object.genre_ids.each do |g|
-    li
-      a href=""
-        = Genre.find(g).name
+- if object.description_text.present?
+  p.seeMore
+    = object.description_text
+- else
+  p.emptyBlock
+    | No information
+- if object.genres.any?
+  ul.genres.gray.clearfix
+    - object.genres.each do |genre|
+      li
+        a href=""
+          = genre.name

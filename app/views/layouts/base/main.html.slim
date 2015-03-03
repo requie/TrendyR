@@ -6,7 +6,11 @@ html
     #page-wrapper
       .container-fluid.page
         .container.pg
-          = yield
-          .clearfix
+          .strPage
+            .p-t60
+              = yield
+              .clearfix
+          a#moveUp href="#"
+            i class="icon-up"
           = render 'layouts/blocks/footer'
     = render 'layouts/blocks/js'

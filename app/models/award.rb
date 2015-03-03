@@ -1,5 +1,6 @@
 class Award < ActiveRecord::Base
   include Ownable
+  scope :ordered, -> { order(:earned_at) }
 
   validates :title, :description_text, :earned_at, presence: true
 

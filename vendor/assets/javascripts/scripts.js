@@ -82,7 +82,7 @@ $(document).ready(function(){
   //pgHeight = docHeight /*navHeight  fooHeight -*/+ 45 +'px'
   //$('.pg').height(pgHeight);
   page = docHeight - navHeight - fooHeight + 'px';
-  $('.strPage').height(page);
+  //$('.strPage').height(page);
   loginHeight = $('.login').height();
   if (loginBlockHeight > loginHeight){
     $('.login-block').height(loginHeight);

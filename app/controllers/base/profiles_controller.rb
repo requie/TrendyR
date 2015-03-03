@@ -1,10 +1,10 @@
 module Base
   class ProfilesController < Base::BaseController
-    before_action :set_profile, only: [:edit, :update]
+    before_action :set_profile, only: [:show, :edit, :update]
 
     def show
-      @profile = ProfileDecorator.find(params[:id])
       authorize @profile
+      gon.location = @profile.location
     end
 
     def edit
@@ -36,7 +36,7 @@ module Base
     end
 
     def set_profile
-      @profile = ProfileDecorator.find(params[:id])
+      @profile = Profile.find(params[:id]).decorate
     end
   end
 end

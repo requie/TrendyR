@@ -1,17 +1,19 @@
-- if @profile.user.role?(:artist)
-  h5.regRoboto.headSize.standart My photos
-- if @profile.user.role?(:venue)
-  h5.regRoboto.headSize.standart My gallery
-.promo-gallery
-  a.gallery-image href=""
-    = image_tag 'album_image/met.jpg'
-  a.gallery-image href=""
-    = image_tag 'album_image/met.jpg'
-  a.gallery-image href=""
-    = image_tag 'album_image/met.jpg'
-  a.gallery-image href=""
-    = image_tag 'album_image/met.jpg'
-  a.gallery-image href=""
-    = image_tag 'album_image/met.jpg'
-  a.gallery-image href=""
-    = image_tag 'album_image/met.jpg'
+.borderTop
+  h5.regRoboto.headSize.standart
+    = photos_caption
+- if object.user.role?(:artist)
+  p.emptyBlock No photos
+- else
+  .promo-gallery
+    a.gallery-image href=""
+      = image_tag 'album_image/met.jpg'
+    a.gallery-image href=""
+      = image_tag 'album_image/met.jpg'
+    a.gallery-image href=""
+      = image_tag 'album_image/met.jpg'
+    a.gallery-image href=""
+      = image_tag 'album_image/met.jpg'
+    a.gallery-image href=""
+      = image_tag 'album_image/met.jpg'
+    a.gallery-image href=""
+      = image_tag 'album_image/met.jpg'

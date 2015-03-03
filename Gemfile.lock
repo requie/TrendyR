@@ -92,6 +92,11 @@ GEM
     fastercsv (1.5.5)
     foreigner (1.6.1)
       activerecord (>= 3.0.0)
+    gon (5.2.3)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     haml (4.0.5)
       tilt
     hashie (3.3.2)
@@ -301,6 +306,7 @@ DEPENDENCIES
   dragonfly (~> 1.0.7)
   draper (~> 1.4.0)
   foreigner (~> 1.6.1)
+  gon
   hookup
   jbuilder
   jquery-rails (~> 3.1.2)

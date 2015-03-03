@@ -1,10 +1,10 @@
-@media all and (min-width: 1201px) {
+@media all and (min-width: 1200px) {
 	.footer .inner-footer .navbar-left li+li{
 		margin-left:25px !important;
 	}
 	th.nameArtist {min-width:90px;}
 }
-@media all and (max-width: 1200px){
+@media all and (max-width: 1199px){
 	.subscribe{
 		float:left !important;		
 		margin-top:-7px;
@@ -35,6 +35,8 @@
 		float:left;
 	}
 }
+
+
 @media all and (max-width: 992px){
 	.videoBlock{
 		height:auto;
@@ -58,8 +60,7 @@
 		display:none;
 	}	
 	.top-music ul li:nth-child(4),
-	.top-music ul li:nth-child(5),
-	.active span, 
+	.top-music ul li:nth-child(5),	
 	.gigs .view	{
 		display:none;
 	}	
@@ -127,7 +128,10 @@
 		width:40% !important;
 	}
 }
-@media only screen and (min-width: 768px) and (max-width: 991px){
+@media all and (min-width: 768px) and (max-width: 991px){
+	.active span{
+		display:none;
+	}
 	.manadgmentFoto, .backNone{
 		background-position: -200px 0px;
 	}
