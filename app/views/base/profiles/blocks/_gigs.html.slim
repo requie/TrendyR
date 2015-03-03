@@ -1,9 +1,9 @@
 .borderTop
   .clearfix.onTop
-    - if object.owned_gigs.any?
+    - if profile.owned_gigs.any?
       h4.regRoboto.headSize.standart.pull-left My gigs
       a.pull-right.link View all
-      - object.owned_gigs.ordered.each do |gig|
+      - profile.owned_gigs.ordered.each do |gig|
         .promo_more.mobile-center.gigs.clearfix
         = event_or_gig_photo(gig,'album_image/promoter.jpg')
         h4.static-content #{gig.title}

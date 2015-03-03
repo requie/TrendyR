@@ -1,6 +1,6 @@
 .borderTop
   h5.regRoboto.headSize.standart Location
-  - if object.location.present?
+  - if profile.location.present?
     div id="googleMap" style="width:100%;height:400px;"
     - content_for :javascript do
       script src="http://maps.googleapis.com/maps/api/js"

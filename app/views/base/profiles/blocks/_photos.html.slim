@@ -1,7 +1,7 @@
 .borderTop
   h5.regRoboto.headSize.standart
     = photos_caption
-- if object.user.role?(:artist)
+- if profile.user.role?(:artist)
   p.emptyBlock No photos
 - else
   .promo-gallery

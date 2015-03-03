@@ -1,5 +1,5 @@
 class AwardDecorator < ApplicationDecorator
   def earning_year
-    award.earned_at.year if award.earned_at
+    object.earned_at.year if object.earned_at
   end
 end
