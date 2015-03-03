@@ -1,0 +1,14 @@
+h5.regRoboto.headSize.standart
+  | About
+- if profile.description_text.present?
+  p.seeMore
+    = profile.description_text
+- else
+  p.emptyBlock
+    | No information
+- if profile.genres.any?
+  ul.genres.gray.clearfix
+    - profile.genres.each do |genre|
+      li
+        a href=""
+          = genre.name

@@ -12,7 +12,8 @@ select, textarea, input, option{
     border-radius: 4px;
 }
 .footer{
-    bottom: 0;  
+    bottom: 0;	
+	position:relative;
 }
 #moveUp{
     right: 10%;
@@ -21,10 +22,11 @@ select, textarea, input, option{
     background-color: black;
     width: 44px;
     height: 44px;
+    z-index: 99;
 }
 .icon-up{
     width: 34px;
-    height:20px;
+    height:18px;
     background-position:-20px -18px;
     top:13px;
     left:9px;
@@ -43,10 +45,10 @@ select, textarea, input, option{
 }
 .pg{
     background-color:white;
-    padding-top:60px;
     box-shadow:10px 0px 15px 0 rgba(0, 0, 0, 0.1), -10px 0px 15px 0 rgba(0, 0, 0, 0.1);
     padding-left:0 !important;
     padding-right:0 !important;
+	position:relative;
 }
 .title{
     padding: 6px 12px;
@@ -60,7 +62,7 @@ input.uploadbtn, input.uploadfile{
 }
 .drop-files{
     text-align:center;
-    background: url('../../../app/assets/images/icons/upload-cover.png') center no-repeat;
+    background: url('../images/icons/upload-cover.png') center no-repeat;
     height:113px;
 }
 .well{
@@ -107,4 +109,7 @@ input.uploadbtn, input.uploadfile{
 }
 .inner{
     padding-top:15px;
+}
+.social{
+    width:145px;
 }

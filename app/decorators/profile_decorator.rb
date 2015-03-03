@@ -1,6 +1,5 @@
 class ProfileDecorator < ApplicationDecorator
   delegate_all
-  decorates_finders
 
   def location_address
     object.location.address if object.location

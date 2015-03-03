@@ -72,7 +72,7 @@
   background: asset-url("icons/upload-cover.png") center no-repeat;
 }
 
-.profile-public .public .public-name {
+.profile-public .public-name {
   background: asset-url("background/public-name.png") repeat;
 }
 
@@ -89,4 +89,20 @@
 
 .manadgmentFoto {
   background: asset-url('enot-derevo-priroda.jpg');
+}
+
+.logo-now {
+  background: asset-url('icons/sprite.png') -102px -201px;
+}
+
+.logo-days {
+  background: asset-url('icons/sprite.png') -41px -201px;
+}
+
+.logo-month {
+  background: asset-url('icons/sprite.png') no-repeat -93px -355px;
+}
+
+.profile-public .public-foto:before {
+  background: asset-url('icons/sprite.png') -1px -163px;
 }

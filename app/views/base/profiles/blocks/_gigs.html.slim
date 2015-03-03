@@ -1,0 +1,26 @@
+.borderTop
+  .clearfix.onTop
+    - if profile.owned_gigs.any?
+      h4.regRoboto.headSize.standart.pull-left My gigs
+      a.pull-right.link View all
+      - profile.owned_gigs.ordered.each do |gig|
+        .promo_more.mobile-center.gigs.clearfix
+        = event_or_gig_photo(gig,'album_image/promoter.jpg')
+        h4.static-content #{gig.title}
+        .gigName.mobile-center
+          p
+            i.icon-dark-calendar
+            = period(gig)
+            p
+            i.icon-dark-place
+            - if gig.location
+              = gig.location.address
+            - else
+              br
+          p
+            i.icon-dark-money
+            | $ #{gig.price}
+    - else
+      h4.regRoboto.headSize.standart My gigs
+      p.emptyBlock
+        | No gigs

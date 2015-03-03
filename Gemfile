@@ -43,6 +43,8 @@ gem 'kaminari', '~> 0.16.1'
 gem 'jquery-rails', '~> 3.1.2'
 
 gem 'jbuilder'
+
+gem 'gon'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -81,8 +83,6 @@ group :development do
   # RVM support for Capistrano v3
   # https://github.com/capistrano/rvm
   gem 'capistrano-rvm', '~> 0.1.2'
-
-  gem 'web-console'
 end
 
 group :development, :production do

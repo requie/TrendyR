@@ -1,0 +1,28 @@
+.borderTop
+  h5.regRoboto.headSize.standart
+    = videos_caption
+  - if profile.user.role?(:artist)
+    p.emptyBlock No videos
+  - else
+    .videoBlock
+      a.gallery-image href="#video1" rel="group"
+        img alt="" src="http://pulson.ru/wp-content/uploads/2013/11/wallpaper-2961014.jpg"
+        i.icon-play
+      #video1.profileVideo
+        video#example_video_1.video-js.vjs-default-skin controls="" data-setup="{}" poster="http://video-js.zencoder.com/oceans-clip.png" preload="none"
+          source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4"
+          source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm"
+          source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg"
+          track kind="captions" label="English" src="demo.captions.vtt" srclang="en"
+          track kind="subtitles" label="English" src="demo.captions.vtt" srclang="en"
+    .videoBlock
+      a.gallery-image href="#video1" rel="group"
+        img alt="" src="http://pulson.ru/wp-content/uploads/2013/11/wallpaper-2961014.jpg"
+        i.icon-play
+      #video1.profileVideo
+        video#example_video_1.video-js.vjs-default-skin controls="" data-setup="{}" poster="http://video-js.zencoder.com/oceans-clip.png" preload="none"
+          source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4"
+          source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm"
+          source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg"
+          track kind="captions" label="English" src="demo.captions.vtt" srclang="en"
+          track kind="subtitles" label="English" src="demo.captions.vtt" srclang="en"
