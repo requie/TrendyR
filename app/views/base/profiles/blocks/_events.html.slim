@@ -1,26 +1,12 @@
 .borderTop
-  .clearfix.onTop
-    - if profile.owned_events.any?
-      h4.regRoboto.headSize.standart.pull-left My upcoming events
+  - if profile.owned_gigs.any?
+    .clearfix.onTop
+      h4.regRoboto.headSize.standart.pull-left
+        = events_caption
       a.pull-right.link View all
-      - profile.owned_events.ordered.each do |event|
-        .promo_more.mobile-center.gigs.clearfix
-        = event_or_gig_photo(event,'album_image/promoter.jpg')
-        h4.static-content #{event.title}
-        .eventName.mobile-center
-          p
-            i.icon-dark-calendar
-            = period(event)
-          p
-            i.icon-dark-place
-            - if event.location
-              = event.location.address
-            - else
-              br
-          p
-            i.icon-dark-money
-            | $ #{event.price}
-    - else
-      h4.regRoboto.headSize.standart My upcoming events
-      p.emptyBlock
-        | No events
+    = render partial: 'base/profiles/blocks/event', collection: @events
+  - else
+    h4.regRoboto.headSize.standart
+      = events_caption
+    p.emptyBlock
+      | No events

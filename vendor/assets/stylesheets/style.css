@@ -43,6 +43,10 @@ input:-ms-input-placeholder {
   font-weight: normal !important;
   font-family: Roboto-light;
 }
+textarea {
+  resize: none;
+  outline: 0;
+}
 textarea::-webkit-input-placeholder {
   color: #a9a9a9 !important;
   font-weight: normal !important;
@@ -301,13 +305,29 @@ p strong {
 .icon-play {
   width: 48px;
   height: 48px;
-  background-position: -7px -483px;
+  background-position: -8px -472px;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   position: absolute;
   margin: auto;
+}
+.icon-left {
+  background-position: -64px -429px;
+  width: 12px;
+  height: 12px;
+}
+.icon-left:hover {
+  cursor: pointer;
+}
+.icon-right {
+  background-position: -73px -429px;
+  width: 19px;
+  height: 12px;
+}
+.icon-right:hover {
+  cursor: pointer;
 }
 /*------------[Indent]---------------*/
 .empty {
@@ -829,7 +849,7 @@ p strong {
 .gigs-block [class*=album-preview] .follow .btn-primary .icon-follow {
   width: 15px;
   height: 15px;
-  background-position: -1px -114px;
+  background-position: -1px -116px;
 }
 .djs-block [class*=album-preview] .star,
 .gigs-block [class*=album-preview] .star {
@@ -1295,6 +1315,7 @@ p strong {
   text-align: center;
   font-size: 12px;
   text-transform: uppercase;
+  top: 10px;
 }
 .logo-featured {
   height: 35px;
@@ -1476,6 +1497,67 @@ p strong {
 .validate-red {
   background-color: #e34a50;
 }
+.logTwitter,
+.logFacebook,
+.logGoogle {
+  background-color: #df4a32;
+  margin-top: 10px;
+  position: relative;
+  text-align: center;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 4px;
+  color: white;
+  font-size: 13px;
+  padding-left: 10px;
+  width: 100%;
+  border: 1px solid transparent;
+}
+.logTwitter p,
+.logFacebook p,
+.logGoogle p {
+  margin: 0 !important;
+  font-family: Roboto;
+}
+.logTwitter p span,
+.logFacebook p span,
+.logGoogle p span {
+  font-weight: bold;
+}
+.logTwitter p:hover,
+.logFacebook p:hover,
+.logGoogle p:hover {
+  cursor: pointer;
+}
+.logTwitter .icon-enterFacebook,
+.logFacebook .icon-enterFacebook,
+.logGoogle .icon-enterFacebook,
+.logTwitter .icon-enterTwitter,
+.logFacebook .icon-enterTwitter,
+.logGoogle .icon-enterTwitter,
+.logTwitter .icon-enterGoogle,
+.logFacebook .icon-enterGoogle,
+.logGoogle .icon-enterGoogle {
+  margin-left: 10px;
+  padding-top: 10px;
+  height: 38px;
+  float: left;
+}
+.logFacebook {
+  background-color: #45619d;
+}
+.logFacebook .icon-enterFacebook {
+  border-right: 1px solid #3c558c;
+}
+.logTwitter {
+  background-color: #00b0ed;
+}
+.logTwitter .icon-enterTwitter {
+  border-right: 1px solid #01a4dc;
+}
+.logGoogle .icon-enterGoogle {
+  border-right: 1px solid #be3f2b;
+}
 .sign-in .navbar {
   z-index: 9999;
   border-radius: 0px;
@@ -1520,75 +1602,6 @@ p strong {
 .sign-in .login .footer {
   width: 100%;
   position: relative;
-}
-.sign-in .login .logTwitter {
-  border: 1px solid transparent;
-}
-.sign-in .login .logFacebook {
-  border: 1px solid transparent;
-}
-.sign-in .login .logGoogle {
-  border: 1px solid transparent;
-}
-.sign-in .login .logTwitter,
-.sign-in .login .logFacebook,
-.sign-in .login .logGoogle {
-  background-color: #df4a32;
-  margin-top: 10px;
-  position: relative;
-  text-align: center;
-  height: 40px;
-  cursor: pointer;
-  border-radius: 4px;
-  color: white;
-  font-size: 13px;
-  padding-left: 10px;
-  width: 100%;
-}
-.sign-in .login .logTwitter p,
-.sign-in .login .logFacebook p,
-.sign-in .login .logGoogle p {
-  margin: 0 !important;
-  font-family: Roboto;
-}
-.sign-in .login .logTwitter p span,
-.sign-in .login .logFacebook p span,
-.sign-in .login .logGoogle p span {
-  font-weight: bold;
-}
-.sign-in .login .logTwitter p:hover,
-.sign-in .login .logFacebook p:hover,
-.sign-in .login .logGoogle p:hover {
-  cursor: pointer;
-}
-.sign-in .login .logTwitter .icon-enterFacebook,
-.sign-in .login .logFacebook .icon-enterFacebook,
-.sign-in .login .logGoogle .icon-enterFacebook,
-.sign-in .login .logTwitter .icon-enterTwitter,
-.sign-in .login .logFacebook .icon-enterTwitter,
-.sign-in .login .logGoogle .icon-enterTwitter,
-.sign-in .login .logTwitter .icon-enterGoogle,
-.sign-in .login .logFacebook .icon-enterGoogle,
-.sign-in .login .logGoogle .icon-enterGoogle {
-  margin-left: 10px;
-  padding-top: 10px;
-  height: 38px;
-  float: left;
-}
-.sign-in .login .logFacebook {
-  background-color: #45619d;
-}
-.sign-in .login .logFacebook .icon-enterFacebook {
-  border-right: 1px solid #3c558c;
-}
-.sign-in .login .logTwitter {
-  background-color: #00b0ed;
-}
-.sign-in .login .logTwitter .icon-enterTwitter {
-  border-right: 1px solid #01a4dc;
-}
-.sign-in .login .logGoogle .icon-enterGoogle {
-  border-right: 1px solid #be3f2b;
 }
 .sign-in .login .log-pass {
   position: relative;
@@ -1981,9 +1994,6 @@ label {
 .menu-press div:last-child {
   border-right: 1px solid #e8e8e8;
 }
-.social-gray {
-  width: 160px;
-}
 .social-gray ul li a {
   padding: 0px!important;
 }
@@ -2049,6 +2059,17 @@ label {
 }
 .promo_more:last-child {
   margin-bottom: 10px;
+}
+.promo_more .promoDate h4 {
+  font-size: 12px;
+  color: #808080;
+  margin-top: 5px;
+}
+.promo_more .promoDate h4 span {
+  float: left;
+  font-size: 36px;
+  color: #fda100;
+  margin-right: 10px;
 }
 .release-gallery {
   position: relative;
@@ -2118,6 +2139,177 @@ label {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   margin-bottom: 10px;
+}
+.eventDate {
+  float: left;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.eventDate h4 {
+  font-size: 12px;
+  color: #808080;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+.eventDate h4:first-child {
+  float: left;
+  margin-right: 10px;
+}
+.eventDate h4 span {
+  font-size: 36px;
+  color: #fda100;
+}
+.eventDate:first-child {
+  border-right: 1px solid #ebebeb;
+}
+.public-event .videoBlock {
+  height: 460px;
+  padding-left: 10px;
+}
+.public-event .videoBlock img {
+  height: 100%;
+}
+.public-event .videoBlock .logo-now {
+  left: 0px;
+}
+.public-event .map {
+  height: 460px;
+}
+.public-event .nameVideo {
+  background: url('../images/background/public-name.png') repeat;
+  width: 100%;
+  padding: 10px 10px 5px 10px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 10px;
+}
+.public-event .nameVideo h2 {
+  font-size: 36px;
+  color: #ffffff;
+}
+.public-event .facebook,
+.public-event .twitter,
+.public-event .google,
+.public-event .like {
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  font-size: 8px;
+  color: #ffffff;
+  float: left;
+  padding: 3px;
+  border-radius: 4px;
+}
+.public-event .facebook i,
+.public-event .twitter i,
+.public-event .google i,
+.public-event .like i {
+  font-size: 9px;
+}
+.public-event .facebook {
+  background-color: #45619d;
+}
+.public-event .facebook:hover {
+  background-color: #426085;
+}
+.public-event .twitter {
+  background-color: #00b0ed;
+}
+.public-event .twitter:hover {
+  background-color: #2a86bd;
+}
+.public-event .google {
+  background-color: #df4a32;
+}
+.public-event .google:hover {
+  background-color: #b85442;
+}
+.public-event .like {
+  background-color: #426085;
+}
+.public-event .like:hover {
+  background-color: #45619d;
+}
+.public-event .countLike {
+  background-color: #ffffff;
+  border: 1px solid #cfcfcf;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  font-size: 12px;
+}
+.public-event .countLike:before {
+  content: ' ' !important;
+  position: absolute;
+  top: 4px;
+  left: 0%;
+  margin-left: -16px;
+  display: block !important;
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid rgba(113, 101, 58, 0);
+  border-right: 10px solid rgba(113, 101, 58, 0);
+  border-bottom: 10px solid #cfcfcf;
+  transform: rotate(-90deg);
+}
+.public-event .countLike:after {
+  content: ' ' !important;
+  position: absolute;
+  top: 4px;
+  left: 0%;
+  margin-left: -15px;
+  display: block !important;
+  width: 0px;
+  height: 0px;
+  border-left: 10px solid rgba(255, 241, 190, 0);
+  border-right: 10px solid rgba(255, 241, 190, 0);
+  border-bottom: 10px solid white;
+  transform: rotate(-90deg);
+}
+.comment .comment_picture {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+.comment .comment_time span {
+  font-weight: 700;
+  color: #000000;
+}
+.comment .comment_text {
+  margin-left: 15px;
+  padding: 10px;
+  background-color: #f5f9f7;
+  position: relative;
+  color: #808080;
+}
+.comment .comment_text:before {
+  content: ' ' !important;
+  position: absolute;
+  top: 0px;
+  left: 0%;
+  margin-left: -8px;
+  display: block !important;
+  width: 0px;
+  height: 0px;
+  border-left: 8px solid rgba(113, 101, 58, 0);
+  border-bottom: 8px solid #f5f9f7;
+  transform: rotate(-90deg);
+}
+.place {
+  margin-bottom: 10px;
+}
+.place .place_picture {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 10px;
+}
+.place .place_title {
+  font-size: 16px;
+  color: #4d4d4d;
+  margin-top: 0px;
 }
 /*------------[Music player]---------------*/
 .audiojs audio {
@@ -2418,7 +2610,7 @@ label {
 .vjs-big-play-button {
   width: 48px;
   height: 48px;
-  background-position: -7px -483px;
+  background-position: -8px -472px;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -2449,6 +2641,7 @@ label {
 .middleSize {
   font-size: 16px;
 }
+/*---------------Font size-----------------------*/
 /*------------[Font-size]---------------*/
 button:focus,
 button:active,
@@ -2485,6 +2678,15 @@ button:focus:active {
 }
 .btn-primary {
   border: none !important;
+}
+.btn-contactMe {
+  display: block;
+  background-color: #f5f9f7;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  color: #818181;
+  font-size: 9px;
+  margin-top: 10px;
 }
 /*------------[Calendar]---------------*/
 .ui-datepicker {
@@ -3164,7 +3366,7 @@ button:focus:active {
   margin: 5px;
 }
 .m-t5 {
-  margin-top: 5px;
+  margin-top: 5px !important;
 }
 .m-tr5 {
   margin-top: 5px;
@@ -3554,7 +3756,7 @@ button:focus:active {
   margin: 10px;
 }
 .m-t10 {
-  margin-top: 10px;
+  margin-top: 10px !important;
 }
 .m-tr10 {
   margin-top: 10px;
@@ -32006,7 +32208,7 @@ $counter: 40;
   width: 30%;
 }
 .w-40 {
-  width: 10%;
+  width: 40%;
 }
 .w-50 {
   width: 50%;
@@ -32060,6 +32262,20 @@ $counter: 40;
   }
 }
 /*------------------[Sm]--------------------*/
+@media all and (max-width: 992px) {
+  .w-md-10,
+  .w-md-20,
+  .w-md-30,
+  .w-md-40,
+  .w-md-50,
+  .w-md-60,
+  .w-md-70,
+  .w-md-80,
+  .w-md-90,
+  .w-md-100 {
+    width: 100%;
+  }
+}
 @media all and (min-width: 768px) and (max-width: 991px) {
   .w-sm-33 {
     width: 33.3333333%;
@@ -32076,7 +32292,7 @@ $counter: 40;
     width: 30%;
   }
   .w-sm-40 {
-    width: 10%;
+    width: 40%;
   }
   .w-sm-50 {
     width: 50%;
@@ -32112,7 +32328,10 @@ $counter: 40;
     width: 33.3333333%;
   }
   .w-xs-40 {
-    width: 10%;
+    width: 40%;
+  }
+  .w-xs-45 {
+    width: 45%;
   }
   .w-xs-50 {
     width: 50%;
@@ -32199,14 +32418,14 @@ pre.prettyprint {
   .top-music ul li:nth-child(5) {
     display: none;
   }
-  .social-gray {
-    float: right;
-  }
   th.nameArtist {
     min-width: 90px;
   }
   th.location {
     min-width: 105px;
+  }
+  .social-gray {
+    float: right;
   }
 }
 @media all and (max-width: 1170px) {
@@ -32242,11 +32461,41 @@ pre.prettyprint {
   .icon-magnify {
     float: left;
   }
+  .md-dTable {
+    display: table;
+  }
+  .md-dTable .dRow {
+    display: table-row;
+  }
+  .md-dTable .dRow .dCell {
+    display: table-cell;
+    vertical-align: top;
+  }
 }
 /*------------[sm-responsive]---------------*/
 @media all and (max-width: 991px) {
   .footer .inner-footer .navbar-left li + li {
     margin-left: 20px !important;
+  }
+  .social-gray {
+    width: 160px;
+  }
+  .comment .comment_picture {
+    float: none;
+    margin-bottom: 10px;
+  }
+  .comment .dCell,
+  .comment .comment_time {
+    text-align: center;
+  }
+  .comment .comment_text {
+    text-align: left;
+  }
+  .promoDate h4 {
+    display: inline-block;
+  }
+  .promoDate h4 span {
+    float: none !important;
   }
   #moveUp {
     right: 15%;
@@ -32362,6 +32611,10 @@ pre.prettyprint {
   .social-gray {
     float: right;
   }
+  .social-gray ul {
+    float: right;
+    margin-bottom: 0px;
+  }
   .message-list tr td:first-child {
     width: 40% !important;
   }
@@ -32376,6 +32629,9 @@ pre.prettyprint {
   }
   .navbar-header {
     float: left;
+  }
+  .social {
+    width: 145px;
   }
   .social {
     margin: 0 !important;
@@ -32579,6 +32835,10 @@ pre.prettyprint {
   .big-gallery a {
     margin: 0 auto;
     float: none;
+  }
+  .public-event .videoBlock,
+  .public-event .map {
+    height: 200px;
   }
   .big-gallery a img {
     width: 100%;
