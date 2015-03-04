@@ -1,0 +1,4 @@
+= render partial: 'base/blocks/photos', locals:{profile:profile} if policy(profile).show_photos?
+= render partial: 'base/blocks/music', locals:{profile:profile} if policy(profile).show_music?
+= render partial: 'base/blocks/videos', locals:{profile:profile} if policy(profile).show_videos?
+= render partial: 'base/blocks/location', locals:{profile:profile} if policy(profile).show_location?

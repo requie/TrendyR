@@ -66,30 +66,6 @@ class ProfilePolicy
     @profile.user == @user
   end
 
-  def artists?
-    show?
-  end
-
-  def awards?
-    show?
-  end
-
-  def calendar?
-    show?
-  end
-
-  def gallery?
-    show?
-  end
-
-  def gigs?
-    show?
-  end
-
-  def releases?
-    show?
-  end
-
   def permitted_attributes
     if @user.role?(:manager)
       PERMITTED_ATTRIBUTES - [:spotify_url, :rdio_url]
