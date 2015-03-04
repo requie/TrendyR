@@ -8,6 +8,8 @@ module Base
     before_action :authenticate_user!, :authorize_namespace!
     before_action :set_entity
     before_action :authorize_user!
+    before_action :set_profile, only: [:show, :edit, :update]
+    before_action :set_location_for_js, only: [:show]
 
     private
 
@@ -22,6 +24,14 @@ module Base
     # feel free to override in children
     def authorize_user!
       true
+    end
+
+    def set_profile
+      @profile = Profile.find(params[:id]).decorate
+    end
+
+    def set_location_for_js
+      gon.location = @profile.location
     end
   end
 end

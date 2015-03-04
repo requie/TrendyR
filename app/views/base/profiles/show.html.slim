@@ -1,21 +1,4 @@
-.profile-public.clearfix
-  .col-xs-12
-    .public-foto.mobile-center
-      a href="" 
-        = image_tag 'banners/public-manager-home.jpg',alt:'Name User'
-  .public-name
-    .col-md-9.col-xs-12
-      .name.mobile-center
-        h2
-          = @profile.name
-    .col-xs-12.col-sm-3.mobile-center
-      .eventName.pull-right
-        i.icon-place
-        p.empty
-          = @profile.location_address
-        a href=""
-          = @profile.website
-= render partial:'base/profiles/blocks/manadgMenu', locals:{profile:@profile}
+= render partial: 'base/blocks/profile_header', locals: {profile: @profile}
 .container.onTop.onBottom
   .row
     .col-md-8.borderRight
@@ -24,7 +7,4 @@
       = render partial: 'base/profiles/blocks/events', locals:{profile:@profile} if policy(@profile).show_events?
       = render partial: 'base/profiles/blocks/awards', locals:{profile:@profile} if policy(@profile).show_awards?
     .col-md-4.col-xs-12
-      = render partial: 'base/profiles/blocks/photos', locals:{profile:@profile} if policy(@profile).show_photos?
-      = render partial: 'base/profiles/blocks/music', locals:{profile:@profile} if policy(@profile).show_music?
-      = render partial: 'base/profiles/blocks/videos', locals:{profile:@profile} if policy(@profile).show_videos?
-      = render partial: 'base/profiles/blocks/location', locals:{profile:@profile} if policy(@profile).show_location?
+      = render partial: 'base/blocks/sidebar', locals:{profile:@profile}

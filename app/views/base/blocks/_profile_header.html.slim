@@ -1,0 +1,18 @@
+.profile-public.clearfix
+  .col-xs-12
+    .public-foto.mobile-center
+      a href=""
+        = image_tag 'banners/public-manager-home.jpg',alt:'Name User'
+  .public-name
+    .col-md-9.col-xs-12
+      .name.mobile-center
+        h2
+          = profile.name
+    .col-xs-12.col-sm-3.mobile-center
+      .eventName.pull-right
+        i.icon-place
+        p.empty
+          = profile.location_address
+        a href=""
+          = profile.website
+= render partial:'base/blocks/manadgMenu', locals:{profile:profile}

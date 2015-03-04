@@ -1,0 +1,16 @@
+.promo_more.mobile-center.gigs.clearfix
+= event_or_gig_photo(gig,'album_image/promoter.jpg')
+h4.static-content #{gig.title}
+.gigName.mobile-center
+  p
+    i.icon-dark-calendar
+    = period(gig)
+    p
+    i.icon-dark-place
+    - if gig.location
+      = gig.location.address
+    - else
+      br
+  p
+    i.icon-dark-money
+    | $ #{gig.price}

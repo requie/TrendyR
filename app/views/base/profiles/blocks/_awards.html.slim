@@ -1,13 +1,10 @@
 .borderTop
-  .clearfix.onTop
-    h4.regRoboto.headSize.standart.pull-left Recent awards
-    a.pull-right.link View all
-    - profile.owned_awards.ordered.each do |award|
-      .promo_more.mobile-center.gigs.clearfix
-      .promo-logo-now
-        a href=""
-          = image_tag 'album_image/promoter.jpg', class: 'mobile-center'
-      h4.static-content #{award.title}
-      .eventName.mobile-center
-        p
-          | Year: #{award.decorate.earning_year}
+  - if profile.owned_awards.any?
+    .clearfix.onTop
+      h4.regRoboto.headSize.standart.pull-left Recent awards
+      a.pull-right.link View all
+    = render partial: 'base/profiles/blocks/award', collection: @awards
+  - else
+    h4.regRoboto.headSize.standart Recent awards
+    p.emptyBlock
+      | No awards

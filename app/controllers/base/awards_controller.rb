@@ -6,6 +6,10 @@ module Base
       @awards = policy_scope(Award)
     end
 
+    def show
+      authorize @profile
+    end
+
     def new
       @award = Award.new
       authorize @award

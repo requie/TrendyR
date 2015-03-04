@@ -1,5 +1,5 @@
 module Base
-  class GigsController < Base::BaseController
+  class ArtistsController < Base::BaseController
     def show
       authorize @profile
     end

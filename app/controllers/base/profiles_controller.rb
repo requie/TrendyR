@@ -1,10 +1,10 @@
 module Base
   class ProfilesController < Base::BaseController
-    before_action :set_profile, only: [:show, :edit, :update]
-
     def show
       authorize @profile
-      gon.location = @profile.location
+      @gigs = @profile.owned_gigs.ordered
+      @events = @profile.owned_events.ordered
+      @awards = @profile.owned_awards.ordered
     end
 
     def edit
@@ -33,10 +33,6 @@ module Base
 
     def location_params
       params.require(:location).permit(*policy(:location).permitted_attributes)
-    end
-
-    def set_profile
-      @profile = Profile.find(params[:id]).decorate
     end
   end
 end

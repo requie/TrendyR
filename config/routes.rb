@@ -22,7 +22,16 @@ Rails.application.routes.draw do
   root to: 'devise/sessions#new'
 
   namespace :base, path: nil do
-    resources :home, :gigs, :awards, :profiles
+    resources :home
+    resources :gigs, :awards, except: :show
+    get 'profiles/:id/artists' => 'artists#show', as: :artists
+    get 'profiles/:id/awards' => 'awards#show', as: :awards_show
+    get 'profiles/:id/calendar' => 'calendar#show', as: :calendar
+    get 'profiles/:id/events' => 'events#show', as: :events
+    get 'profiles/:id/gallery' => 'gallery#show', as: :gallery
+    get 'profiles/:id/gigs' => 'gigs#show', as: :gigs_show
+    get 'profiles/:id/releases' => 'releases#show', as: :releases
+    resources :profiles
   end
 
   namespace :admin do
@@ -37,7 +46,7 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:new, :create] do
     member do
-      post 'crop'
+      put 'crop'
     end
   end
 
