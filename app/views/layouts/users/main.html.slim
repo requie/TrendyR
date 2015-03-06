@@ -7,10 +7,9 @@ html
       .page
         .sign-in
           = render 'layouts/users/blocks/header'
-          .container
-            .login.clearfix
-              .col-lg-6.col-sm-8.col-xs-10.centered
-                .login-block
-                  = yield
+          .login.clearfix
+            .col-lg-6.col-sm-8.col-xs-10.centered
+              .login-block
+                = yield
             = render 'layouts/blocks/footer'
     = render 'layouts/blocks/js'

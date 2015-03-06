@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     authenticated :user do
-      root to: 'base/home#index', as: :authenticated_root
+      root to: 'base/base#index', as: :authenticated_root
     end
 
     get 'users/password/recover' => 'users/passwords#password_recover_instructions', as: :recover
@@ -31,7 +31,6 @@ Rails.application.routes.draw do
     get 'profiles/:id/gallery' => 'gallery#show', as: :gallery
     get 'profiles/:id/gigs' => 'gigs#show', as: :gigs_show
     get 'profiles/:id/releases' => 'releases#show', as: :releases
-    resources :profiles
   end
 
   namespace :admin do

@@ -1,0 +1,10 @@
+= render partial: 'base/blocks/profile_header', locals: {profile: @profile}
+.container.onTop.onBottom
+  .row
+    .col-md-8.borderRight
+      = render partial: 'base/home/blocks/about', locals:{profile:@profile}
+      = render partial: 'base/home/blocks/gigs', locals:{profile:@profile} if policy(@profile).show_gigs?
+      = render partial: 'base/home/blocks/events', locals:{profile:@profile} if policy(@profile).show_events?
+      = render partial: 'base/home/blocks/awards', locals:{profile:@profile} if policy(@profile).show_awards?
+    .col-md-4.col-xs-12
+      = render partial: 'base/blocks/sidebar', locals:{profile:@profile}

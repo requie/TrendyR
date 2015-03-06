@@ -2,7 +2,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = 'menuActive'
 
   navigation.items do |primary|
-    primary.item :home, 'Home', base_profile_path
+    primary.item :home, 'Home', base_home_path
     primary.item :gigs, 'My gigs', base_gigs_show_path(@profile.id), if: proc { policy(@profile).show_gigs? }
     primary.item :artists, 'Artists', base_artists_path(@profile.id), if: proc { policy(@profile).show_item_artists? }
     primary.item :releases, 'Releases', base_releases_path(@profile.id), if:

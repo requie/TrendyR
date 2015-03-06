@@ -11,6 +11,10 @@ module Base
     before_action :set_profile, only: [:show, :edit, :update]
     before_action :set_location_for_js, only: [:show]
 
+    def index
+      redirect_to base_home_path(current_user.profile.id)
+    end
+
     private
 
     def authorize_namespace!
