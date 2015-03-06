@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   root to: 'devise/sessions#new'
 
+  patch 'home/:id/edit' => 'base/home#update',as: :update_base_home
+
   namespace :base, path: nil do
     resources :home
     resources :gigs, :awards, except: :show

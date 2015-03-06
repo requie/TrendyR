@@ -15,7 +15,7 @@ module Base
       authorize @profile
       set_location
       @profile.update(profile_params)
-      respond_with(@profile, location: base_profile_path)
+      respond_with(@profile, location: edit_base_home_path)
     end
 
     private

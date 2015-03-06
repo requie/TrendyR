@@ -12,7 +12,7 @@ module Base
     before_action :set_location_for_js, only: [:show]
 
     def index
-      redirect_to base_home_path(current_user.profile.id)
+      redirect_to edit_base_home_path(current_user.profile.id)
     end
 
     private
