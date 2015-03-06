@@ -114,3 +114,24 @@
 .venueGallery .nameGallery {
   background: asset-url('background/public-name.png') repeat;
 }
+
+.slider .slick-prev,
+.slider .slick-next {
+  background-image: asset-url('icons/sprite.png');
+}
+
+.vjs-big-play-button {
+  background-image: asset-url('icons/sprite.png');
+}
+
+.fancybox-overlay {
+  background: asset-url('icons/fancybox_overlay.png');
+}
+
+#fancybox-loading div {
+  background: asset-url('icons/fancybox_loading.gif') center center no-repeat;
+}
+
+.fancybox-close, .fancybox-prev span, .fancybox-next span {
+  background-image: asset-url('icons/sprite.png');
+}

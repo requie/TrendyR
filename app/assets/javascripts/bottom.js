@@ -7,11 +7,18 @@
 //= require jquery.min
 //= require jquery-ui.min
 //= require jquery.ui.touch-punch.min
+//= require jquery.fancybox.pack
+//= require jquery.jtruncate
 //= require bootstrap.min
 //= require tinynav.min
+//= require slick
+//= require function
 //= require scripts
 //= require checkBo.min
 //= require parsley
+//= require audio
+//= require player
+//= require video
 
 (function($) {
   $(function() {

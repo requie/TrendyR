@@ -20,9 +20,20 @@
   font-family: 'FontAwesome';
   src: font-url('fontawesome-webfont.eot?v=4.2.0');
   src: font-url('fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),
-       font-url('fontawesome-webfont.woff?v=4.2.0') format('woff'),
-       font-url('fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
-       font-url('fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  font-url('fontawesome-webfont.woff?v=4.2.0') format('woff'),
+  font-url('fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
+  font-url('fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VideoJS';
+  src: font-url('vjs.eot');
+  src: font-url('vjs.eot') format('embedded-opentype'),
+  font-url('vjs.woff') format('woff'),
+  font-url('vjs.ttf') format('truetype'),
+  font-url('vjs.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
