@@ -23,7 +23,7 @@
   .profile.clearfix
     h5.static-content
       | About
-    = simple_form_for [:base, @profile] do |f|
+    = simple_form_for [:base, @profile], url: update_base_home_path(@profile) do |f|
       .row
         .col-sm-6
           = f.input :name, input_html: { class: 'form-control', 'data-required' => true }, placeholder: @profile.name_placeholder
