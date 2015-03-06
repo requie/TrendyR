@@ -13,4 +13,6 @@
  *= require font-awesome
  *= require paths
  *= require dev
+ *= require import/jquery.fancybox
+ *= require video-js
  */
