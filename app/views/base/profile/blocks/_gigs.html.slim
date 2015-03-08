@@ -3,7 +3,7 @@
     - if profile.owned_gigs.any?
       h4.regRoboto.headSize.standart.pull-left My gigs
       a.pull-right.link View all
-      = render partial: 'base/home/blocks/gig', collection: @gigs
+      = render partial: 'base/profile/blocks/gig', collection: profile.owned_gigs
     - else
       h4.regRoboto.headSize.standart My gigs
       p.emptyBlock

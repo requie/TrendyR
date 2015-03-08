@@ -1,6 +1,6 @@
+h2.text-uc Sign in
+= render 'blocks/social'
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name), defaults: {input_html: { class: 'form-control' }}) do |f|
-  h2.text-uc Sign in
-  = render 'blocks/social'
   .col-xs-9.col-sm-10.centered
     .log-pass.clearfix
       .row

@@ -24,7 +24,7 @@ server '54.172.181.64', user: 'deploy', roles: %w(web app db)
 # Global options
 # --------------
 #  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
+#    keys: %w(/profile/rlisowski/.ssh/id_rsa),
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
@@ -36,7 +36,7 @@ server '54.172.181.64', user: 'deploy', roles: %w(web app db)
 #   roles: %w{web app},
 #   ssh_options: {
 #     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
+#     keys: %w(/profile/user_name/.ssh/id_rsa),
 #     forward_agent: false,
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'

@@ -8,11 +8,11 @@ module Base
     before_action :authenticate_user!, :authorize_namespace!
     before_action :set_entity
     before_action :authorize_user!
-    before_action :set_profile, only: [:show, :edit, :update]
-    before_action :set_location_for_js, only: [:show]
+    before_action :set_profile, only: [:index, :show, :edit, :update]
+    before_action :set_location_for_js, only: [:index, :show]
 
-    def index
-      redirect_to edit_base_home_path(current_user.profile.id)
+    def root
+      redirect_to edit_base_profile_path(current_user.profile)
     end
 
     private
@@ -31,7 +31,9 @@ module Base
     end
 
     def set_profile
-      @profile = Profile.find(params[:id]).decorate
+      id = params[:id] || params[:profile_id]
+      @profile = Profile.find(id).decorate
+      authorize @profile, "#{action_name}?"
     end
 
     def set_location_for_js

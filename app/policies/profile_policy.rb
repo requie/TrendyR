@@ -3,6 +3,7 @@ class ProfilePolicy
     :name, :website, :description_text, :spotify_url, :rdio_url, :facebook_url,
     :twitter_url, :google_plus_url, :instagram_url, genre_ids: []
   ]
+
   attr_reader :user, :profile
 
   def initialize(user, profile)
@@ -10,52 +11,12 @@ class ProfilePolicy
     @profile = profile
   end
 
-  def show?
+  def index?
     true
   end
 
-  def show_gigs?
-    @profile.user.roles? %w(artist venue)
-  end
-
-  def show_events?
-    @profile.user.roles? %w(artist label manager venue)
-  end
-
-  def show_awards?
-    @profile.user.roles? %w(label producer)
-  end
-
-  def show_photos?
-    @profile.user.roles? %w(artist venue)
-  end
-
-  def show_music?
-    @profile.user.role?(:artist)
-  end
-
-  def show_videos?
-    @profile.user.roles? %w(artist label)
-  end
-
-  def show_location?
-    @profile.user.roles? %w(label manager producer venue)
-  end
-
-  def show_item_artists?
-    @profile.user.roles? %w(label manager producer)
-  end
-
-  def show_item_releases?
-    @profile.user.roles? %w(artist label producer)
-  end
-
-  def show_item_calendar?
-    @profile.user.roles? %w(label manager venue)
-  end
-
-  def show_item_press_kit?
-    @profile.user.role?(:artist)
+  def show?
+    true
   end
 
   def edit?

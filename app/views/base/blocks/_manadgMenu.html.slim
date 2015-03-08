@@ -14,7 +14,7 @@
         a href="#"
           i.icon-mess
           p.text-uc message
-    = render_navigation context: :profile
+    = render_navigation(context: :profile)
     .social-gray.pull-right
       ul
         - if profile.facebook_url.present?

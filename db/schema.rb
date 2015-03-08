@@ -204,8 +204,25 @@ ActiveRecord::Schema.define(version: 20150223125310) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
+
+  add_foreign_key "awards", "photos", name: "awards_photo_id_fk"
+  add_foreign_key "awards", "profiles", name: "awards_owner_profile_id_fk", column: "owner_profile_id"
+
+  add_foreign_key "events", "locations", name: "events_location_id_fk"
+  add_foreign_key "events", "photos", name: "events_photo_id_fk"
+  add_foreign_key "events", "profiles", name: "events_owner_profile_id_fk", column: "owner_profile_id"
+
   add_foreign_key "genres_profiles", "genres", name: "genres_profiles_genre_id_fk", dependent: :delete
   add_foreign_key "genres_profiles", "profiles", name: "genres_profiles_profile_id_fk", dependent: :delete
+
+  add_foreign_key "gigs", "locations", name: "gigs_location_id_fk"
+  add_foreign_key "gigs", "photos", name: "gigs_photo_id_fk"
+  add_foreign_key "gigs", "profiles", name: "gigs_owner_profile_id_fk", column: "owner_profile_id"
+
+  add_foreign_key "identities", "users", name: "identities_user_id_fk", dependent: :delete
+
+  add_foreign_key "labels", "profiles", name: "labels_profile_id_fk", dependent: :delete
 
   add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 

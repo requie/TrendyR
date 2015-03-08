@@ -1,7 +1,6 @@
 module Base
   class ArtistsController < Base::BaseController
-    def show
-      authorize @profile
+    def index
     end
   end
 end

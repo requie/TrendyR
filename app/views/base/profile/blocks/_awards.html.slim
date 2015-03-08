@@ -3,7 +3,7 @@
     .clearfix.onTop
       h4.regRoboto.headSize.standart.pull-left Recent awards
       a.pull-right.link View all
-    = render partial: 'base/home/blocks/award', collection: @awards
+    = render partial: 'base/profile/blocks/award', collection: profile.owned_awards
   - else
     h4.regRoboto.headSize.standart Recent awards
     p.emptyBlock

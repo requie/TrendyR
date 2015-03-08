@@ -10,14 +10,12 @@ class Role < ActiveRecord::Base
 
   # get role object by its name
   def self.instance(role_name)
-    role_name = role_name.to_s unless role_name.is_a?(String)
-    find_by_name(role_name)
+    find_by(name: role_name.to_s)
   end
 
   # check if role is public by passing it's name
   def self.public?(role_name)
-    role_name = role_name.to_s unless role_name.is_a?(String)
-    PUBLIC.include?(role_name)
+    PUBLIC.include?(role_name.to_s)
   end
 
   # UI titles for the public roles

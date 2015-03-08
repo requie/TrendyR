@@ -27,16 +27,6 @@ module Users
 
     def create
       @user = build_user
-      if @user.nil?
-        redirect_to root_path
-        return
-      end
-      unless @user.save
-        render :register
-        return
-      end
-      session['omniauth'] = nil
-      @user.after_confirmation
       if @user.active_for_authentication?
         set_flash_message(:notice, :signed_up) if is_flashing_format?
         sign_in(@user)
@@ -68,15 +58,20 @@ module Users
     end
 
     def build_user
-      user_attributes = session['omniauth']
-      return if user_attributes.nil?
-      user_attributes.symbolize_keys!
       user = User.new(user_attributes)
       required_attributes = user.identity.twitter? ? %i(email role_ids) : %i(role_ids)
       attributes = params.require(:user).permit(required_attributes)
       user.assign_attributes(attributes.merge(password: Devise.friendly_token))
       user.skip_confirmation! unless user.identity.twitter?
+      user.after_confirmation
       user
+    end
+
+    def user_attributes
+      user_attributes = session['omniauth']
+      session['omniauth'] = nil
+      fail ArgumentError if user_attributes.nil?
+      user_attributes.symbolize_keys!
     end
   end
 end

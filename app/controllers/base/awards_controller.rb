@@ -3,33 +3,23 @@ module Base
     before_action :set_award, only: [:edit, :update]
 
     def index
-      @awards = policy_scope(Award)
-    end
-
-    def show
-      authorize @profile
     end
 
     def new
       @award = Award.new
-      authorize @award
     end
 
     def create
-      @award = Award.new(new_award_params)
-      authorize @award
-      @award.save
-      respond_with(@award, location: base_awards_path)
+      @award = Award.create(new_award_params)
+      respond_with(@award, location: base_profile_awards_path)
     end
 
     def edit
-      authorize @award
     end
 
     def update
-      authorize @award
       @award.update(award_params)
-      respond_with(@award, location: base_awards_path)
+      respond_with(@award, location: base_profile_awards_path)
     end
 
     private
@@ -44,6 +34,7 @@ module Base
 
     def set_award
       @award = Award.find(params[:id])
+      authorize @award, "#{action_name}?"
     end
   end
 end

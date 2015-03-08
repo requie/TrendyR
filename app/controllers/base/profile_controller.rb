@@ -1,21 +1,15 @@
 module Base
-  class HomeController < Base::BaseController
+  class ProfileController < Base::BaseController
     def show
-      authorize @profile
-      @gigs = @profile.owned_gigs.ordered
-      @events = @profile.owned_events.ordered
-      @awards = @profile.owned_awards.ordered
     end
 
     def edit
-      authorize @profile
     end
 
     def update
-      authorize @profile
       set_location
       @profile.update(profile_params)
-      respond_with(@profile, location: edit_base_home_path)
+      respond_with(@profile, location: edit_base_profile_path)
     end
 
     private

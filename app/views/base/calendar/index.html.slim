@@ -1,4 +1,4 @@
-= render partial: 'base/blocks/profile_header', locals: {profile: @profile}
+= render partial: 'base/blocks/profile_header', locals: { profile: @profile }
 .container.onTop.onBottom
   .col-md-8.borderRight
     h5.regRoboto.headSize.standart All events
@@ -20,7 +20,7 @@
           | March 21, 2014
       .promo_more.mobile-center.gigs.clearfix
         .promo-logo-now
-          a href=""
+          a href="#"
             = image_tag 'album_image/promoter.jpg'
             .logo-now NOW
         h4.static-content Breakthrough to Blue 'n' Roots
@@ -40,7 +40,7 @@
           | March 21, 2014
       .promo_more.mobile-center.gigs.clearfix
         .promo-logo-days
-          a href=""
+          a href="#"
             = image_tag 'album_image/promoter.jpg'
             .logo-days 15 days
         h4.static-content Breakthrough to Blue 'n' Roots
@@ -58,7 +58,7 @@
         p March 21, 2014
       .promo_more.mobile-center.gigs.clearfix
         .promo-logo-month
-          a href=""
+          a href="#"
             = image_tag 'album_image/promoter.jpg'
             .logo-month 5 mth
         h4.static-content Breakthrough to Blue 'n' Roots
@@ -73,4 +73,4 @@
             i.icon-dark-money
             | $ 40.00
   .col-md-4.col-xs-12
-    = render partial: 'base/blocks/sidebar', locals:{profile:@profile}
+    = render partial: 'base/blocks/sidebar', locals:{ profile:@profile }
