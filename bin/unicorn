@@ -20,7 +20,7 @@ TIMEOUT=${TIMEOUT-60}
 SCRIPT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 APP_ROOT="$(dirname "$SCRIPT_ROOT")"
 PID=$APP_ROOT/tmp/pids/unicorn.pid
-CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E development"
+CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E $RAILS_ENV"
 set -u
 
 OLD_PIN="$PID.oldbin"
@@ -50,7 +50,12 @@ force-stop)
   sig TERM && exit 0
   echo >&2 "Not running"
   ;;
-restart|reload)
+restart)
+  sig QUIT && echo "Restarting" && sleep 2 \
+      && run "$CMD" && exit 0
+  echo >&2 "Couldn't restart."
+  ;;
+reload)
   sig HUP && echo reloaded OK && exit 0
   echo >&2 "Couldn't reload, starting '$CMD' instead"
   run "$CMD"
