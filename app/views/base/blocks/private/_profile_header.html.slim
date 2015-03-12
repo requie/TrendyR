@@ -1,0 +1,15 @@
+.manadgmentFoto.clearfix
+  = image_tag 'enot-derevo-priroda.jpg', alt:"User's avatar", class: 'manageAvatar'
+  .col-md-8.col-md-offset-2
+    .text-center
+      input.form-control.uploadfile multiple="" type="file"
+      button.btn.btn-primary.newSelect Upload wallpaper
+    .managerAvatar
+      = image_tag 'enot.jpg', alt:"User's avatar"
+      input.form-control.uploadbtn multiple="" type="file"
+      .btn.btn-primary.fileSelect
+        p Upload photo
+    input.form-control.uploadbtn multiple="" type="file"
+.manadgMenu.clearfix
+  .col-md-8.col-md-offset-2
+    = render_navigation(context: :private_profile)

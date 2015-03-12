@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     authorize @photo
+    @photo.uploader = current_user
     @photo.save
   end
 
@@ -9,6 +10,12 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     authorize @photo
     @photo.update(crop_photo_params)
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    render nothing: true
   end
 
   private

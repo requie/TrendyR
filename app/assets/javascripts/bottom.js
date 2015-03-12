@@ -19,6 +19,7 @@
 //= require audio
 //= require player
 //= require video
+//= require jquery-fileupload/basic-plus
 //= require jquery_ujs
 
 (function($) {

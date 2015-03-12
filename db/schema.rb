@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223125310) do
+ActiveRecord::Schema.define(version: 20150309140741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20150223125310) do
     t.boolean  "is_active",        default: true
     t.integer  "owner_profile_id"
     t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.text     "text"
+    t.boolean  "is_active"
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -128,6 +136,19 @@ ActiveRecord::Schema.define(version: 20150223125310) do
     t.datetime "updated_at"
   end
 
+  create_table "photo_albums", force: true do |t|
+    t.string   "title"
+    t.boolean  "is_active",        default: true
+    t.integer  "owner_profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photo_albums_photos", id: false, force: true do |t|
+    t.integer "photo_album_id", null: false
+    t.integer "photo_id",       null: false
+  end
+
   create_table "photos", force: true do |t|
     t.integer  "crop_x"
     t.integer  "crop_y"
@@ -165,6 +186,22 @@ ActiveRecord::Schema.define(version: 20150223125310) do
     t.integer  "location_id"
   end
 
+  create_table "releases", force: true do |t|
+    t.string   "title"
+    t.text     "description_text"
+    t.datetime "published_at"
+    t.boolean  "is_active"
+    t.integer  "artist_id"
+    t.integer  "photo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "releases_songs", id: false, force: true do |t|
+    t.integer "release_id", null: false
+    t.integer "song_id",    null: false
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.boolean  "is_active",  default: true
@@ -176,6 +213,19 @@ ActiveRecord::Schema.define(version: 20150223125310) do
   create_table "roles_users", id: false, force: true do |t|
     t.integer "role_id", null: false
     t.integer "user_id", null: false
+  end
+
+  create_table "songs", force: true do |t|
+    t.string   "attachment_uid"
+    t.string   "source"
+    t.string   "source_id"
+    t.integer  "duration"
+    t.string   "title"
+    t.datetime "published_at"
+    t.boolean  "is_active"
+    t.integer  "uploader_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -204,29 +254,32 @@ ActiveRecord::Schema.define(version: 20150223125310) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
+  create_table "videos", force: true do |t|
+    t.string   "attachment_uid"
+    t.string   "source"
+    t.string   "source_id"
+    t.integer  "duration"
+    t.string   "title"
+    t.text     "description_text"
+    t.boolean  "is_active"
+    t.integer  "uploader_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
-  add_foreign_key "awards", "photos", name: "awards_photo_id_fk"
-  add_foreign_key "awards", "profiles", name: "awards_owner_profile_id_fk", column: "owner_profile_id"
-
-  add_foreign_key "events", "locations", name: "events_location_id_fk"
-  add_foreign_key "events", "photos", name: "events_photo_id_fk"
-  add_foreign_key "events", "profiles", name: "events_owner_profile_id_fk", column: "owner_profile_id"
+  add_foreign_key "comments", "users", name: "comments_author_id_fk", column: "author_id"
 
   add_foreign_key "genres_profiles", "genres", name: "genres_profiles_genre_id_fk", dependent: :delete
   add_foreign_key "genres_profiles", "profiles", name: "genres_profiles_profile_id_fk", dependent: :delete
 
-  add_foreign_key "gigs", "locations", name: "gigs_location_id_fk"
-  add_foreign_key "gigs", "photos", name: "gigs_photo_id_fk"
-  add_foreign_key "gigs", "profiles", name: "gigs_owner_profile_id_fk", column: "owner_profile_id"
-
-  add_foreign_key "identities", "users", name: "identities_user_id_fk", dependent: :delete
-
-  add_foreign_key "labels", "profiles", name: "labels_profile_id_fk", dependent: :delete
-
   add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 
   add_foreign_key "managers", "profiles", name: "managers_profile_id_fk", dependent: :delete
+
+  add_foreign_key "photo_albums", "profiles", name: "photo_albums_owner_profile_id_fk", column: "owner_profile_id"
+
+  add_foreign_key "photo_albums_photos", "photo_albums", name: "photo_albums_photos_photo_album_id_fk", dependent: :delete
+  add_foreign_key "photo_albums_photos", "photos", name: "photo_albums_photos_photo_id_fk", dependent: :delete
 
   add_foreign_key "photos", "users", name: "photos_uploader_id_fk", column: "uploader_id"
 
@@ -237,9 +290,19 @@ ActiveRecord::Schema.define(version: 20150223125310) do
   add_foreign_key "profiles", "photos", name: "profiles_wallpaper_id_fk", column: "wallpaper_id"
   add_foreign_key "profiles", "users", name: "profiles_user_id_fk", dependent: :delete
 
+  add_foreign_key "releases", "artists", name: "releases_artist_id_fk"
+  add_foreign_key "releases", "photos", name: "releases_photo_id_fk"
+
+  add_foreign_key "releases_songs", "releases", name: "releases_songs_release_id_fk", dependent: :delete
+  add_foreign_key "releases_songs", "songs", name: "releases_songs_song_id_fk", dependent: :delete
+
   add_foreign_key "roles_users", "roles", name: "roles_users_role_id_fk", dependent: :delete
   add_foreign_key "roles_users", "users", name: "roles_users_user_id_fk", dependent: :delete
 
+  add_foreign_key "songs", "users", name: "songs_uploader_id_fk", column: "uploader_id"
+
   add_foreign_key "venues", "profiles", name: "venues_profile_id_fk", dependent: :delete
+
+  add_foreign_key "videos", "users", name: "videos_uploader_id_fk", column: "uploader_id"
 
 end

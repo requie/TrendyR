@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_one :identity
   has_many :role_user
   has_many :roles, through: :role_user
+  has_many :photos, foreign_key: :uploader_id
 
   validates :first_name, :last_name, length: { maximum: MAX_LENGTH }, format: { with: NAME_FORMAT }, allow_blank: true
   validates :roles, presence: true

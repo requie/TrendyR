@@ -1,24 +1,4 @@
-.manadgmentFoto.clearfix
-  .col-md-8.col-md-offset-2
-    .row
-      .col-xs-4.col-sm-3.col-md-4.col-lg-3
-        .managerAvatar
-          = image_tag 'icons/avatar-user.png'
-          .btn.btn-primary.fileSelect
-            p Upload photo
-      .form-group
-        button.btn.btn-primary.newSelect Upload wallpaper
-.manadgMenu.clearfix
-  .col-md-8.col-md-offset-2
-    ul
-      li
-        a.menuActive href="#"  Home
-      li
-        a href="#"  My gigs
-      li
-        a href="#"  My events
-      li
-        a href="#"  My gallery
+= render partial: 'base/blocks/private/profile_header'
 .col-md-8.col-md-offset-2.custom-form
   .profile.clearfix
     h5.static-content

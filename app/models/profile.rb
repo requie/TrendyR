@@ -9,8 +9,10 @@ class Profile < ActiveRecord::Base
   has_many :owned_events, -> { order(:started_at) }, class_name: 'Event', foreign_key: :owner_profile_id
   has_many :owned_gigs, -> { order(:started_at) }, class_name: 'Gig', foreign_key: :owner_profile_id
   has_many :owned_awards, -> { order(:earned_at) }, class_name: 'Award', foreign_key: :owner_profile_id
-  has_many :genre_profiles, class_name: 'GenreProfile'
+  has_many :genre_profiles
   has_many :genres, through: :genre_profiles
+  has_many :owned_photo_albums, class_name: 'PhotoAlbum', foreign_key: :owner_profile_id
+  has_many :owned_releases, class_name: 'Release', foreign_key: :owner_profile_id
 
   accepts_nested_attributes_for :photo, :wallpaper
 

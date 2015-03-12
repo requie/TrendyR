@@ -1,0 +1,29 @@
+= simple_form_for [:base, @profile || :profile, @photo_album], defaults: { input_html: { class: 'form-control' } } do |f|
+  = f.input :title, placeholder: 'Title'
+  .form-group.row
+    .col-xs-12.col-sm-6.col-md-3
+      .well.text-center
+        .cover
+          .btn.btn-primary.fileSelect
+            p Upload cover
+
+          p Png, Jpg
+  .form-group
+    .text-right
+      button.btn.btn-primary Submit
+
+.col-xs-12.col-sm-6.col-md-3
+  .well.picture.m-b10.hidden
+    .countBar 0%
+    .lineBar data-value="0"
+      .progressBar
+
+.editPicture.hidden
+  a href="" rel="group"
+    img src=""
+  i.icon-removePicture
+
+input multiple="" action="#{photos_path}.json" id="upload" class='uploadbtn' name="photo[attachment]" type="file"
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/photo_album/edit'

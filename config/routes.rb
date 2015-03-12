@@ -23,7 +23,8 @@ Rails.application.routes.draw do
 
   namespace :base, path: nil do
     resources :profile  do
-      resources :artists, :awards, :calendar, :events, :gallery, :gigs, :releases
+      resource :gallery
+      resources :artists, :awards, :calendar, :events, :gigs, :releases, :photo_albums
     end
   end
 
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
   # Test routes for uploads, must remove it before rolling out to production
   resources :uploads
 
-  resources :photos, only: [:new, :create] do
+  resources :photos, only: [:create, :destroy] do
     member do
       put 'crop'
     end
