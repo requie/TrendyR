@@ -83,6 +83,7 @@ var resizeFooter = function ($mainBlock) {
 		$mainBlock.height($windows - $footer.height());
 	}
 }
+
 // [ Height ]
 $.fn.equivalent = function (){
 	var $blocks = $(this),
@@ -91,4 +92,29 @@ $.fn.equivalent = function (){
 		maxH = ( $(this).height() > maxH ) ? $(this).height() : maxH;				
 	});
 	$blocks.height(maxH); 
+}
+
+var progressBar = function(){
+	for (var $count = 0; $count < 1; $count++){		
+		setInterval(function(){
+     		$('.progressBar').text($count++ + "%");		     		
+     		if($count === 100){
+				$count = 0;
+			}
+  		}, 100
+		);
+	}	
+}
+
+/*---------- [Tabs] ------------*/
+
+var Tabs = function Tabs($box) {
+    //var $tabsBlock = $tab.find('ul');
+   // $tab.on('click', 'li:not(.active)', function() {
+    $(document).on('click', ('.dateTabs li:not(.active)'), function() {
+        var $this = $(this);            
+        $this.addClass('active').siblings().removeClass('active')
+            .parents('.container').find('.concert.visible').find('.bookMe').eq($this.index()).fadeIn(150).siblings('.concert.visible .bookMe').hide();
+     
+    })
 }

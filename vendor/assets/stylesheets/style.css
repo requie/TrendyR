@@ -18,6 +18,9 @@
   color: red;
   text-align: right;
   margin-bottom: 10px;
+  position: absolute;
+  right: 10px;
+  top: 6px;
 }
 .navbar-brand img {
   z-index: 9999;
@@ -104,6 +107,73 @@ p strong {
 }
 .inner-footer ul li {
   float: left;
+}
+.has-error .error-message {
+  position: static;
+  text-align: left;
+  padding-top: 50px;
+}
+.shadow {
+  position: fixed;
+  background-color: #000000;
+  opacity: 0.6;
+  z-index: 9998;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.crop-lock {
+  overflow: hidden !important;
+  width: auto;
+}
+.crop {
+  position: absolute;
+  top: 120px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  z-index: 9999;
+  text-align: center;
+}
+.crop .crop_picture {
+  max-width: 100%;
+  max-height: 600px;
+  position: relative;
+}
+.crop .btn-primary {
+  float: right;
+  margin-top: 10px;
+}
+.crop .crop_text {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+  float: left;
+  margin-top: 20px;
+}
+.crop .crop_content {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+.crop .jcrop-holder {
+  margin: auto;
+}
+.crop .jcrop-holder .jcrop-move {
+  max-width: 1170px;
+  max-height: 240px;
+}
+.crop .jcrop-holder .jcrop-tracker {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  cursor: crosshair;
 }
 /*------------[Icons]---------------*/
 .icon-close-block {
@@ -1605,6 +1675,8 @@ p strong {
 }
 .sign-in .login .log-pass {
   position: relative;
+  margin-top: 10px;
+  padding-top: 20px;
 }
 .sign-in .login .log-pass p {
   margin-top: 10px;
@@ -1704,7 +1776,6 @@ ul.navbar-nav {
 }
 /*------------[Manadgment]---------------*/
 .manadgmentFoto {
-  background: url(../images/enot-derevo-priroda.jpg);
   background-size: cover;
 }
 .manadgmentFoto.backNone {
@@ -1781,6 +1852,8 @@ ul.navbar-nav {
 .static-content {
   font-size: 16px;
   font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 15px;
 }
 label {
   color: #777!important;
@@ -1911,6 +1984,49 @@ label {
 .venueGallery img {
   width: 100%;
 }
+.editPicture {
+  height: 133px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.editPicture img {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: 100%;
+}
+.editPicture i.icon-removePicture {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-position: -63px -472px;
+  width: 16px;
+  height: 16px;
+}
+.editPicture i.icon-removePicture:hover {
+  background-position: -91px -472px;
+  cursor: pointer;
+}
+.well.picture {
+  height: 133px;
+}
+.countBar {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  font-weight: 700;
+  margin-top: 30px;
+}
+.waitingUpload {
+  color: #474747;
+  margin-top: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+  text-align: center;
+}
 /*------------[Public profile]---------------*/
 .profile-public {
   background: url('../images/banners/public-manager-home.jpg') no-repeat;
@@ -2012,7 +2128,7 @@ label {
 .date:after {
   content: '';
   position: absolute;
-  background: url('../images/icons/sprite.png') no-repeat -25px -68px;
+  background: url('../images/icons/sprite.png') no-repeat -24px -68px;
   width: 16px;
   height: 16px;
   right: 15px;
@@ -2310,6 +2426,35 @@ label {
   font-size: 16px;
   color: #4d4d4d;
   margin-top: 0px;
+}
+.bookMe {
+  display: none;
+}
+.bookMe th:first-child,
+.bookMe td:first-child {
+  width: 25%;
+}
+.bookMe th,
+.bookMe td {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+}
+.bookMe span {
+  color: #a9a9a9;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+}
+.bookMe .btn-primary {
+  margin-top: -5px;
+}
+.bookMe.visible {
+  display: block;
+}
+.concert {
+  display: none;
+}
+.concert.visible {
+  display: block;
 }
 /*------------[Music player]---------------*/
 .audiojs audio {
@@ -2634,6 +2779,10 @@ label {
 .regRoboto {
   font-family: 'Roboto', sans-serif;
 }
+.lightRoboto {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+}
 /*---------------Font size-----------------------*/
 .headSize {
   font-size: 22px;
@@ -2688,6 +2837,10 @@ button:focus:active {
   font-size: 9px;
   margin-top: 10px;
 }
+.btn-primary {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+}
 /*------------[Calendar]---------------*/
 .ui-datepicker {
   margin-top: 15px;
@@ -2723,10 +2876,6 @@ button:focus:active {
 }
 .ui-datepicker table tr td a:hover {
   text-decoration: none;
-}
-.ui-datepicker table tr td:hover {
-  /*border: 1px solid @green-border;					
-					z-index:11;*/
 }
 .ui-datepicker table tr td:hover a {
   color: #149d5e;
@@ -2804,6 +2953,25 @@ button:focus:active {
   border-left: 10px solid rgba(255, 241, 190, 0);
   border-right: 10px solid rgba(255, 241, 190, 0);
   border-bottom: 10px solid white;
+}
+.dateTabs {
+  padding-left: 0px;
+}
+.dateTabs li {
+  float: left;
+  margin-left: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+  list-style: none;
+  color: #ababab;
+}
+.dateTabs li.active {
+  color: #000000;
+  font-weight: 700;
+}
+.dateTabs li:hover {
+  cursor: pointer;
+  color: #000000;
 }
 /*------------[Calendar]---------------*/
 /*------------[Pagination]---------------*/
@@ -3789,7 +3957,7 @@ button:focus:active {
   margin-bottom: 10px;
 }
 .m-b10 {
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
 }
 .m--10 {
   margin: -10px;
@@ -32352,6 +32520,418 @@ $counter: 40;
     width: 100%;
   }
 }
+/*------------[ProgressBar]---------------*/
+.lineBar {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  position: relative;
+  border-radius: 4px;
+}
+.lineBar .progressBar {
+  height: 2px;
+  position: absolute;
+}
+.lineBar[data-value="1"] .progressBar {
+  background: #12cc76;
+  width: 1%;
+}
+.lineBar[data-value="2"] .progressBar {
+  background: #12cc76;
+  width: 2%;
+}
+.lineBar[data-value="3"] .progressBar {
+  background: #12cc76;
+  width: 3%;
+}
+.lineBar[data-value="4"] .progressBar {
+  background: #12cc76;
+  width: 4%;
+}
+.lineBar[data-value="5"] .progressBar {
+  background: #12cc76;
+  width: 5%;
+}
+.lineBar[data-value="6"] .progressBar {
+  background: #12cc76;
+  width: 6%;
+}
+.lineBar[data-value="7"] .progressBar {
+  background: #12cc76;
+  width: 7%;
+}
+.lineBar[data-value="8"] .progressBar {
+  background: #12cc76;
+  width: 8%;
+}
+.lineBar[data-value="9"] .progressBar {
+  background: #12cc76;
+  width: 9%;
+}
+.lineBar[data-value="10"] .progressBar {
+  background: #12cc76;
+  width: 10%;
+}
+.lineBar[data-value="11"] .progressBar {
+  background: #12cc76;
+  width: 11%;
+}
+.lineBar[data-value="12"] .progressBar {
+  background: #12cc76;
+  width: 12%;
+}
+.lineBar[data-value="13"] .progressBar {
+  background: #12cc76;
+  width: 13%;
+}
+.lineBar[data-value="14"] .progressBar {
+  background: #12cc76;
+  width: 14%;
+}
+.lineBar[data-value="15"] .progressBar {
+  background: #12cc76;
+  width: 15%;
+}
+.lineBar[data-value="16"] .progressBar {
+  background: #12cc76;
+  width: 16%;
+}
+.lineBar[data-value="17"] .progressBar {
+  background: #12cc76;
+  width: 17%;
+}
+.lineBar[data-value="18"] .progressBar {
+  background: #12cc76;
+  width: 18%;
+}
+.lineBar[data-value="19"] .progressBar {
+  background: #12cc76;
+  width: 19%;
+}
+.lineBar[data-value="20"] .progressBar {
+  background: #12cc76;
+  width: 20%;
+}
+.lineBar[data-value="21"] .progressBar {
+  background: #12cc76;
+  width: 21%;
+}
+.lineBar[data-value="22"] .progressBar {
+  background: #12cc76;
+  width: 22%;
+}
+.lineBar[data-value="23"] .progressBar {
+  background: #12cc76;
+  width: 23%;
+}
+.lineBar[data-value="24"] .progressBar {
+  background: #12cc76;
+  width: 24%;
+}
+.lineBar[data-value="25"] .progressBar {
+  background: #12cc76;
+  width: 25%;
+}
+.lineBar[data-value="26"] .progressBar {
+  background: #2cb073;
+  width: 26%;
+}
+.lineBar[data-value="27"] .progressBar {
+  background: #2cb073;
+  width: 27%;
+}
+.lineBar[data-value="28"] .progressBar {
+  background: #2cb073;
+  width: 28%;
+}
+.lineBar[data-value="29"] .progressBar {
+  background: #2cb073;
+  width: 29%;
+}
+.lineBar[data-value="30"] .progressBar {
+  background: #2cb073;
+  width: 30%;
+}
+.lineBar[data-value="31"] .progressBar {
+  background: #2cb073;
+  width: 31%;
+}
+.lineBar[data-value="32"] .progressBar {
+  background: #2cb073;
+  width: 32%;
+}
+.lineBar[data-value="33"] .progressBar {
+  background: #2cb073;
+  width: 33%;
+}
+.lineBar[data-value="34"] .progressBar {
+  background: #2cb073;
+  width: 34%;
+}
+.lineBar[data-value="35"] .progressBar {
+  background: #2cb073;
+  width: 35%;
+}
+.lineBar[data-value="36"] .progressBar {
+  background: #2cb073;
+  width: 36%;
+}
+.lineBar[data-value="37"] .progressBar {
+  background: #2cb073;
+  width: 37%;
+}
+.lineBar[data-value="38"] .progressBar {
+  background: #2cb073;
+  width: 38%;
+}
+.lineBar[data-value="39"] .progressBar {
+  background: #2cb073;
+  width: 39%;
+}
+.lineBar[data-value="40"] .progressBar {
+  background: #2cb073;
+  width: 40%;
+}
+.lineBar[data-value="41"] .progressBar {
+  background: #2cb073;
+  width: 41%;
+}
+.lineBar[data-value="42"] .progressBar {
+  background: #2cb073;
+  width: 42%;
+}
+.lineBar[data-value="43"] .progressBar {
+  background: #2cb073;
+  width: 43%;
+}
+.lineBar[data-value="44"] .progressBar {
+  background: #2cb073;
+  width: 44%;
+}
+.lineBar[data-value="45"] .progressBar {
+  background: #2cb073;
+  width: 45%;
+}
+.lineBar[data-value="46"] .progressBar {
+  background: #2cb073;
+  width: 46%;
+}
+.lineBar[data-value="47"] .progressBar {
+  background: #2cb073;
+  width: 47%;
+}
+.lineBar[data-value="48"] .progressBar {
+  background: #2cb073;
+  width: 48%;
+}
+.lineBar[data-value="49"] .progressBar {
+  background: #2cb073;
+  width: 49%;
+}
+.lineBar[data-value="50"] .progressBar {
+  background: #2cb073;
+  width: 50%;
+}
+.lineBar[data-value="51"] .progressBar {
+  background: #09ae62;
+  width: 51%;
+}
+.lineBar[data-value="52"] .progressBar {
+  background: #09ae62;
+  width: 52%;
+}
+.lineBar[data-value="53"] .progressBar {
+  background: #09ae62;
+  width: 53%;
+}
+.lineBar[data-value="54"] .progressBar {
+  background: #09ae62;
+  width: 54%;
+}
+.lineBar[data-value="55"] .progressBar {
+  background: #09ae62;
+  width: 55%;
+}
+.lineBar[data-value="56"] .progressBar {
+  background: #09ae62;
+  width: 56%;
+}
+.lineBar[data-value="57"] .progressBar {
+  background: #09ae62;
+  width: 57%;
+}
+.lineBar[data-value="58"] .progressBar {
+  background: #09ae62;
+  width: 58%;
+}
+.lineBar[data-value="59"] .progressBar {
+  background: #09ae62;
+  width: 59%;
+}
+.lineBar[data-value="60"] .progressBar {
+  background: #09ae62;
+  width: 60%;
+}
+.lineBar[data-value="61"] .progressBar {
+  background: #09ae62;
+  width: 61%;
+}
+.lineBar[data-value="62"] .progressBar {
+  background: #09ae62;
+  width: 62%;
+}
+.lineBar[data-value="63"] .progressBar {
+  background: #09ae62;
+  width: 63%;
+}
+.lineBar[data-value="64"] .progressBar {
+  background: #09ae62;
+  width: 64%;
+}
+.lineBar[data-value="65"] .progressBar {
+  background: #09ae62;
+  width: 65%;
+}
+.lineBar[data-value="66"] .progressBar {
+  background: #09ae62;
+  width: 66%;
+}
+.lineBar[data-value="67"] .progressBar {
+  background: #09ae62;
+  width: 67%;
+}
+.lineBar[data-value="68"] .progressBar {
+  background: #09ae62;
+  width: 68%;
+}
+.lineBar[data-value="69"] .progressBar {
+  background: #09ae62;
+  width: 69%;
+}
+.lineBar[data-value="70"] .progressBar {
+  background: #09ae62;
+  width: 70%;
+}
+.lineBar[data-value="71"] .progressBar {
+  background: #09ae62;
+  width: 71%;
+}
+.lineBar[data-value="72"] .progressBar {
+  background: #09ae62;
+  width: 72%;
+}
+.lineBar[data-value="73"] .progressBar {
+  background: #09ae62;
+  width: 73%;
+}
+.lineBar[data-value="74"] .progressBar {
+  background: #09ae62;
+  width: 74%;
+}
+.lineBar[data-value="75"] .progressBar {
+  background: #09ae62;
+  width: 75%;
+}
+.lineBar[data-value="76"] .progressBar {
+  background: #149d5e;
+  width: 76%;
+}
+.lineBar[data-value="77"] .progressBar {
+  background: #149d5e;
+  width: 77%;
+}
+.lineBar[data-value="78"] .progressBar {
+  background: #149d5e;
+  width: 78%;
+}
+.lineBar[data-value="79"] .progressBar {
+  background: #149d5e;
+  width: 79%;
+}
+.lineBar[data-value="80"] .progressBar {
+  background: #149d5e;
+  width: 80%;
+}
+.lineBar[data-value="81"] .progressBar {
+  background: #149d5e;
+  width: 81%;
+}
+.lineBar[data-value="82"] .progressBar {
+  background: #149d5e;
+  width: 82%;
+}
+.lineBar[data-value="83"] .progressBar {
+  background: #149d5e;
+  width: 83%;
+}
+.lineBar[data-value="84"] .progressBar {
+  background: #149d5e;
+  width: 84%;
+}
+.lineBar[data-value="85"] .progressBar {
+  background: #149d5e;
+  width: 85%;
+}
+.lineBar[data-value="86"] .progressBar {
+  background: #149d5e;
+  width: 86%;
+}
+.lineBar[data-value="87"] .progressBar {
+  background: #149d5e;
+  width: 87%;
+}
+.lineBar[data-value="88"] .progressBar {
+  background: #149d5e;
+  width: 88%;
+}
+.lineBar[data-value="89"] .progressBar {
+  background: #149d5e;
+  width: 89%;
+}
+.lineBar[data-value="90"] .progressBar {
+  background: #149d5e;
+  width: 90%;
+}
+.lineBar[data-value="91"] .progressBar {
+  background: #149d5e;
+  width: 91%;
+}
+.lineBar[data-value="92"] .progressBar {
+  background: #149d5e;
+  width: 92%;
+}
+.lineBar[data-value="93"] .progressBar {
+  background: #149d5e;
+  width: 93%;
+}
+.lineBar[data-value="94"] .progressBar {
+  background: #149d5e;
+  width: 94%;
+}
+.lineBar[data-value="95"] .progressBar {
+  background: #149d5e;
+  width: 95%;
+}
+.lineBar[data-value="96"] .progressBar {
+  background: #149d5e;
+  width: 96%;
+}
+.lineBar[data-value="97"] .progressBar {
+  background: #149d5e;
+  width: 97%;
+}
+.lineBar[data-value="98"] .progressBar {
+  background: #149d5e;
+  width: 98%;
+}
+.lineBar[data-value="99"] .progressBar {
+  background: #149d5e;
+  width: 99%;
+}
+.lineBar[data-value="100"] .progressBar {
+  background: #149d5e;
+  width: 100%;
+}
 /*------------[Guidline]---------------*/
 .guidline .main {
   overflow-y: auto;
@@ -32635,6 +33215,16 @@ pre.prettyprint {
   }
   .social {
     margin: 0 !important;
+  }
+  .form-group .error-message {
+    position: static;
+  }
+  .bookMe th:first-child,
+  .bookMe td:first-child {
+    width: 100%;
+  }
+  .bookMe .btn-primary {
+    margin-top: 0px;
   }
   .p-l0 {
     margin-left: 0px !important;

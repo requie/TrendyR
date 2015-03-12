@@ -135,3 +135,7 @@
 .fancybox-close, .fancybox-prev span, .fancybox-next span {
   background-image: asset-url('icons/sprite.png');
 }
+
+.fancybox-nav {
+  background: transparent asset-url('icons/blank.gif'); /* helps IE */
+}
