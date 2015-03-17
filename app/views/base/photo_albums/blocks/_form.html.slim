@@ -1,16 +1,18 @@
 = simple_form_for [:base, @profile || :profile, @photo_album], defaults: { input_html: { class: 'form-control' } } do |f|
-  = f.input :title, placeholder: 'Title'
+  = f.input :title, placeholder: 'Title', input_html: { 'data-required' => true}
   .form-group.row
     .col-xs-12.col-sm-6.col-md-3
       .well.text-center
         .cover
           .btn.btn-primary.fileSelect
             p Upload cover
-
           p Png, Jpg
   .form-group
     .text-right
       button.btn.btn-primary Submit
+  .form-group
+    input#number-of-photos.hidden name='number-of-photos' data-required="true" data-min="1" data-min-message="Must be uploaded min 1 photo" data-required-message="Must be uploaded min 1 photo"
+    input#photos-uploading.hidden data-allconnectionsclosed="true" data-allconnectionsclosed-message="Some photos are uploading!"
 
 .col-xs-12.col-sm-6.col-md-3
   .well.picture.m-b10.hidden
@@ -23,7 +25,7 @@
     img src=""
   i.icon-removePicture
 
-input multiple="" action="#{photos_path}.json" id="upload" class='uploadbtn' name="photo[attachment]" type="file"
+input multiple="" id="upload" class='uploadbtn' name="photo[attachment]" type="file"
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/photo_album/edit'

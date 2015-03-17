@@ -1,0 +1,26 @@
+.gallery.mobile-center.clearfix
+  .col-xs-12
+    .mobile-center.gallery-mainFoto
+      label.mobile-center.cb-checkbox
+        input type="checkbox"
+      = link_to base_profile_photo_album_path(profile, photo_album)
+        = image_tag photo_album.photos.first.thumb("200x130#").url
+    .col-xs-12.col-md-7
+      h4
+        = photo_album.title
+      p
+        | Created: #{photo_album.decorate.date_of_creation}
+        br
+        | Photos: #{photo_album.photos.length}
+    .col-xs-12.col-sm-8.col-md-7
+      .mini-gallery.clearfix
+        - photo_album.photos.first(6).last(5).each do |p|
+          = image_tag p.thumb("70x32#").url
+    .gallerySettings
+      ul
+        li
+          a href=""
+            i.icon-changes
+        li
+          a href=""
+            i.icon-deleteGallery

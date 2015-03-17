@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   namespace :base, path: nil do
     resources :profile  do
+      patch 'update_photo' => 'profile#update_photo', as: :update_photo
+      patch 'update_wallpaper' => 'profile#update_wallpaper', as: :update_wallpaper
       resource :gallery
       resources :artists, :awards, :calendar, :events, :gigs, :releases, :photo_albums
     end

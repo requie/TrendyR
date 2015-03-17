@@ -3,23 +3,12 @@
   .profile.clearfix
     .title_profile
       h5.static-content.mobile-center
-        | Metallica Live. Toronto 2014
-        span (30 photos)
+        = @photo_album.title
+        span
+          | (#{@photo_album.photos.length} photos)
       .form-group
         .text-right.mobile-center
-          button.btn.btn-primary Create new album
+          = link_to new_base_profile_photo_album_path
+            button.btn.btn-primary Create new album
     .big-gallery.clearfix
-      a.gallery-image href="http://ruseller.com/lessons/les238/images/1_b.jpg" rel="group"
-        = image_tag 'album_image/met.jpg', alt:"Mettalica"
-      a.gallery-image href="http://zoomurzilka.ru/wp-content/uploads/2014/10/trito.jpg" rel="group"
-        = image_tag 'album_image/met.jpg', alt:"Mettalica"
-      a.gallery-image href="http://zoomurzilka.ru/wp-content/uploads/2014/10/trito2.jpg" rel="group"
-        = image_tag 'album_image/met.jpg', alt:"Mettalica"
-      a.gallery-image href="http://zoomurzilka.ru/wp-content/uploads/2014/10/trito.jpg" rel="group"
-        = image_tag 'album_image/met.jpg', alt:"Mettalica"
-      a.gallery-image href="http://ruseller.com/lessons/les238/images/1_b.jpg" rel="group"
-        = image_tag 'album_image/met.jpg', alt:"Mettalica"
-      a.gallery-image href="http://zoomurzilka.ru/wp-content/uploads/2014/10/trito2.jpg" rel="group"
-        = image_tag 'album_image/met.jpg', alt:"Mettalica"
-      a.gallery-image href="http://zoomurzilka.ru/wp-content/uploads/2014/10/trito.jpg" rel="group"
-        = image_tag 'album_image/met.jpg', alt:"Mettalica"
+      = render partial: 'base/photo_albums/blocks/private_gallery_image', collection: @photos

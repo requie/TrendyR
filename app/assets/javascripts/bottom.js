@@ -4,11 +4,14 @@
   will appear after this file
  */
 
+//=require parsley_setup
+
 //= require jquery.min
 //= require jquery-ui.min
 //= require jquery.ui.touch-punch.min
 //= require jquery.fancybox.pack
 //= require jquery.jtruncate
+//= require jquery.Jcrop.min
 //= require bootstrap.min
 //= require tinynav.min
 //= require slick
@@ -21,6 +24,8 @@
 //= require video
 //= require jquery-fileupload/basic-plus
 //= require jquery_ujs
+//= require underscore
+// = require jcrop_setup
 
 (function($) {
   $(function() {

@@ -12,10 +12,28 @@ module Base
       respond_with(@profile, location: edit_base_profile_path)
     end
 
+    def update_photo
+      profile = Profile.find(profile_photo_params[:profile_id])
+      profile.photo = Profile::Photo.find(profile_photo_params[:photo_id])
+      profile.save
+      render nothing: true
+    end
+
+    def update_wallpaper
+      profile = Profile.find(profile_photo_params[:profile_id])
+      profile.wallpaper = Profile::Wallpaper.find(profile_photo_params[:photo_id])
+      profile.save
+      render nothing: true
+    end
+
     private
 
     def profile_params
       params.require(:profile).permit(*policy(@profile).permitted_attributes)
+    end
+
+    def profile_photo_params
+      params.permit(:photo_id, :profile_id)
     end
 
     def set_location

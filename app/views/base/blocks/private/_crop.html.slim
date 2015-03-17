@@ -1,0 +1,11 @@
+form#crop-container.hidden
+  .shadow
+  .crop
+    = image_tag 'background/pull-raccon.jpg', alt:'cropped picture', id:'croptarget', class:'crop_picture'
+    .crop_content
+      /p.crop_text Drag frame edges and select image area
+      button.btn.btn-primary#cropbutton Save
+      input#x.hidden
+      input#y.hidden
+      input#w.hidden
+      input#h.hidden
