@@ -111,7 +111,6 @@ p strong {
 .has-error .error-message {
   position: static;
   text-align: left;
-  padding-top: 50px;
 }
 .shadow {
   position: fixed;
@@ -161,10 +160,6 @@ p strong {
 }
 .crop .jcrop-holder {
   margin: auto;
-}
-.crop .jcrop-holder .jcrop-move {
-  max-width: 1170px;
-  max-height: 240px;
 }
 .crop .jcrop-holder .jcrop-tracker {
   height: 100%;

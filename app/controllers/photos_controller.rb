@@ -1,17 +1,29 @@
 class PhotosController < ApplicationController
+  before_action :set_photo, only: [:crop, :destroy]
+
   def create
-    @photo = Photo.new(photo_params)
-    authorize @photo
+    @photo = Photo.new(photo_params).decorate
+    @photo.uploader = current_user
     @photo.save
   end
 
   def crop
-    @photo = Photo.find(params[:id])
+
     authorize @photo
     @photo.update(crop_photo_params)
   end
 
+  def destroy
+    authorize @photo
+    @photo.destroy
+    render head: :ok
+  end
+
   private
+
+  def set_photo
+    @photo = Photo.find(params[:id]).decorate
+  end
 
   def photo_params
     params.require(:photo).permit(:attachment)

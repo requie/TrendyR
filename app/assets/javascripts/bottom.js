@@ -9,17 +9,26 @@
 //= require jquery.ui.touch-punch.min
 //= require jquery.fancybox.pack
 //= require jquery.jtruncate
+//= require jquery.Jcrop.min
 //= require bootstrap.min
 //= require tinynav.min
 //= require slick
 //= require function
 //= require scripts
 //= require checkBo.min
+//=require parsley_setup
 //= require parsley
 //= require audio
 //= require player
 //= require video
+//= require jquery-file-upload/vendor/jquery.ui.widget
+//= require jquery-file-upload/jquery.iframe-transport
+//= require jquery-file-upload/jquery.fileupload
+//= require jquery-file-upload/jquery.fileupload-process
+//= require jquery-file-upload/jquery.fileupload-validate
 //= require jquery_ujs
+//= require underscore
+//= require jcrop_setup
 
 (function($) {
   $(function() {

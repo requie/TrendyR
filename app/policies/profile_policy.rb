@@ -27,6 +27,10 @@ class ProfilePolicy
     @profile.user == @user
   end
 
+  def update_photo?
+    update?
+  end
+
   def permitted_attributes
     if @user.role?(:manager)
       PERMITTED_ATTRIBUTES - [:spotify_url, :rdio_url]

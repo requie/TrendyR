@@ -35,6 +35,14 @@ module BaseHelper
     profile.user.roles? %w(artist label producer)
   end
 
+  def show_private_item_releases?(profile)
+    profile.user.roles? %w(label producer)
+  end
+
+  def show_private_item_events?(profile)
+    profile.user.roles? %w(artist label venue)
+  end
+
   def show_item_calendar?(profile)
     profile.user.roles? %w(label manager venue)
   end

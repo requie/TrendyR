@@ -160,8 +160,7 @@ $(document).ready(function(){
 			timeConcert();
 		}
 	})
-	$('.crop_content').width($('.crop_picture').width());	
-	$('.jcrop-holder').find('div').first().addClass('jcrop-move')//;.css('max-width','400px');
+	$('.jcrop-holder').find('div').first().addClass('jcrop-move');//.css('max-width','400px');
 
 })//close Ready
 
@@ -169,5 +168,5 @@ $(window).resize(function () {
 	resizeFooter($('.login'));
 	resizeFooter($('.strPage'));
 	
-	$('.crop_content').width($('.crop_picture').width());
+	$('.crop_content').width($('.jcrop-holder').width());
 })

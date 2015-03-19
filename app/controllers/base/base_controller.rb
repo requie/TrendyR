@@ -31,7 +31,7 @@ module Base
     end
 
     def set_profile
-      id = params[:id] || params[:profile_id]
+      id = params[:profile_id] || params[:id]
       @profile = Profile.find(id).decorate
       authorize @profile, "#{action_name}?"
     end

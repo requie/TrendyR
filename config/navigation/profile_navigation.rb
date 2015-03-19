@@ -17,9 +17,9 @@ SimpleNavigation::Configuration.run do |navigation|
                  if: proc { show_awards?(@profile) }
     primary.item :press_kit, 'Press Kit', '#',
                  if: proc { show_item_press_kit?(@profile) }
-    primary.item :gallery, 'Gallery', base_profile_gallery_index_path(@profile),
+    primary.item :gallery, 'Gallery', base_profile_gallery_path(@profile),
                  if: proc { @profile.user.role?(:venue) }
 
-    primary.dom_attributes = { class: 'nav-page l_tinynav1' }
+    primary.dom_attributes = { class: 'nav-page' }
   end
 end
