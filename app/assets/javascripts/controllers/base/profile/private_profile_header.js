@@ -7,37 +7,35 @@
       singleFileUploads: true,
       multipart: true,
       autoUpload: true,
-      processQueue: [{
-        action: 'validate',
-        always: true,
-        acceptFileTypes: /(\.|\/)(jpe?g|png)$/i,
-        maxFileSize: 1024 * 1024 * 10, // 10 mb
-        maxNumberOfFiles: 1
-      }]
+      acceptFileTypes: /(\.|\/)(jpe?g|png)$/i,
+      maxNumberOfFiles: 1
     };
 
     $('.uploadbtn').fileupload(fileupload_options).bind('fileuploaddone', function (e, data) {
-      var result = data.result.data;
+      var photo = data.result.photo;
 
       window.utils.crop.init({
-        photo_id: result.photo.id,
+        photo_id: photo.id,
         $cropForm: $('#crop-container'),
         done: function(response, status, jqXHR){
-          window.utils.crop.hide();
-          var photo_url = response.data.url;
+          var photo_url = response.photo.url;
           $('.managerAvatar img').attr('src',photo_url);
           $.ajax({
-            url: Routes.base_profile_update_photo_path(response.data.profile_id),
+            url: Routes.base_profile_update_photo_path(response.photo.profile_id),
             type: 'PATCH',
-            data: { photo_id: response.data.photo.id }
+            data: {
+              profile: {
+                photo_id: response.photo.id
+              }
+            }
           });
         },
         fail: function(response, status, jqXHR){}
       });
 
       window.utils.crop.show({
-        photo_url: result.url,
-        trueSize: [result.photo_width,result.photo_height],
+        photo_url: photo.url,
+        trueSize: [photo.width,photo.height],
         boxWidth: 640,
         boxHeight: 480,
         aspectRatio: 1
@@ -47,27 +45,30 @@
     });
 
     $('.uploadfile').fileupload(fileupload_options).bind('fileuploaddone', function (e, data) {
-      var result = data.result.data;
+      var photo = data.result.photo;
 
       window.utils.crop.init({
-        photo_id: result.photo.id,
+        photo_id: photo.id,
         $cropForm: $('#crop-container'),
         done: function(response, status, jqXHR){
-          window.utils.crop.hide();
-          var photo_url = response.data.url;
+          var photo_url = response.photo.url;
           $('.manadgmentFoto').attr('style',"background-image:url("+photo_url+"); ");
           $.ajax({
-            url: Routes.base_profile_update_wallpaper_path(response.data.profile_id),
+            url: Routes.base_profile_update_photo_path(response.photo.profile_id),
             type: 'PATCH',
-            data: { photo_id: response.data.photo.id }
+            data: {
+              profile: {
+                wallpaper_id: response.photo.id
+              }
+            }
           });
         },
         fail: function(response, status, jqXHR){}
       });
 
       window.utils.crop.show({
-        photo_url: result.url,
-        trueSize: [result.photo_width,result.photo_height],
+        photo_url: photo.url,
+        trueSize: [photo.width,photo.height],
         boxWidth: 640,
         boxHeight: 480,
         aspectRatio: 2.5

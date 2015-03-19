@@ -1,7 +1,7 @@
 if @photo.valid?
-  json.data do
-    json.photo @photo
-    json.url @photo_url
+  json.photo do
+    json.id @photo.id
+    json.url @photo.cropped_photo.url
     json.profile_id @photo.uploader.profile.id
   end
 else

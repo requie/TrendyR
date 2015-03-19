@@ -1,14 +1,15 @@
-= render partial: 'base/blocks/private/profile_header'
-.col-md-8.col-md-offset-2.custom-form
-  .profile.clearfix
-    .title_profile
-      h5.static-content.mobile-center
-        = @photo_album.title
-        span
-          |  (#{@photo_album.decorate.number_of_photos} photos)
-      .form-group
-        .text-right.mobile-center
-          = link_to new_base_profile_photo_album_path
-            button.btn.btn-primary Create new album
-    .big-gallery.clearfix
-      = render partial: 'base/photo_albums/blocks/private_gallery_image', collection: @photo_album.photos.decorate
+.strPage
+  = render partial: 'base/blocks/private/profile_header'
+  .col-md-8.col-md-offset-2.custom-form
+    .profile.clearfix
+      .title_profile
+        h5.static-content.mobile-center
+          = @photo_album.title
+          span
+            |  (#{@photo_album.number_of_photos} photos)
+        .form-group
+          .text-right.mobile-center
+            = link_to new_base_profile_photo_album_path
+              button.btn.btn-primary Create new album
+      .big-gallery.clearfix
+        = render partial: 'base/photo_albums/blocks/private_gallery_image', collection: @photo_album.photos

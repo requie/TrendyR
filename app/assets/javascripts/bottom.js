@@ -4,8 +4,6 @@
   will appear after this file
  */
 
-//=require parsley_setup
-
 //= require jquery.min
 //= require jquery-ui.min
 //= require jquery.ui.touch-punch.min
@@ -18,11 +16,16 @@
 //= require function
 //= require scripts
 //= require checkBo.min
+//=require parsley_setup
 //= require parsley
 //= require audio
 //= require player
 //= require video
-//= require_tree ../../../vendor/assets/javascripts/jquery-file-upload
+//= require jquery-file-upload/vendor/jquery.ui.widget
+//= require jquery-file-upload/jquery.iframe-transport
+//= require jquery-file-upload/jquery.fileupload
+//= require jquery-file-upload/jquery.fileupload-process
+//= require jquery-file-upload/jquery.fileupload-validate
 //= require jquery_ujs
 //= require underscore
 //= require jcrop_setup

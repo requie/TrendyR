@@ -13,17 +13,9 @@ module Base
     end
 
     def update_photo
-      profile = Profile.find(profile_photo_params[:profile_id])
-      profile.photo = Profile::Photo.find(profile_photo_params[:photo_id])
-      profile.save
-      render nothing: true, status: :ok
-    end
-
-    def update_wallpaper
-      profile = Profile.find(profile_photo_params[:profile_id])
-      profile.wallpaper = Profile::Wallpaper.find(profile_photo_params[:photo_id])
-      profile.save
-      render nothing: true, status: :ok
+      set_profile
+      @profile.update(profile_photo_params)
+      head :ok
     end
 
     private
@@ -33,7 +25,7 @@ module Base
     end
 
     def profile_photo_params
-      params.permit(:photo_id, :profile_id)
+      params.require(:profile).permit(:photo_id, :wallpaper_id)
     end
 
     def set_location

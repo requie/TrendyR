@@ -1,13 +1,10 @@
 module Base
   class PhotoAlbumsController < Base::BaseController
-    before_action :set_photo_album, only: [:edit, :update, :show_private, :show]
+    before_action :set_photo_album, only: [:edit, :update, :show]
 
     def show
       template = @photo_album.owned_by?(current_user.profile) ? 'show_private' : 'show'
       render template
-    end
-
-    def show_private
     end
 
     def new
@@ -35,7 +32,7 @@ module Base
     end
 
     def set_photo_album
-      @photo_album = PhotoAlbum.find(params[:id])
+      @photo_album = PhotoAlbum.find(params[:id]).decorate
     end
   end
 end

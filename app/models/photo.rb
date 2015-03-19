@@ -13,6 +13,10 @@ class Photo < ActiveRecord::Base
     user == uploader
   end
 
+  def tiny
+    thumb('70x32#')
+  end
+
   # redifine the method in child classes to contain presets
   # {
   #   tiny: '100x100#',

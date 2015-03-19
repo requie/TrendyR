@@ -22,9 +22,6 @@
         this.dom.$h = this.dom.$cropContent.find('#h');
 
         if (this.api !== null) {
-          if ($('#crop-container').data('Jcrop')) {
-            $('#crop-container').data('Jcrop').destroy();
-          }
           this.api.destroy();
           jQuery('#cropbox').show();
           jQuery('.jcrop-holder').remove();
@@ -45,13 +42,13 @@
             },
             url: Routes.crop_photo_path(options.photo_id)
           })
-              .done(function(response, status, jqXHR) {
-                that.hide();
-                options.done(response, status, jqXHR);
-              })
-              .fail(function(jqXHR, textStatus, errorThrown) {
-                options.fail(jqXHR, textStatus, errorThrown);
-              });
+          .done(function(response, status, jqXHR) {
+            that.hide();
+            options.done(response, status, jqXHR);
+          })
+          .fail(function(jqXHR, textStatus, errorThrown) {
+            options.fail(jqXHR, textStatus, errorThrown);
+          });
           return false;
         });
 

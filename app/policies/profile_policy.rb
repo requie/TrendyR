@@ -1,7 +1,7 @@
 class ProfilePolicy
   PERMITTED_ATTRIBUTES = [
     :name, :website, :description_text, :spotify_url, :rdio_url, :facebook_url,
-    :twitter_url, :google_plus_url, :instagram_url, genre_ids: []
+    :twitter_url, :google_plus_url, :instagram_url, { genre_ids: [] }, :photo_attributes, :wallpaper_attributes
   ]
 
   attr_reader :user, :profile
@@ -25,6 +25,10 @@ class ProfilePolicy
 
   def update?
     @profile.user == @user
+  end
+
+  def update_photo?
+    update?
   end
 
   def permitted_attributes

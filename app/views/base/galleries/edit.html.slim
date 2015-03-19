@@ -5,12 +5,12 @@
       h5.static-content
         | Albums
         span
-          | (#{@photo_albums.length})
+          | (#{@profile.owned_photo_albums.count})
       .form-group
         .text-right
           = link_to new_base_profile_photo_album_path
             button.btn.btn-primary Create new album
-    = render partial: 'base/galleries/blocks/photo_album', collection: @photo_albums, locals: {profile: @profile}
+    = render partial: 'base/galleries/blocks/photo_album', collection: @profile.owned_photo_albums, locals: {profile: @profile}
     .col-xs-12
       .pagination.pull-right
         ul

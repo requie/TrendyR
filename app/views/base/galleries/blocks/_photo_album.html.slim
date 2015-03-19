@@ -4,18 +4,18 @@
       label.mobile-center.cb-checkbox
         input type="checkbox"
       = link_to base_profile_photo_album_path(profile, photo_album)
-        = image_tag photo_album.photos.first.thumb("200x130#").url
+        = image_tag photo_album.first_photo.url
     .col-xs-12.col-md-7
       h4
         = photo_album.title
       p
-        | Created: #{photo_album.decorate.date_of_creation}
+        | Created: #{photo_album.date_of_creation}
         br
-        | Photos: #{photo_album.photos.length}
+        | Photos: #{photo_album.number_of_photos}
     .col-xs-12.col-sm-8.col-md-7
       .mini-gallery.clearfix
-        - photo_album.photos.offset(1).first(5).each do |p|
-          = image_tag p.thumb("70x32#").url
+        - photo_album.five_without_first.each do |photo|
+          = image_tag photo.tiny.url
     .gallerySettings
       ul
         li
