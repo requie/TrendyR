@@ -5,11 +5,11 @@ class PhotoDecorator < ApplicationDecorator
     Dragonfly.app.remote_url_for(model.attachment_uid)
   end
 
-  def private_gallery_size
+  def small
     thumb("175x131#")
   end
 
-  def gallery_size
+  def medium
     thumb("355x256#")
   end
 end
