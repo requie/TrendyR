@@ -7,13 +7,11 @@
     var crop = {
       api: null,
       dom: {},
-      options: {},
-
       init: function(options) {
 
         var that = this;
 
-        this.dom.$cropForm = options.$cropForm;
+        this.dom.$cropForm = options.$cropForm.clone();
         this.dom.$cropTarget = this.dom.$cropForm.find('#croptarget');
         this.dom.$shadow = this.dom.$cropForm.find('.shadow');
         this.dom.$cropContent = this.dom.$cropForm.find('.crop_content');
@@ -22,6 +20,16 @@
         this.dom.$y = this.dom.$cropContent.find('#y');
         this.dom.$w = this.dom.$cropContent.find('#w');
         this.dom.$h = this.dom.$cropContent.find('#h');
+
+        if (this.api !== null) {
+          if ($('#crop-container').data('Jcrop')) {
+            $('#crop-container').data('Jcrop').destroy();
+          }
+          this.api.destroy();
+          jQuery('#cropbox').show();
+          jQuery('.jcrop-holder').remove();
+          this.api = null;
+        }
 
         this.dom.$cropForm.on('submit', function() {
           $.ajax({
@@ -54,24 +62,30 @@
       show: function(options){
         var that = this;
 
+        this.dom.$cropTarget.attr('src',options.photo_url);
+
         this.dom.$cropTarget.Jcrop({
           aspectRatio: options.aspectRatio,
           onSelect:   _.bind(this.updateCoords, this),
           onChange: _.bind(this.updateCoords, this),
+          boxWidth: options.boxWidth,
+          boxHeight: options.boxHeight,
           trueSize: options.trueSize
         }, function () {
           that.api = this;
         });
 
+        this.dom.$cropForm.prependTo('body');
+
+        this.dom.$cropContent.width(options.boxWidth);
+
+        this.dom.$cropbutton.hide();
+
         this.dom.$cropForm.removeClass('hidden');
         $('html').addClass('crop-lock');
-
-        this.dom.$cropTarget.attr('src',options.photo_url);
-        this.dom.$cropForm.find('.jcrop-holder img').attr('src',options.photo_url);
-
-
       },
       hide: function(){
+        this.dom.$cropForm.remove();
         this.dom.$cropForm.addClass('hidden');
         $('html').removeClass('crop-lock');
         $(document).off('mouseup');

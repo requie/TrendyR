@@ -16,14 +16,14 @@ module Base
       profile = Profile.find(profile_photo_params[:profile_id])
       profile.photo = Profile::Photo.find(profile_photo_params[:photo_id])
       profile.save
-      render nothing: true
+      render nothing: true, status: :ok
     end
 
     def update_wallpaper
       profile = Profile.find(profile_photo_params[:profile_id])
       profile.wallpaper = Profile::Wallpaper.find(profile_photo_params[:photo_id])
       profile.save
-      render nothing: true
+      render nothing: true, status: :ok
     end
 
     private

@@ -1,6 +1,8 @@
 class ProfileDecorator < ApplicationDecorator
   delegate_all
   decorates_association :owned_awards
+  DEFAULT_PROFILE_WALLPAPER = 'background/profile.png'
+  DEFAULT_PROFILE_AVATAR = 'icons/avatar-user.png'
 
   def location_address
     object.location.address if object.location
@@ -14,7 +16,7 @@ class ProfileDecorator < ApplicationDecorator
     if object.wallpaper
       object.wallpaper.cropped_photo.url
     else
-      'background/profile.png'
+      DEFAULT_PROFILE_WALLPAPER
     end
   end
 
@@ -22,7 +24,7 @@ class ProfileDecorator < ApplicationDecorator
     if object.photo
       object.photo.cropped_photo.url
     else
-      'icons/avatar-user.png'
+      DEFAULT_PROFILE_AVATAR
     end
   end
 end

@@ -9,6 +9,10 @@ class Photo < ActiveRecord::Base
     attachment.thumb("#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}")
   end
 
+  def owned_by?(user)
+    user == uploader
+  end
+
   # redifine the method in child classes to contain presets
   # {
   #   tiny: '100x100#',

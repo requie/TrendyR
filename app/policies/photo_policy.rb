@@ -11,6 +11,10 @@ class PhotoPolicy
   end
 
   def crop?
-    true
+    @photo.owned_by?(user)
+  end
+
+  def destroy?
+    @photo.owned_by?(user)
   end
 end

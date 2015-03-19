@@ -7,16 +7,17 @@ class PhotosController < ApplicationController
   end
 
   def crop
-    @photo = current_user.photos.find(params[:id])
+    @photo = Photo.find(params[:id])
     authorize @photo
     @photo.update(crop_photo_params)
     @photo_url = @photo.cropped_photo.url
   end
 
   def destroy
-    @photo = current_user.photos.find(params[:id])
+    @photo = Photo.find(params[:id])
+    authorize @photo
     @photo.destroy
-    render nothing: true
+    render head: :ok
   end
 
   private

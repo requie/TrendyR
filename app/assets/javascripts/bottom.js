@@ -22,10 +22,10 @@
 //= require audio
 //= require player
 //= require video
-//= require jquery-fileupload/basic-plus
+//= require_tree ../../../vendor/assets/javascripts/jquery-file-upload
 //= require jquery_ujs
 //= require underscore
-// = require jcrop_setup
+//= require jcrop_setup
 
 (function($) {
   $(function() {

@@ -14,7 +14,7 @@
         | Photos: #{photo_album.photos.length}
     .col-xs-12.col-sm-8.col-md-7
       .mini-gallery.clearfix
-        - photo_album.photos.first(6).last(5).each do |p|
+        - photo_album.photos.offset(1).first(5).each do |p|
           = image_tag p.thumb("70x32#").url
     .gallerySettings
       ul
