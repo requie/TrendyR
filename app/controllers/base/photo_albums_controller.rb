@@ -31,17 +31,7 @@ module Base
     def destroy
       authorize @photo_album
       @photo_album.destroy
-      photo_albums = Kaminari.paginate_array(@profile.owned_photo_albums).page(params[:page])
-      @photo_albums = photo_albums.map do |photo_album|
-        {
-          id: photo_album.id,
-          title: photo_album.title,
-          first_photo: photo_album.first_photo.url,
-          remaining_photos: photo_album.remaining_photos,
-          date_of_creation: photo_album.date_of_creation,
-          number_of_photos: photo_album.number_of_photos
-        }
-      end
+      @photo_albums = @profile.owned_photo_albums.page(params[:page]).decorate
     end
 
     private

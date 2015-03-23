@@ -1,4 +1,5 @@
-.manadgmentFoto.clearfix style="background-image:url(#{@profile.wallpaper_url})"
+.manadgmentFoto.clearfix
+  = hidden_field_tag 'background-image', @profile.wallpaper_url
   .col-md-8.col-md-offset-2
     .text-center
       input.form-control.uploadfile name="photo[attachment]" type="file"

@@ -12,7 +12,7 @@ class PhotoAlbumDecorator < ApplicationDecorator
   end
 
   def first_photo
-    model.photos.first.thumb('200x130#') if model.photos.present?
+    model.photos.first.large.url if model.photos.present?
   end
 
   def remaining_photos

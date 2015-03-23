@@ -52,7 +52,7 @@
         $cropForm: $('#crop-container'),
         done: function(response, status, jqXHR){
           var photo_url = response.photo.url;
-          $('.manadgmentFoto').attr('style',"background-image:url("+photo_url+"); ");
+          $wallpaper.backstretch(photo_url);
           $.ajax({
             url: Routes.base_profile_update_photo_path(response.photo.profile_id),
             type: 'PATCH',
@@ -76,5 +76,8 @@
     }).bind('fileuploadprocessfail',function(e, data){
       console.log(data.files[0].error);
     });
+
+    var $wallpaper = $('.manadgmentFoto');
+    $wallpaper.backstretch($wallpaper.find('[name=background-image]').val());
   });
 })(jQuery);

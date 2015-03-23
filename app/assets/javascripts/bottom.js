@@ -10,6 +10,7 @@
 //= require jquery.fancybox.pack
 //= require jquery.jtruncate
 //= require jquery.Jcrop.min
+//= require jquery.backstretch.min
 //= require bootstrap.min
 //= require tinynav.min
 //= require slick

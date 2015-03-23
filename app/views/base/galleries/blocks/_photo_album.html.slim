@@ -2,9 +2,9 @@
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
-        input type="checkbox" value="#{photo_album.id}"
+        = check_box_tag '',photo_album.id
       = link_to base_profile_photo_album_path(profile, photo_album)
-        = image_tag photo_album.first_photo.url
+        = image_tag photo_album.first_photo
     .col-xs-12.col-md-7
       h4
         = photo_album.title
@@ -19,7 +19,7 @@
     .gallerySettings
       ul
         li
-          a href="#{edit_base_profile_photo_album_path(profile,photo_album)}"
+          = link_to edit_base_profile_photo_album_path(profile,photo_album)
             i.icon-changes
         li
           a href=""

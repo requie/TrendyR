@@ -7,12 +7,6 @@ $(document).ready(function(){
 	resizeFooter($('.strPage'));
 	$('.column').equivalent(); 
 
-	$('.custom-form').checkBo();
-
-	$('.cb-checkbox').click(function(){
-		$(this).closest('.gallery').toggleClass('settingVis');
-	});				
-
 	$(".nav-page").tinyNav();
 
 	$("#foo-menu").tinyNav();
@@ -24,7 +18,7 @@ $(document).ready(function(){
 	hideBlock ($('a .icon-message'), $('.inboxMess'));
 	hideBlock ($('a .icon-ring'), $('.inboxRing'));
 	hideBlock ($('a.nameUser'), $('.userInform'));
-	
+
 	$('tr.message .icon-delete').click(function(){
 		$(this).closest('tr.message').remove();			
 	})

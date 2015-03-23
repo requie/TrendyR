@@ -4,7 +4,7 @@ module Base
     end
 
     def edit
-      @photo_albums = PhotoAlbum.page(params[:page]).decorate
+      @photo_albums = @profile.owned_photo_albums.page(params[:page]).decorate
     end
   end
 end
