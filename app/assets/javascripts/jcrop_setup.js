@@ -59,7 +59,7 @@
       show: function(options){
         var that = this;
 
-        this.dom.$cropTarget.attr('src',options.photo_url);
+        this.dom.$cropTarget.attr('src', options.photo_url);
 
         this.dom.$cropTarget.Jcrop({
           aspectRatio: options.aspectRatio,

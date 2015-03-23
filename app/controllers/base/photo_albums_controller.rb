@@ -1,6 +1,6 @@
 module Base
   class PhotoAlbumsController < Base::BaseController
-    before_action :set_photo_album, only: [:edit, :update, :show, :destroy]
+    before_action :set_photo_album, only: [:edit, :update, :show]
 
     def show
       template = @photo_album.owned_by?(current_user.profile) ? 'show_private' : 'show'
@@ -29,8 +29,7 @@ module Base
     end
 
     def destroy
-      authorize @photo_album
-      @photo_album.destroy
+      PhotoAlbum.destroy(destroy_photo_albums_params)
       @photo_albums = @profile.owned_photo_albums.page(params[:page]).decorate
     end
 
@@ -38,6 +37,10 @@ module Base
 
     def photo_album_params
       params.require(:photo_album).permit(:title, photo_ids: [])
+    end
+
+    def destroy_photo_albums_params
+      params.require(:photo_album_ids)
     end
 
     def set_photo_album

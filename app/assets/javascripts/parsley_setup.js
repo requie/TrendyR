@@ -11,7 +11,7 @@
           priority: 32
         },
         minonephoto: {
-          fn: function(value,requirement) {
+          fn: function(value, requirement) {
             return $('.editPicture:not(.hidden)').length > 0
           }
         }

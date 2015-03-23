@@ -68,7 +68,7 @@ $(document).ready(function(){
     });  
 	
 
-	$('.faqQuestion').on('click',function(){	
+	$('.faqQuestion').on('click', function(){
         $(this).find('p').slideToggle(100);    
         
         if($(this).find('i').hasClass('icon-plus')){
@@ -79,7 +79,7 @@ $(document).ready(function(){
         }					
 	});	
 	
-	$('.manadgMenu').find('ul li a').on('click',function(){
+	$('.manadgMenu').find('ul li a').on('click', function(){
 		if($(this).hasClass('menuActive')){
 			$(this).removeClass('menuActive');
 		}
@@ -92,7 +92,7 @@ $(document).ready(function(){
 		if($(this).scrollTop()>100) $('a#moveUp').fadeIn();
 		else $('a#moveUp').fadeOut(400);
 	});
-	$('a#moveUp').on('click',function(){
+	$('a#moveUp').on('click', function(){
 		$('body,html').animate({scrollTop: 0}, 450);
 		return false;
 	});	

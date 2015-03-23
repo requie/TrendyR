@@ -21,20 +21,20 @@
       var tpl = $('.well.picture.m-b10.hidden').parent().clone();
       tpl.find('.picture').removeClass('hidden');
       data.context = tpl.insertAfter($('.form-group .col-xs-12:last'));
-    }).bind('fileuploadprogress',function(e, data){
+    }).bind('fileuploadprogress', function(e, data){
       var progress = parseInt(data.loaded / data.total * 100, 10);
       var lineBar = data.context.find('.lineBar');
       var countBar = data.context.find('.countBar');
-      lineBar.data('value',progress).attr('data-value', progress);
+      lineBar.data('value', progress).attr('data-value', progress);
       countBar.text(progress+"%");
-    }).bind('fileuploaddone',function(e, data){
+    }).bind('fileuploaddone', function(e, data){
       var photo = data.result.photo;
       var $context = data.context;
       $context.find('.picture').replaceWith($('.editPicture.hidden').clone().removeClass("hidden"));
       $context.find('a').attr({ href : photo.url }).addClass("gallery-image");
       $context.find('img').attr({ src : photo.url });
       $context.find('input').attr({value: photo.id}).addClass('photo_id');
-    }).bind('fileuploadprocessfail',function(e, data){
+    }).bind('fileuploadprocessfail', function(e, data){
       console.log(data.files[0].error);
     });
 
