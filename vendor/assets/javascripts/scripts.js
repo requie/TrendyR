@@ -120,19 +120,6 @@ $(document).ready(function(){
 
 	Tabs($('.dateTabs'), ('.bookMe'));
 
-	var backImage = function(){
-		_src = $('.manadgmentFoto').find('.manageAvatar').attr('src');
-	}
-
-	var bgImage = function($bg, $img){
-		$(this).each(function(){
-		var $this 	= $bg,
-			_src 	= $this.find($img).attr('src');
-			$this.attr('style','background-image:url('+_src+')');
-			$this.find($img).remove();
-		})
-	}
-
 	var timeConcert = function(){
 		var $this 			= $(this),
 			$concert 		= $('.concert.visible').attr('data-src'),
@@ -140,7 +127,6 @@ $(document).ready(function(){
 		$timeConcert.text($concert);
 	}
 
-	bgImage($('.manadgmentFoto'), ('.manageAvatar'));
 	timeConcert();
 
 	$('.icon-left').on('click', function(){	

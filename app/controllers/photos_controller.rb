@@ -8,7 +8,6 @@ class PhotosController < ApplicationController
   end
 
   def crop
-
     authorize @photo
     @photo.update(crop_photo_params)
   end
@@ -16,7 +15,7 @@ class PhotosController < ApplicationController
   def destroy
     authorize @photo
     @photo.destroy
-    render head: :ok
+    head :ok
   end
 
   private

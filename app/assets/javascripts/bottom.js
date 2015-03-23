@@ -16,7 +16,7 @@
 //= require function
 //= require scripts
 //= require checkBo.min
-//=require parsley_setup
+//= require parsley_setup
 //= require parsley
 //= require audio
 //= require player

@@ -31,6 +31,10 @@ class ProfilePolicy
     update?
   end
 
+  def destroy?
+    update?
+  end
+
   def permitted_attributes
     if @user.role?(:manager)
       PERMITTED_ATTRIBUTES - [:spotify_url, :rdio_url]

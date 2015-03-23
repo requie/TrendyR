@@ -6,10 +6,10 @@ class PhotoDecorator < ApplicationDecorator
   end
 
   def small
-    thumb("175x131#")
+    thumb('175x131#')
   end
 
   def medium
-    thumb("355x256#")
+    thumb('355x256#')
   end
 end

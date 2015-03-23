@@ -8,7 +8,7 @@ module Base
     before_action :authenticate_user!, :authorize_namespace!
     before_action :set_entity
     before_action :authorize_user!
-    before_action :set_profile, only: [:index, :show, :edit, :update]
+    before_action :set_profile, only: [:index, :show, :edit, :update, :destroy]
     before_action :set_location_for_js, only: [:index, :show]
 
     def root

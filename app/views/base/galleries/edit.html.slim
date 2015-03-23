@@ -1,5 +1,5 @@
 = render partial: 'base/blocks/private/profile_header'
-.col-md-8.col-md-offset-2.custom-form
+.col-md-8.col-md-offset-2.custom-form data-profile-id=@profile.id
   .profile.clearfix
     .title_profile
       h5.static-content
@@ -10,25 +10,11 @@
         .text-right
           = link_to new_base_profile_photo_album_path
             button.btn.btn-primary Create new album
-    = render partial: 'base/galleries/blocks/photo_album', collection: @profile.owned_photo_albums, locals: {profile: @profile}
+    = render partial: 'base/galleries/blocks/photo_album', collection: @photo_albums, locals: {profile: @profile}
     .col-xs-12
       .pagination.pull-right
-        ul
-          li
-            a href=""  Previous
-          li
-            a href=""  1
-          li
-            a href=""  2
-          li
-            a.selectPage href=""  3
-          li
-            a href=""  ...
-          li
-            a href=""  10
-          li
-            a href=""  11
-          li
-            a href=""  12
-          li
-            a href=""  Next
+        = paginate @photo_albums
+  = render partial: 'base/galleries/blocks/empty_photo_album'
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/gallery/edit'
