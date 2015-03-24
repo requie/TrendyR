@@ -7,12 +7,6 @@ $(document).ready(function(){
 	resizeFooter($('.strPage'));
 	$('.column').equivalent(); 
 
-	$('.custom-form').checkBo();
-
-	$('.cb-checkbox').click(function(){
-		$(this).closest('.gallery').toggleClass('settingVis');
-	});				
-
 	$(".nav-page").tinyNav();
 
 	$("#foo-menu").tinyNav();
@@ -24,7 +18,7 @@ $(document).ready(function(){
 	hideBlock ($('a .icon-message'), $('.inboxMess'));
 	hideBlock ($('a .icon-ring'), $('.inboxRing'));
 	hideBlock ($('a.nameUser'), $('.userInform'));
-	
+
 	$('tr.message .icon-delete').click(function(){
 		$(this).closest('tr.message').remove();			
 	})
@@ -52,7 +46,7 @@ $(document).ready(function(){
 		"frameHeight" : 600, 
 		"overlayShow" : true, 
 		"overlayOpacity" : 0.9,	
-		"hideOnContentClick" :false,
+		"hideOnContentClick" : false,
 		"centerOnScroll" : false,
 		helpers : {
 			media : {}
@@ -61,7 +55,7 @@ $(document).ready(function(){
 
 	$('.slider').slick({
 		variableWidth: true,
-		infinite:true
+		infinite: true
 	});
  	$('.seeMore').jTruncate({  
         length: 250,  
@@ -74,7 +68,7 @@ $(document).ready(function(){
     });  
 	
 
-	$('.faqQuestion').on('click',function(){	
+	$('.faqQuestion').on('click', function(){
         $(this).find('p').slideToggle(100);    
         
         if($(this).find('i').hasClass('icon-plus')){
@@ -85,7 +79,7 @@ $(document).ready(function(){
         }					
 	});	
 	
-	$('.manadgMenu').find('ul li a').on('click',function(){
+	$('.manadgMenu').find('ul li a').on('click', function(){
 		if($(this).hasClass('menuActive')){
 			$(this).removeClass('menuActive');
 		}
@@ -98,7 +92,7 @@ $(document).ready(function(){
 		if($(this).scrollTop()>100) $('a#moveUp').fadeIn();
 		else $('a#moveUp').fadeOut(400);
 	});
-	$('a#moveUp').on('click',function(){
+	$('a#moveUp').on('click', function(){
 		$('body,html').animate({scrollTop: 0}, 450);
 		return false;
 	});	
@@ -120,19 +114,6 @@ $(document).ready(function(){
 
 	Tabs($('.dateTabs'), ('.bookMe'));
 
-	var backImage = function(){
-		_src = $('.manadgmentFoto').find('.manageAvatar').attr('src');
-	}
-
-	var bgImage = function($bg, $img){
-		$(this).each(function(){
-		var $this 	= $bg,
-			_src 	= $this.find($img).attr('src');
-			$this.attr('style','background-image:url('+_src+')');
-			$this.find($img).remove();
-		})
-	}
-
 	var timeConcert = function(){
 		var $this 			= $(this),
 			$concert 		= $('.concert.visible').attr('data-src'),
@@ -140,7 +121,6 @@ $(document).ready(function(){
 		$timeConcert.text($concert);
 	}
 
-	bgImage($('.manadgmentFoto'), ('.manageAvatar'));
 	timeConcert();
 
 	$('.icon-left').on('click', function(){	

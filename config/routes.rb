@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     resources :profile  do
       patch 'update_photo' => 'profile#update_photo', as: :update_photo
       resource :gallery
-      resources :artists, :awards, :calendar, :events, :gigs, :releases, :photo_albums
+      resources :artists, :awards, :calendar, :events, :gigs, :releases
+      resources :photo_albums, except: :destroy
+      delete 'destroy_photo_albums' => 'photo_albums#destroy'
     end
   end
 

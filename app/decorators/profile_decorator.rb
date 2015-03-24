@@ -1,7 +1,6 @@
 class ProfileDecorator < ApplicationDecorator
   delegate_all
   decorates_association :owned_awards
-  decorates_association :owned_photo_albums
   DEFAULT_PROFILE_WALLPAPER = 'background/profile.png'
   DEFAULT_PROFILE_AVATAR = 'icons/avatar-user.png'
 
@@ -17,7 +16,7 @@ class ProfileDecorator < ApplicationDecorator
     if model.wallpaper
       model.wallpaper.cropped_photo.url
     else
-      DEFAULT_PROFILE_WALLPAPER
+      asset_url(DEFAULT_PROFILE_WALLPAPER)
     end
   end
 
@@ -25,7 +24,7 @@ class ProfileDecorator < ApplicationDecorator
     if model.photo
       model.photo.cropped_photo.url
     else
-      DEFAULT_PROFILE_AVATAR
+      asset_url(DEFAULT_PROFILE_AVATAR)
     end
   end
 end

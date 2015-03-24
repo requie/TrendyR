@@ -10,13 +10,14 @@
 //= require jquery.fancybox.pack
 //= require jquery.jtruncate
 //= require jquery.Jcrop.min
+//= require jquery.backstretch.min
 //= require bootstrap.min
 //= require tinynav.min
 //= require slick
 //= require function
 //= require scripts
 //= require checkBo.min
-//=require parsley_setup
+//= require parsley_setup
 //= require parsley
 //= require audio
 //= require player

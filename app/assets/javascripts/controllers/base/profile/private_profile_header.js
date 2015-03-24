@@ -3,7 +3,7 @@
 
     var fileupload_options = {
       url: Routes.photos_path(),
-      dataType:' json',
+      dataType: ' json',
       singleFileUploads: true,
       multipart: true,
       autoUpload: true,
@@ -19,7 +19,7 @@
         $cropForm: $('#crop-container'),
         done: function(response, status, jqXHR){
           var photo_url = response.photo.url;
-          $('.managerAvatar img').attr('src',photo_url);
+          $('.managerAvatar img').attr('src', photo_url);
           $.ajax({
             url: Routes.base_profile_update_photo_path(response.photo.profile_id),
             type: 'PATCH',
@@ -35,12 +35,12 @@
 
       window.utils.crop.show({
         photo_url: photo.url,
-        trueSize: [photo.width,photo.height],
+        trueSize: [photo.width, photo.height],
         boxWidth: 640,
         boxHeight: 480,
         aspectRatio: 1
       });
-    }).bind('fileuploadprocessfail',function(e, data){
+    }).bind('fileuploadprocessfail', function(e, data){
       console.log(data.files[0].error);
     });
 
@@ -52,7 +52,7 @@
         $cropForm: $('#crop-container'),
         done: function(response, status, jqXHR){
           var photo_url = response.photo.url;
-          $('.manadgmentFoto').attr('style',"background-image:url("+photo_url+"); ");
+          $wallpaper.backstretch(photo_url);
           $.ajax({
             url: Routes.base_profile_update_photo_path(response.photo.profile_id),
             type: 'PATCH',
@@ -68,13 +68,16 @@
 
       window.utils.crop.show({
         photo_url: photo.url,
-        trueSize: [photo.width,photo.height],
+        trueSize: [photo.width, photo.height],
         boxWidth: 640,
         boxHeight: 480,
         aspectRatio: 2.5
       });
-    }).bind('fileuploadprocessfail',function(e, data){
+    }).bind('fileuploadprocessfail', function(e, data){
       console.log(data.files[0].error);
     });
+
+    var $wallpaper = $('.manadgmentFoto');
+    $wallpaper.backstretch($wallpaper.find('[name=background-image]').val());
   });
 })(jQuery);

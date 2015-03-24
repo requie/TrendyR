@@ -25,4 +25,4 @@
                     td.actions.text-center
                       a.btn.btn-primary href=edit_admin_feature_path(feature) Edit
                       = link_to 'Delete', admin_feature_path(feature), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
-            = paginate @features
+            = paginate @features, theme: 'admin'

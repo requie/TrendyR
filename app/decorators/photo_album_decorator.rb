@@ -12,10 +12,10 @@ class PhotoAlbumDecorator < ApplicationDecorator
   end
 
   def first_photo
-    model.photos.first.thumb('200x130#')
+    model.photos.first.large.url if model.photos.present?
   end
 
-  def five_without_first
-    model.photos.offset(1).first(5)
+  def remaining_photos
+    model.photos.offset(1).first(5).map { |photo| photo.tiny.url }
   end
 end

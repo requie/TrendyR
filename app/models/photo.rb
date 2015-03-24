@@ -17,6 +17,10 @@ class Photo < ActiveRecord::Base
     thumb('70x32#')
   end
 
+  def large
+    thumb('207x137#')
+  end
+
   # redifine the method in child classes to contain presets
   # {
   #   tiny: '100x100#',

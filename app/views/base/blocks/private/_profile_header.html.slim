@@ -1,5 +1,5 @@
 .manadgmentFoto.clearfix
-  = image_tag @profile.wallpaper_url, alt:"User's avatar", class: 'manageAvatar'
+  = hidden_field_tag 'background-image', @profile.wallpaper_url
   .col-md-8.col-md-offset-2
     .text-center
       input.form-control.uploadfile name="photo[attachment]" type="file"

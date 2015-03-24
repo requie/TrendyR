@@ -2,24 +2,28 @@
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
-        input type="checkbox"
+        = check_box_tag '', photo_album.id
       = link_to base_profile_photo_album_path(profile, photo_album)
-        = image_tag photo_album.first_photo.url
+        = image_tag photo_album.first_photo
     .col-xs-12.col-md-7
       h4
         = photo_album.title
       p
-        | Created: #{photo_album.date_of_creation}
+        | Created:
+        '
+        = photo_album.date_of_creation
         br
-        | Photos: #{photo_album.number_of_photos}
+        | Photos:
+        '
+        = photo_album.number_of_photos
     .col-xs-12.col-sm-8.col-md-7
       .mini-gallery.clearfix
-        - photo_album.five_without_first.each do |photo|
-          = image_tag photo.tiny.url
+        - photo_album.remaining_photos.each do |photo|
+          = image_tag photo
     .gallerySettings
       ul
         li
-          a href=""
+          = link_to edit_base_profile_photo_album_path(profile, photo_album)
             i.icon-changes
         li
           a href=""
