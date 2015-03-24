@@ -1,7 +1,7 @@
 (function($) {
   $(function(){
     var $profile = $('.profile');
-    var $profileId = $('.custom-form').data('profile-id');
+    var profileId = $('.custom-form').data('profile-id');
     var $checkBoxWraper = '<label class="mobile-center cb-checkbox">';
     var $template = $('[data-gallery]');
     var $pagination = $profile.find('.pagination').parent();
@@ -20,7 +20,7 @@
         _.each(photo_album.remaining_photos, function(photo){
           $('<img>').attr('src', photo).appendTo($miniGallery);
         });
-        $gallerySettings.find('[data-change-album]').attr('href', Routes.edit_base_profile_photo_album_path($profileId, photo_album))
+        $gallerySettings.find('[data-change-album]').attr('href', Routes.edit_base_profile_photo_album_path(profileId, photo_album))
         $element.insertBefore($pagination);
         $element.checkBo();
       });
@@ -32,14 +32,9 @@
       var photo_album_ids = $checked.map(function() {
         return $(this).val();
       }).get();
-      $checked.each(function(){
-        var $parent_div = $(this).parents('.settingVis');
-        $($parent_div).fadeOut(function(){
-          $parent_div.remove();
-        });
-      });
+      $checked.parents('.gallery').remove();
       $.ajax({
-        url: Routes.base_profile_destroy_photo_albums_path($profileId),
+        url: Routes.base_profile_destroy_photo_albums_path(profileId),
         dataType: 'json',
         type: 'DELETE',
         data:{
