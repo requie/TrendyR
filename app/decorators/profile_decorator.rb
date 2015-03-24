@@ -16,7 +16,7 @@ class ProfileDecorator < ApplicationDecorator
     if model.wallpaper
       model.wallpaper.cropped_photo.url
     else
-      asset_url(DEFAULT_PROFILE_WALLPAPER)
+      h.asset_url(DEFAULT_PROFILE_WALLPAPER)
     end
   end
 
@@ -24,7 +24,7 @@ class ProfileDecorator < ApplicationDecorator
     if model.photo
       model.photo.cropped_photo.url
     else
-      asset_url(DEFAULT_PROFILE_AVATAR)
+      h.asset_url(DEFAULT_PROFILE_AVATAR)
     end
   end
 end
