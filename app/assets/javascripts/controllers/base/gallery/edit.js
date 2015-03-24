@@ -49,7 +49,6 @@
     })
     .on('click', '.cb-checkbox', function(){
       $(this).closest('.gallery').toggleClass('settingVis');
-    })
-    .checkBo();
+    });
   });
 })(jQuery);
