@@ -19,6 +19,8 @@ $(document).ready(function(){
 	hideBlock ($('a .icon-ring'), $('.inboxRing'));
 	hideBlock ($('a.nameUser'), $('.userInform'));
 
+  $('body').checkBo();
+
 	$('tr.message .icon-delete').click(function(){
 		$(this).closest('tr.message').remove();			
 	})
