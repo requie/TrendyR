@@ -46,7 +46,7 @@ $(document).ready(function(){
 		"frameHeight" : 600, 
 		"overlayShow" : true, 
 		"overlayOpacity" : 0.9,	
-		"hideOnContentClick" :false,
+		"hideOnContentClick" : false,
 		"centerOnScroll" : false,
 		helpers : {
 			media : {}
@@ -55,7 +55,7 @@ $(document).ready(function(){
 
 	$('.slider').slick({
 		variableWidth: true,
-		infinite:true
+		infinite: true
 	});
  	$('.seeMore').jTruncate({  
         length: 250,  

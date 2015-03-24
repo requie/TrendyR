@@ -37,7 +37,7 @@
         url: Routes.base_profile_destroy_photo_albums_path(profileId),
         dataType: 'json',
         type: 'DELETE',
-        data:{
+        data: {
           photo_album_ids: photo_album_ids
         },
         success: function(response){

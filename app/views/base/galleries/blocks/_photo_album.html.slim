@@ -9,9 +9,13 @@
       h4
         = photo_album.title
       p
-        | Created: #{photo_album.date_of_creation}
+        | Created:
+        '
+        = photo_album.date_of_creation
         br
-        | Photos: #{photo_album.number_of_photos}
+        | Photos:
+        '
+        = photo_album.number_of_photos
     .col-xs-12.col-sm-8.col-md-7
       .mini-gallery.clearfix
         - photo_album.remaining_photos.each do |photo|

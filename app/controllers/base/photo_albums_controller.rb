@@ -29,7 +29,7 @@ module Base
     end
 
     def destroy
-      PhotoAlbum.owned_by_profile(destroy_photo_albums_params, current_user.profile).destroy_all
+      @profile.filter_photo_albums(destroy_photo_albums_params).destroy_all
       @photo_albums = @profile.owned_photo_albums.page(params[:page]).decorate
     end
 

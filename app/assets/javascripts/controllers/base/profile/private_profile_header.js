@@ -3,7 +3,7 @@
 
     var fileupload_options = {
       url: Routes.photos_path(),
-      dataType:' json',
+      dataType: ' json',
       singleFileUploads: true,
       multipart: true,
       autoUpload: true,

@@ -10,8 +10,4 @@ class PhotoAlbum < ActiveRecord::Base
   def owned_by?(profile)
     profile == owner_profile
   end
-
-  def self.owned_by_profile(photo_album_ids, profile)
-    where(id: photo_album_ids).where(owner_profile: profile)
-  end
 end

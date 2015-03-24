@@ -22,4 +22,8 @@ class Profile < ActiveRecord::Base
   def entity
     user.entity_class.find_by(profile_id: id)
   end
+
+  def filter_photo_albums(photo_album_ids)
+    owned_photo_albums.where(id: photo_album_ids)
+  end
 end
