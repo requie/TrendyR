@@ -4,7 +4,7 @@
       label.mobile-center.cb-checkbox
         = check_box_tag '', private_photo_album.id
       = link_to base_profile_photo_album_path(profile, private_photo_album)
-        = image_tag private_photo_album.first_photo.medium, class: 'mobile-center'
+        = image_tag private_photo_album.first_photo.with_preset(:medium), class: 'mobile-center'
     .col-xs-12.col-md-7
       h4
         = private_photo_album.title
