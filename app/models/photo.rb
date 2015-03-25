@@ -1,4 +1,10 @@
 class Photo < ActiveRecord::Base
+  GALLERY_PHOTO_PRESETS = {
+    tiny: '70x32#',
+    small: '175x131#',
+    medium: '207x137#',
+    large: '355x235#'
+  }
   delegate :thumb, to: :attachment
   dragonfly_accessor :attachment
   has_many :photo_album_photos
@@ -13,20 +19,10 @@ class Photo < ActiveRecord::Base
     user == uploader
   end
 
-  def tiny
-    thumb('70x32#').url
-  end
-
-  def small
-    thumb('175x131#').url
-  end
-
-  def medium
-    thumb('207x137#').url
-  end
-
-  def large
-    thumb('355x235#').url
+  GALLERY_PHOTO_PRESETS.each do |name, size|
+    define_method(name) do
+      thumb(size).url
+    end
   end
 
   # redifine the method in child classes to contain presets
