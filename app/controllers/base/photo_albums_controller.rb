@@ -36,7 +36,7 @@ module Base
     private
 
     def photo_album_params
-      params.require(:gallery).permit(:title, photo_ids: [])
+      params.require(:photo_album).permit(:title, photo_ids: [])
     end
 
     def destroy_photo_albums_params

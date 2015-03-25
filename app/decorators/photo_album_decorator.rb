@@ -16,6 +16,6 @@ class PhotoAlbumDecorator < ApplicationDecorator
   end
 
   def remaining_photos
-    model.photos.offset(1).first(5).map { |photo| photo.tiny }
+    model.photos.offset(1).first(5).map { |photo| photo.with_preset(:tiny) }
   end
 end

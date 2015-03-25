@@ -3,7 +3,7 @@ class PhotoAlbum < ActiveRecord::Base
   paginates_per 12
 
   has_many :photo_album_photos
-  has_many :photos, through: :photo_album_photos, dependent: :destroy
+  has_many :photos, class_name: 'PhotoAlbum::Photo', through: :photo_album_photos, dependent: :destroy
 
   validates :photos, length: { minimum: 1 }
 
