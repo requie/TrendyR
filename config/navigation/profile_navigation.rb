@@ -9,9 +9,7 @@ SimpleNavigation::Configuration.run do |navigation|
                  if: proc { show_item_artists?(@profile) }
     primary.item :releases, 'Releases', base_profile_releases_path(@profile),
                  if: proc { show_item_releases?(@profile) }
-    primary.item :events, 'My events', base_profile_events_path(@profile),
-                 if: proc { @profile.user.role?(:artist) }
-    primary.item :calendar, 'Calendar', base_profile_calendar_index_path(@profile),
+    primary.item :calendar, 'Calendar', base_profile_calendar_path(@profile),
                  if: proc { show_item_calendar?(@profile) }
     primary.item :awards, 'Awards', base_profile_awards_path(@profile),
                  if: proc { show_awards?(@profile) }

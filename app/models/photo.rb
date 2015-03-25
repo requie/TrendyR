@@ -6,7 +6,7 @@ class Photo < ActiveRecord::Base
   belongs_to :uploader, class_name: 'User'
 
   def cropped_photo
-    attachment.thumb("#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}")
+    thumb("#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}")
   end
 
   def owned_by?(user)
@@ -14,11 +14,19 @@ class Photo < ActiveRecord::Base
   end
 
   def tiny
-    thumb('70x32#')
+    thumb('70x32#').url
+  end
+
+  def small
+    thumb('175x131#').url
+  end
+
+  def medium
+    thumb('207x137#').url
   end
 
   def large
-    thumb('207x137#')
+    thumb('355x235#').url
   end
 
   # redifine the method in child classes to contain presets

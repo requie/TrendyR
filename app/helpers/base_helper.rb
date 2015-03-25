@@ -44,7 +44,7 @@ module BaseHelper
   end
 
   def show_item_calendar?(profile)
-    profile.user.roles? %w(label manager venue)
+    profile.user.roles? %w(artist label manager venue)
   end
 
   def show_item_press_kit?(profile)

@@ -12,10 +12,10 @@ class PhotoAlbumDecorator < ApplicationDecorator
   end
 
   def first_photo
-    model.photos.first.large.url if model.photos.present?
+    model.photos.first if model.photos.present?
   end
 
   def remaining_photos
-    model.photos.offset(1).first(5).map { |photo| photo.tiny.url }
+    model.photos.offset(1).first(5).map { |photo| photo.tiny }
   end
 end

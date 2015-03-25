@@ -19,7 +19,9 @@ $(document).ready(function(){
 	hideBlock ($('a .icon-ring'), $('.inboxRing'));
 	hideBlock ($('a.nameUser'), $('.userInform'));
 
-  $('body').checkBo();
+  $('.custom-form').on('click', '.cb-checkbox', function(){
+    $(this).closest('.gallery').toggleClass('settingVis');
+  }).checkBo();
 
 	$('tr.message .icon-delete').click(function(){
 		$(this).closest('tr.message').remove();			

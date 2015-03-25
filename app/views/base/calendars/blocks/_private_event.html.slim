@@ -1,0 +1,32 @@
+.gallery.mobile-center.clearfix.main-events
+  .col-xs-12
+    .mobile-center.gallery-mainFoto
+      label.mobile-center.cb-checkbox
+        input type="checkbox"
+    .promo_more.mobile-center.gigs.clearfix
+      .promo-logo-now
+        a href=""
+          = image_tag private_event.photo.attachment.url
+      h4.static-content
+        = private_event.title
+      .eventName.mobile-center
+        p
+          i.icon-dark-calendar
+          | Jul 18, 2014 - Jul 20, 2014
+        p
+          i.icon-dark-place
+          | Painesville, Ohio, USA
+        p
+          i.icon-dark-money
+          | $ 40.00
+    .gallerySettings
+      ul
+        li
+          a href=""
+            i.icon-changes
+        li
+          a href=""
+            i.icon-deleteGallery
+    .galleryStatus
+      i.icon-started
+      p.galleryStatus_start Started

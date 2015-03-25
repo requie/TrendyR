@@ -1,8 +1,9 @@
 .profile-public.clearfix
+  = hidden_field_tag 'background-image', @profile.wallpaper_url
   .col-xs-12
     .public-foto.mobile-center
       a href="#"
-        = image_tag 'banners/public-manager-home.jpg', alt:'Name User'
+        = image_tag @profile.avatar_url, alt:"User's avatar"
   .public-name
     .col-md-9.col-xs-12
       .name.mobile-center
@@ -13,6 +14,8 @@
         i.icon-place
         p.empty
           = profile.location_address
-        a href=""
-          = profile.website
+        = link_to profile.website, url_with_protocol(profile.website), target: :blank
 = render partial:'base/blocks/manadgMenu', locals: { profile: profile }
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/profile/profile_header'

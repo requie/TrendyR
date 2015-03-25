@@ -1,6 +1,6 @@
 .col-xs-12.col-sm-6.col-md-3
   .editPicture
-    a href="#{ album_photo.url }" rel="group" class="gallery-image"
-      img src="#{ album_photo.url }"
+    = link_to album_photo.url, rel:"group", class:"gallery-image"
+      = image_tag album_photo.url
     i.icon-removePicture
-    input.photo_id.hidden name="photo_album[photo_ids][]" value=album_photo.id
+    = input.photo_id.hidden name="photo_album[photo_ids][]" value=album_photo.id
