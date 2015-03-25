@@ -10,7 +10,7 @@
       _.each(response, function(photo_album){
         var $element = $template.clone().removeClass('hidden').removeAttr('data-gallery');
         $element.find('[data-album-id]').wrap($checkBoxWraper).val(photo_album.id);
-        $element.find('[data-first-photo-url]').attr('href', Routes.base_profile_photo_album_path(profile, photo_album));
+        $element.find('[data-first-photo-url]').attr('href', Routes.base_profile_photo_album_path(profileId, photo_album));
         $element.find('[data-first-photo]').attr('src', photo_album.first_photo);
         $element.find('[data-album-title]').html(photo_album.title);
         $element.find('[data-created]').html(photo_album.date_of_creation);
@@ -46,9 +46,7 @@
           updatePhotoAlbums(response);
         }
       });
-    })
-    .on('click', '.cb-checkbox', function(){
-      $(this).closest('.gallery').toggleClass('settingVis');
     });
+
   });
 })(jQuery);

@@ -19,17 +19,17 @@
       ul
         - if profile.facebook_url.present?
           li
-            a href="#{profile.facebook_url}"
+            = link_to url_with_protocol(profile.facebook_url), target: :blank
               i.icon-facebook-gray
         - if profile.twitter_url.present?
           li
-            a href="#{profile.twitter_url}"
+            = link_to url_with_protocol(profile.twitter_url), target: :blank
               i.icon-twitter-gray
         - if profile.google_plus_url.present?
           li
-            a href="#{profile.google_plus_url}"
+            = link_to url_with_protocol(profile.google_plus_url), target: :blank
               i.icon-google-gray
         - if profile.instagram_url.present?
           li
-            a href="#{profile.instagram_url}"
+            = link_to url_with_protocol(profile.instagram_url), target: :blank
               i.icon-insta-gray

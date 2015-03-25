@@ -1,17 +1,17 @@
 = render partial: 'base/blocks/private/profile_header'
 .col-md-8.col-md-offset-2.custom-form data-profile-id=@profile.id
   .profile.clearfix
-    .title_profile
-      h5.static-content
+    .title_profile.clearfix
+      h5.static-content.pull-sm-left.m-t0
         | Albums
         '
         span
           | (#{@profile.owned_photo_albums.count})
-      .form-group
+      .form-group.pull-sm-right
         .text-right
           = link_to new_base_profile_photo_album_path
             button.btn.btn-primary Create new album
-    = render partial: 'base/galleries/blocks/photo_album', collection: @photo_albums, locals: {profile: @profile}
+    = render partial: 'base/galleries/blocks/private_photo_album', collection: @photo_albums, locals: {profile: @profile}
     .col-xs-12
       .pagination.pull-right
         = paginate @photo_albums
