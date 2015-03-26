@@ -8,14 +8,19 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_one :identity
+  has_one :user_contacts
+
   has_many :role_user
   has_many :roles, through: :role_user
   has_many :photos, foreign_key: :uploader_id
+  has_many :email_notification_users
+  has_many :email_notifications, through: :email_notification_users
 
   validates :first_name, :last_name, length: { maximum: MAX_LENGTH }, format: { with: NAME_FORMAT }, allow_blank: true
   validates :roles, presence: true
 
   accepts_nested_attributes_for :identity
+  accepts_nested_attributes_for :user_contacts, :email_notifications
 
   delegate :entity, to: :profile
 

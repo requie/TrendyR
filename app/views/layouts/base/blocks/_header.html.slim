@@ -2,8 +2,8 @@
   .navbar-inverse
     .container
       .navbar-header
-        a.navbar-brand href="#"
-          img alt="Trendy Reggae" title="Trendy Reggae" src=image_path('logo.png')
+        = link_to root_path, class: 'navbar-brand'
+          = image_tag 'logo.png', alt: 'Trendy Reggae', title: 'Trendy Reggae'
       .pull-right
         button.mob-menu.navbar-toggle.collapsed data-target="" data-toggle="collapse" type="button"
           span.sr-only Toggle navigation
