@@ -1,0 +1,58 @@
+.col-md-8.col-md-offset-2.custom-form
+  .row
+    .col-xs-12
+      h2.head_text Settings
+  = simple_form_for current_user, url: base_profile_settings_path, method: :patch do |f|
+    .row
+      .col-sm-6
+        .form-group
+          = f.input :first_name, placeholder:"First Name", input_html: { class: 'form-control', 'data-required' => true }
+      .col-sm-6
+        .form-group
+          = f.input :last_name, placeholder: "Last Name", input_html: {class: 'form-control', 'data-required' => true}
+      .col-sm-6
+        .form-group
+          = f.input :email, placeholder: "Email", input_html: {class: 'form-control', 'data-required' => true}
+      = f.simple_fields_for :user_contacts do |contacts_form|
+        .col-sm-6
+          .form-group
+            = contacts_form.input :first_phone, placeholder: "Telephone 1", input_html: {class: 'form-control'}
+        .col-sm-6
+          .form-group
+            = contacts_form.input :second_phone, placeholder: "Telephone 2", input_html: {class: 'form-control'}
+        .col-sm-6
+          .form-group
+            = contacts_form.input :fax, placeholder: "Fax", input_html: {class: 'form-control'}
+    = simple_fields_for :passwords do |password_form|
+      .row
+        .col-xs-12
+          h3.head_settings Edit password
+      .row
+        .col-sm-3.col-md-4.col-lg-3
+          p.m-t7.regRoboto.text-color Current password
+        .col-sm-6
+          .form-group
+            =password_form.input :current_password, as: :password, required: false, input_html: {class: 'form-control', data: {'validate-if-empty' => 'true', 'existifinputfilled' => '#passwords_password', 'existifinputfilled-message' => 'This value is required.'}}
+      .row
+        .col-sm-3.col-md-4.col-lg-3
+          p.m-t7.regRoboto.text-color New password
+        .col-sm-6
+          .form-group
+            =password_form.input :password, as: :password, required: false, input_html: {class: 'form-control', data: {'validate-if-empty' => 'true', 'minlengthifnotempty' => 8, 'minlengthifnotempty-message' => "This value is too short.", 'existifinputfilled' => '#passwords_current_password', 'existifinputfilled-message' => 'This value is required.'}}
+      .row
+        .col-sm-3.col-md-4.col-lg-3
+          p.m-t7.regRoboto.text-color Repeat password
+        .col-sm-6
+          .form-group
+            =password_form.input :password_confirmation, as: :password, required: false, input_html: {class: 'form-control', data: {'validate-if-empty' => 'true', 'equalto' => '#passwords_password'}}
+    .row
+      .col-xs-12
+        h3.head_settings Notifications
+    .row
+      .col-xs-12
+        = f.collection_check_boxes :email_notification_ids, EmailNotification.all, :id, :name do |cb|
+          = cb.label(class: 'cb-checkbox w-100 regRoboto') { cb.check_box + cb.text}
+    .row
+      .col-xs-12
+        .pull-right
+          button.btn.btn-primary.m-t20.m-b20 Save updates

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309140741) do
+ActiveRecord::Schema.define(version: 20150326072558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,20 @@ ActiveRecord::Schema.define(version: 20150309140741) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "email_notifications", force: true do |t|
+    t.string   "title"
+    t.string   "name"
+    t.boolean  "is_active",  default: true
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "email_notifications_users", id: false, force: true do |t|
+    t.integer "email_notification_id", null: false
+    t.integer "user_id",               null: false
   end
 
   create_table "events", force: true do |t|
@@ -228,6 +242,13 @@ ActiveRecord::Schema.define(version: 20150309140741) do
     t.datetime "updated_at"
   end
 
+  create_table "user_contacts", force: true do |t|
+    t.string  "first_phone"
+    t.string  "second_phone"
+    t.string  "fax"
+    t.integer "user_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",   null: false
     t.string   "first_name"
@@ -268,6 +289,9 @@ ActiveRecord::Schema.define(version: 20150309140741) do
   end
 
   add_foreign_key "comments", "users", name: "comments_author_id_fk", column: "author_id"
+
+  add_foreign_key "email_notifications_users", "email_notifications", name: "email_notifications_users_email_notification_id_fk", dependent: :delete
+  add_foreign_key "email_notifications_users", "users", name: "email_notifications_users_user_id_fk", dependent: :delete
 
   add_foreign_key "genres_profiles", "genres", name: "genres_profiles_genre_id_fk", dependent: :delete
   add_foreign_key "genres_profiles", "profiles", name: "genres_profiles_profile_id_fk", dependent: :delete
