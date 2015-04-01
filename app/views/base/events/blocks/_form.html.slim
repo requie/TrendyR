@@ -1,0 +1,55 @@
+.row
+  .col-xs-12
+    .well.create-event
+      i.fa.fa-picture-o
+      button.btn.btn-primary#upload-button Upload image
+      = form.input :photo_id, input_html: {class: 'hidden', data: {required: true, 'required-message' => 'Please, upload image'}}
+      p.create-event-text Png, jpg
+.row
+  .col-xs-12
+    h3.head_settings Main information
+.row
+  .col-xs-12
+    .form-group
+      = form.input :title, input_html: {placeholder: 'Title', class: 'form-control', data: {required: true}}
+= render partial: 'base/blocks/location_autocomplete', locals: {address: location_address(event), location: event.location}
+.row
+  .col-xs-12
+    .form-group
+      = form.input :description_text, as: :text, input_html: {class: 'editor form-control', rows: 10, data: {required: true}}
+.row.m-t10
+  .col-sm-2
+    p.text-color.p-t7 Date start
+  .col-sm-2
+    .form-group
+      = select_day date_start(event), {}, name: 'event[started_at(3i)]', class: 'form-control'
+  .col-sm-2.col-md-3
+    .form-group
+      = select_month date_start(event), {}, name: 'event[started_at(2i)]', class: 'form-control'
+  .col-sm-2.col-md-3
+    .form-group
+      = select_year date_start(event), {}, name: 'event[started_at(1i)]', class: 'form-control'
+.row
+  .col-sm-2
+    p.text-color.p-t7 Date end
+  .col-sm-2
+    .form-group
+      = select_day date_end(event), {}, name: 'event[finished_at(3i)]', class: 'form-control', data: {group: '["end", "bar"]'}
+  .col-sm-2.col-md-3
+    .form-group
+      = select_month date_end(event), {}, name: 'event[finished_at(2i)]', class: 'form-control', data: {group: 'end'}
+  .col-sm-2.col-md-3
+    .form-group
+      = select_year date_end(event), {}, name: 'event[finished_at(1i)]', class: 'form-control', data: {group: 'end'}
+.row
+  .col-sm-2
+    p.text-color.p-t7 Price / USD
+  .col-sm-2
+    .form-group
+      = form.input :price, as: :string, input_html: { class: 'form-control', data: {required: true}}
+.row
+  .col-xs-12.m-b20
+    button.btn.btn-primary.pull-right Submit
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/calendar/new'

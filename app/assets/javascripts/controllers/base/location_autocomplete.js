@@ -1,5 +1,8 @@
 (function($) {
   $(function(){
+    var location_attributes = /location\[/i;
+    var $autocomplete_errors = $('#autocomplete').next();
+
     function initialize() {
       var autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')), { types: ['geocode'] });
       google.maps.event.addListener(autocomplete, 'place_changed', function() {

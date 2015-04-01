@@ -12,7 +12,7 @@ select, textarea, input, option{
     border-radius: 4px;
 }
 .footer{
-    bottom: 0;	
+    bottom: 0px;	
 	position:relative;
 }
 #moveUp{
@@ -67,7 +67,6 @@ input.uploadbtn, input.uploadfile{
 }
 .well{
     padding:17px !important;
-    margin-bottom:0px !important;
 }
 .cover{
     padding-top:35px;

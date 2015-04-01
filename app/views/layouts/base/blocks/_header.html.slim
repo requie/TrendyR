@@ -159,7 +159,7 @@
                     i.icon-pay
                     | Payments
                 li
-                  a href=destroy_user_session_path
+                  = link_to destroy_user_session_path
                     i.icon-logOut
                     | Log Out
   - if flash[:notice].present? && flash[:notice].is_a?(String)

@@ -50,4 +50,8 @@ module BaseHelper
   def show_item_press_kit?(profile)
     profile.user.role?(:artist)
   end
+
+  def distance_of_time_in(unit = :hours, from: Time.now, to: Time.now)
+    ((to - from) / 1.send(unit)).round if 1.respond_to? unit
+  end
 end

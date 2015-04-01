@@ -30,6 +30,9 @@
 //= require jquery_ujs
 //= require underscore
 //= require jcrop_setup
+//= require tinymce/tinymce.min
+//= require jquery-te-1.4.0.min
+//= require jquery.maskMoney.min
 
 (function($) {
   $(function() {
@@ -37,16 +40,14 @@
     var $parsleyForm = $('.parsley-form');
 
     if ($parsleyForm.length) {
-      $parsleyForm.parsley({
-        namespace: 'data-',
-        errorsWrapper: '<div class="error-message"></div>',
-        errorTemplate: '<span></span>'
+      $parsleyForm.parsley();
+
+      $.listen('parsley:field:success', function(e) {
+        e.$element.closest('.form-group').find('input,select').removeClass('error-border');
       });
 
-      $.listen('parsley:form:validate', function() {
-        var $error_div = $('.form-group .error-message').not('[id*="parsley"]');
-        $error_div.closest('.form-group').find('input,select').removeClass('error-border');
-        $error_div.remove();
+      $.listen('parsley:field:error', function(e) {
+        e.$element.closest('.form-group').find('input,select').addClass('error-border');
       });
 
     }

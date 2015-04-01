@@ -9,18 +9,7 @@
           = f.input :name, input_html: { class: 'form-control', 'data-required' => true }, placeholder: @profile.name_placeholder
         .col-sm-6
           = f.input :website, input_html: { class: 'form-control', 'data-required' => true }, placeholder: 'Website'
-      .row
-        .col-xs-12
-          .form-group
-            = text_field_tag 'autocomplete', @profile.location_address, class: 'form-control', 'data-required' => true, placeholder: 'Location'
-          = fields_for :location, @profile.location do |l|
-            = l.hidden_field :source, as: :hidden
-            = l.hidden_field :source_id, as: :hidden
-            = l.hidden_field :source_place_id, as: :hidden
-            = l.hidden_field :address, as: :hidden
-            = l.hidden_field :types, as: :hidden
-            = l.hidden_field :latitude, as: :hidden
-            = l.hidden_field :longitude, as: :hidden
+      = render partial: 'base/blocks/location_autocomplete', locals: {address: location_address(@profile), location: @profile.location}
       h5.static-content
         | Description
       .row
@@ -63,7 +52,3 @@
           = f.input :instagram_url, input_html: { class: 'form-control' }, placeholder: 'Instagram link'
       .form-group
         button.btn.btn-primary.pull-right Save updates
-
-= content_for :javascript do
-  script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
-  = javascript_include_tag 'controllers/base/profile/edit'

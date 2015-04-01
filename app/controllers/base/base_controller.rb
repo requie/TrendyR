@@ -8,7 +8,7 @@ module Base
     before_action :authenticate_user!, :authorize_namespace!
     before_action :set_entity
     before_action :authorize_user!
-    before_action :set_profile, only: [:index, :show, :edit, :update, :destroy]
+    before_action :set_profile, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     before_action :set_location_for_js, only: [:index, :show]
 
     def root
@@ -38,6 +38,17 @@ module Base
 
     def set_location_for_js
       gon.location = @profile.location
+    end
+
+    def set_location
+      location = Location.find_or_create_by(location_params) do |l|
+        l.creator = @profile.user
+      end
+      location
+    end
+
+    def location_params
+      params.require(:location).permit(*policy(:location).permitted_attributes)
     end
   end
 end

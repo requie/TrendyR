@@ -78,9 +78,10 @@ var hideBlock = function hideBlock ($mainBlock, $hideBlock){
 
 var resizeFooter = function ($mainBlock) {
 		var $footer 	= $('footer'),
+			$header		= $('#nav'),
 			$windows 	= window.innerHeight;
-	if($mainBlock.height() + $footer.height() < $windows){
-		$mainBlock.height($windows - $footer.height());
+	if($mainBlock.height() + $footer.height() + $header.height() < $windows){
+		$mainBlock.height($windows - $footer.height() + 'px');
 	}
 }
 
@@ -104,6 +105,26 @@ var progressBar = function(){
   		}, 100
 		);
 	}	
+}
+
+var backImage = function(){
+		_src = $('.manadgmentFoto').find('.manageAvatar').attr('src');
+	}
+
+var bgImage = function($bg, $img){
+	$(this).each(function(){
+	var $this 	= $bg,
+		_src 	= $this.find($img).attr('src');
+		$this.attr('style','background-image:url('+_src+')');
+		$this.find($img).remove();
+	})
+}
+
+var timeConcert = function(){
+	var $this 			= $(this),
+		$concert 		= $('.concert.visible').attr('data-src'),
+		$timeConcert 	= $('.timeConcert').find('span');
+	$timeConcert.text($concert);
 }
 
 /*---------- [Tabs] ------------*/
