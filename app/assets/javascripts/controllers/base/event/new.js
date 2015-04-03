@@ -81,10 +81,10 @@
     });
 
     $('#event_price').maskMoney({
-                                  thousands: '',
-                                  decimal: '.',
-                                  allowZero: true,
-                                  suffix: ' $'
-                                });
+      thousands: '',
+      decimal: '.',
+      allowZero: true,
+      suffix: ' $'
+    });
   });
 })(jQuery);

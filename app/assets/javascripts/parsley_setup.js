@@ -38,30 +38,24 @@
         },
         dateLower: {
           fn: function(value, requirement) {
-            $startElement = $(requirement.start);
-            $endElement = $(requirement.end);
-            var startDay = $startElement.find("[name*='(3i)']").val();
-              startMonth = $startElement.find("[name*='(2i)']").val();
-              startYear = $startElement.find("[name*='(1i)']").val();
-              endDay = $endElement.find("[name*='(3i)']").val();
-              endMonth = $endElement.find("[name*='(2i)']").val();
-              endYear = $endElement.find("[name*='(1i)']").val();
-            var someAreNotPicked = _.some([startDay, startMonth, startYear, endDay, endMonth, endYear], _.isNaN);
 
-            var startDate = new Date(startYear, startMonth, startDay);
-                endDate = new Date(endYear, endMonth, endDay);
-
-            if (someAreNotPicked) {
-              return true;
+            function parseDate($element) {
+              // month, day, year
+              return _.map(['(3i)', '(2i)', '(1i)'], function(date_selector) {
+                 return $element.find("[name*='" + date_selector + "']").val();
+              });
             }
 
-            if (startDate.getTime() < endDate.getTime()) {
+            var $startElement = $(requirement.start);
+              $endElement = $(requirement.end);
+            var start = parseDate($startElement),
+              end = parseDate($endElement);
+            var someAreNotPicked = _.some(start.concat(end), _.isNaN);
+            var startDate = new Date(start), endDate = new Date(end);
+            if (someAreNotPicked || startDate.getTime() < endDate.getTime()){
               return true;
             }
-            else {
               return false;
-            }
-
           }
         }
       }

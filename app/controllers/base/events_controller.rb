@@ -1,7 +1,8 @@
 module Base
   class EventsController < Base::BaseController
-    EVENT_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price)
     include LocationProcessing
+
+    EVENT_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price)
 
     before_action :set_event, only: [:edit, :update]
     before_action :create_location, only: [:create, :update]
@@ -34,7 +35,7 @@ module Base
     end
 
     def event_params
-      params.require(:event).permit(EVENT_ATTRIBUTES).merge(location_id: create_location.id)
+      params.require(:event).permit(*EVENT_ATTRIBUTES).merge(location_id: create_location.id)
     end
   end
 end
