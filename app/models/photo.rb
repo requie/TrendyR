@@ -18,11 +18,11 @@ class Photo < ActiveRecord::Base
   end
 
   def with_presets(preset_syms)
-    @resized_photo = self
+    resized_photo = self
     preset_syms.each do |preset|
-      @resized_photo = @resized_photo.thumb(presets[preset])
+      resized_photo = resized_photo.thumb(presets[preset])
     end
-    @resized_photo.url
+    resized_photo.url
   end
 
   # redifine the method in child classes to contain presets
@@ -31,6 +31,11 @@ class Photo < ActiveRecord::Base
   #   big: '500x500'
   # }
   def presets
-    {}
+    {
+      cropped: "#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}",
+      avatar: '165x150#',
+      wallpaper: '',
+      event_photo: '750x180#'
+    }
   end
 end

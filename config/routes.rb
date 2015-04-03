@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:create, :destroy] do
     member do
-      put 'crop'
+      put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar/i }
     end
   end
 end

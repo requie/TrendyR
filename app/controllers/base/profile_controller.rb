@@ -1,5 +1,7 @@
 module Base
   class ProfileController < Base::BaseController
+    include LocationProcessing
+
     def show
     end
 
@@ -7,7 +9,6 @@ module Base
     end
 
     def update
-      @profile.location = set_location
       @profile.update(profile_params)
       respond_with(@profile, location: edit_base_profile_path)
     end
@@ -21,7 +22,7 @@ module Base
     private
 
     def profile_params
-      params.require(:profile).permit(*policy(@profile).permitted_attributes)
+      params.require(:profile).permit(*policy(@profile).permitted_attributes).merge(location_id: create_location.id)
     end
 
     def profile_photo_params

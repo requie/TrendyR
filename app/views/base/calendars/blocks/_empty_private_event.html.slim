@@ -1,4 +1,4 @@
-.gallery.mobile-center.clearfix.main-events
+.gallery.mobile-center.clearfix.main-events.hidden
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
@@ -6,27 +6,28 @@
     .promo_more.mobile-center.gigs.clearfix
       .promo-logo-now
         a href=""
-          = image_tag private_event.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
-      h4.static-content
-        = private_event.title
+          img.mobile-center data-event-photo = 'true'
+      h4.static-content data-event-title = 'true'
       .eventName.mobile-center
         p
           i.icon-dark-calendar
-          = period(private_event)
+          span data-event-period = 'true'
         p
           i.icon-dark-place
-          = get_address(private_event.location)
+          span data-event-location = 'true'
         p
           i.icon-dark-money
-          = private_event.price
+          span data-event-price = 'true'
           '
           | $
     .gallerySettings
       ul
         li
-          = link_to edit_base_profile_event_path(profile, private_event)
+          a data-event-edit = 'true'
             i.icon-changes
         li
           a href=""
             i.icon-deleteGallery
-    = render partial: 'base/calendars/blocks/status', locals: { status: status(private_event) }
+    .galleryStatus data-event-status = 'true'
+      i
+      p

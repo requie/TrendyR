@@ -1,7 +1,7 @@
 .row
   .col-xs-12
     .form-group
-      = text_field_tag 'autocomplete', address, class: 'form-control', data: {required: true, 'anotherInputFilled' => '#location_source', 'anotherInputFilled-message' => 'Select location from list.'}, placeholder: 'Location'
+      = text_field_tag 'autocomplete', get_address(location), class: 'form-control', data: {required: true, 'anotherInputFilled' => '#location_source', 'anotherInputFilled-message' => 'Select location from list.' }, placeholder: 'Location'
       = simple_fields_for :location, location do |l|
         .hidden
           = l.input :source, as: :hidden

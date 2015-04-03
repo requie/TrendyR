@@ -14,4 +14,5 @@
       .form-group.pull-sm-right
         = link_to new_base_profile_event_path
           button.btn.btn-primary Create event
-    = render partial: 'base/calendars/blocks/private_event', collection: @events, locals: {profile: @profile}
+    = render partial: 'base/calendars/blocks/private_event', collection: @events, locals: { profile: @profile }
+= render partial: 'base/calendars/blocks/empty_private_event'

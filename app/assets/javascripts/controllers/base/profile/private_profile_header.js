@@ -16,6 +16,7 @@
 
       window.utils.crop.init({
         photo_id: photo.id,
+        preset: 'avatar',
         $cropForm: $('#crop-container'),
         done: function(response, status, jqXHR){
           var photo_url = response.photo.url;

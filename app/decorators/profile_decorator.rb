@@ -18,7 +18,7 @@ class ProfileDecorator < ApplicationDecorator
 
   def avatar_url
     if model.photo
-      model.photo.with_presets([:cropped, :homepage])
+      model.photo.with_presets([:cropped, :private_hompage])
     else
       h.asset_url(DEFAULT_PROFILE_AVATAR)
     end

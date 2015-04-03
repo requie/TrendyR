@@ -9,7 +9,7 @@ module Base
     end
 
     def set_events
-      @events = @profile.owned_events.page(params[:page]).decorate
+      @events = @profile.owned_events.page(params[:page])
     end
   end
 end

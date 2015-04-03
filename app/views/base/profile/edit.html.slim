@@ -9,7 +9,7 @@
           = f.input :name, input_html: { class: 'form-control', 'data-required' => true }, placeholder: @profile.name_placeholder
         .col-sm-6
           = f.input :website, input_html: { class: 'form-control', 'data-required' => true }, placeholder: 'Website'
-      = render partial: 'base/blocks/location_autocomplete', locals: {address: location_address(@profile), location: @profile.location}
+      = render partial: 'base/blocks/location_autocomplete', locals: { location: @profile.location }
       h5.static-content
         | Description
       .row

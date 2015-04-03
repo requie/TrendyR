@@ -1,7 +1,7 @@
 if @photo.valid?
   json.photo do
     json.id @photo.id
-    json.url @photo.cropped
+    json.url @photo.with_presets([:cropped, @preset])
     json.profile_id @photo.uploader.profile.id
   end
 else
