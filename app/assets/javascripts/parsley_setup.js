@@ -35,6 +35,34 @@
             if(value) return value.length >= requirement;
             else return true;
           }
+        },
+        dateLower: {
+          fn: function(value, requirement) {
+            $startElement = $(requirement.start);
+            $endElement = $(requirement.end);
+            var startDay = $startElement.find("[name*='(3i)']").val();
+              startMonth = $startElement.find("[name*='(2i)']").val();
+              startYear = $startElement.find("[name*='(1i)']").val();
+              endDay = $endElement.find("[name*='(3i)']").val();
+              endMonth = $endElement.find("[name*='(2i)']").val();
+              endYear = $endElement.find("[name*='(1i)']").val();
+            var someAreNotPicked = _.some([startDay, startMonth, startYear, endDay, endMonth, endYear], _.isNaN);
+
+            var startDate = new Date(startYear, startMonth, startDay);
+                endDate = new Date(endYear, endMonth, endDay);
+
+            if (someAreNotPicked) {
+              return true;
+            }
+
+            if (startDate.getTime() < endDate.getTime()) {
+              return true;
+            }
+            else {
+              return false;
+            }
+
+          }
         }
       }
     };
