@@ -57,5 +57,6 @@
 
   = render partial: 'base/events/blocks/progress'
 
-  - content_for :javascript do
-    = javascript_include_tag 'controllers/base/event/new'
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/event/new'
+  = tinymce_assets

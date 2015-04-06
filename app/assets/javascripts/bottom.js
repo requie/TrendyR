@@ -30,7 +30,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require jcrop_setup
-//= require tinymce/tinymce.min
+//= require tinymce
 //= require jquery-te-1.4.0.min
 //= require jquery.maskMoney.min
 //= require url_parameters
