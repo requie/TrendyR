@@ -1,10 +1,10 @@
 .promo_more.mobile-center.gigs.clearfix
-= event_or_gig_photo(gig, 'album_image/promoter.jpg')
+/= photo_with_promo_logo(gig)
 h4.static-content #{gig.title}
 .gigName.mobile-center
   p
     i.icon-dark-calendar
-    = period(gig)
+    /= gig.period
     p
     i.icon-dark-place
     - if gig.location

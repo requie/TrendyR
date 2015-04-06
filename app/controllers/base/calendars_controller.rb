@@ -1,6 +1,6 @@
 module Base
   class CalendarsController < Base::BaseController
-    before_action :set_events, only: [:show, :edit]
+    before_action :events
 
     def show
     end
@@ -8,8 +8,10 @@ module Base
     def edit
     end
 
-    def set_events
-      @events = @profile.owned_events.page(params[:page])
+    private
+
+    def events
+      @events = @profile.owned_events.page(params[:page]).with_status(params[:filter])
     end
   end
 end

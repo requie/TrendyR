@@ -33,7 +33,7 @@
       $context.find('.picture').replaceWith($('.editPicture.hidden').clone().removeClass("hidden"));
       $context.find('a').attr({ href : photo.url }).addClass("gallery-image");
       $context.find('img').attr({ src : photo.url });
-      $context.find('input').attr({value: photo.id}).addClass('photo_id');
+      $context.find('input').attr({ value: photo.id }).addClass('photo_id');
     }).bind('fileuploadprocessfail', function(e, data){
       console.log(data.files[0].error);
     });

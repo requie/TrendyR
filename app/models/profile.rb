@@ -26,4 +26,8 @@ class Profile < ActiveRecord::Base
   def filter_photo_albums(photo_album_ids)
     owned_photo_albums.where(id: photo_album_ids)
   end
+
+  def filter_events(event_ids)
+    owned_events.where(id: event_ids)
+  end
 end

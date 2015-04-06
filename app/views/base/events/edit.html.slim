@@ -1,0 +1,11 @@
+= render partial: 'base/blocks/private/crop'
+.col-md-8.col-md-offset-2.custom-form
+  = hidden_field_tag 'photo_url', @event.photo.cropped
+  .row
+    .col-xs-12
+      h2.head_text Edit event
+  = file_field_tag "photo[attachment]", id: 'upload', class: 'hidden'
+  = render partial: 'base/events/blocks/form', locals: { event: @event }
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/event/edit'

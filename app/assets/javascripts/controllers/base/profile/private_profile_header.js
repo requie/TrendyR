@@ -16,6 +16,7 @@
 
       window.utils.crop.init({
         photo_id: photo.id,
+        preset: 'avatar',
         $cropForm: $('#crop-container'),
         done: function(response, status, jqXHR){
           var photo_url = response.photo.url;
@@ -40,8 +41,6 @@
         boxHeight: 480,
         aspectRatio: 1
       });
-    }).bind('fileuploadprocessfail', function(e, data){
-      console.log(data.files[0].error);
     });
 
     $('.uploadfile').fileupload(fileupload_options).bind('fileuploaddone', function (e, data) {
@@ -73,8 +72,6 @@
         boxHeight: 480,
         aspectRatio: 2.5
       });
-    }).bind('fileuploadprocessfail', function(e, data){
-      console.log(data.files[0].error);
     });
 
     var $wallpaper = $('.manadgmentFoto');

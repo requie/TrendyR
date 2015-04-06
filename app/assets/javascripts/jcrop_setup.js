@@ -30,6 +30,7 @@
 
         this.dom.$cropForm.on('submit', function() {
           $.ajax({
+            url: Routes.crop_photo_path(options.photo_id, options.preset),
             dataType: 'json',
             type: 'PUT',
             data: {
@@ -39,8 +40,7 @@
                 crop_w: that.dom.$w.val(),
                 crop_h: that.dom.$h.val()
               }
-            },
-            url: Routes.crop_photo_path(options.photo_id)
+            }
           })
           .done(function(response, status, jqXHR) {
             that.hide();

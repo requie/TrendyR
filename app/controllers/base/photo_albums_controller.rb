@@ -3,7 +3,7 @@ module Base
     before_action :set_photo_album, only: [:edit, :update, :show]
 
     def show
-      template = @photo_album.owned_by?(current_user.profile) ? 'show_private' : 'show'
+      template = @photo_album.owned_by?(@profile) ? 'show_private' : 'show'
       render template
     end
 
@@ -13,7 +13,7 @@ module Base
 
     def create
       @photo_album = PhotoAlbum.new(photo_album_params)
-      @photo_album.owner_profile = current_user.profile
+      @photo_album.owner_profile = @profile
       @photo_album.save
       redirect_to edit_base_profile_gallery_path(@photo_album.owner_profile)
     end

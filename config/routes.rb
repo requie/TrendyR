@@ -24,10 +24,12 @@ Rails.application.routes.draw do
   namespace :base, path: nil do
     resources :profile  do
       patch 'update_photo' => 'profile#update_photo', as: :update_photo
-      resource :gallery, :calendar
+      resource :gallery
+      resource :calendar
       resources :artists, :awards, :events, :gigs, :releases
       resources :photo_albums, except: :destroy
       delete 'destroy_photo_albums' => 'photo_albums#destroy'
+      delete 'destroy_events' => 'events#destroy'
       resource :settings
     end
   end
@@ -44,7 +46,7 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:create, :destroy] do
     member do
-      put 'crop'
+      put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar/i }
     end
   end
 end

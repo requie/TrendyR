@@ -2,31 +2,31 @@
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
-        input type="checkbox"
+        = check_box_tag 'event[id]', value = private_event.id
     .promo_more.mobile-center.gigs.clearfix
       .promo-logo-now
         a href=""
-          = image_tag private_event.photo.attachment_url
+          = image_tag private_event.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
       h4.static-content
         = private_event.title
       .eventName.mobile-center
         p
           i.icon-dark-calendar
-          | Jul 18, 2014 - Jul 20, 2014
+          = period(private_event)
         p
           i.icon-dark-place
-          | Painesville, Ohio, USA
+          = get_address(private_event.location)
         p
           i.icon-dark-money
-          | $ 40.00
+          = private_event.price
+          '
+          | $
     .gallerySettings
       ul
         li
-          a href=""
+          = link_to edit_base_profile_event_path(profile, private_event)
             i.icon-changes
         li
           a href=""
             i.icon-deleteGallery
-    .galleryStatus
-      i.icon-started
-      p.galleryStatus_start Started
+    = render partial: 'base/calendars/blocks/status', locals: { status: status(private_event) }

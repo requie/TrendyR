@@ -13,7 +13,7 @@
       .eventName.pull-right
         i.icon-place
         p.empty
-          = profile.location_address
+          = get_address(profile.location)
         = link_to profile.website, url_with_protocol(profile.website), target: :blank
 = render partial:'base/blocks/manadgMenu', locals: { profile: profile }
 
