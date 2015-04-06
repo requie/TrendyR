@@ -1,5 +1,5 @@
 = render partial: 'base/blocks/private/profile_header'
-.col-md-8.col-md-offset-2.custom-form
+.col-md-8.col-md-offset-2.custom-form data-profile-id = "#{@profile.id}"
   .profile.clearfix
     .title_profile.clearfix
       ul.title_profile-list.clearfix.pull-sm-left
@@ -15,4 +15,10 @@
         = link_to new_base_profile_event_path
           button.btn.btn-primary Create event
     = render partial: 'base/calendars/blocks/private_event', collection: @events, locals: { profile: @profile }
+    .col-xs-12
+      .pagination.pull-right
+        = paginate @events
 = render partial: 'base/calendars/blocks/empty_private_event'
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/calendar/edit'

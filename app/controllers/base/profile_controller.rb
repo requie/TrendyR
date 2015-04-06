@@ -9,6 +9,7 @@ module Base
     end
 
     def update
+      set_location(@profile)
       @profile.update(profile_params)
       respond_with(@profile, location: edit_base_profile_path)
     end
@@ -22,7 +23,7 @@ module Base
     private
 
     def profile_params
-      params.require(:profile).permit(*policy(@profile).permitted_attributes).merge(location_id: create_location.id)
+      params.require(:profile).permit(*policy(@profile).permitted_attributes)
     end
 
     def profile_photo_params

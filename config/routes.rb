@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :artists, :awards, :events, :gigs, :releases
       resources :photo_albums, except: :destroy
       delete 'destroy_photo_albums' => 'photo_albums#destroy'
+      delete 'destroy_events' => 'events#destroy'
       resource :settings
     end
   end

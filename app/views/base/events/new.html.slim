@@ -4,5 +4,4 @@
     .col-xs-12
       h2.head_text Create new event
   = file_field_tag "photo[attachment]", id: 'upload', class: 'hidden'
-  = simple_form_for [:base, :profile, Event.new] do |f|
-    = render partial: 'base/events/blocks/form', locals: { form: f, event: f.object }
+  = render partial: 'base/events/blocks/form', locals: { event: @event }

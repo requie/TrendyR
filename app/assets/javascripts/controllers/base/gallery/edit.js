@@ -38,7 +38,8 @@
         dataType: 'json',
         type: 'DELETE',
         data: {
-          photo_album_ids: photo_album_ids
+          photo_album_ids: photo_album_ids,
+          page: $('.selectPage').html()
         },
         success: function(response){
           $profile.find('.gallery').remove();

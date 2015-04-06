@@ -2,7 +2,7 @@
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
-        input type="checkbox"
+        = check_box_tag 'event[id]', value = private_event.id
     .promo_more.mobile-center.gigs.clearfix
       .promo-logo-now
         a href=""

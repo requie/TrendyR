@@ -5,8 +5,7 @@
     .col-xs-12
       h2.head_text Edit event
   = file_field_tag "photo[attachment]", id: 'upload', class: 'hidden'
-  = simple_form_for [:base, @profile, @event] do |f|
-    = render partial: 'base/events/blocks/form', locals: { form: f, event: f.object }
+  = render partial: 'base/events/blocks/form', locals: { event: @event }
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/event/edit'
