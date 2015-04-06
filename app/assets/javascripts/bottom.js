@@ -33,6 +33,7 @@
 //= require tinymce/tinymce.min
 //= require jquery-te-1.4.0.min
 //= require jquery.maskMoney.min
+//= require url_parameters
 
 (function($) {
   $(function() {

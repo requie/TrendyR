@@ -1,7 +1,7 @@
 module LocationProcessing
   extend ActiveSupport::Concern
 
-  def set_location(model)
+  def create_location(model)
     location = Location.find_or_create_by(location_params) do |l|
       l.creator = @profile.user
     end

@@ -16,7 +16,7 @@ module Base
     def create
       @event = Event.new(event_params)
       @event.owner_profile = @profile
-      set_location(@event)
+      create_location(@event)
       @event.save
       redirect_to edit_base_profile_calendar_path(@profile)
     end
@@ -31,7 +31,7 @@ module Base
 
     def destroy
       @profile.filter_events(destroy_events_params).destroy_all
-      @events = @profile.owned_events.page(params[:page])
+      @events = @profile.owned_events.page(params[:page]).with_status(params[:filter])
     end
 
     private

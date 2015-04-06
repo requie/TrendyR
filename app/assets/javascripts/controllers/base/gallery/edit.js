@@ -39,7 +39,7 @@
         type: 'DELETE',
         data: {
           photo_album_ids: photo_album_ids,
-          page: $('.selectPage').html()
+          page: $.urlParam('page')
         },
         success: function(response){
           $profile.find('.gallery').remove();

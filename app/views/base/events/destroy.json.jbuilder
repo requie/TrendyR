@@ -6,6 +6,7 @@ if @events
     json.period period(event)
     json.location get_address(event.location)
     json.price event.price
+    json.status status(event)
   end
 else
   json.errors @photo.errors.values.flatten

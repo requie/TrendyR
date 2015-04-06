@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   namespace :base, path: nil do
     resources :profile  do
       patch 'update_photo' => 'profile#update_photo', as: :update_photo
-      resource :gallery, :calendar
+      resource :gallery
+      resource :calendar
       resources :artists, :awards, :events, :gigs, :releases
       resources :photo_albums, except: :destroy
       delete 'destroy_photo_albums' => 'photo_albums#destroy'

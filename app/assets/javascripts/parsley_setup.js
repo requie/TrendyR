@@ -39,8 +39,12 @@
       },
       minLengthIfNotEmpty: {
         fn: function(value, requirement) {
-          if(value) return value.length >= requirement;
-          else return true;
+          if(value) {
+            return value.length >= requirement;
+          }
+          else {
+            return true;
+          }
         }
       },
       dateLower: {

@@ -9,7 +9,7 @@ module Base
     end
 
     def update
-      set_location(@profile)
+      create_location(@profile)
       @profile.update(profile_params)
       respond_with(@profile, location: edit_base_profile_path)
     end

@@ -16,7 +16,10 @@
         $element.find('[data-event-location]').html(event.location);
         $element.find('[data-event-price]').html(event.price);
         var $gallerySettings = $element.find('[data-gallery-settings]');
-        $gallerySettings.find('[data-change-album]').attr('href', Routes.edit_base_profile_photo_album_path(profileId, event))
+        $gallerySettings.find('[data-event-edit]').attr('href', Routes.edit_base_profile_event_path(profileId, event))
+        var $status = $element.find('[data-event-status]');
+        $status.find('i').addClass("icon-"+event.status);
+        $status.find('p').addClass("galleryStatus_"+event.status).html(event.status);
         $element.insertBefore($pagination);
         $element.checkBo();
       });
@@ -35,7 +38,8 @@
         type: 'DELETE',
         data: {
           event_ids: event_ids,
-          page: $('.selectPage').html()
+          page: $.urlParam('page'),
+          filter: $.urlParam('filter')
         },
         success: function(response){
           $profile.find('.gallery').remove();
