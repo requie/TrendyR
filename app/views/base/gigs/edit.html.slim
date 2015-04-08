@@ -1,10 +1,10 @@
 = render partial: 'base/blocks/private/crop'
 .col-md-8.col-md-offset-2.custom-form
-  = hidden_field_tag 'photo_url', @event.photo.cropped
+  = hidden_field_tag 'photo_url', @gig.photo.cropped
   .row
     .col-xs-12
-      h2.head_text Edit event
-  = render partial: 'base/events/blocks/form', locals: { event: @event }
+      h2.head_text Edit gig
+  = render partial: 'base/gigs/blocks/form', locals: { gig: @gig }
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/event/edit'

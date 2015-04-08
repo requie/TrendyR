@@ -1,12 +1,14 @@
+.row
+  .col-xs-12
+    .well.create-event
+      - if event.photo.blank?
+        i.fa.fa-picture-o
+      button.btn.btn-primary#upload-button Upload image
+      - if event.photo.blank?
+        p.create-event-text Png, jpg
+= file_field_tag "photo[attachment]", id: 'upload', class: 'hidden'
+
 = simple_form_for [:base, @profile || :profile, event] do |form|
-  .row
-    .col-xs-12
-      .well.create-event
-        - if event.photo.blank?
-          i.fa.fa-picture-o
-        button.btn.btn-primary#upload-button Upload image
-        - if event.photo.blank?
-          p.create-event-text Png, jpg
   = form.input :photo_id, input_html: { class: 'hidden', data: { required: true, 'required-message' => 'Please, upload image' } }
   .row
     .col-xs-12

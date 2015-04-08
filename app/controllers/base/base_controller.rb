@@ -8,7 +8,7 @@ module Base
     before_action :authenticate_user!, :authorize_namespace!
     before_action :set_entity
     before_action :authorize_user!
-    before_action :set_profile, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    before_action :set_profile, except: [:root]
     before_action :set_location_for_js, only: [:index, :show]
 
     def root
@@ -33,7 +33,6 @@ module Base
     def set_profile
       id = params[:profile_id] || params[:id]
       @profile = Profile.find(id).decorate
-      authorize @profile, "#{action_name}?"
     end
 
     def set_location_for_js

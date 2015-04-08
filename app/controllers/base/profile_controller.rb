@@ -2,6 +2,8 @@ module Base
   class ProfileController < Base::BaseController
     include LocationProcessing
 
+    before_action :authorize_profile
+
     def show
     end
 
@@ -21,6 +23,10 @@ module Base
     end
 
     private
+
+    def authorize_profile
+      authorize @profile
+    end
 
     def profile_params
       params.require(:profile).permit(*policy(@profile).permitted_attributes)

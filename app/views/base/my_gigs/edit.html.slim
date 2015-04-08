@@ -1,0 +1,25 @@
+= render partial: 'base/blocks/private/profile_header'
+.col-md-8.col-md-offset-2.custom-form
+  .profile.clearfix
+    .title_profile.clearfix
+      ul.title_profile-list.clearfix.pull-sm-left
+        li.title_profile-list_black
+          = link_to "All", edit_base_profile_my_gigs_path(@profile)
+        li.title_profile-list_blue
+          = link_to "Started", edit_base_profile_my_gigs_path(@profile, filter: :started)
+        li.title_profile-list_gray
+          = link_to "Pending", edit_base_profile_my_gigs_path(@profile, filter: :pending)
+        li.title_profile-list_green
+          = link_to "Past", edit_base_profile_my_gigs_path(@profile, filter: :past)
+      .form-group.pull-sm-right
+        ul.title_profile-list.clearfix.m-b0.pull-sm-left
+          li.title_profile-list_black
+            = link_to "My gigs", edit_base_profile_my_gigs_path(@profile)
+          li.title_profile-list_gray
+            = link_to "Applied", edit_base_profile_my_gigs_path(@profile)
+        = link_to new_base_profile_gig_path
+          button.btn.btn-primary Post gig
+    = render partial: 'base/my_gigs/blocks/private_gig', collection: @gigs, locals: { profile: @profile }
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/my_gigs/edit'

@@ -3,5 +3,4 @@
   .row
     .col-xs-12
       h2.head_text Create new event
-  = file_field_tag "photo[attachment]", id: 'upload', class: 'hidden'
   = render partial: 'base/events/blocks/form', locals: { event: @event }

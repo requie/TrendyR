@@ -1,0 +1,8 @@
+li.confirmation_list_point.clearfix
+  = link_to base_profile_path(request.profile)
+    = image_tag request.profile.avatar_url, class: 'confirmation_picture'
+  .confirmation_text
+    p
+      = link_to 'Approve', '', class: 'link', data: { 'request-id' => request.id, status: 'confirmed' }
+    p
+      = link_to 'Cancel', '', class: 'error_text', data: { 'request-id' => request.id, status: 'rejected' }

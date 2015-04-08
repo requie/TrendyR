@@ -2,7 +2,7 @@
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
-        = check_box_tag 'event[id]', value = private_event.id
+        = check_box_tag 'event[id]', private_event.id
     .promo_more.mobile-center.gigs.clearfix
       .promo-logo-now
         a href=""
@@ -18,9 +18,9 @@
           = get_address(private_event.location)
         p
           i.icon-dark-money
-          = private_event.price
-          '
           | $
+          '
+          = private_event.price
     .gallerySettings
       ul
         li

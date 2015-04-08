@@ -6,11 +6,23 @@
     });
   }
 
+  function addDateErrors($element) {
+    _.each(['(1i)', '(2i)', '(3i)'], function(date_selector) {
+      $element.find("[name*='" + date_selector + "']").addClass('error-border');
+    });
+  }
+
+  function removeDateErrors($element) {
+    _.each(['(1i)', '(2i)', '(3i)'], function(date_selector) {
+      $element.find("[name*='" + date_selector + "']").removeClass('error-border');
+    });
+  }
+
   window.ParsleyConfig = {
     namespace: 'data-',
     errorsWrapper: '<div class="error-message"></div>',
     errorTemplate: '<span></span>',
-    excluded: 'input[type=button], input[type=submit], input[type=reset], input[type=hidden]',
+    excluded: 'input[type=button], input[type=submit], input[type=reset], input[type=hidden], [group=date]',
     inputs: 'input, textarea, select',
     validators: {
       allConnectionsClosed: {
@@ -58,7 +70,16 @@
             return true;
           }
           var startDate = new Date(start), endDate = new Date(end);
-          return startDate.getTime() < endDate.getTime();
+          if(startDate.getTime() < endDate.getTime()) {
+            removeDateErrors($startElement);
+            removeDateErrors($endElement);
+            return true;
+          }
+          else {
+            addDateErrors($startElement);
+            addDateErrors($endElement);
+            return false;
+          }
         }
       }
     }

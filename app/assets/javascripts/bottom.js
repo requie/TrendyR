@@ -44,11 +44,11 @@
       $parsleyForm.parsley();
 
       $.listen('parsley:field:success', function(e) {
-        e.$element.closest('.form-group').find('input,select').removeClass('error-border');
+        e.$element.closest('.form-group').find('input,select,.mce-tinymce').removeClass('error-border');
       });
 
       $.listen('parsley:field:error', function(e) {
-        e.$element.closest('.form-group').find('input,select').addClass('error-border');
+        e.$element.closest('.form-group').find('input,select,.mce-tinymce').addClass('error-border');
       });
 
     }

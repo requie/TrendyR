@@ -11,18 +11,6 @@ class ProfilePolicy
     @profile = profile
   end
 
-  def index?
-    true
-  end
-
-  def new?
-    create?
-  end
-
-  def create?
-    true
-  end
-
   def show?
     true
   end
@@ -36,10 +24,6 @@ class ProfilePolicy
   end
 
   def update_photo?
-    update?
-  end
-
-  def destroy?
     update?
   end
 

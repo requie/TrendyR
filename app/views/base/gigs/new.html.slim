@@ -1,0 +1,6 @@
+= render partial: 'base/blocks/private/crop'
+.col-md-8.col-md-offset-2.custom-form
+  .row
+    .col-xs-12
+      h2.head_text Post new gig
+  = render partial: 'base/gigs/blocks/form', locals: { gig: @gig }
