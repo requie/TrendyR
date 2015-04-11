@@ -2,11 +2,13 @@ module Base
   class GigsController < Base::BaseController
     include LocationProcessing
 
+    before_action :set_profile, except: [:set_request_status]
+
     GIG_ATTRIBUTES = %i(
-      title price overview_text opportunity_text
-      band_text gig_text terms_text
+      title price overview_text opportunity_text band_text gig_text terms_text
       started_at finished_at photo_id
-    ) + [faqs_attributes: [:id, :question, :answer]]
+    )
+    FAQ_ATTRIBUTES = %i(id question answer)
 
     before_action :set_gig, only: [:edit, :update]
 
@@ -39,7 +41,7 @@ module Base
     private
 
     def gig_params
-      params.require(:gig).permit(GIG_ATTRIBUTES)
+      params.require(:gig).permit(*GIG_ATTRIBUTES, faqs_attributes: FAQ_ATTRIBUTES)
     end
 
     def set_gig

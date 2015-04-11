@@ -23,11 +23,10 @@ class Profile < ActiveRecord::Base
     user.entity_class.find_by(profile_id: id)
   end
 
-  def filter_photo_albums(photo_album_ids)
-    owned_photo_albums.where(id: photo_album_ids)
+  %i(photo_albums events gigs).each do |objects|
+    define_method("filter_#{objects}") do |ids|
+      send("owned_#{objects}").where(id: ids)
+    end
   end
 
-  def filter_events(event_ids)
-    owned_events.where(id: event_ids)
-  end
 end

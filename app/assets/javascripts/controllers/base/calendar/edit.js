@@ -2,14 +2,14 @@
   $(function(){
     var $profile = $('.profile');
     var profileId = $('.custom-form').data('profile-id');
-    var $checkBoxWraper = '<label class="mobile-center cb-checkbox">';
+    var $checkBoxWrapper = '<label class="mobile-center cb-checkbox">';
     var $template = $('[data-gallery]');
     var $pagination = $profile.find('.pagination').parent();
 
     function updateEvents(response){
       _.each(response, function(event){
         var $element = $template.clone().removeClass('hidden').removeAttr('data-gallery');
-        $element.find('[data-event-id]').wrap($checkBoxWraper).val(event.id);
+        $element.find('[data-event-id]').wrap($checkBoxWrapper).val(event.id);
         $element.find('[data-event-photo]').attr('src', event.photo);
         $element.find('[data-event-title]').html(event.title);
         $element.find('[data-event-period]').html(event.period);

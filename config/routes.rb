@@ -27,13 +27,15 @@ Rails.application.routes.draw do
       resource :gallery
       resource :calendar
       resource :my_gigs
-      resources :artists, :awards, :events, :gigs, :releases
+      resources :artists, :awards, :events, :releases
+      resources :gigs do
+        put 'set_request_status/:id' => 'gigs#set_request_status', as: :set_request_status
+      end
       resources :photo_albums, except: :destroy
       delete 'destroy_photo_albums' => 'photo_albums#destroy'
       delete 'destroy_events' => 'events#destroy'
       resource :settings
     end
-    put 'set_request_status/:id' => 'gigs#set_request_status', as: :set_request_status
   end
 
   namespace :admin do

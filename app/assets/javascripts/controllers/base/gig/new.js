@@ -5,7 +5,7 @@
     var $crop_progress = $('#crop-progress');
     var $count_bar = $crop_progress.find('.countBar');
     var $line_bar = $crop_progress.find('.lineBar');
-    var questionsCount = $('textarea[id$=_question]').size();
+    var questionsCount = $('textarea[id$=_question]').length;
     var $faq = $('#faq').contents();
 
     function clearPhotoDiv(){
@@ -113,7 +113,7 @@
 
     $(document).on('click', '.addQuestion', function(e){
       e.preventDefault();
-      questionsCount = $('textarea[id$=question]').size()-1;
+      questionsCount = $('textarea[id$=question]').length-1;
       addFaqQuestion(questionsCount);
     })
   });

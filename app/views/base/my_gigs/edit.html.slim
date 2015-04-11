@@ -1,5 +1,5 @@
 = render partial: 'base/blocks/private/profile_header'
-.col-md-8.col-md-offset-2.custom-form
+.col-md-8.col-md-offset-2.custom-form data-profile-id = "#{@profile.id}"
   .profile.clearfix
     .title_profile.clearfix
       ul.title_profile-list.clearfix.pull-sm-left
@@ -20,6 +20,10 @@
         = link_to new_base_profile_gig_path
           button.btn.btn-primary Post gig
     = render partial: 'base/my_gigs/blocks/private_gig', collection: @gigs, locals: { profile: @profile }
+    .col-xs-12
+      .pagination.pull-right
+        = paginate @gigs
+= render 'base/my_gigs/blocks/empty_private_gig'
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/my_gigs/edit'

@@ -1,0 +1,8 @@
+li.confirmation_list_point.clearfix
+  a data-profile-url = true
+    img.confirmation_picture data
+  .confirmation_text
+    p
+      = link_to 'Approve', '', class: 'link', data: { 'request-id' => request.id, status: 'confirmed' }
+    p
+      = link_to 'Cancel', '', class: 'error_text', data: { 'request-id' => request.id, status: 'rejected' }

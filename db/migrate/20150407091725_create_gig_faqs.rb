@@ -5,13 +5,9 @@ class CreateGigFaqs < ActiveRecord::Migration
       t.text :answer
       t.boolean :is_active
 
-      change_references(t)
+      t.references :gig
 
       t.timestamps
     end
-  end
-
-  def change_references(t)
-    t.references :gig
   end
 end
