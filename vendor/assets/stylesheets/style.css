@@ -120,7 +120,8 @@ p strong {
 
 .has-error .error-message {
     position: static;
-    text-align: left
+    text-align: left;
+    margin-top: 10px
 }
 
 .has-error .mce-container-body.mce-stack-layout {
@@ -141,6 +142,10 @@ p strong {
 
 .has-error .mce-panel {
     border: none !important
+}
+
+.has-error .form-control {
+    border: 1px solid red !important
 }
 
 .shadow {

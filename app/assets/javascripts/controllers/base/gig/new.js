@@ -1,18 +1,20 @@
 (function($) {
   $(function () {
-    var $eventAvatar = $('.create-event');
-    var $photoButton = $eventAvatar.find('button');
+    var $gigPhoto = $('.create-event');
+    var $photoButton = $gigPhoto.find('button');
     var $crop_progress = $('#crop-progress');
     var $count_bar = $crop_progress.find('.countBar');
     var $line_bar = $crop_progress.find('.lineBar');
+    var questionsCount = $('textarea[id$=_question]').length;
+    var $faq = $('#faq').contents();
 
     function clearPhotoDiv(){
-      $eventAvatar.find('.fa-picture-o').remove();
-      $eventAvatar.find('.create-event-text').remove();
+      $gigPhoto.find('.fa-picture-o').remove();
+      $gigPhoto.find('.create-event-text').remove();
     }
 
     function imageProcessingError(){
-      $eventAvatar.addClass('has-error');
+      $gigPhoto.addClass('has-error');
       $photoButton.html('Upload error <i class="fa fa-remove"></i>');
       clearPhotoDiv();
     }
@@ -30,7 +32,7 @@
         $crop_progress.removeClass('hidden');
       },
       progress: function (e, data) {
-        var progress = data.loaded / data.total * 100;
+        var progress = data.loaded/data.total*100;
 
         $count_bar.html(progress + '%');
         $line_bar.attr('data-value', progress);
@@ -46,9 +48,9 @@
           done: function (response, status, jqXHR) {
             var photo_url = response.photo.url;
             clearPhotoDiv();
-            $eventAvatar.backstretch(photo_url);
+            $gigPhoto.backstretch(photo_url);
             var $simpleForm = $('.simple_form');
-            $simpleForm.find('[name="event[photo_id]"]').val(response.photo.id);
+            $simpleForm.find('[name="gig[photo_id]"]').val(response.photo.id);
           },
           fail: function (response, status, jqXHR) {
             imageProcessingError();
@@ -70,7 +72,7 @@
     });
 
     $.listen('parsley:field:validate', function(e){
-      if (e.$element.prop('type') == 'textarea') {
+      if (e.$element.is("textarea")) {
         e.$element.html(tinymce.get(e.$element.attr('id')).getContent());
       }
     });
@@ -80,11 +82,32 @@
       $('#upload').click();
     });
 
-    $('#event_price').maskMoney({
+    $('#gig_price').maskMoney({
       thousands: '',
       decimal: '.',
       allowZero: true,
       suffix: ' $'
     });
+
+    function addFaqQuestion(num){
+      var $faq_question = $faq.clone();
+
+      _.each(['question', 'answer'], function(field){
+        var id = 'gig_faqs_attributes_' + num + '_' + field;
+        var $field = $faq_question.find('#' + field);
+        $field.addClass('.editor').attr({
+          id: id,
+          name: 'gig[faqs_attributes][' + num + '][' + field + ']'
+        });
+        $field.parents('.row').insertBefore('.addQuestion');
+        tinyMCE.execCommand('mceAddEditor', true, id);
+      });
+    }
+
+    $(document).on('click', '.addQuestion', function(e){
+      e.preventDefault();
+      questionsCount = $('textarea[id$=question]').length-1;
+      addFaqQuestion(questionsCount);
+    })
   });
 })(jQuery);

@@ -18,15 +18,16 @@ module Base
       @event.owner_profile = @profile
       create_location(@event)
       @event.save
-      redirect_to edit_base_profile_calendar_path(@profile)
+      respond_with @event, location: edit_base_profile_calendar_path(@profile)
     end
 
     def edit
     end
 
     def update
+      create_location(@event)
       @event.update(event_params)
-      redirect_to edit_base_profile_calendar_path(@profile)
+      respond_with @event, location: edit_base_profile_calendar_path(@profile)
     end
 
     def destroy

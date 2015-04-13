@@ -1,4 +1,6 @@
 module ProfileHelper
+  DEFAULT_PROFILE_WALLPAPER = 'background/profile.png'
+  DEFAULT_PROFILE_AVATAR = 'icons/avatar-user.png'
   def get_address(location)
     location ? location.address : ''
   end
@@ -10,6 +12,22 @@ module ProfileHelper
         concat image_tag model.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
         concat content_tag :div, distance[:label], class: "logo-#{distance[:class]}" if distance[:label]
       end
+    end
+  end
+
+  def wallpaper_url(model)
+    if model.wallpaper
+      model.wallpaper.cropped
+    else
+      asset_url(DEFAULT_PROFILE_WALLPAPER)
+    end
+  end
+
+  def avatar_url(model)
+    if model.photo
+      model.photo.with_presets([:cropped, :private_hompage])
+    else
+      asset_url(DEFAULT_PROFILE_AVATAR)
     end
   end
 

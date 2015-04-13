@@ -26,7 +26,7 @@
       var lineBar = data.context.find('.lineBar');
       var countBar = data.context.find('.countBar');
       lineBar.data('value', progress).attr('data-value', progress);
-      countBar.text(progress+"%");
+      countBar.text(progress + "%");
     }).bind('fileuploaddone', function(e, data){
       var photo = data.result.photo;
       var $context = data.context;

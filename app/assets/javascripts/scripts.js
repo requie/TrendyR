@@ -33,11 +33,7 @@ $(document).ready(function(){
 	$('.icon-close-block').click(function(){
 		$(this).parent().slideToggle(100);   
 	})
-	$('.error-message').closest('.form-group').find('input').attr('style', 'border:1px solid red !important');
-	$('.error-message').closest('.form-group').find('textarea').attr('style', 'border:1px solid red !important');
-	$('.error-message').closest('.form-group').find('.well').attr('style', 'border:1px solid red !important');
-	//$('.error-message').closest('.form-group').find('.mce-tinymce').attr('style', 'border:1px solid red !important');
-	
+
 	$('.inputDate').datepicker({});
 
 	$(".gallery-image").fancybox({
@@ -129,12 +125,11 @@ $(document).ready(function(){
 			timeConcert();
 		}
 	})
-	$(document).on('click', '.addQuestion', function(e){
-		e.preventDefault();
-		$(this).closest('.row').prev().clone(true).insertBefore($(this).closest('.row'));
-	})
 
-	tinymce.init({selector:'.editor'});
+	tinymce.init({
+    selector: '.editor',
+    menubar: false,
+  });
 
 	$('.icon-right').on('click', function(){	
 		var $concertVis = 	$('.concert.visible').next();

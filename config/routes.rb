@@ -26,7 +26,13 @@ Rails.application.routes.draw do
       patch 'update_photo' => 'profile#update_photo', as: :update_photo
       resource :gallery
       resource :calendar
-      resources :artists, :awards, :events, :gigs, :releases
+      resource :my_gigs
+      resources :artists, :awards, :events, :releases
+      resources :gigs do
+        member do
+          put 'set_request_status' => 'gigs#set_request_status', as: :set_request_status
+        end
+      end
       resources :photo_albums, except: :destroy
       delete 'destroy_photo_albums' => 'photo_albums#destroy'
       delete 'destroy_events' => 'events#destroy'

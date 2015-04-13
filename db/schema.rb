@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326072558) do
+ActiveRecord::Schema.define(version: 20150408122357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20150326072558) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_featured", default: false
+  end
+
+  create_table "artists_gigs", force: true do |t|
+    t.string  "status",    default: "pending"
+    t.integer "artist_id"
+    t.integer "gig_id"
   end
 
   create_table "awards", force: true do |t|
@@ -89,6 +95,15 @@ ActiveRecord::Schema.define(version: 20150326072558) do
   create_table "genres_profiles", id: false, force: true do |t|
     t.integer "genre_id",   null: false
     t.integer "profile_id", null: false
+  end
+
+  create_table "gig_faqs", force: true do |t|
+    t.text     "question"
+    t.text     "answer"
+    t.boolean  "is_active"
+    t.integer  "gig_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "gigs", force: true do |t|
@@ -288,6 +303,9 @@ ActiveRecord::Schema.define(version: 20150326072558) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "artists_gigs", "artists", name: "artists_gigs_artist_id_fk", dependent: :delete
+  add_foreign_key "artists_gigs", "gigs", name: "artists_gigs_gig_id_fk", dependent: :delete
+
   add_foreign_key "comments", "users", name: "comments_author_id_fk", column: "author_id"
 
   add_foreign_key "email_notifications_users", "email_notifications", name: "email_notifications_users_email_notification_id_fk", dependent: :delete
@@ -295,6 +313,8 @@ ActiveRecord::Schema.define(version: 20150326072558) do
 
   add_foreign_key "genres_profiles", "genres", name: "genres_profiles_genre_id_fk", dependent: :delete
   add_foreign_key "genres_profiles", "profiles", name: "genres_profiles_profile_id_fk", dependent: :delete
+
+  add_foreign_key "gig_faqs", "gigs", name: "gig_faqs_gig_id_fk", dependent: :delete
 
   add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 

@@ -2,6 +2,8 @@ class Profile < ActiveRecord::Base
   extend Photoable
   include Locationable
 
+  OWNED_OBJECTS = %i(photo_albums events gigs)
+
   belongs_to :user
   belongs_to :photo, class_name: 'Profile::Photo'
   belongs_to :wallpaper, class_name: 'Profile::Wallpaper'
@@ -23,11 +25,9 @@ class Profile < ActiveRecord::Base
     user.entity_class.find_by(profile_id: id)
   end
 
-  def filter_photo_albums(photo_album_ids)
-    owned_photo_albums.where(id: photo_album_ids)
-  end
-
-  def filter_events(event_ids)
-    owned_events.where(id: event_ids)
+  OWNED_OBJECTS.each do |objects|
+    define_method("filter_#{objects}") do |ids|
+      send("owned_#{objects}").where(id: ids)
+    end
   end
 end

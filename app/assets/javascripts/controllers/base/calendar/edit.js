@@ -2,14 +2,14 @@
   $(function(){
     var $profile = $('.profile');
     var profileId = $('.custom-form').data('profile-id');
-    var $checkBoxWraper = '<label class="mobile-center cb-checkbox">';
+    var $checkBoxWrapper = '<label class="mobile-center cb-checkbox">';
     var $template = $('[data-gallery]');
     var $pagination = $profile.find('.pagination').parent();
 
     function updateEvents(response){
       _.each(response, function(event){
         var $element = $template.clone().removeClass('hidden').removeAttr('data-gallery');
-        $element.find('[data-event-id]').wrap($checkBoxWraper).val(event.id);
+        $element.find('[data-event-id]').wrap($checkBoxWrapper).val(event.id);
         $element.find('[data-event-photo]').attr('src', event.photo);
         $element.find('[data-event-title]').html(event.title);
         $element.find('[data-event-period]').html(event.period);
@@ -18,8 +18,8 @@
         var $gallerySettings = $element.find('[data-gallery-settings]');
         $gallerySettings.find('[data-event-edit]').attr('href', Routes.edit_base_profile_event_path(profileId, event))
         var $status = $element.find('[data-event-status]');
-        $status.find('i').addClass("icon-"+event.status);
-        $status.find('p').addClass("galleryStatus_"+event.status).html(event.status);
+        $status.find('i').addClass("icon-" + event.status);
+        $status.find('p').addClass("galleryStatus_" + event.status).html(event.status);
         $element.insertBefore($pagination);
         $element.checkBo();
       });
@@ -43,7 +43,6 @@
         },
         success: function(response){
           $profile.find('.gallery').remove();
-          $('.static-content span').html('('+response.length+')');
           updateEvents(response);
         }
       });

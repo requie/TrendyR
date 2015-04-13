@@ -1,11 +1,11 @@
 .manadgmentFoto.clearfix
-  = hidden_field_tag 'background-image', @profile.wallpaper_url
+  = hidden_field_tag 'background-image', wallpaper_url(@profile)
   .col-md-8.col-md-offset-2
     .text-center
       input.form-control.uploadfile name="photo[attachment]" type="file"
       button.btn.btn-primary.newSelect Upload wallpaper
     .managerAvatar
-      = image_tag @profile.avatar_url, alt: "User's avatar"
+      = image_tag avatar_url(@profile), alt: "User's avatar"
       input.form-control.uploadbtn name="photo[attachment]" type="file"
       .btn.btn-primary.fileSelect
         p Upload photo
