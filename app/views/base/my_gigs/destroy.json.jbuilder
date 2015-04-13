@@ -5,9 +5,10 @@ json.array!(@gigs) do |gig|
   json.address get_address(gig.location)
   json.status status(gig)
   json.requests(gig.artist_gigs.with_status(:pending)) do |request|
-    json.call request, :id, :profile_id
+    json.call request, :id
+    json.profile_id request.profile.id
     json.avatar avatar_url(request.profile)
-    json.link_to_approve set_request_status_base_profile_gig_path(@profile, request, status: 'confirmed')
-    json.link_to_cancel set_request_status_base_profile_gig_path(@profile, request, status: 'rejected')
+    json.link_to_approve set_request_status_base_profile_gig_path(@profile, request)
+    json.link_to_cancel set_request_status_base_profile_gig_path(@profile, request)
   end
 end

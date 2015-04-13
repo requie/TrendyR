@@ -30,5 +30,4 @@ class Profile < ActiveRecord::Base
       send("owned_#{objects}").where(id: ids)
     end
   end
-
 end

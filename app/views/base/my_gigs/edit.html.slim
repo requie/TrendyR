@@ -24,6 +24,7 @@
       .pagination.pull-right
         = paginate @gigs
 = render 'base/my_gigs/blocks/empty_private_gig'
+= render 'base/my_gigs/blocks/empty_request'
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/my_gigs/edit'

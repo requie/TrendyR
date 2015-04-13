@@ -6,15 +6,9 @@
     });
   }
 
-  function addDateErrors($element) {
+  function toggleDateErrors($element, toggle) {
     _.each(['(1i)', '(2i)', '(3i)'], function(date_selector) {
-      $element.find("[name*='" + date_selector + "']").addClass('error-border');
-    });
-  }
-
-  function removeDateErrors($element) {
-    _.each(['(1i)', '(2i)', '(3i)'], function(date_selector) {
-      $element.find("[name*='" + date_selector + "']").removeClass('error-border');
+      $element.find("[name*='" + date_selector + "']").toggleClass('error-border', toggle);
     });
   }
 
@@ -71,13 +65,12 @@
           }
           var startDate = new Date(start), endDate = new Date(end);
           if(startDate.getTime() < endDate.getTime()) {
-            removeDateErrors($startElement);
-            removeDateErrors($endElement);
+            toggleDateErrors($startElement, false);
+            toggleDateErrors($endElement, false);
             return true;
-          }
-          else {
-            addDateErrors($startElement);
-            addDateErrors($endElement);
+          } else {
+            toggleDateErrors($startElement, true);
+            toggleDateErrors($endElement, true);
             return false;
           }
         }

@@ -127,8 +127,8 @@ $(document).ready(function(){
 	})
 
 	tinymce.init({
-    selector:'.editor',
-    menubar:false,
+    selector: '.editor',
+    menubar: false,
   });
 
 	$('.icon-right').on('click', function(){	

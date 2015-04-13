@@ -21,15 +21,16 @@ module Base
       @gig.owner_profile = @profile
       create_location(@gig)
       @gig.save
-      redirect_to edit_base_profile_my_gigs_path(@profile)
+      respond_with @gig, location: edit_base_profile_my_gigs_path(@profile)
     end
 
     def edit
     end
 
     def update
+      create_location(@gig)
       @gig.update(gig_params)
-      redirect_to edit_base_profile_my_gigs_path(@profile)
+      respond_with @gig, location: edit_base_profile_my_gigs_path(@profile)
     end
 
     def set_request_status
