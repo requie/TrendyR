@@ -303,6 +303,9 @@ ActiveRecord::Schema.define(version: 20150408122357) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "artists_gigs", "artists", name: "artists_gigs_artist_id_fk", dependent: :delete
+  add_foreign_key "artists_gigs", "gigs", name: "artists_gigs_gig_id_fk", dependent: :delete
+
   add_foreign_key "comments", "users", name: "comments_author_id_fk", column: "author_id"
 
   add_foreign_key "email_notifications_users", "email_notifications", name: "email_notifications_users_email_notification_id_fk", dependent: :delete
@@ -310,6 +313,8 @@ ActiveRecord::Schema.define(version: 20150408122357) do
 
   add_foreign_key "genres_profiles", "genres", name: "genres_profiles_genre_id_fk", dependent: :delete
   add_foreign_key "genres_profiles", "profiles", name: "genres_profiles_profile_id_fk", dependent: :delete
+
+  add_foreign_key "gig_faqs", "gigs", name: "gig_faqs_gig_id_fk", dependent: :delete
 
   add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 

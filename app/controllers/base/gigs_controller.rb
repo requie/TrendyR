@@ -35,7 +35,7 @@ module Base
     def set_request_status
       artist_gig = ArtistGig.find(params[:id])
       artist_gig.update(status: params[:status])
-      @artist_gigs = ArtistGig.with_status(:pending).decorate
+      head :ok
     end
 
     private

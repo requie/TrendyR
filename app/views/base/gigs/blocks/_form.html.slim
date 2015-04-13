@@ -85,7 +85,7 @@
   .row
     .col-xs-12
       h3.head_settings Faq
-  = form.simple_fields_for :faqs do |faq_fields|
+  = form.fields_for :faqs, gig.faqs.present? ? gig.faqs : GigFaq.new do |faq_fields|
     .row
       .col-xs-12
         .form-group
@@ -103,6 +103,8 @@
   .row
     .col-xs-12.m-b20.m-10
       button.btn.btn-primary.pull-right Submit
+
+= render partial: 'base/events/blocks/progress'
 = render partial: 'base/gigs/blocks/gig_faq'
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/gig/new'

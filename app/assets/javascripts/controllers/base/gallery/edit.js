@@ -43,7 +43,7 @@
         },
         success: function(response){
           $profile.find('.gallery').remove();
-          $('.static-content span').html('('+response.length+')');
+          $('.static-content span').html('(' + response.length + ')');
           updatePhotoAlbums(response);
         }
       });

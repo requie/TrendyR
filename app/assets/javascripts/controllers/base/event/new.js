@@ -30,9 +30,9 @@
         $crop_progress.removeClass('hidden');
       },
       progress: function (e, data) {
-        progress = data.loaded/data.total*100;
+        var progress = data.loaded / data.total * 100;
 
-        $count_bar.html(progress+'%');
+        $count_bar.html(progress + '%');
         $line_bar.attr('data-value', progress);
       },
       done: function(e, data){

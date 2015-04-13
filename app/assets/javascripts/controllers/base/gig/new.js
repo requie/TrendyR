@@ -32,9 +32,9 @@
         $crop_progress.removeClass('hidden');
       },
       progress: function (e, data) {
-        progress = data.loaded/data.total*100;
+        var progress = data.loaded/data.total*100;
 
-        $count_bar.html(progress+'%');
+        $count_bar.html(progress + '%');
         $line_bar.attr('data-value', progress);
       },
       done: function(e, data){
@@ -72,7 +72,7 @@
     });
 
     $.listen('parsley:field:validate', function(e){
-      if (e.$element.prop('type') == 'textarea') {
+      if (e.$element.is("textarea")) {
         e.$element.html(tinymce.get(e.$element.attr('id')).getContent());
       }
     });
@@ -91,24 +91,17 @@
 
     function addFaqQuestion(num){
       var $faq_question = $faq.clone();
-      var question_id = 'gig_faqs_attributes_'+num+'_question',
-          answer_id = 'gig_faqs_attributes_'+num+'_answer';
-      $faq_question.find('#question').addClass('.editor').attr({
-        id: question_id,
-        name: 'gig[faqs_attributes]['+num+'][question]'
-      });
-      $faq_question.find('#answer').addClass('.editor').attr({
-        id: answer_id,
-        name: 'gig[faqs_attributes]['+num+'][answer]'
-      });
-      $faq_question.insertBefore('.addQuestion');
 
-      tinyMCE.execCommand('mceAddEditor', true, question_id);
-      tinyMCE.execCommand('mceAddEditor', true, answer_id);
-    }
-
-    if(!questionsCount) {
-      addFaqQuestion(0);
+      _.each(['question', 'answer'], function(field){
+        var id = 'gig_faqs_attributes_' + num + '_' + field;
+        var $field = $faq_question.find('#' + field);
+        $field.addClass('.editor').attr({
+          id: id,
+          name: 'gig[faqs_attributes][' + num + '][' + field + ']'
+        });
+        $field.parents('.row').insertBefore('.addQuestion');
+        tinyMCE.execCommand('mceAddEditor', true, id);
+      });
     }
 
     $(document).on('click', '.addQuestion', function(e){

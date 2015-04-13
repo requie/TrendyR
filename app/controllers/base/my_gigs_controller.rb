@@ -16,7 +16,7 @@ module Base
     end
 
     def gigs
-      @gigs = @profile.owned_gigs.page(params[:page]).with_status(params[:filter]).decorate
+      @gigs = @profile.owned_gigs.page(params[:page]).with_status(params[:filter])
     end
   end
 end

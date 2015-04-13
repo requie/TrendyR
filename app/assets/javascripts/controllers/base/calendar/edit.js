@@ -18,8 +18,8 @@
         var $gallerySettings = $element.find('[data-gallery-settings]');
         $gallerySettings.find('[data-event-edit]').attr('href', Routes.edit_base_profile_event_path(profileId, event))
         var $status = $element.find('[data-event-status]');
-        $status.find('i').addClass("icon-"+event.status);
-        $status.find('p').addClass("galleryStatus_"+event.status).html(event.status);
+        $status.find('i').addClass("icon-" + event.status);
+        $status.find('p').addClass("galleryStatus_" + event.status).html(event.status);
         $element.insertBefore($pagination);
         $element.checkBo();
       });
@@ -43,7 +43,6 @@
         },
         success: function(response){
           $profile.find('.gallery').remove();
-          $('.static-content span').html('('+response.length+')');
           updateEvents(response);
         }
       });

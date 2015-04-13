@@ -1,8 +1,8 @@
 li.confirmation_list_point.clearfix
   = link_to base_profile_path(request.profile)
-    = image_tag request.profile.avatar_url, class: 'confirmation_picture'
+    = image_tag avatar_url(request.profile), class: 'confirmation_picture'
   .confirmation_text
     p
-      = link_to 'Approve', '', class: 'link', data: { 'request-id' => request.id, status: 'confirmed' }
+      = link_to 'Approve', '#', data: { link: set_request_status_base_profile_gig_path(@profile, request, status: 'confirmed') }, class: 'link', method: :put
     p
-      = link_to 'Cancel', '', class: 'error_text', data: { 'request-id' => request.id, status: 'rejected' }
+      = link_to 'Cancel', '#', data: { link: set_request_status_base_profile_gig_path(@profile, request, status: 'rejected') }, class: 'error_text', method: :put

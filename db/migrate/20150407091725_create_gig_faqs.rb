@@ -6,6 +6,7 @@ class CreateGigFaqs < ActiveRecord::Migration
       t.boolean :is_active
 
       t.references :gig
+      t.foreign_key :gigs, dependent: :delete
 
       t.timestamps
     end

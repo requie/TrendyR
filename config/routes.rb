@@ -29,7 +29,9 @@ Rails.application.routes.draw do
       resource :my_gigs
       resources :artists, :awards, :events, :releases
       resources :gigs do
-        put 'set_request_status/:id' => 'gigs#set_request_status', as: :set_request_status
+        member do
+          put 'set_request_status' => 'gigs#set_request_status', as: :set_request_status
+        end
       end
       resources :photo_albums, except: :destroy
       delete 'destroy_photo_albums' => 'photo_albums#destroy'

@@ -1,5 +1,6 @@
 (function($) {
   $(function(){
+    var $profile = $('.profile');
     var profileId = $('[data-profile-id]').data('profile-id');
     var $checkBoxWrapper = '<label class="mobile-center cb-checkbox">';
     var $template = $('[data-gallery]');
@@ -14,35 +15,30 @@
         $element.find('[data-gig-period]').html(gig.period);
         $element.find('[data-gig-address]').html(gig.address);
         $element.find('[data-gig-price]').html(gig.price);
-        $element.find('[data-gig-address]').html(gig.address);
         var $gallerySettings = $element.find('[data-gallery-settings]');
+        $gallerySettings.find('[data-gig-edit]').attr('href', Routes.edit_base_profile_gig_path(profileId, gig))
         var $miniGallery = $element.find('[data-remaining-photos]');
-        _.each(photo_album.remaining_photos, function(photo){
+        _.each(gig.requests, function(photo){
           $('<img>').attr('src', photo).appendTo($miniGallery);
         });
-        $gallerySettings.find('[data-change-album]').attr('href', Routes.edit_base_profile_photo_album_path(profileId, photo_album))
+        var $status = $element.find('[data-gig-status]');
+        $status.find('i').addClass("icon-" + gig.status);
+        $status.find('p').addClass("galleryStatus_" + gig.status).html(gig.status);
         $element.insertBefore($pagination);
         $element.checkBo();
       });
     }
 
     $('body').on('click', '.link, .error_text', function(e){
-      e.preventDefault();
-      var requestId = $(this).data('request-id');
-      var status = $(this).data('status');
-
+      var parent_div = $(this).parents('li');
       $.ajax({
-        url: Routes.base_set_request_status_path(requestId),
+        url: $(this).data('link'),
         type: 'PUT',
-        data: {
-          status: status
-        },
-        success: function(response){
-          $profile.find('.gallery').remove();
-          $('.static-content span').html('('+response.length+')');
-          updatePhotoAlbums(response);
+        success: function(){
+          parent_div.hide();
         }
       });
+      return false;
     })
     .on('click', '.gallerySettings .icon-deleteGallery', function(e){
       e.preventDefault();
@@ -62,7 +58,6 @@
         },
         success: function(response){
           $profile.find('.gallery').remove();
-          $('.static-content span').html('('+response.length+')');
           updateGigs(response);
         }
       });
