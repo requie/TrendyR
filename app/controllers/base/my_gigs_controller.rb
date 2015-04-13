@@ -4,6 +4,9 @@ module Base
       gigs
     end
 
+    def show
+    end
+
     def destroy
       @profile.filter_gigs(destroy_gigs_params).destroy_all
       gigs
