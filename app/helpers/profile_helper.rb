@@ -1,6 +1,7 @@
 module ProfileHelper
   DEFAULT_PROFILE_WALLPAPER = 'background/profile.png'
   DEFAULT_PROFILE_AVATAR = 'icons/avatar-user.png'
+
   def get_address(location)
     location ? location.address : ''
   end

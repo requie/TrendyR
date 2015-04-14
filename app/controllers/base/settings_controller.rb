@@ -1,8 +1,9 @@
 module Base
   class SettingsController < Base::BaseController
     CONTACTS_ATTRIBUTES = %i(first_phone second_phone fax)
-    USER_ATTRIBUTES = [:first_name, :last_name, :email, user_contacts_attributes: CONTACTS_ATTRIBUTES]
+    USER_ATTRIBUTES = %i(first_name last_name email)
     PASSWORD_ATTRIBUTES = %i(current_password password password_confirmation)
+
     def edit
       current_user.build_user_contacts if current_user.user_contacts.nil?
     end
@@ -22,7 +23,11 @@ module Base
     private
 
     def user_params
-      params.require(:user).permit(*USER_ATTRIBUTES, email_notification_ids: [])
+      params.require(:user).permit(
+        *USER_ATTRIBUTES,
+        email_notification_ids: [],
+        user_contacts_attributes: CONTACTS_ATTRIBUTES
+      )
     end
 
     def password_params

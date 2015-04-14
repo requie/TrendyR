@@ -2,13 +2,11 @@
   $(function(){
 
     function initialize() {
-      var autocomplete_input = document.getElementById('autocomplete')
-      var autocomplete = new google.maps.places.Autocomplete(autocomplete_input, { types: ['geocode'] });
+      var autocompleteInput = document.getElementById('autocomplete'),
+        autocomplete = new google.maps.places.Autocomplete(autocompleteInput, { types: ['geocode'] });
 
-      function clearLocationFields(){
-        $('input[id^="location_"]').each(function() {
-          $(this).val('');
-        });
+      function clearLocationFields() {
+        $('input[id^="location_"]').val('');
       }
 
       google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -24,7 +22,7 @@
         $('#location_longitude').val(place.geometry.location.lng());
       });
 
-      $(autocomplete_input).keyup(function() {
+      $(autocompleteInput).keyup(function() {
         if (!this.value) {
           clearLocationFields();
         }

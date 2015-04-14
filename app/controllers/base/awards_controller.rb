@@ -5,13 +5,17 @@ module Base
     def index
     end
 
+    def private
+      @awards = @profile.owned_awards.page(params[:page]).decorate
+    end
+
     def new
       @award = Award.new
     end
 
     def create
       @award = Award.create(new_award_params)
-      respond_with(@award, location: base_profile_awards_path)
+      respond_with(@award, location: private_base_profile_awards_path)
     end
 
     def edit
@@ -29,7 +33,7 @@ module Base
     end
 
     def award_params
-      params.require(:award).permit(:title, :description_text, :earned_at)
+      params.require(:award).permit(policy(Award).permitted_attributes)
     end
 
     def set_award

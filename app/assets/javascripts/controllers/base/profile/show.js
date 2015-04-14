@@ -1,5 +1,5 @@
 (function($) {
-  $(function(){
+  $(function() {
     function initialize() {
       var markerCenter = new google.maps.LatLng(gon.location.latitude, gon.location.longitude);
 
@@ -8,6 +8,7 @@
         zoom: 20,
         mapTypeId: google.maps.MapTypeId.TERRAIN
       };
+
       var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
       var marker = new google.maps.Marker({

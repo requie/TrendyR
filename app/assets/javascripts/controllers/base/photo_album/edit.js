@@ -5,7 +5,7 @@
 
     var $form = $("form.simple_form");
 
-    $form.on('click', 'i.icon-removePicture', function($e){
+    $form.on('click', 'i.icon-removePicture', function(e){
       var $parent_div = $(this).parents().get(1);
       $($parent_div).fadeOut(function(){
         $parent_div.remove();

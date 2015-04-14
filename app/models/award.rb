@@ -3,6 +3,10 @@ class Award < ActiveRecord::Base
 
   validates :title, :description_text, :earned_at, presence: true
 
+  def earning_year
+    earned_at.try(:year)
+  end
+
   def self.start_year
     Date.today.year
   end
