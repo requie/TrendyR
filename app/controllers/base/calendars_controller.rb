@@ -4,7 +4,7 @@ module Base
 
     def show
       @events = @profile.owned_events
-      filter_events
+      @events = @events.filtered(filter_params) if params[:filters].present?
     end
 
     def edit
@@ -12,13 +12,8 @@ module Base
 
     private
 
-    def filter_events
-      @events = @events.joins(:location).where(locations: location_params) if params.fetch(:source_id, nil).present?
-      @events = @events.at_date(params[:date].to_date) if params.fetch(:date, nil).present?
-    end
-
-    def location_params
-      params.permit(:source_id)
+    def filter_params
+      params.require(:filters).permit(:source_place_id, :date)
     end
 
     def events

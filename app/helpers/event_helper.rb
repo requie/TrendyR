@@ -1,5 +1,6 @@
 module EventHelper
   DATE_FORMAT = '%b %d, %Y'
+  GROUP_DATE_FORMAT = '%B %d, %Y'
 
   def events_caption
     if @profile.user.role?(:label)
@@ -24,11 +25,19 @@ module EventHelper
   end
 
   def without_filters?
-    params[:date].nil? && params[:source_id].nil?
+    if params[:filters].nil?
+      true
+    else
+      params[:filters][:date].empty? && params[:filters][:source_place_id].empty?
+    end
   end
 
   def grouped_events
-    @events.pending.group_by(&:started_at) if params[:source_id].nil? && params[:date].nil?
+    @events.pending.group_by(&:started_at) if without_filters?
+  end
+
+  def formatted_date(date)
+    date.strftime(GROUP_DATE_FORMAT)
   end
 
   def events_today

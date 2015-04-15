@@ -2,7 +2,7 @@
   p
     span Today
     '
-    = Date.today.strftime("%B %d, %Y")
+    = formatted_date(Date.today)
 - if events_today.present?
   = render partial: 'base/profile/blocks/event', collection: events_today
 - else
@@ -11,7 +11,7 @@
   p
     span Tomorrow
     '
-    = Date.tomorrow.strftime("%B %d, %Y")
+    = formatted_date(Date.tomorrow)
 - if events_tomorrow.present?
   = render partial: 'base/profile/blocks/event', collection:  events_tomorrow
 - else
@@ -19,6 +19,6 @@
 - grouped_events.each do |date, group|
   .timeConcert.mobile-center
     p
-    = date.strftime("%B %d, %Y")
+    = formatted_date(date)
   - group.each do |event|
     = render partial: 'base/profile/blocks/event', object: event

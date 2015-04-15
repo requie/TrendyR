@@ -4,16 +4,19 @@
     .col-md-8.borderRight
       h4.regRoboto.headSize.standart All gigs
       .row
-        p.col-xs-12.col-md-1.p-t7
-          strong When
-        .col-xs-12.col-sm-4.col-md-3
-          .form-group.date
-            input.form-control.inputDate placeholder="Select date" type="text"
-        p.col-xs-12.col-md-1.p-t7
-          strong Location
-        .col-xs-12.col-sm-4.col-md-7
-          .form-group
-            input.form-control#autocomplete placeholder="Search Location" type="text"
+        = simple_form_for :filters, html: {method: :get, id: 'filters', class: ''} do |f|
+          p.col-xs-12.col-md-1.p-t7
+            strong When
+          .col-xs-12.col-sm-4.col-md-3
+            .form-group.date
+              = f.input :date, input_html: {class: 'form-control inputDate', placeholder: 'Select date'}
+          p.col-xs-12.col-md-1.p-t7
+            strong Location
+          .col-xs-12.col-sm-4.col-md-7
+            .form-group
+              input.form-control#autocomplete placeholder=("Search Location") type="text"
+              = f.input :source_place_id, as: :hidden
+              = f.input :address, as: :hidden
       - if @gigs.present?
         = render partial: 'base/profile/blocks/gig', collection: @gigs
       - else

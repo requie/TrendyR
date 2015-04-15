@@ -6,8 +6,7 @@ module Base
 
     def show
       @gigs = @profile.owned_gigs
-      @gigs = @gigs.joins(:location).where(locations: location_params) if params.fetch(:source_id, nil).present?
-      @gigs = @gigs.at_date(params[:date].to_date) if params.fetch(:date, nil).present?
+      @gigs = @gigs.filtered(filter_params) if params[:filters].present?
     end
 
     def destroy
@@ -20,7 +19,11 @@ module Base
     def gigs
       @gigs = @profile.owned_gigs.page(params[:page]).with_status(params[:filter])
     end
-    
+
+    def filter_params
+      params.require(:filters).permit(:source_place_id, :date)
+    end
+
     def location_params
       params.permit(:source_id)
     end
