@@ -5,62 +5,22 @@
       h4.regRoboto.headSize.standart All gigs
       .row
         p.col-xs-12.col-md-1.p-t7
-          strong Where
+          strong When
         .col-xs-12.col-sm-4.col-md-3
           .form-group.date
-            input.form-control.inputDate placeholder=("Select date") type="text" 
+            input.form-control.inputDate placeholder="Select date" type="text"
         p.col-xs-12.col-md-1.p-t7
           strong Location
         .col-xs-12.col-sm-4.col-md-7
           .form-group
-            input.form-control placeholder=("Search Location") type="text" 
-      .promo_more.mobile-center.gigs.clearfix
-        .promo-logo-now
-          a href=""
-            = image_tag 'album_image/promoter.jpg', class: 'mobile-center'
-            .logo-now NOW
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName.mobile-center
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
-      .promo_more.mobile-center.gigs.clearfix
-        .promo-logo-days
-          a href=""
-            img.mobile-center src="/dest/images/album_image/promoter.jpg" 
-            .logo-days 15 days
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName.mobile-center
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
-      .promo_more.mobile-center.gigs.clearfix
-        .promo-logo-month
-          a href=""
-            img.mobile-center src="/dest/images/album_image/promoter.jpg" 
-            .logo-month 5 mth
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName.mobile-center
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
+            input.form-control#autocomplete placeholder="Search Location" type="text"
+      - if @gigs.present?
+        = render partial: 'base/profile/blocks/gig', collection: @gigs
+      - else
+        p.emptyBlock No gigs
     .col-md-4.col-xs-12
       = render partial: 'base/blocks/sidebar', locals: { profile: @profile }
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/my_gigs/show'
+  = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places'

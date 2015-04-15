@@ -15,10 +15,6 @@ module Base
       redirect_to edit_base_profile_settings_path(@profile)
     end
 
-    def verify_authorized
-      authorize :base, :access?
-    end
-
     private
 
     def user_params

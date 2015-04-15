@@ -10,6 +10,10 @@ class Event < ActiveRecord::Base
   scope :pending, -> { where('started_at > ?', Date.today) }
   scope :past, -> { where('finished_at < ?', Date.today) }
 
+  scope :at_date, ->(date) { where('started_at < :date and finished_at > :date',  date: date) }
+
+  scope :since_date, ->(date) { where('started_at >= :date',  date: date) }
+
   belongs_to :photo, class_name: 'Event::Photo'
   validates :title, :description_text, :started_at, :finished_at, :photo, presence: true
 

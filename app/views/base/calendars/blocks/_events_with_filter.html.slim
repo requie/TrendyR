@@ -1,0 +1,4 @@
+- if events.present?
+  = render partial: 'base/profile/blocks/event', collection: events
+- else
+  p.emptyBlock No events
