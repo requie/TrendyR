@@ -19,8 +19,15 @@
     excluded: 'input[type=button], input[type=submit], input[type=reset], input[type=hidden], [group=date]',
     inputs: 'input, textarea, select',
     validators: {
+      imagerequired: {
+        fn: function(value, requirement) {
+          var $el = $(requirement);
+          $el.toggleClass('error-border', !value);
+          return !!value;
+        }
+      },
       allConnectionsClosed: {
-        fn: function (value, requirement) {
+        fn: function(value, requirement) {
           return 0 === jQuery.active;
         },
         priority: 32
@@ -47,15 +54,14 @@
         fn: function(value, requirement) {
           if(value) {
             return value.length >= requirement;
-          }
-          else {
+          } else {
             return true;
           }
         }
       },
       dateLower: {
         fn: function(value, requirement) {
-          var $startElement = $(requirement.start);
+          var $startElement = $(requirement.start),
             $endElement = $(requirement.end);
           var start = parseDate($startElement),
             end = parseDate($endElement);

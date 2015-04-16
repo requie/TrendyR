@@ -162,14 +162,4 @@
                   = link_to destroy_user_session_path
                     i.icon-logOut
                     | Log Out
-  - if flash[:notice].present? && flash[:notice].is_a?(String)
-    .validate-green
-      p
-        = flash[:notice]
-      i.icon-close-block
-  - if flash[:alert].present?
-    - flash[:alert].each do |alert|
-      .validate-red
-        p
-          = alert
-        i.icon-close-block
+  = render 'blocks/flash'

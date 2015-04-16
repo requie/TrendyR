@@ -27,10 +27,15 @@ Rails.application.routes.draw do
       resource :gallery
       resource :calendar
       resource :my_gigs
-      resources :artists, :awards, :events, :releases
+      resources :artists, :events, :releases
       resources :gigs do
         member do
           put 'set_request_status' => 'gigs#set_request_status', as: :set_request_status
+        end
+      end
+      resources :awards do
+        collection do
+          get :private
         end
       end
       resources :photo_albums, except: :destroy

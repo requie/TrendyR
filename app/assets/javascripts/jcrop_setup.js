@@ -99,9 +99,9 @@
         }else{
           this.dom.$cropbutton.hide();
         }
-      },
+      }
     };
-    if(!window.utils) window.utils = {};
+
     window.utils.crop = crop;
   });
 })(jQuery);

@@ -35,6 +35,8 @@
 //= require jquery.maskMoney.min
 //= require url_parameters
 
+window.utils = {};
+
 (function($) {
   $(function() {
 
@@ -44,11 +46,11 @@
       $parsleyForm.parsley();
 
       $.listen('parsley:field:success', function(e) {
-        e.$element.closest('.form-group').find('input,select,.mce-tinymce').removeClass('error-border');
+        e.$element.closest('.form-group').find('input, select, .mce-tinymce, textarea').removeClass('error-border');
       });
 
       $.listen('parsley:field:error', function(e) {
-        e.$element.closest('.form-group').find('input,select,.mce-tinymce').addClass('error-border');
+        e.$element.closest('.form-group').find('input, select, .mce-tinymce, textarea').addClass('error-border');
       });
 
     }
@@ -59,6 +61,7 @@
     };
 
     fitHeight();
+
     $(window).resize(function () {
       fitHeight();
     });
@@ -67,6 +70,10 @@
       e.preventDefault();
       var url = $(this).attr('data-url');
       window.location.href = url;
+    });
+
+    $('.alert-message').delay(3000).fadeOut(500, function() {
+      $(this).remove();
     });
 
   });

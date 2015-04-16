@@ -1,13 +1,13 @@
 (function($) {
   $(function(){
-    var $profile = $('.profile');
-    var profileId = $('.custom-form').data('profile-id');
-    var $checkBoxWrapper = '<label class="mobile-center cb-checkbox">';
-    var $template = $('[data-gallery]');
-    var $pagination = $profile.find('.pagination').parent();
+    var $profile = $('.profile'),
+      profileId = $('.custom-form').data('profile-id'),
+      $checkBoxWrapper = '<label class="mobile-center cb-checkbox">',
+      $template = $('[data-gallery]'),
+      $pagination = $profile.find('.pagination').parent();
 
-    function updatePhotoAlbums(response){
-      _.each(response, function(photo_album){
+    function updatePhotoAlbums(response) {
+      _.each(response, function(photo_album) {
         var $element = $template.clone().removeClass('hidden').removeAttr('data-gallery');
         $element.find('[data-album-id]').wrap($checkBoxWrapper).val(photo_album.id);
         $element.find('[data-first-photo-url]').attr('href', Routes.base_profile_photo_album_path(profileId, photo_album));
@@ -26,7 +26,7 @@
       });
     }
 
-    $('body').on('click', '.gallerySettings .icon-deleteGallery', function(e){
+    $('body').on('click', '.gallerySettings .icon-deleteGallery', function(e) {
       e.preventDefault();
       var $checked = $(':checkbox:checked');
       var photo_album_ids = $checked.map(function() {

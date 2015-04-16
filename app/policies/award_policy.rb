@@ -1,4 +1,6 @@
 class AwardPolicy
+  PERMITTED_ATTRIBUTES = %i(title description_text earned_at photo_id)
+
   attr_reader :user, :award
 
   def initialize(user, award)
@@ -24,6 +26,10 @@ class AwardPolicy
 
   def update?
     @user.profile == @award.owner_profile
+  end
+
+  def permitted_attributes
+    PERMITTED_ATTRIBUTES
   end
 
   def scope

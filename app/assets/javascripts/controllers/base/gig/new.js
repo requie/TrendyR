@@ -32,7 +32,7 @@
         $crop_progress.removeClass('hidden');
       },
       progress: function (e, data) {
-        var progress = data.loaded/data.total*100;
+        var progress = data.loaded / data.total * 100;
 
         $count_bar.html(progress + '%');
         $line_bar.attr('data-value', progress);
@@ -106,7 +106,7 @@
 
     $(document).on('click', '.addQuestion', function(e){
       e.preventDefault();
-      questionsCount = $('textarea[id$=question]').length-1;
+      questionsCount = $('textarea[id$=question]').length - 1;
       addFaqQuestion(questionsCount);
     })
   });
