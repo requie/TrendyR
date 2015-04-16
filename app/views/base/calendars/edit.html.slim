@@ -14,11 +14,11 @@
       .form-group.pull-sm-right
         = link_to new_base_profile_event_path
           button.btn.btn-primary Create event
-    = render partial: 'base/calendars/blocks/private_event', collection: @events, locals: { profile: @profile }
+    = form_tag base_profile_calendar_path(@profile), method: :delete
+      = render partial: 'base/calendars/blocks/private_event', collection: @events, locals: { profile: @profile }
     .col-xs-12
       .pagination.pull-right
         = paginate @events
-= render partial: 'base/calendars/blocks/empty_private_event'
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/calendar/edit'

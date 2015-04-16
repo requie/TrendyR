@@ -12,7 +12,7 @@ module Base
 
     def destroy
       @profile.filter_gigs(destroy_gigs_params).destroy_all
-      respond_with :gig, location: edit_base_profile_calendar_path(@profile)
+      respond_with :gig, location: edit_base_profile_my_gigs_path(@profile)
     end
 
     private

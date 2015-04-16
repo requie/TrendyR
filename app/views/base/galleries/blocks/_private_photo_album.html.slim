@@ -2,7 +2,7 @@
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
-        = check_box_tag '', private_photo_album.id
+        = check_box_tag 'photo_album_ids[]', private_photo_album.id
       = link_to base_profile_photo_album_path(profile, private_photo_album)
         = image_tag private_photo_album.first_photo.with_preset(:medium), class: 'mobile-center'
     .col-xs-12.col-md-7

@@ -19,12 +19,11 @@
             = link_to "Applied", edit_base_profile_my_gigs_path(@profile)
         = link_to new_base_profile_gig_path
           button.btn.btn-primary Post gig
-    = render partial: 'base/my_gigs/blocks/private_gig', collection: @gigs, locals: { profile: @profile }
+    = form_tag base_profile_my_gigs_path(@profile), method: :delete
+      = render partial: 'base/my_gigs/blocks/private_gig', collection: @gigs, locals: { profile: @profile }
     .col-xs-12
       .pagination.pull-right
         = paginate @gigs
-= render 'base/my_gigs/blocks/empty_private_gig'
-= render 'base/my_gigs/blocks/empty_request'
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/my_gigs/edit'
