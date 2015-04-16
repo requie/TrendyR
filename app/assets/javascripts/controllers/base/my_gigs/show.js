@@ -4,8 +4,10 @@
     var autocomplete_input = document.getElementById('autocomplete');
     var autocomplete = new google.maps.places.Autocomplete(autocomplete_input, { types: ['geocode'] });
     var $form = $('#filters');
-    var $place_id = $form.find('#filters_source_place_id');
-    var $address = $form.find('#filters_address');
+    var $place_id = $form.find('#q_location_source_place_id_eq');
+    var $address = $form.find('#q_location_address_eq');
+    var $date = $('.inputDate');
+    var $finish_gt = $('#q_finished_at_gteq');
 
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
       var place = autocomplete.getPlace();
@@ -21,21 +23,29 @@
       }
     });
 
-    $('.inputDate').datepicker({
+    $date.datepicker({
       dateFormat: 'dd/mm/yy',
       onSelect: function(inputText) {
+        $finish_gt.val(this.value);
         $form.submit();
       }
     });
 
-    if($.urlParam('filters%5Bsource_place_id%5D')) {
-      $place_id.val($.urlParam('filters%5Bsource_place_id%5D'));
-      $address.val(decodeURIComponent($.urlParam('filters%5Baddress%5D')).replace(/\+/g, " "));
+    $date.change(function() {
+      if (!this.value) {
+        $(this).val('');
+        $finish_gt.val('');
+      }
+    });
+
+    if($.urlParam('q\\[location_source_place_id_eq\\]')) {
+      $place_id.val($.urlParam('q\\[location_source_place_id_eq\\]'));
+      $address.val($.urlParam('q\\[location_address_eq\\]').replace(/\+/g, " "));
       $(autocomplete_input).val($address.val());
     }
 
-    if($.urlParam('filters%5Bdate%5D')){
-      $('.inputDate').datepicker('setDate', decodeURIComponent($.urlParam('filters%5Bdate%5D')));
+    if($.urlParam('q\\[started_at_lteq\\]')){
+      $date.datepicker('setDate', $.urlParam('q\\[started_at_lteq\\]'));
     }
   });
 })(jQuery);

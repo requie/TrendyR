@@ -1,22 +1,23 @@
 module Base
   class MyGigsController < Base::BaseController
+    before_action :set_gigs, only: [:edit]
+
     def edit
-      gigs
     end
 
     def show
-      @gigs = @profile.owned_gigs
-      @gigs = @gigs.filtered(filter_params) if params[:filters].present?
+      @q = @profile.owned_gigs.ransack(params[:q])
+      @gigs = @q.result.includes(:location)
     end
 
     def destroy
       @profile.filter_gigs(destroy_gigs_params).destroy_all
-      gigs
+      respond_with :gig, location: edit_base_profile_calendar_path(@profile)
     end
 
     private
 
-    def gigs
+    def set_gigs
       @gigs = @profile.owned_gigs.page(params[:page]).with_status(params[:filter])
     end
 

@@ -25,11 +25,7 @@ module EventHelper
   end
 
   def without_filters?
-    if params[:filters].nil?
-      true
-    else
-      params[:filters][:date].empty? && params[:filters][:source_place_id].empty?
-    end
+    params[:q].nil?
   end
 
   def grouped_events

@@ -44,6 +44,7 @@ gem 'jquery-rails', '~> 3.1.2'
 gem 'jbuilder'
 gem 'gon'
 gem 'tinymce-rails'
+gem 'ransack'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
