@@ -1,5 +1,6 @@
 module EventHelper
   DATE_FORMAT = '%b %d, %Y'
+  GROUP_DATE_FORMAT = '%B %d, %Y'
 
   def events_caption
     if @profile.user.role?(:label)
@@ -7,6 +8,44 @@ module EventHelper
     else
       'My upcoming events'
     end
+  end
+
+  def photo_with_promo_logo(model)
+    distance = get_distance(model.started_at, model.finished_at)
+    content_tag :div, class: "promo-logo-#{distance[:class] || :now}" do
+      link_to do
+        concat image(model)
+        concat content_tag :div, distance[:label], class: "logo-#{distance[:class]}" if distance[:label]
+      end
+    end
+  end
+
+  def image(model)
+    image_tag model.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
+  end
+
+  def without_filters?
+    if params[:filters].nil?
+      true
+    else
+      params[:filters][:date].empty? && params[:filters][:source_place_id].empty?
+    end
+  end
+
+  def grouped_events
+    @events.pending.group_by(&:started_at) if without_filters?
+  end
+
+  def formatted_date(date)
+    date.strftime(GROUP_DATE_FORMAT)
+  end
+
+  def events_today
+    @events.started
+  end
+
+  def events_tomorrow
+    @events.at_date(Date.tomorrow)
   end
 
   def status(model)

@@ -34,8 +34,6 @@ $(document).ready(function(){
 		$(this).parent().slideToggle(100);   
 	})
 
-	$('.inputDate').datepicker({});
-
 	$(".gallery-image").fancybox({
 		"padding" : 0,
 		"imageScale" : false, 

@@ -10,6 +10,10 @@ class Event < ActiveRecord::Base
   scope :pending, -> { where('started_at > ?', Date.today) }
   scope :past, -> { where('finished_at < ?', Date.today) }
 
+  scope :at_date, ->(date) { where('started_at < :date and finished_at > :date',  date: date) }
+
+  scope :since_date, ->(date) { where('started_at >= :date',  date: date) }
+
   belongs_to :photo, class_name: 'Event::Photo'
   validates :title, :description_text, :started_at, :finished_at, :photo, presence: true
 
@@ -19,5 +23,13 @@ class Event < ActiveRecord::Base
     else
       all
     end
+  end
+
+  def self.filtered(filters)
+    events = all
+    source_place_id = filters[:source_place_id]
+    events = events.joins(:location).where(locations: { source_place_id: source_place_id }) if source_place_id.present?
+    events = events.at_date(filters[:date].to_date) if filters[:date].present?
+    events
   end
 end

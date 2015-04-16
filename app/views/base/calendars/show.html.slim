@@ -3,74 +3,28 @@
   .col-md-8.borderRight
     h5.regRoboto.headSize.standart All events
     .row
-      p.col-xs-12.col-md-1.p-t7
-        strong Where
-      .col-xs-12.col-sm-4.col-md-3
-        .form-group.date
-          input.form-control.inputDate placeholder=("Select date") type="text"
-      p.col-xs-12.col-md-1.p-t7
-        strong Location
-      .col-xs-12.col-sm-4.col-md-7
-        .form-group
-          input.form-control placeholder=("Search Location") type="text"
+      = simple_form_for :filters, html: { method: :get, id: 'filters', class: '' } do |f|
+        p.col-xs-12.col-md-1.p-t7
+          strong When
+        .col-xs-12.col-sm-4.col-md-3
+          .form-group.date
+            = f.input :date, input_html: { class: 'form-control inputDate', placeholder: 'Select date' }
+        p.col-xs-12.col-md-1.p-t7
+          strong Location
+        .col-xs-12.col-sm-4.col-md-7
+          .form-group
+            input.form-control#autocomplete placeholder=("Search Location") type="text"
+            = f.input :source_place_id, as: :hidden
+            = f.input :address, as: :hidden
     .borderTop.p-t10.clearfix
-      .timeConcert.mobile-center
-        p
-          span Today
-          | March 21, 2014
-      .promo_more.mobile-center.gigs.clearfix
-        .promo-logo-now
-          a href="#"
-            = image_tag 'album_image/promoter.jpg'
-            .logo-now NOW
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName.mobile-center
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
-      .timeConcert.mobile-center
-        p
-          span Tommorow
-          | March 21, 2014
-      .promo_more.mobile-center.gigs.clearfix
-        .promo-logo-days
-          a href="#"
-            = image_tag 'album_image/promoter.jpg'
-            .logo-days 15 days
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName.mobile-center
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
-      .timeConcert.mobile-center
-        p March 21, 2014
-      .promo_more.mobile-center.gigs.clearfix
-        .promo-logo-month
-          a href="#"
-            = image_tag 'album_image/promoter.jpg'
-            .logo-month 5 mth
-        h4.static-content Breakthrough to Blue 'n' Roots
-        .eventName.mobile-center
-          p
-            i.icon-dark-calendar
-            | Jul 18, 2014 - Jul 20, 2014
-          p
-            i.icon-dark-place
-            | Painesville, Ohio, USA
-          p
-            i.icon-dark-money
-            | $ 40.00
+      - if without_filters?
+        = render partial: 'base/calendars/blocks/events_without_filter'
+      - else
+        = render partial: 'base/calendars/blocks/events_with_filter', locals: { events: @events }
+
   .col-md-4.col-xs-12
     = render partial: 'base/blocks/sidebar', locals: { profile: @profile }
+
+- content_for :javascript do
+  = javascript_include_tag 'controllers/base/my_gigs/show'
+  = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places'

@@ -1,10 +1,10 @@
 .borderTop
-  .clearfix.onTop
-    - if profile.owned_gigs.any?
+  - if profile.owned_gigs.any?
+    .clearfix.onTop
       h4.regRoboto.headSize.standart.pull-left My gigs
       a.pull-right.link View all
-      = render partial: 'base/profile/blocks/gig', collection: profile.owned_gigs
-    - else
-      h4.regRoboto.headSize.standart My gigs
-      p.emptyBlock
-        | No gigs
+    = render partial: 'base/profile/blocks/gig', collection: profile.owned_gigs.upcoming
+  - else
+    h4.regRoboto.headSize.standart My gigs
+    p.emptyBlock
+      | No gigs
