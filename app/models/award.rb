@@ -1,7 +1,9 @@
 class Award < ActiveRecord::Base
   include Ownable
 
-  validates :title, :description_text, :earned_at, presence: true
+  belongs_to :photo, class_name: 'Award::Photo'
+
+  validates :title, :description_text, :earned_at, :photo, presence: true
 
   def earning_year
     earned_at.try(:year)

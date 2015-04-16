@@ -4,7 +4,7 @@ module Base
     USER_ATTRIBUTES = %i(first_name last_name email)
     PASSWORD_ATTRIBUTES = %i(current_password password password_confirmation)
 
-    def edit
+    def show
       current_user.build_user_contacts if current_user.user_contacts.nil?
     end
 
@@ -13,7 +13,7 @@ module Base
       password_changed = passwords_present? && current_user.update_with_password(password_params)
       sign_in(current_user, bypass: true) if password_changed
       set_flash_messages
-      redirect_to edit_base_profile_settings_path(@profile)
+      redirect_to edit_base_profile_settings_path
     end
 
     private

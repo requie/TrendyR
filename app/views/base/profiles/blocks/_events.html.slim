@@ -1,0 +1,12 @@
+.borderTop
+  - if profile.owned_events.any?
+    .clearfix.onTop
+      h4.regRoboto.headSize.standart.pull-left
+        = events_caption
+      a.pull-right.link View all
+    = render partial: 'base/profiles/blocks/event', collection: profile.owned_events.upcoming
+  - else
+    h4.regRoboto.headSize.standart
+      = events_caption
+    p.emptyBlock
+      | No events

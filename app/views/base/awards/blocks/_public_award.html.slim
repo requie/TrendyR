@@ -1,0 +1,7 @@
+.awards
+  .award_picture
+    = image_tag award.photo.with_presets([:cropped, :medium])
+  h4.static-content award.title
+  small "Year #{award.earning_year}"
+  p.text-release.regRoboto
+    = award.description_text

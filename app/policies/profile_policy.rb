@@ -15,7 +15,7 @@ class ProfilePolicy
     true
   end
 
-  def edit?
+  def index?
     update?
   end
 

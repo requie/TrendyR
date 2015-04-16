@@ -1,0 +1,24 @@
+.timeConcert.mobile-center
+  p
+    span Today
+    '
+    = formatted_date(Date.today)
+- if events_today.present?
+  = render partial: 'base/profiles/blocks/event', collection: events_today
+- else
+  p.emptyBlock No events
+.timeConcert.mobile-center
+  p
+    span Tomorrow
+    '
+    = formatted_date(Date.tomorrow)
+- if events_tomorrow.present?
+  = render partial: 'base/profiles/blocks/event', collection:  events_tomorrow
+- else
+  p.emptyBlock No events
+- grouped_events.each do |date, group|
+  .timeConcert.mobile-center
+    p
+    = formatted_date(date)
+  - group.each do |event|
+    = render partial: 'base/profiles/blocks/event', object: event

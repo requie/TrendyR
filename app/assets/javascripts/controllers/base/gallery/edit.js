@@ -1,9 +1,10 @@
 (function($) {
   $(function(){
+    var $form = $('.custom-form form');
+
     $('body').on('click', '.gallerySettings .icon-deleteGallery', function(e) {
       e.preventDefault();
-      $('.custom-form form').submit();
+      $form.submit();
     });
-
   });
 })(jQuery);

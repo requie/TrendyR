@@ -25,9 +25,13 @@ class Profile < ActiveRecord::Base
     user.entity_class.find_by(profile_id: id)
   end
 
-  OWNED_OBJECTS.each do |objects|
-    define_method("filter_#{objects}") do |ids|
-      send("owned_#{objects}").where(id: ids)
+  OWNED_OBJECTS.each do |object|
+    define_method("filter_#{object}") do |ids|
+      send("owned_#{object}").where(id: ids)
+    end
+
+    define_method("delete_#{object}") do |ids|
+      send("filter_#{object}", ids).destroy_all
     end
   end
 end

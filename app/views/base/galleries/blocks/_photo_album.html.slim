@@ -1,5 +1,5 @@
 .venueGallery
-  = link_to base_profile_photo_album_path(profile, photo_album)
+  = link_to base_public_profile_public_photo_album_path(profile, photo_album)
     = image_tag photo_album.first_photo.with_preset(:large)
     span.nameGallery
       h5.regRoboto.standart

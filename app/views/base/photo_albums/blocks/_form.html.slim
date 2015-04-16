@@ -1,4 +1,4 @@
-= simple_form_for [:base, @profile || :profile, @photo_album], defaults: { input_html: { class: 'form-control' } } do |f|
+= simple_form_for [:base,:profile, @photo_album], defaults: { input_html: { class: 'form-control' } } do |f|
   = f.input :title, placeholder: 'Title', input_html: { 'data-required' => true }
   .form-group.row
     .col-xs-12.col-sm-6.col-md-3
@@ -22,7 +22,7 @@
       .progressBar
 
 .editPicture.hidden
-  a href="" rel="group"
+  a href="javascript: void(0)" rel="group"
     img src=""
   i.icon-removePicture
   input.hidden name="photo_album[photo_ids][]" value=""

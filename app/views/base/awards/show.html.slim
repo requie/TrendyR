@@ -1,0 +1,9 @@
+= render partial: 'base/blocks/profile_header', locals: { profile: @profile }
+.container.onTop.onBottom
+  .row
+    .col-md-8.borderRight
+      h5.regRoboto.headSize.standart All awards
+      = render partial: 'base/awards/blocks/public_award', collection: @awards, as: :award
+    .col-md-4
+      = render partial: 'base/blocks/sidebar', locals:{ profile: @profile }
+= javascript 'controllers/base/awards/show'

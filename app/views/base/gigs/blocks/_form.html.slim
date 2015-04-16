@@ -6,9 +6,9 @@
       button.btn.btn-primary#upload-button Upload image
       - if gig.photo.blank?
         p.create-event-text Png, jpg
-  = file_field_tag "photo[attachment]", id: 'upload', class: 'hidden'
+  = file_field_tag 'photo[attachment]', id: 'upload', class: 'hidden'
 
-= simple_form_for [:base, @profile || :profile, @gig] do |form|
+= simple_form_for [:base, :profile, @gig] do |form|
   = form.input :photo_id, input_html: {class: 'hidden', data: {required: true, 'required-message' => 'Please, upload image'}}
   .row
     .col-xs-12
@@ -99,7 +99,7 @@
           = faq_fields.input :answer, as: :text, input_html: { class: 'editor form-control', rows: 10 }
   .row
     .col-xs-12
-      a.link.addQuestion href=""  + Add new question
+      a.link.addQuestion href="#"  + Add new question
   .row
     .col-xs-12.m-b20.m-10
       button.btn.btn-primary.pull-right Submit

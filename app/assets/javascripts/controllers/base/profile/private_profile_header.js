@@ -22,7 +22,7 @@
           var photo_url = response.photo.url;
           $('.managerAvatar img').attr('src', photo_url);
           $.ajax({
-            url: Routes.base_profile_update_photo_path(response.photo.profile_id),
+            url: Routes.update_photo_base_profile_path(response.photo.profile_id),
             type: 'PATCH',
             data: {
               profile: {
@@ -53,7 +53,7 @@
           var photo_url = response.photo.url;
           $wallpaper.backstretch(photo_url);
           $.ajax({
-            url: Routes.base_profile_update_photo_path(response.photo.profile_id),
+            url: Routes.update_photo_base_profile_path(response.photo.profile_id),
             type: 'PATCH',
             data: {
               profile: {
