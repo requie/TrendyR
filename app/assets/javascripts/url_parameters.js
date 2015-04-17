@@ -1,7 +1,7 @@
 (function($) {
   $(function () {
     $.urlParam = function (name) {
-      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(decodeURIComponent(window.location.search));
       if (results == null) {
         return null;
       } else {

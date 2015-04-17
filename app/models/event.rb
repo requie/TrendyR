@@ -24,12 +24,4 @@ class Event < ActiveRecord::Base
       all
     end
   end
-
-  def self.filtered(filters)
-    events = all
-    source_place_id = filters[:source_place_id]
-    events = events.joins(:location).where(locations: { source_place_id: source_place_id }) if source_place_id.present?
-    events = events.at_date(filters[:date].to_date) if filters[:date].present?
-    events
-  end
 end

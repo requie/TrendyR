@@ -40,7 +40,6 @@ Rails.application.routes.draw do
       end
       resources :photo_albums, except: :destroy
       delete 'destroy_photo_albums' => 'photo_albums#destroy'
-      delete 'destroy_events' => 'events#destroy'
       resource :settings
     end
   end

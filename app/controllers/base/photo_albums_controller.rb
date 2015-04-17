@@ -28,19 +28,10 @@ module Base
       redirect_to base_profile_photo_album_path(@profile, @photo_album)
     end
 
-    def destroy
-      @profile.filter_photo_albums(destroy_photo_albums_params).destroy_all
-      @photo_albums = @profile.owned_photo_albums.page(params[:page]).decorate
-    end
-
     private
 
     def photo_album_params
       params.require(:photo_album).permit(:title, photo_ids: [])
-    end
-
-    def destroy_photo_albums_params
-      params.require(:photo_album_ids)
     end
 
     def set_photo_album

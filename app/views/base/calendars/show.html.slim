@@ -3,19 +3,20 @@
   .col-md-8.borderRight
     h5.regRoboto.headSize.standart All events
     .row
-      = simple_form_for :filters, html: { method: :get, id: 'filters', class: '' } do |f|
+      = search_form_for @q, url: base_profile_calendar_path, html: { id: 'filters' } do |f|
         p.col-xs-12.col-md-1.p-t7
           strong When
         .col-xs-12.col-sm-4.col-md-3
           .form-group.date
-            = f.input :date, input_html: { class: 'form-control inputDate', placeholder: 'Select date' }
+            = f.input :started_at_lteq, input_html: { class: 'form-control inputDate', placeholder: 'Select date' }
+            = f.input :finished_at_gteq, as: :hidden
         p.col-xs-12.col-md-1.p-t7
           strong Location
         .col-xs-12.col-sm-4.col-md-7
           .form-group
             input.form-control#autocomplete placeholder=("Search Location") type="text"
-            = f.input :source_place_id, as: :hidden
-            = f.input :address, as: :hidden
+            = f.input :location_source_place_id_eq, as: :hidden
+            = f.input :location_address_eq, as: :hidden
     .borderTop.p-t10.clearfix
       - if without_filters?
         = render partial: 'base/calendars/blocks/events_without_filter'

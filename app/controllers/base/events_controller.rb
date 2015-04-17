@@ -30,19 +30,10 @@ module Base
       respond_with @event, location: edit_base_profile_calendar_path(@profile)
     end
 
-    def destroy
-      @profile.filter_events(destroy_events_params).destroy_all
-      @events = @profile.owned_events.page(params[:page]).with_status(params[:filter])
-    end
-
     private
 
     def set_event
       @event = Event.find(params[:id])
-    end
-
-    def destroy_events_params
-      params.require(:event_ids)
     end
 
     def event_params

@@ -11,11 +11,11 @@
         .text-right
           = link_to new_base_profile_photo_album_path
             button.btn.btn-primary Create new album
-    = render partial: 'base/galleries/blocks/private_photo_album', collection: @photo_albums, locals: { profile: @profile }
+    = form_tag base_profile_gallery_path(@profile), method: :delete
+      = render partial: 'base/galleries/blocks/private_photo_album', collection: @photo_albums, locals: { profile: @profile }
     .col-xs-12
       .pagination.pull-right
         = paginate @photo_albums
-  = render partial: 'base/galleries/blocks/empty_photo_album'
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/gallery/edit'
