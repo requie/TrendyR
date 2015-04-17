@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     authenticated :user, ->(user) { user.role.is_public? } do
-      root to: 'base/base#root', as: :authenticated_root
+      root 'base/profiles#index', as: :authenticated_root
     end
 
     root to: 'devise/sessions#new'
@@ -22,25 +22,52 @@ Rails.application.routes.draw do
   end
 
   namespace :base, path: nil do
-    resources :profile  do
-      patch 'update_photo' => 'profile#update_photo', as: :update_photo
-      resource :gallery
-      resource :calendar
-      resource :my_gigs
-      resources :artists, :events, :releases
-      resources :gigs do
-        member do
-          put 'set_request_status' => 'gigs#set_request_status', as: :set_request_status
-        end
-      end
-      resources :awards do
+    resource :profile, only: :update do
+      get '/' => :index
+      patch :update_photo, as: :update_photo
+
+      resource :settings, only: [:show, :update]
+      resources :galleries, path: 'gallery', only: :index
+      resources :events, except: :show do
         collection do
-          get :private
+          delete :destroy
         end
       end
-      resources :photo_albums, except: :destroy
-      delete 'destroy_photo_albums' => 'photo_albums#destroy'
-      resource :settings
+      resources :photo_albums, except: [:index, :show, :destroy] do
+        collection do
+          delete :destroy
+        end
+      end
+      resources :photo_albums, only: [] do
+        member do
+          get '/' => :private_show
+        end
+      end
+
+      resources :gigs, except: :show do
+        member do
+          put :status, as: :status
+        end
+      end
+
+      resources :awards, except: [:show, :destroy] do
+        collection do
+          delete :destroy
+        end
+      end
+    end
+
+    resources :profiles, path: 'profile', only: :show, as: :public_profile do
+      resource :events, :gallery, only: :show
+      resource :gigs, only: :show, as: :public_gigs do
+        member do
+          get '/:id' => :overview, as: :overview
+        end
+      end
+      resources :photo_albums, only: :show, as: :public_photo_album
+      resource :awards, only: :show, as: :publick_awards
+
+      resources :artists, :releases
     end
   end
 

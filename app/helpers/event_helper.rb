@@ -25,7 +25,7 @@ module EventHelper
   end
 
   def without_filters?
-    params[:q].nil? || params[:q].values.try(:join).empty?
+    params[:q].nil? || params[:q].values.try(:join).blank?
   end
 
   def grouped_events

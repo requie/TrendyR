@@ -3,9 +3,10 @@ module Base
     before_action :set_award, only: [:edit, :update]
 
     def index
+      @awards = @profile.owned_awards
     end
 
-    def private
+    def show
       @awards = @profile.owned_awards.page(params[:page]).decorate
     end
 
@@ -15,7 +16,7 @@ module Base
 
     def create
       @award = Award.create(new_award_params)
-      respond_with(@award, location: private_base_profile_awards_path)
+      respond_with(@award, location: base_profile_awards_path)
     end
 
     def edit
@@ -24,6 +25,11 @@ module Base
     def update
       @award.update(award_params)
       respond_with(@award, location: base_profile_awards_path)
+    end
+
+    def destroy
+      @profile.delete_awards(award_ids)
+      redirect_to action: :index
     end
 
     private
@@ -39,6 +45,10 @@ module Base
     def set_award
       @award = Award.find(params[:id])
       authorize @award, "#{action_name}?"
+    end
+
+    def award_ids
+      params.fetch(:award_ids, [])
     end
   end
 end

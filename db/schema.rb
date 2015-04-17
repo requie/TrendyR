@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408122357) do
+ActiveRecord::Schema.define(version: 20150416074657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,8 +332,6 @@ ActiveRecord::Schema.define(version: 20150408122357) do
   add_foreign_key "identities", "users", name: "identities_user_id_fk", dependent: :delete
 
   add_foreign_key "labels", "profiles", name: "labels_profile_id_fk", dependent: :delete
-
-  add_foreign_key "locations", "users", name: "locations_creator_id_fk", column: "creator_id"
 
   add_foreign_key "managers", "profiles", name: "managers_profile_id_fk", dependent: :delete
 

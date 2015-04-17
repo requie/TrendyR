@@ -1,8 +1,0 @@
-li.confirmation_list_point.clearfix
-  = link_to base_profile_path(request.profile)
-    = image_tag avatar_url(request.profile), class: 'confirmation_picture'
-  .confirmation_text
-    p
-      = link_to 'Approve', set_request_status_base_profile_gig_path(@profile, request), class: 'link', data: { status: 'confirmed' }
-    p
-      = link_to 'Cancel', set_request_status_base_profile_gig_path(@profile, request), class: 'error_text', data: { status: 'rejected' }

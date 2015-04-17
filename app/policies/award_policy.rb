@@ -9,7 +9,7 @@ class AwardPolicy
   end
 
   def index?
-    false
+    update?
   end
 
   def new?
@@ -26,6 +26,10 @@ class AwardPolicy
 
   def update?
     @user.profile == @award.owner_profile
+  end
+
+  def destroy?
+    update?
   end
 
   def permitted_attributes
