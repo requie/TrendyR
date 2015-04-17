@@ -10,7 +10,21 @@ module Base
     )
     FAQ_ATTRIBUTES = %i(id question answer)
 
+    skip_before_action :set_profile, only: :status
     before_action :set_gig, only: [:edit, :update]
+    before_action :set_gigs, only: :index
+
+    def index
+      @gigs = @profile.owned_gigs.page(params[:page]).with_status(params[:filter])
+    end
+
+    def show
+      @q = @profile.owned_gigs.ransack(params[:q])
+      @gigs = @q.result.includes(:location)
+    end
+
+    def overview
+    end
 
     def new
       @gig = Gig.new

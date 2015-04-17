@@ -10,10 +10,10 @@ module EventHelper
     end
   end
 
-  def photo_with_promo_logo(model)
+  def photo_with_promo_logo(model, link)
     distance = get_distance(model.started_at, model.finished_at)
     content_tag :div, class: "promo-logo-#{distance[:class] || :now}" do
-      link_to do
+      link_to link do
         concat image(model)
         concat content_tag :div, distance[:label], class: "logo-#{distance[:class]}" if distance[:label]
       end
@@ -22,6 +22,14 @@ module EventHelper
 
   def image(model)
     image_tag model.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
+  end
+
+  def big_date(date)
+    content_tag :div, class: 'eventDate w-sm-30 w-xs-45' do
+      concat number_span(date.day)
+      concat content_tag :h4, Date::MONTHNAMES[date.month], class: 'm-t5'
+      concat content_tag :h4, date.year
+    end
   end
 
   def without_filters?
@@ -63,5 +71,13 @@ module EventHelper
     dates << model.started_at.strftime(DATE_FORMAT)
     dates << model.finished_at.strftime(DATE_FORMAT)
     dates.join(' - ')
+  end
+
+  private
+
+  def number_span(number)
+    content_tag :h4 do
+      content_tag :span, number
+    end
   end
 end

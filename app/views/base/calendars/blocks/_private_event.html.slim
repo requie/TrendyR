@@ -5,7 +5,7 @@
         = check_box_tag "event_ids[]", private_event.id
     .promo_more.mobile-center.gigs.clearfix
       .promo-logo-now
-        a href=""
+        = link_to base_profile_event_path(@profile, private_event)
           = image_tag private_event.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
       h4.static-content
         = private_event.title

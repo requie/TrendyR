@@ -3,6 +3,7 @@ module Base
     include LocationProcessing
 
     before_action :authorize_profile
+    before_action :set_location_for_js, only: [:index, :show]
 
     def show
     end

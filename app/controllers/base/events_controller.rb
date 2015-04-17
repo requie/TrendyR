@@ -5,6 +5,7 @@ module Base
     EVENT_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price)
 
     before_action :set_event, only: [:edit, :update]
+    before_action :set_events, only: [:edit]
 
     def index
     end
