@@ -1,5 +1,5 @@
 .promo_more.mobile-center.gigs.clearfix
-  = photo_with_promo_logo(event)
+  = photo_with_promo_logo(event, base_profile_event_path(@profile, event))
   h4.static-content #{event.title}
   .eventName.mobile-center
     p
