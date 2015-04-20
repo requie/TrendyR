@@ -1,0 +1,31 @@
+.row
+  .col-sm-1
+    p Track
+  .col-sm-11
+    table.w-100
+      tbody
+        tr#audio-done
+          td.blockRelative
+            .audiojs.audioTrack.m-t0
+              .play-pause
+                p.play
+                p.error
+              .scrubber
+                .progress
+                .loaded
+            .audioTrack.xs-center
+              a.audioTrack_link.top-3 data-src=("/dest/media/11. Avalanche.mp3") href="#"  Avalanche
+            .control-audio.pull-sm-right
+              a.red href=""  Remove
+        tr#audio-progress
+          td
+            .upload_track
+              .countBar 100%
+              .lineBar data-value="100"
+                .progressBar
+        tr
+          td
+            .upload_track.blockRelative
+              .countBar
+              .audioTrack
+                p.link.m-l40 href=""  Avalanche

@@ -88,4 +88,6 @@ Rails.application.routes.draw do
       put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/i }
     end
   end
+
+  resources :songs, only: [:create, :destroy]
 end

@@ -98,14 +98,16 @@ $(document).ready(function(){
 
 	// [ Custom file input ]
 	if(document.querySelector('.fileSelect')){
-	    document.querySelector('.fileSelect').addEventListener('click', function() {
+	    document.querySelector('.fileSelect').addEventListener('click', function(e) {
+          e.preventDefault();
 	        var fileInput = document.querySelector('.uploadbtn');
 	        fileInput.click();
 	    }, false);
 	}
 
 	if(document.querySelector('.newSelect')){
-	    document.querySelector('.newSelect').addEventListener('click', function() {
+	    document.querySelector('.newSelect').addEventListener('click', function(e) {
+          e.preventDefault();
 	        var fileInput = document.querySelector('.uploadfile');
 	        fileInput.click();
 	    }, false);

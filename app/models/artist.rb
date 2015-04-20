@@ -3,6 +3,7 @@ class Artist < ActiveRecord::Base
 
   has_many :bookings, dependent: :destroy
   has_many :gigs, through: :bookings
+  has_many :releases
 
   def self.batch_update(ids, values)
     ActiveRecord::Base.transaction do
