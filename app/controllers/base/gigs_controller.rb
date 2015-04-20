@@ -7,17 +7,17 @@ module Base
       started_at finished_at photo_id
     )
     FAQ_ATTRIBUTES = %i(id question answer)
+    FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq location_address_eq)
 
-    skip_before_action :set_profile, only: :status
+    skip_before_action :set_profile, only: :state
     before_action :set_gig, only: [:edit, :update]
     before_action :set_gigs, only: :index
 
     def index
-      @gigs = @profile.owned_gigs.page(params[:page]).with_status(params[:filter])
     end
 
     def show
-      @q = @profile.owned_gigs.ransack(params[:q])
+      @q = @profile.owned_gigs.ransack(filter_params)
       @gigs = @q.result.includes(:location)
     end
 
@@ -50,8 +50,8 @@ module Base
       redirect_to action: :index
     end
 
-    def status
-      artist_gig = ArtistGig.find(params[:id])
+    def state
+      artist_gig = Booking.find(params[:id])
       status = artist_gig.update(status: params[:status]) ? :ok : :unprocessable_entity
       head status
     end
@@ -71,11 +71,7 @@ module Base
     end
 
     def filter_params
-      params.require(:filters).permit(:source_place_id, :date)
-    end
-
-    def location_params
-      params.permit(:source_id)
+      params.require(:q).permit(FILTER_ATTRIBUTES)
     end
 
     def destroy_gigs_params

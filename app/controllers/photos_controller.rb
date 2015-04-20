@@ -10,7 +10,6 @@ class PhotosController < ApplicationController
   def crop
     authorize @photo
     @photo.update(crop_photo_params)
-    @preset = params[:preset].to_sym
   end
 
   def destroy

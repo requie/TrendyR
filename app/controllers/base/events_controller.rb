@@ -5,10 +5,9 @@ module Base
     EVENT_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price)
 
     before_action :set_event, only: [:edit, :update]
-    before_action :set_events, only: [:edit]
+    before_action :set_events, only: :index
 
     def index
-      @events = @profile.owned_events.page(params[:page]).with_status(params[:filter])
     end
 
     def show
@@ -48,6 +47,10 @@ module Base
       @event = Event.find(params[:id])
     end
 
+    def set_events
+      @events = @profile.owned_events.with_status(params[:filter]).page(params[:page])
+    end
+
     def event_params
       params.require(:event).permit(EVENT_ATTRIBUTES)
     end
@@ -58,10 +61,6 @@ module Base
 
     def destroy_events_params
       params.require(:event_ids)
-    end
-
-    def set_events
-      @events = @profile.owned_events.with_status(params[:filter]).page(params[:page])
     end
   end
 end

@@ -1,34 +1,37 @@
 class Gig < ActiveRecord::Base
   include Ownable
   include Locationable
+
   SAFE_SCOPES = %w(started pending past)
+
   paginates_per 12
 
   has_many :faqs, -> { order(:created_at) }, class_name: 'GigFaq'
-  accepts_nested_attributes_for :faqs, reject_if: ->(faq) { faq[:question].blank? || faq[:answer].blank? }
-  has_many :artist_gigs, dependent: :destroy
-  has_many :artists, through: :artist_gigs
+  has_many :bookings, dependent: :destroy
+  has_many :artists, through: :bookings
   belongs_to :photo, class_name: 'Gig::Photo'
 
-  scope :upcoming, -> { where('finished_at > ?', Date.today).order('started_at') }
+  accepts_nested_attributes_for :faqs, reject_if: ->(faq) { faq[:question].blank? || faq[:answer].blank? }
 
-  scope :started, -> { where('started_at < :today and finished_at > :today',  today: Date.today) }
+  scope :upcoming, -> { where('finished_at > ?', Date.today).order('started_at') }
+  scope :started, -> { where('started_at < ? AND finished_at > ?', Date.today) }
   scope :pending, -> { where('started_at > ?', Date.today) }
   scope :past, -> { where('finished_at < ?', Date.today) }
+  scope :at_date, ->(date) { where('started_at < ? AND finished_at > ?', date) }
 
-  scope :at_date, ->(date) { where('started_at < :today and finished_at > :today',  today: date) }
-
-  def self.with_status(status)
-    if SAFE_SCOPES.include? status
-      send(status)
-    else
-      all
+  class << self
+    def with_status(status)
+      if SAFE_SCOPES.include? status
+        send(status)
+      else
+        all
+      end
     end
-  end
 
-  def self.batch_update(ids, values)
-    ActiveRecord::Base.transaction do
-      Gig.update(ids, values)
+    def batch_update(ids, values)
+      ActiveRecord::Base.transaction do
+        Gig.update(ids, values)
+      end
     end
   end
 end

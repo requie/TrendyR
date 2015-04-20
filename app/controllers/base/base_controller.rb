@@ -27,7 +27,8 @@ module Base
     end
 
     def set_profile
-      @profile = Profile.find_by(id: params[:profile_id]) || current_user.profile
+      id = params[:profile_id] || params[:public_profile_id]
+      @profile = id.present? ? Profile.find(id) : current_user.profile
     end
 
     def set_location_for_js

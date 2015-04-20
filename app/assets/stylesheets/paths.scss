@@ -122,7 +122,7 @@
 }
 
 #fancybox-loading div {
-  background: asset-url('icons/fancybox_loading.gif') center center no-repeat;
+  background: asset-url('icons/fancybox_loading.gif') center no-repeat;
 }
 
 .fancybox-close, .fancybox-prev span, .fancybox-next span {
@@ -131,4 +131,12 @@
 
 .fancybox-nav {
   background: transparent asset-url('icons/blank.gif'); /* helps IE */
+}
+
+.date:after {
+  background: asset-url('icons/sprite.png') no-repeat -24px -68px;
+}
+
+.profile-public {
+  background: asset-url('banners/public-manager-home.jpg') no-repeat;
 }

@@ -19,5 +19,4 @@
           = link_to profile.website, url_with_protocol(profile.website), target: :blank
 = render partial:'base/blocks/manadgMenu', locals: { profile: profile }
 
-- content_for :javascript do
-  = javascript_include_tag 'controllers/base/profile/profile_header'
+- javascript 'controllers/base/profile/profile_header'

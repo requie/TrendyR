@@ -22,7 +22,7 @@
           var photo_url = response.photo.url;
           $('.managerAvatar img').attr('src', photo_url);
           $.ajax({
-            url: Routes.update_photo_base_profile_path(response.photo.profile_id),
+            url: Routes.update_photo_base_profile_path(),
             type: 'PATCH',
             data: {
               profile: {
@@ -49,11 +49,12 @@
       window.utils.crop.init({
         photo_id: photo.id,
         $cropForm: $('#crop-container'),
+        preset: 'wallpaper',
         done: function(response, status, jqXHR){
           var photo_url = response.photo.url;
           $wallpaper.backstretch(photo_url);
           $.ajax({
-            url: Routes.update_photo_base_profile_path(response.photo.profile_id),
+            url: Routes.update_photo_base_profile_path(),
             type: 'PATCH',
             data: {
               profile: {

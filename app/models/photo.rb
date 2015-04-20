@@ -34,7 +34,7 @@ class Photo < ActiveRecord::Base
     {
       cropped: "#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}",
       avatar: '165x150#',
-      wallpaper: '',
+      wallpaper: '1170x240',
       event_photo: '750x180#'
     }
   end
