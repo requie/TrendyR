@@ -3,7 +3,7 @@
         audiojs.createAll();
     });*/	
         // Setup the player to autoplay the next track
-        $('.audioTrack').on('click', function(e) {
+        $('body').on('click', '.audioTrack', function(e) {
         	e.preventDefault();	
         	$('table').find('.audiojs').removeClass('playing');
         	$('audio').remove();

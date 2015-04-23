@@ -1,0 +1,27 @@
+table.hidden
+  tr#audio-done
+    td.blockRelative
+      .audiojs.audioTrack.m-t0
+        .play-pause
+          p.play
+          p.error
+        .scrubber
+          .progress
+          .loaded
+      .audioTrack.xs-center
+        a.audioTrack_link.top-3 data-src="" href="#"
+      .control-audio.pull-sm-right
+        a.red href=""  Remove
+      input data-song-id="true" name="release[song_ids][]" type="hidden"
+  tr#audio-progress
+    td
+      .upload_track
+        .countBar 100%
+        .lineBar data-value="100"
+          .progressBar
+  tr#audio-added data-wait='true'
+    td
+      .upload_track.blockRelative
+        .countBar
+        .audioTrack
+          p.link.m-l40 data-song-title="true"

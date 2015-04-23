@@ -1,0 +1,17 @@
+tr
+  td.album-track colspan="2" data-th=("Title Track")
+    .audiojs.audioTrack
+      .play-pause
+        p.play
+        p.error
+      .scrubber
+        .progress
+        .loaded
+      .time
+        em.played> 00:00
+        | /
+        strong.duration
+          = seconds_to_time(song.duration)
+    .audioTrack
+      a.audioTrack_link data-src=song.attachment.url href="#"
+        = song.title

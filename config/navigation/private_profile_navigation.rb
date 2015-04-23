@@ -5,11 +5,10 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :profile, 'Home', base_profile_path
     primary.item :gigs, 'My gigs', base_profile_gigs_path,
                  if: proc { show_gigs?(@profile) }
-    primary.item :music, 'My music', '#', if: proc { show_music?(@profile) }
+    primary.item :music, 'My music', base_profile_releases_path,
+                 if: proc { show_music?(@profile) }
     primary.item :artists, 'Artists', '#',
                  if: proc { show_item_artists?(@profile) }
-    primary.item :releases, 'Releases', '#',
-                 if: proc { show_private_item_releases?(@profile) }
     primary.item :events, 'My events', base_profile_events_path,
                  if: proc { show_private_item_events?(@profile) }
     primary.item :awards, 'Awards', base_profile_awards_path,

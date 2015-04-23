@@ -7,12 +7,19 @@ class CreateSongs < ActiveRecord::Migration
       t.integer :duration
       t.string :title
       t.datetime :published_at
-      t.boolean :is_active
+      t.boolean :is_active, default: true
 
-      t.references :uploader
-      t.foreign_key :users, column: :uploader_id
+      change_references(t)
 
       t.timestamps
     end
+  end
+
+  def change_references(t)
+    t.references :uploader
+    t.foreign_key :users, column: :uploader_id
+
+    t.references :release
+    t.foreign_key :releases
   end
 end

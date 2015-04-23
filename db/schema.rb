@@ -229,11 +229,6 @@ ActiveRecord::Schema.define(version: 20150422121845) do
     t.datetime "updated_at"
   end
 
-  create_table "releases_songs", id: false, force: true do |t|
-    t.integer "release_id", null: false
-    t.integer "song_id",    null: false
-  end
-
   create_table "roles", force: true do |t|
     t.string   "name"
     t.boolean  "is_active",  default: true
@@ -254,8 +249,9 @@ ActiveRecord::Schema.define(version: 20150422121845) do
     t.integer  "duration"
     t.string   "title"
     t.datetime "published_at"
-    t.boolean  "is_active"
+    t.boolean  "is_active",      default: true
     t.integer  "uploader_id"
+    t.integer  "release_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -306,11 +302,6 @@ ActiveRecord::Schema.define(version: 20150422121845) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
-
-  add_foreign_key "awards", "photos", name: "awards_photo_id_fk"
-  add_foreign_key "awards", "profiles", name: "awards_owner_profile_id_fk", column: "owner_profile_id"
-
   add_foreign_key "bookings", "artists", name: "artists_gigs_artist_id_fk", dependent: :delete
   add_foreign_key "bookings", "gigs", name: "artists_gigs_gig_id_fk", dependent: :delete
 
@@ -319,22 +310,10 @@ ActiveRecord::Schema.define(version: 20150422121845) do
   add_foreign_key "email_notifications_users", "email_notifications", name: "email_notifications_users_email_notification_id_fk", dependent: :delete
   add_foreign_key "email_notifications_users", "users", name: "email_notifications_users_user_id_fk", dependent: :delete
 
-  add_foreign_key "events", "locations", name: "events_location_id_fk"
-  add_foreign_key "events", "photos", name: "events_photo_id_fk"
-  add_foreign_key "events", "profiles", name: "events_owner_profile_id_fk", column: "owner_profile_id"
-
   add_foreign_key "genres_profiles", "genres", name: "genres_profiles_genre_id_fk", dependent: :delete
   add_foreign_key "genres_profiles", "profiles", name: "genres_profiles_profile_id_fk", dependent: :delete
 
   add_foreign_key "gig_faqs", "gigs", name: "gig_faqs_gig_id_fk", dependent: :delete
-
-  add_foreign_key "gigs", "locations", name: "gigs_location_id_fk"
-  add_foreign_key "gigs", "photos", name: "gigs_photo_id_fk"
-  add_foreign_key "gigs", "profiles", name: "gigs_owner_profile_id_fk", column: "owner_profile_id"
-
-  add_foreign_key "identities", "users", name: "identities_user_id_fk", dependent: :delete
-
-  add_foreign_key "labels", "profiles", name: "labels_profile_id_fk", dependent: :delete
 
   add_foreign_key "managers", "profiles", name: "managers_profile_id_fk", dependent: :delete
 
@@ -355,12 +334,10 @@ ActiveRecord::Schema.define(version: 20150422121845) do
   add_foreign_key "releases", "artists", name: "releases_artist_id_fk"
   add_foreign_key "releases", "photos", name: "releases_photo_id_fk"
 
-  add_foreign_key "releases_songs", "releases", name: "releases_songs_release_id_fk", dependent: :delete
-  add_foreign_key "releases_songs", "songs", name: "releases_songs_song_id_fk", dependent: :delete
-
   add_foreign_key "roles_users", "roles", name: "roles_users_role_id_fk", dependent: :delete
   add_foreign_key "roles_users", "users", name: "roles_users_user_id_fk", dependent: :delete
 
+  add_foreign_key "songs", "releases", name: "songs_release_id_fk"
   add_foreign_key "songs", "users", name: "songs_uploader_id_fk", column: "uploader_id"
 
   add_foreign_key "venues", "profiles", name: "venues_profile_id_fk", dependent: :delete

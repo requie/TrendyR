@@ -71,7 +71,7 @@ module Base
     end
 
     def filter_params
-      params.require(:q).permit(FILTER_ATTRIBUTES)
+      params[:q] ? params[:q].permit(FILTER_ATTRIBUTES) : nil
     end
 
     def destroy_gigs_params

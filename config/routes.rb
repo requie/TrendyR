@@ -55,6 +55,8 @@ Rails.application.routes.draw do
           delete :destroy
         end
       end
+
+      resources :releases, except: :show
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do
@@ -65,11 +67,11 @@ Rails.application.routes.draw do
         end
       end
       resources :photo_albums, only: :show, as: :public_photo_album
-      resource :awards, only: :show, as: :publick_awards
+      resource :awards, only: :show, as: :public_awards
+      resource :releases, only: :show, as: :public_releases
 
       resources :bookings, only: [:index, :create]
-
-      resources :artists, :releases
+      resources :artists
     end
   end
 
@@ -86,6 +88,12 @@ Rails.application.routes.draw do
   resources :photos, only: [:create, :destroy] do
     member do
       put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/i }
+    end
+  end
+
+  resources :songs, only: [:create, :destroy] do
+    member do
+      put :publish
     end
   end
 end
