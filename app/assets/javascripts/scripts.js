@@ -53,6 +53,7 @@ $(document).ready(function(){
 	});
 
 	$('.slider').slick({
+    centerMode: true,
 		variableWidth: true,
 		infinite:true
 	});

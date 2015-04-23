@@ -34,6 +34,7 @@
 //= require jquery-te-1.4.0.min
 //= require jquery.maskMoney.min
 //= require url_parameters
+//= require id3.min
 
 window.utils = {};
 

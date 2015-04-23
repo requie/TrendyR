@@ -7,7 +7,7 @@ class CreateSongs < ActiveRecord::Migration
       t.integer :duration
       t.string :title
       t.datetime :published_at
-      t.boolean :is_active
+      t.boolean :is_active, default: true
 
       change_references(t)
 

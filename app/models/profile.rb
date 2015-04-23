@@ -14,7 +14,6 @@ class Profile < ActiveRecord::Base
   has_many :genre_profiles
   has_many :genres, through: :genre_profiles
   has_many :owned_photo_albums, -> { order(:created_at) }, class_name: 'PhotoAlbum', foreign_key: :owner_profile_id
-  has_many :owned_releases, class_name: 'Release', foreign_key: :owner_profile_id
 
   accepts_nested_attributes_for :photo, :wallpaper
 

@@ -3,6 +3,7 @@ module Base
     include LocationProcessing
 
     EVENT_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price)
+    FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq location_address_eq)
 
     before_action :set_event, only: [:edit, :update]
     before_action :set_events, only: :index
@@ -11,7 +12,7 @@ module Base
     end
 
     def show
-      @q = @profile.owned_events.ransack(params[:q])
+      @q = @profile.owned_events.ransack(filter_params)
       @events = @q.result.includes(:location)
     end
 
@@ -56,7 +57,7 @@ module Base
     end
 
     def filter_params
-      params.require(:filters).permit(:source_place_id, :date)
+      params[:q] ? params[:q].permit(FILTER_ATTRIBUTES) : nil
     end
 
     def destroy_events_params

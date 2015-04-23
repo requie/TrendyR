@@ -1,0 +1,15 @@
+tr data-song-id=song.id
+  td.blockRelative
+    .audiojs.audioTrack.m-t0
+      .play-pause
+        p.play
+        p.error
+      .scrubber
+        .progress
+        .loaded
+    .audioTrack.xs-center
+      a.audioTrack_link.top-3 data-src=song.attachment.url href=""
+        = song.title
+    .control-audio.pull-sm-right
+      a.red href=""  Remove
+    input data-song-id="true" name="release[song_ids][]" type="hidden" value=song.id
