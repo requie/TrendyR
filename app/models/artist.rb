@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
   include Rolable
 
-  has_many :bookings, dependent: :destroy
+  has_many :bookings, -> { order(created_at: :desc) }
   has_many :gigs, through: :bookings
   has_many :releases
   has_many :songs, through: :releases

@@ -1,3 +1,5 @@
 class ApplicationDecorator < Draper::Decorator
-  # define common methods for all decorators
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
 end

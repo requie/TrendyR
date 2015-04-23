@@ -22,7 +22,6 @@
         = render partial: 'base/events/blocks/events_without_filter'
       - else
         = render partial: 'base/events/blocks/events_with_filter', locals: { events: @events }
-
   .col-md-4.col-xs-12
     = render partial: 'base/blocks/sidebar', locals: { profile: @profile }
 

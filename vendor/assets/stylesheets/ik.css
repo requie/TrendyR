@@ -1,9 +1,8 @@
 /*!
- *  Written for: ?
- *  Further changes: @author
- *  Updated:
+ *  Written for: Trendy Reggae
+ *  Further changes: @IkantamCorp - @InessaKukushkina
  */
- 
+
 select{
     padding:3px;
 }
@@ -12,17 +11,21 @@ select, textarea, input, option{
     border-radius: 4px;
 }
 .footer{
-    bottom: 0px;	
-	position:relative;
+    bottom: 0px;
+    position:relative;
 }
 #moveUp{
-    right: 10%;
-    bottom:140px;
+    right:20%;
+    bottom:120px;
     position:fixed;
     background-color: black;
     width: 44px;
     height: 44px;
     z-index: 99;
+    display:none;
+}
+#moveUp:hover{
+    background-color: #777777;
 }
 .icon-up{
     width: 34px;
@@ -37,8 +40,8 @@ select, textarea, input, option{
 .navbar-nav li{
     list-style: none;
 }
-.pg-content {    
-    min-height: 100%;    
+.pg-content {
+    min-height: 100%;
 }
 .page{
     background-color: #e3e3e3;
@@ -48,7 +51,7 @@ select, textarea, input, option{
     box-shadow:10px 0px 15px 0 rgba(0, 0, 0, 0.1), -10px 0px 15px 0 rgba(0, 0, 0, 0.1);
     padding-left:0 !important;
     padding-right:0 !important;
-	position:relative;
+    position:relative;
 }
 .title{
     padding: 6px 12px;

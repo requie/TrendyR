@@ -57,6 +57,14 @@ Rails.application.routes.draw do
       end
 
       resources :releases, except: :show
+
+      resources :bookings, only: :index do
+        member do
+          put ':status' => :state, constraints: { status: /confirmed|rejected/ }, as: :status
+        end
+      end
+
+      resources :payments, only: :index
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do
@@ -69,8 +77,7 @@ Rails.application.routes.draw do
       resources :photo_albums, only: :show, as: :public_photo_album
       resource :awards, only: :show, as: :public_awards
       resource :releases, only: :show, as: :public_releases
-
-      resources :bookings, only: [:index, :create]
+      resource :bookings, only: [:show, :create]
       resources :artists
     end
   end
@@ -87,7 +94,7 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:create, :destroy] do
     member do
-      put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/i }
+      put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/ }
     end
   end
 
