@@ -3,7 +3,7 @@
     .menu-press.mobile-center
       div
         - if profile.user.role?(:artist)
-          a href="#"
+          = link_to base_public_profile_bookings_path(profile) do
             i.icon-kit
             p.text-uc book me
         - else

@@ -1,0 +1,35 @@
+.concert.visible data-src=@date.to_s(:month)
+  .music-block.bookMe.visible
+    .responsive-table
+      table.table
+        thead.table-header
+          tr
+            th
+              p When
+            th
+              p Name gig
+            th
+              p Where
+        tbody
+          - @calendar.each do |(date, gig)|
+            tr data-date=date
+              td data-th="When"
+                p
+                  = date.to_s(:short_date)
+              - if gig.present?
+                td data-th="Name gig"
+                  a.link href="#"
+                    = gig.title
+                td data-th="Where"
+                  = gig.location.address
+              - elsif date < Date.current
+                td.switch data-th="Name gig"
+                  a.link href="#"
+                    span Date not available
+                td.switch data-th="Where"
+              - else
+                td.switch data-th="Name gig"
+                  a.link href="#"
+                    span Available date
+                td.switch data-th="Where"
+                  button.btn.btn-primary.pull-sm-right data-select-date="" Select

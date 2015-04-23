@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
       resources :gigs, except: :show do
         member do
-          put :status, as: :status
+          put :state, as: :status
         end
       end
 
@@ -67,6 +67,8 @@ Rails.application.routes.draw do
       resources :photo_albums, only: :show, as: :public_photo_album
       resource :awards, only: :show, as: :publick_awards
 
+      resources :bookings, only: [:index, :create]
+
       resources :artists, :releases
     end
   end
@@ -83,7 +85,7 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:create, :destroy] do
     member do
-      put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar/i }
+      put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/i }
     end
   end
 end

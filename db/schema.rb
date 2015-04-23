@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416074657) do
+ActiveRecord::Schema.define(version: 20150422121845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 20150416074657) do
     t.boolean  "is_featured", default: false
   end
 
-  create_table "artists_gigs", force: true do |t|
-    t.string  "status",    default: "pending"
-    t.integer "artist_id"
-    t.integer "gig_id"
-  end
-
   create_table "awards", force: true do |t|
     t.string   "title"
     t.text     "description_text"
@@ -39,6 +33,15 @@ ActiveRecord::Schema.define(version: 20150416074657) do
     t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "bookings", force: true do |t|
+    t.string   "status",      default: "pending"
+    t.integer  "artist_id"
+    t.integer  "gig_id"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.boolean  "is_active",   default: false
   end
 
   create_table "comments", force: true do |t|
@@ -305,11 +308,11 @@ ActiveRecord::Schema.define(version: 20150416074657) do
 
   add_foreign_key "artists", "profiles", name: "artists_profile_id_fk", dependent: :delete
 
-  add_foreign_key "artists_gigs", "artists", name: "artists_gigs_artist_id_fk", dependent: :delete
-  add_foreign_key "artists_gigs", "gigs", name: "artists_gigs_gig_id_fk", dependent: :delete
-
   add_foreign_key "awards", "photos", name: "awards_photo_id_fk"
   add_foreign_key "awards", "profiles", name: "awards_owner_profile_id_fk", column: "owner_profile_id"
+
+  add_foreign_key "bookings", "artists", name: "artists_gigs_artist_id_fk", dependent: :delete
+  add_foreign_key "bookings", "gigs", name: "artists_gigs_gig_id_fk", dependent: :delete
 
   add_foreign_key "comments", "users", name: "comments_author_id_fk", column: "author_id"
 

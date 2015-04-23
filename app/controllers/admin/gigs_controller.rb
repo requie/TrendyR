@@ -12,7 +12,7 @@ module Admin
     private
 
     def gigs_params
-      required_params = params.require('gigs').permit!
+      required_params = params.require('gigs').permit(:id, :is_featured)
       required_params.values.each_with_object([[], []]) do |data, obj|
         obj[0] << data[:id]
         obj[1] << data.slice(:is_featured)

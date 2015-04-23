@@ -1,0 +1,22 @@
+= simple_form_for [:base, :public, @profile, Booking.new], defaults: { input_html: { 'data-errors-messages-disabled' => true } }  do |f|
+  .col-md-4
+    .clearfix
+      h5.regRoboto.headSize.standart.pull-lg-left Check list
+      .pull-lg-right.m-t13
+        p.regRoboto.red.error-msg.hidden Please select date and gig name
+    .row
+      .col-xs-5
+        .form-group.date
+          = f.input :started_at, as: :string, input_html: { placeholder: 'Select date', class: 'input form-control inputDate' }
+      .col-xs-2.text-center
+        p.m-t5 -
+      .col-xs-5
+        .form-group.date
+          = f.input :finished_at, as: :string, input_html: { placeholder: 'Select date', class: 'input form-control inputDate' }
+    .row
+      .col-xs-12
+      = f.association :gig, collection: @gigs, label_method: :title, include_blank: false, prompt: 'Select gig', label: false,
+        input_html: { multiple: false, class: 'w-100' }, wrapper_html: { class: 'col-xs-12' }
+    .row
+      .col-xs-12
+        button.btn.btn-primary.w-100.m-t15 Book Me

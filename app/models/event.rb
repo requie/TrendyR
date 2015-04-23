@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   scope :since_date, ->(date) { where('started_at >= :date',  date: date) }
 
   belongs_to :photo, class_name: 'Event::Photo'
+
   validates :title, :description_text, :started_at, :finished_at, :photo, presence: true
 
   def self.with_status(status)

@@ -10,6 +10,39 @@
     color: #777
 }
 
+.red {
+    color: red
+}
+
+a.red:hover {
+    color: red;
+    text-decoration: underline
+}
+
+.color_green {
+    color: #009952
+}
+
+.color_green:hover {
+    color: #009952
+}
+
+.color_blue {
+    color: #0a7fbc
+}
+
+.color_blue:hover {
+    color: #0a7fbc
+}
+
+.color_orange {
+    color: #fda100
+}
+
+.color_orange:hover {
+    color: #fda100
+}
+
 #page-wrapper {
     overflow-x: hidden
 }
@@ -220,6 +253,21 @@ p strong {
     margin: auto;
     text-align: left;
     margin-top: 20%
+}
+
+.music_private .audiojs .time {
+    color: #fff
+}
+
+.music_private .audiojs .time em, .music_private .audiojs .time strong {
+    color: #fff
+}
+
+.template {
+    border: 1px solid #ebebeb;
+    width: 100%;
+    height: 170px;
+    margin-bottom: 20px
 }
 
 .icon-close-block {
@@ -2157,6 +2205,10 @@ label {
     list-style: none
 }
 
+.title_profile .title_profile-list [class*=title_profile-list_]:last-child {
+    margin-right: 0
+}
+
 .title_profile .title_profile-list .title_profile-list_black a {
     color: #000
 }
@@ -2171,6 +2223,10 @@ label {
 
 .title_profile .title_profile-list .title_profile-list_green a {
     color: #009952
+}
+
+.title_profile .title_profile-list .title_profile-list_red a {
+    color: red
 }
 
 .cb-checkbox .cb-inner {
@@ -2268,7 +2324,7 @@ label {
     margin-top: 5px
 }
 
-.gallery .galleryStatus .galleryStatus_started {
+.gallery .galleryStatus .galleryStatus_start {
     color: #0a7fbc
 }
 
@@ -2387,8 +2443,41 @@ label {
     width: 100%
 }
 
+.editAward {
+    height: 149px;
+    border: 1px solid #e3e3e3;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px
+}
+
+.editAward img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%
+}
+
+.editAward i.icon-removePicture {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-position: -63px -472px;
+    width: 16px;
+    height: 16px
+}
+
+.editAward i.icon-removePicture:hover {
+    background-position: -91px -472px;
+    cursor: pointer
+}
+
 .editPicture {
     height: 133px;
+    border: 1px solid #e3e3e3;
     position: relative;
     overflow: hidden;
     margin-bottom: 10px
@@ -2947,7 +3036,7 @@ label {
     height: 36px;
     background: #404040;
     overflow: hidden;
-    font-family: monospace;
+    font-family: Roboto, sans-serif;
     font-size: 12px;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #444), color-stop(0.5, #555), color-stop(0.51, #444), color-stop(1, #444));
     background-image: -moz-linear-gradient(center top, #444 0, #555 50%, #444 51%, #444 100%);
@@ -3093,6 +3182,12 @@ label {
 
 .error .error-message {
     display: block
+}
+
+.control-audio {
+    position: absolute;
+    right: 0;
+    top: 0
 }
 
 .album-track {
@@ -35625,6 +35720,38 @@ button:focus, button:active, button:focus:active {
     left: -40px
 }
 
+.top-45 {
+    top: 45px
+}
+
+.right-45 {
+    right: 45px
+}
+
+.bottom-45 {
+    bottom: 45px
+}
+
+.left-45 {
+    left: 50px
+}
+
+.top-50 {
+    top: 50px
+}
+
+.right-50 {
+    right: 50px
+}
+
+.bottom-50 {
+    bottom: 50px
+}
+
+.left-50 {
+    left: 50px
+}
+
 @media all and (min-width: 1200px) {
     .top-lg-0 {
         top: 0
@@ -41255,6 +41382,48 @@ button:focus, button:active, button:focus:active {
     font-weight: 700
 }
 
+.blockRelative {
+    position: relative
+}
+
+.blockRelative .time {
+    display: none
+}
+
+.blockRelative .scrubber {
+    display: none
+}
+
+.dBlock {
+    display: block
+}
+
+.b-Top {
+    border-top: 1px solid #ebebeb
+}
+
+.b-Bottom {
+    border-bottom: 1px solid #ebebeb
+}
+
+.b-Right {
+    border-right: 1px solid #ebebeb
+}
+
+.b-Left {
+    border-left: 1px solid #ebebeb
+}
+
+.or_block {
+    position: absolute;
+    top: 5px;
+    left: -7px
+}
+
+.select-row {
+    background-color: #f1f1f1
+}
+
 .lineBar {
     width: 100%;
     height: 2px;
@@ -41798,6 +41967,10 @@ button:focus, button:active, button:focus:active {
     top: 45%
 }
 
+.create-event.well .btn-primary {
+    top: auto
+}
+
 .create-event.has-error {
     border-color: red;
     margin: auto
@@ -41837,6 +42010,51 @@ button:focus, button:active, button:focus:active {
 
 [id*=mce_] {
     border-radius: 0 0 4px 4px
+}
+
+.well.cover {
+    height: 147px
+}
+
+.well.cover .countBar {
+    margin-top: 40px
+}
+
+.well.cover.has-error {
+    border-color: red;
+    margin: auto
+}
+
+.well.cover.has-error .btn-primary {
+    background-color: red;
+    position: relative;
+    top: 10%
+}
+
+.well.cover.has-error .btn-primary .fa-remove {
+    color: #f99;
+    background-color: #c00;
+    font-size: 12px;
+    padding: 3px;
+    margin-left: 10px;
+    border-radius: 4px
+}
+
+.well.cover.has-error .btn-primary:hover {
+    background-color: #f66
+}
+
+.upload_track .countBar {
+    width: 5%;
+    float: left;
+    margin-right: 5px;
+    margin-top: 0
+}
+
+.upload_track .lineBar {
+    width: 92%;
+    float: left;
+    padding-top: 8px
 }
 
 .guidline .main {
@@ -42150,6 +42368,31 @@ pre.prettyprint {
 }
 
 @media all and (max-width: 767px) {
+    .upload_track .countBar {
+        width: 100%;
+        float: none;
+        margin-top: 10px
+    }
+
+    .upload_track .lineBar {
+        float: none;
+        width: 100%
+    }
+
+    .blockRelative .audiojs {
+        margin-left: 0;
+        margin-right: auto;
+        width: 100%
+    }
+
+    .blockRelative .audiojs .play-pause {
+        position: static
+    }
+
+    .blockRelative .audioTrack_link {
+        position: absolute
+    }
+
     #moveUp {
         right: 5%
     }
@@ -42215,6 +42458,12 @@ pre.prettyprint {
 
     .audiojs .time {
         float: right
+    }
+
+    .audiojs .control {
+        position: absolute;
+        right: 0;
+        top: 15px
     }
 
     .manadgmentFoto {
@@ -42459,7 +42708,7 @@ pre.prettyprint {
     }
 
     .audiojs {
-        margin: -10px auto;
+        margin: -10px auto 0 auto;
         width: 160px
     }
 
