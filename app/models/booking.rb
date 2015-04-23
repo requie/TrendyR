@@ -1,6 +1,8 @@
 class Booking < ActiveRecord::Base
   AVAILABLE_STATUSES = %w(confirmed rejected pending started)
 
+  paginates_per 15
+
   belongs_to :artist
   belongs_to :gig
   delegate :profile, to: :artist
@@ -9,6 +11,9 @@ class Booking < ActiveRecord::Base
 
   AVAILABLE_STATUSES.each do |status|
     scope status.to_sym, -> { where(status: status) }
+    define_method "#{status}?" do
+      self.status == status
+    end
   end
 
   validates :started_at, :finished_at, :gig_id, :artist_id, presence: true

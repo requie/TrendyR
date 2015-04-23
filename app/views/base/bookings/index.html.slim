@@ -1,25 +1,78 @@
-= render partial: 'base/blocks/profile_header', locals: { profile: @profile }
-.container.onTop.onBottom
-  .col-md-8.borderRight
-    h5.regRoboto.headSize.standart Book me
-    .row
-      p.col-xs-2.col-md-1.p-t7
-        strong When
-      .col-xs-10.col-sm-4.col-md-3
-        .form-group.date
-          input.form-control.inputDate placeholder="Select date" type="text"
-      p.col-xs-2.col-md-1.p-t7
-        strong Where
-      .col-xs-10.col-sm-4.col-md-7
-        .form-group
-          input.form-control placeholder="Type location" type="text"
-    .borderTop.p-t10.clearfix
-      .timeConcert.pull-left.mobile-center
-        = calendar_navigation(@date)
-      .pull-right
-        ul.dateTabs
-          li.active Day
-          li Month
-      = render 'base/bookings/blocks/calendar'
-  = render 'base/bookings/blocks/form'
+.col-md-8.col-md-offset-2.custom-form
+  .row
+    .col-xs-12
+      h2.head_text Booking invitations
+  .row
+    p.col-xs-2.col-md-1.p-t7
+      strong When
+    .col-xs-10.col-sm-4.col-md-3
+      .form-group.m-b0.date
+        input.form-control.inputDate placeholder="Select date" type="text"
+    p.col-xs-2.col-md-1.p-t7
+      strong Where
+    .col-xs-10.col-sm-4.col-md-7
+      .form-group.m-b0
+        input.form-control placeholder="Type Location" type="text"
+  .row
+    .col-xs-12
+      .profile.m-b0.clearfix
+        .title_profile.p-t15.clearfix
+          .form-group.pull-sm-left
+            ul.title_profile-list.clearfix.m-b0.m-r20.pull-sm-left
+              li.title_profile-list_black
+                a href="javascript: void(0)" Gig invitations
+              li.title_profile-list_gray
+                a href="javascript: void(0)" My gig invitations
+          .clearfix.w-sm-50.pull-sm-right
+            .row
+              .col-sm-6
+                .form-group
+                  select.form-control
+                    option value="javascript: void(0)" All gigs
+              .col-sm-6
+                .form-group
+                  select.form-control
+                    option value="javascript: void(0)" All statuses
+  .row
+    .col-xs-12
+      .music-block
+        .responsive-table
+          table.table
+            thead.table-header
+              tr
+                th
+                  p Gig Name
+                th
+                  p When
+                th
+                  p Where
+                th
+                  p Booked by
+                th
+                  p Status
+            tbody
+              - @bookings.each do |booking|
+                tr
+                  td data-th="Gig Name"
+                    a.link.p-t7.dBlock href="javascript: void(0)"
+                      = booking.gig.title
+                  td data-th="When"
+                    p.p-t7
+                      = booking.period
+                  td data-th="Where"
+                    p.p-t7
+                      = booking.gig.location_address
+                  td data-th="Booked by"
+                    a.link.p-t7.dBlock href="javascript: void(0)"
+                      = booking.gig.booker_name
+                  td data-th="Status"
+                    - if booking.pending?
+                      button.btn.btn-primary.pull-sm-left.apply-booking data-url=status_base_profile_booking_path(booking, status: 'confirmed') Apply
+                      a.d-sm-Block.pull-sm-right.p-t7.m-b15.link.cancel-booking href=status_base_profile_booking_path(booking, status: 'rejected') Cancel
+                    - else
+                      p.p-t7
+                        = booking.status_label
+    .col-xs-12
+      .pagination.pull-right
+        = paginate @bookings
 - javascript 'controllers/base/bookings/index'
