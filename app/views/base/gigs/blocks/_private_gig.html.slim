@@ -5,7 +5,7 @@
         = check_box_tag 'gig_ids[]', private_gig.id
     .promo_more.mobile-center.gigs.clearfix
       .promo-logo-now
-        = link_to base_profile_gig_path(@profile, private_gig)
+        = link_to 'javascript: void(0)'
           = image_tag private_gig.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
       h4.static-content
         = private_gig.title
