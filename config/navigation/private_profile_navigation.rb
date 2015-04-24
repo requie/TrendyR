@@ -13,7 +13,7 @@ SimpleNavigation::Configuration.run do |navigation|
                  if: proc { show_private_item_events?(@profile) }
     primary.item :awards, 'Awards', base_profile_awards_path,
                  if: proc { show_awards?(@profile) }
-    primary.item :press_kit, 'Press kit', '#',
+    primary.item :press_kit, 'Press kit', base_profile_press_kit_index_path,
                  if: proc { show_item_press_kit?(@profile) }
     primary.item :gallery, 'My gallery', base_profile_galleries_path,
                  if: proc { @profile.user.role?(:venue) }

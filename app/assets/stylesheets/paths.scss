@@ -140,3 +140,12 @@
 .profile-public {
   background: asset-url('banners/public-manager-home.jpg') no-repeat;
 }
+
+.jcrop-vline,
+.jcrop-hline {
+  background: #ffffff asset-url('Jcrop.gif');
+}
+
+#fancybox-loading div {
+  background: asset-url('icons/fancybox_loading.gif') center center no-repeat;
+}

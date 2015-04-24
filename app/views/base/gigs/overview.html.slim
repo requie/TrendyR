@@ -64,11 +64,11 @@
       .borderTop
         .clearfix.onTop
           h4.regRoboto.headSize.standart Overview
-          = @gig.overview_text
+          = @gig.overview_text.html_safe
       .borderTop
         .clearfix.onTop
           h4.regRoboto.headSize.standart The Opportunity
-          = @gig.opportunity_text
+          = @gig.opportunity_text.html_safe
       .borderTop
         .clearfix.onTop
           h4.regRoboto.headSize.standart The band
@@ -86,7 +86,7 @@
       .borderTop
         .clearfix.onTop
           h4.regRoboto.headSize.standart The Gig
-          = @gig.gig_text
+          = @gig.gig_text.html_safe
       .borderTop
         .clearfix.onTop
           h4.regRoboto.headSize.standart Some album name
@@ -194,9 +194,9 @@
           = render partial: 'base/gigs/blocks/comments'
     .col-md-4
       .place.clearfix
-        a href=""
+        a href="javascript: void(0)"
           = image_tag 'album_image/album1.jpg', class: 'place_picture'
         h4.place_title Painesville Party In The Park
-        a.link href=""  www.momoroots.de
+        a.link href="javascript: void(0)"  www.momoroots.de
         button.btn-contactMe Contact Me
       = render partial: 'base/gigs/blocks/similar_gigs'

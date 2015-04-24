@@ -21,7 +21,7 @@
           | $
           '
           = private_gig.price
-    - if private_gig.bookings.pending.present?
+    - if false && private_gig.bookings.pending.present?
       .confirmation
         p.confirmation_title Confirmation
         ul.confirmation_list.clearfix

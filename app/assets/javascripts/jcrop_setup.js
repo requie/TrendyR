@@ -11,11 +11,10 @@
 
         var that = this;
 
-        this.dom.$cropForm = options.$cropForm.clone();
-        this.dom.$cropTarget = this.dom.$cropForm.find('#croptarget');
-        this.dom.$shadow = this.dom.$cropForm.find('.shadow');
-        this.dom.$cropContent = this.dom.$cropForm.find('.crop_content');
-        this.dom.$cropbutton = this.dom.$cropForm.find('#cropbutton');
+        this.dom.$modal = $('#cropmodal');
+        this.dom.$cropTarget = this.dom.$modal.find('#croptarget');
+        this.dom.$cropContent = this.dom.$modal.find('.modal-footer');
+        this.dom.$cropbutton = this.dom.$modal.find('#cropbutton');
         this.dom.$x = this.dom.$cropContent.find('#x');
         this.dom.$y = this.dom.$cropContent.find('#y');
         this.dom.$w = this.dom.$cropContent.find('#w');
@@ -23,12 +22,11 @@
 
         if (this.api !== null) {
           this.api.destroy();
-          jQuery('#cropbox').show();
-          jQuery('.jcrop-holder').remove();
           this.api = null;
         }
 
-        this.dom.$cropForm.on('submit', function() {
+        this.dom.$cropbutton.off('click');
+        this.dom.$cropbutton.on('click', function() {
           $.ajax({
             url: Routes.crop_photo_path(options.photo_id, options.preset),
             dataType: 'json',
@@ -51,10 +49,6 @@
           });
           return false;
         });
-
-        this.dom.$shadow.click(function() {
-          that.hide();
-        });
       },
       show: function(options){
         var that = this;
@@ -72,20 +66,11 @@
           that.api = this;
         });
 
-        this.dom.$cropForm.prependTo('body');
-
-        this.dom.$cropContent.width(options.boxWidth);
-
         this.dom.$cropbutton.hide();
-
-        this.dom.$cropForm.removeClass('hidden');
-        $('html').addClass('crop-lock');
+        this.dom.$modal.modal('show');
       },
-      hide: function(){
-        this.dom.$cropForm.remove();
-        this.dom.$cropForm.addClass('hidden');
-        $('html').removeClass('crop-lock');
-        $(document).off('mouseup');
+      hide: function() {
+        this.dom.$modal.modal('hide');
       },
       updateCoords: function(coords){
         this.dom.$x.val(coords.x);

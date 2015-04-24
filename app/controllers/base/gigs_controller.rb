@@ -10,7 +10,7 @@ module Base
     FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq location_address_eq)
 
     skip_before_action :set_profile, only: :state
-    before_action :set_gig, only: [:edit, :update]
+    before_action :set_gig, only: [:edit, :update, :overview]
     before_action :set_gigs, only: :index
 
     def index
