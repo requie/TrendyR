@@ -22,6 +22,12 @@ module ProfileHelper
     end
   end
 
+  def mini_url(model)
+    if model.photo
+      model.photo.with_presets([:cropped, :mini])
+    end
+  end
+
   private
 
   def days_in_this_month

@@ -7,13 +7,13 @@ SimpleNavigation::Configuration.run do |navigation|
                  if: proc { show_gigs?(@profile) }
     primary.item :artists, 'Artists', base_public_profile_artists_path(@profile),
                  if: proc { show_item_artists?(@profile) }
-    primary.item :releases, 'Releases', '#',
+    primary.item :releases, 'Releases', base_public_profile_public_releases_path(@profile),
                  if: proc { show_item_releases?(@profile) }
     primary.item :calendar, 'Calendar', base_public_profile_events_path(@profile),
                  if: proc { show_item_calendar?(@profile) }
     primary.item :awards, 'Awards', base_public_profile_public_awards_path(@profile),
                  if: proc { show_awards?(@profile) }
-    primary.item :press_kit, 'Press Kit', '#',
+    primary.item :press_kit, 'Press Kit', 'javascript: void(0)',
                  if: proc { show_item_press_kit?(@profile) }
     primary.item :gallery, 'Gallery', base_public_profile_gallery_path(@profile),
                  if: proc { @profile.user.role?(:venue) }

@@ -21,7 +21,6 @@
         var $block = $audioAdded.clone().removeAttr('id');
         $block.find('[data-song-title]').html(title);
         data.context = $block.appendTo($audioList);
-
       });
     }).bind('fileuploadprogress', function(e, data){
       var progress = parseInt(data.loaded / data.total * 100, 10);

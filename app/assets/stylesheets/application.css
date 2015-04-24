@@ -7,12 +7,13 @@
  *= require main
  *= require ik
  *= require style
+ *= require jquery.Jcrop.min
  *= require import/responsive
  *= require bootstrap/bootstrap
  *= require import/checkBo
+ *= require import/jquery.fancybox
+ *= require video-js
  *= require font-awesome
  *= require paths
  *= require dev
- *= require import/jquery.fancybox
- *= require video-js
  */

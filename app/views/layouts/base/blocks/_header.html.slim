@@ -57,87 +57,16 @@
           li
             a href="#"
               i.icon-message.inbox
-                span.count 3
+                span.count 0
             .inboxMess
-              ul
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  a href="#"
-                  p One morning, when Gregor Samsa woke gdg dgdgb from sfbnsn dfsb sfbnsfnsfdn dgmfryktugkgh dgjzdb shsjhjtroubled dreams, he found
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  a href="#"
-                  p One morning, when Gregor Samsa woke gdg dgdgb from sfbnsn dfsb sfbnsfnsfdn dgmfryktugkgh dgjzdb shsjhjtroubled dreams, he found
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  a href="#"
-                  p One morning, when Gregor Samsa woke gdg dgdgb from sfbnsn dfsb sfbnsfnsfdn dgmfryktugkgh dgjzdb shsjhjtroubled dreams, he found
           li
             a href="#"
               i.icon-ring.inbox
-                span.count 5
+                span.count 0
             .inboxRing
-              ul
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  p
-                    | invite you to
-                    a href="#"  Some gig game
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  p
-                    | invite you to
-                    a href="#"  Some gig game
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  p
-                    | invite you to
-                    a href="#"  Some gig game
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  p
-                    | invite you to
-                    a href="#"  Some gig game
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  p
-                    | invite you to
-                    a href="#"  Some gig game
-                li
-                  a href="#"
-                    img src=image_path('icons/user-foto.jpg')
-                  a href="#"
-                    span.nameFriend Kim
-                  p
-                    | invite you to
-                    a href="#"  Some gig game
           li
             a.nameUser href="#"
-              img.avatar.avatar-xs.pull-left alt="UserName" src=image_path('users/xs-avatar.png')
+              = image_tag mini_url(@profile), class: 'avatar avatar-xs pull-left'
               span.m-l5
                 = current_user.username
             .userInform

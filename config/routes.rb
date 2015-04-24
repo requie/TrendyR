@@ -64,7 +64,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :payments, only: :index
+      resources :payments, :press_kit, only: :index
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do
