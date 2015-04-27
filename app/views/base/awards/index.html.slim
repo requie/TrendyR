@@ -8,5 +8,5 @@
             | All list
           = link_to 'Add award', new_base_profile_award_path, class: 'btn btn-primary pull-sm-right'
     = form_tag base_profile_awards_path, method: :delete, id: 'awards-form'
-      = render partial: 'base/awards/blocks/award', collection: @awards
-= javascript 'controllers/base/awards/index'
+      = render(partial: 'base/awards/blocks/award', collection: @awards) || render_empty(:awards)
+- javascript 'controllers/base/awards/index'

@@ -1,4 +1,4 @@
-= render partial: 'base/blocks/photos', locals: { profile: profile } if show_photos?(profile)
-= render partial: 'base/blocks/music', locals: { profile: profile } if show_music?(profile)
-= render partial: 'base/blocks/videos', locals: { profile: profile } if show_videos?(profile)
-= render partial: 'base/blocks/location', locals: { profile: profile } if show_location?(profile)
+= render 'base/blocks/photos', profile: profile if show_public_photos?(profile)
+= render 'base/blocks/music', profile: profile if show_public_music?(profile)
+= render 'base/blocks/videos', profile: profile if show_public_videos?(profile)
+= render 'base/blocks/location', profile: profile if show_public_location?(profile)

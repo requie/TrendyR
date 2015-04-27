@@ -1,0 +1,96 @@
+.strPage
+  = render partial: 'base/blocks/profile_header', locals: { profile: @profile }
+  .container.onTop.onBottom
+    .col-md-8.borderRight
+      h5.regRoboto.headSize.standart Press kit information
+      p
+        | Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
+        | doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis
+        | et quasi architecto beatae vitae dicta sunt, explicabo.
+        | Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,
+        | sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt,
+        | neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur,
+        | adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam
+        | aliquam quaerat voluptatemullamco laboris nisi ut aliquip ex
+      .public-event
+        .videoBlock.p-l0
+          a.gallery-image href="#video1" rel="group"
+            img alt="" src="http://metaleater.com/images/music/videos/494/arch-enemy-you-will-know-my-name-video-1280.jpg"
+            i.icon-play
+          #video1.profileVideo
+            video#example_video_1.video-js.vjs-default-skin controls="" data-setup="{}" poster="http://video-js.zencoder.com/oceans-clip.png" preload="none"
+              source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4"
+              source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm"
+              source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg"
+              track kind="captions" label="English" src="demo.captions.vtt" srclang="en"
+              track kind="subtitles" label="English" src="demo.captions.vtt" srclang="en"
+      h5.regRoboto.headSize.standart Materials
+      .row
+        .col-xs-12
+          .clearfix.b-dashed-Top.b-dashed-Bottom.p-tb10
+            h3.materials_title.pull-sm-left Tour Poster.ai
+            .pull-sm-right
+              button.btn.btn-primary Download
+          .clearfix.b-dashed-Top.b-dashed-Bottom.p-tb10
+            h3.materials_title.pull-sm-left Tour Poster.ai
+            .pull-sm-right
+              button.btn.btn-primary Download
+          .clearfix.b-dashed-Top.b-dashed-Bottom.p-tb10
+            h3.materials_title.pull-sm-left Tour Poster.ai
+            .pull-sm-right
+              button.btn.btn-primary Download
+          .clearfix.b-dashed-Top.b-dashed-Bottom.p-tb10
+            h3.materials_title.pull-sm-left Tour Poster.ai
+            .pull-sm-right
+              button.btn.btn-primary Download
+          .clearfix.b-dashed-Top.b-dashed-Bottom.p-tb10
+            h3.materials_title.pull-sm-left Tour Poster.ai
+            .pull-sm-right
+              button.btn.btn-primary Download
+          .clearfix.b-dashed-Top.b-dashed-Bottom.p-tb10
+            h3.materials_title.pull-sm-left Tour Poster.ai
+            .pull-sm-right
+              button.btn.btn-primary Download
+          .clearfix.b-dashed-Top.b-dashed-Bottom.p-tb10
+            h3.materials_title.pull-sm-left Tour Poster.ai
+            .pull-sm-right
+              button.btn.btn-primary Download
+      .row
+        .col-xs-12.text-right
+          .b-Bottom.p-tb10
+            a.link href=""  Download All
+      .row
+        .col-xs-12
+          h5.regRoboto.headSize.standart.m-tb20 Contact Information
+      .row
+        .col-sm-3
+          p.regRoboto.standart.bold Location
+        .col-sm-9
+          p 6512 Hillandale Drive, London, GA 30092
+      .row
+        .col-sm-3
+          p.regRoboto.standart.bold Telephone:
+        .col-sm-9
+          p +44 393 393 393
+      .row
+        .col-sm-3
+          p.regRoboto.standart.bold Email:
+        .col-sm-9
+          p info@momoroots.de
+      .row
+        .col-sm-3
+          p.regRoboto.standart.bold Contact name:
+        .col-sm-9
+          p John Doe
+    .col-md-4
+      h5.regRoboto.headSize.standart My photos
+      .promo-gallery
+        = render_empty(:photos)
+      .borderTop
+        h5.regRoboto.headSize.standart My music
+        .music-block
+          .responsive-table
+            = render_empty(:music)
+      .borderTop
+        h5.regRoboto.headSize.standart My video
+        = render_empty(:videos)

@@ -5,7 +5,7 @@ class Profile
         mini: '26x26',
         cropped: "#{crop_w}x#{crop_h}+#{crop_x}+#{crop_y}",
         homepage: '160x200#',
-        private_hompage: '165x150#'
+        private_homepage: '165x150#'
       }
     end
   end

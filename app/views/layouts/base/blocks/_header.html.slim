@@ -72,11 +72,12 @@
             .userInform
               ul
                 li
-                  = link_to base_profile_bookings_path
-                    i.icon-invitation
-                    | Booking Invitation
+                  - if current_user.role?(:artist)
+                    = link_to base_profile_bookings_path do
+                      i.icon-invitation
+                      | Booking Invitation
                 li
-                  = link_to base_profile_settings_path
+                  = link_to base_profile_settings_path do
                     i.icon-settings
                     | Profile Settings
                 li
@@ -88,7 +89,7 @@
                     i.icon-pay
                     | Payments
                 li
-                  = link_to destroy_user_session_path
+                  = link_to destroy_user_session_path do
                     i.icon-logOut
                     | Log Out
   = render 'blocks/flash'

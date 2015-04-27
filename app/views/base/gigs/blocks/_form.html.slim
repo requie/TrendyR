@@ -33,7 +33,7 @@
         = select_month gig.started_at, {}, name: 'gig[started_at(2i)]', class: 'form-control', group: 'date'
     .col-sm-2.col-md-3
       .form-group
-        = select_year gig.started_at, {}, name: 'gig[started_at(1i)]', class: 'form-control', group: 'date'
+        = select_year gig.started_at, { start_year: Award.start_year, end_year: Award.end_year }, name: 'gig[started_at(1i)]', class: 'form-control', group: 'date'
   .row#date-end
     .col-sm-2
       p.text-color.p-t7 Date end
@@ -45,7 +45,7 @@
         = select_month gig.finished_at, {}, name: 'gig[finished_at(2i)]', class: 'form-control', data: { required: true, 'errors-messages-disabled' => true }, group: 'date'
     .col-sm-2.col-md-3
       .form-group
-        = select_year gig.finished_at, {}, name: 'gig[finished_at(1i)]', class: 'form-control', data: { required: true, 'errors-messages-disabled' => true }, group: 'date'
+        = select_year gig.finished_at, { start_year: Award.start_year, end_year: Award.end_year }, name: 'gig[finished_at(1i)]', class: 'form-control', data: { required: true, 'errors-messages-disabled' => true }, group: 'date'
   .row
     .col-sm-2
       p.text-color.p-t7 Price / USD

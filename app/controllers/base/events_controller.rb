@@ -5,7 +5,7 @@ module Base
     EVENT_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price)
     FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq location_address_eq)
 
-    before_action :set_event, only: [:edit, :update]
+    before_action :set_event, only: [:edit, :update, :overview]
     before_action :set_events, only: :index
 
     def index
@@ -14,6 +14,9 @@ module Base
     def show
       @q = @profile.owned_events.ransack(filter_params)
       @events = @q.result.includes(:location)
+    end
+
+    def overview
     end
 
     def new

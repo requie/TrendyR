@@ -292,6 +292,61 @@ p strong {
     margin-bottom: 5px
 }
 
+.materials_title {
+    color: #4d4d4d;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 10px
+}
+
+.navbar-nav .active a {
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.navbar-nav .active a:hover {
+    background-color: #404040 !important
+}
+
+#foo-menu li a {
+    position: relative;
+    padding-bottom: 5px
+}
+
+#foo-menu li a:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    transition: all .8s ease
+}
+
+#foo-menu li a:hover, #foo-menu li a:focus, #foo-menu li a:focus:active {
+    color: #777;
+    text-decoration: none
+}
+
+#foo-menu li a:hover:after, #foo-menu li a:focus:after, #foo-menu li a:focus:active:after {
+    width: 100%;
+    background-color: #777
+}
+
+.navbar.social {
+    margin-top: -10px
+}
+
+.navbar.social li a {
+    padding-top: 0 !important
+}
+
 .icon-close-block {
     width: 20px;
     height: 12px;
@@ -352,7 +407,7 @@ p strong {
     background-position: -115px -228px;
     float: left;
     position: absolute;
-    right: 10px;
+    right: 5px;
     top: 12px;
     cursor: pointer;
     display: none
@@ -702,6 +757,7 @@ p strong {
 
 .message .message-list thead tr th {
     border-top: none !important;
+    border-bottom: none !important;
     padding: 0 !important
 }
 
@@ -711,8 +767,10 @@ p strong {
 
 .message .message-list thead tr th p {
     color: #a9a9a9;
-    font-size: 12px;
-    padding-left: 10px
+    font-size: 14px;
+    padding-left: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500
 }
 
 .message .message-list thead tr:hover, .message .message-list thead tr:hover p {
@@ -734,21 +792,35 @@ p strong {
 }
 
 .message .message-list tr td p {
-    margin-right: 10px
+    margin-right: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 500px;
+    margin-bottom: 0
 }
 
 .message .message-list tr td span.nameFriend {
-    font-weight: 600
+    font-weight: 600;
+    display: block;
+    float: left;
+    margin-right: 10px
 }
 
 .message .message-list tr td span.messageTime {
     font-size: 14px;
-    color: #a9a9a9 !important
+    color: #a9a9a9 !important;
+    display: block
 }
 
 .message .message-list tr td img {
     width: 26px;
     height: 26px;
+    float: left
+}
+
+.message .message-list tr td .group-users {
+    display: block;
     float: left
 }
 
@@ -846,6 +918,32 @@ p strong {
 .message .message-dialogue .messageMe {
     background-color: #f5f9f7;
     border: 1px solid #b9d4c6
+}
+
+.main-dialogue {
+    position: relative;
+    overflow: hidden
+}
+
+.message_list .message-head {
+    position: fixed;
+    top: 58px;
+    background-color: #fff;
+    z-index: 100
+}
+
+.message_list .message-dialogue {
+    margin-top: 123px
+}
+
+.message_list .control_message {
+    position: fixed;
+    background-color: #fff
+}
+
+.message_list .footer {
+    position: fixed;
+    bottom: 0
 }
 
 .discovery {
@@ -1301,7 +1399,17 @@ p strong {
     color: #fff;
     border: 1px solid #fff;
     padding: 2px 15px;
-    border-radius: 4px
+    border-radius: 4px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.genres li a:hover {
+    background-color: #ababab !important;
+    color: #fff !important;
+    text-decoration: none
 }
 
 .music-block .table {
@@ -1934,7 +2042,6 @@ p strong {
 }
 
 .logTwitter, .logFacebook, .logGoogle {
-    background-color: #df4a32;
     margin-top: 10px;
     position: relative;
     text-align: center;
@@ -1945,7 +2052,11 @@ p strong {
     font-size: 13px;
     padding-left: 10px;
     width: 100%;
-    border: 1px solid transparent
+    border: 1px solid transparent;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
 }
 
 .logTwitter p, .logFacebook p, .logGoogle p {
@@ -1976,6 +2087,10 @@ p strong {
     border-right: 1px solid #3c558c
 }
 
+.logFacebook:hover {
+    background-color: #354b7a
+}
+
 .logTwitter {
     background-color: #00b0ed
 }
@@ -1984,8 +2099,20 @@ p strong {
     border-right: 1px solid #01a4dc
 }
 
+.logTwitter:hover {
+    background-color: #008aba
+}
+
+.logGoogle {
+    background-color: #df4a32
+}
+
 .logGoogle .icon-enterGoogle {
     border-right: 1px solid #be3f2b
+}
+
+.logGoogle:hover {
+    background-color: #e6715e
 }
 
 .sign-in .navbar {
@@ -2003,7 +2130,20 @@ p strong {
     color: #959595;
     padding: 5px 15px;
     margin-top: 10px;
-    border-radius: 4px
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.sign-in .signIn:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #fff
 }
 
 .sign-in .login {
@@ -2435,7 +2575,7 @@ label {
 .gallery.main-events .gallerySettings {
     right: 120px;
     border-right: 1px solid #e8e8e8;
-    height: 100%;
+    height: 100px;
     padding-right: 10px
 }
 
@@ -2596,7 +2736,8 @@ label {
 }
 
 .well.picture {
-    height: 133px
+    height: 133px;
+    margin-bottom: 10px
 }
 
 .countBar {
@@ -2699,7 +2840,33 @@ label {
 }
 
 .menu-press div a {
+    text-decoration: none;
+    position: relative;
+    display: block
+}
+
+.menu-press div a:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    transition: all .8s ease
+}
+
+.menu-press div a:hover, .menu-press div a:focus, .menu-press div a:focus:active {
+    color: #777;
     text-decoration: none
+}
+
+.menu-press div a:hover:after, .menu-press div a:focus:after, .menu-press div a:focus:active:after {
+    width: 100%;
+    background-color: #777
 }
 
 .menu-press div p {
@@ -3435,6 +3602,30 @@ label {
 
 .player .audiojs.audioTrack {
     display: none !important
+}
+
+.sidePlayer .audiojs .scrubber {
+    width: 30%
+}
+
+.sidePlayer .audiojs .time {
+    font-size: 12px;
+    margin-top: -4px;
+    color: #ababab
+}
+
+.sidePlayer .audiojs .time em {
+    font-size: 12px;
+    color: #ababab
+}
+
+.sidePlayer .audiojs .time strong {
+    color: #ababab
+}
+
+.sidePlayer .audioTrack_link {
+    left: 35px;
+    font-size: 12px
 }
 
 .videoBlock {
@@ -12218,6 +12409,51 @@ button:focus, button:active, button:focus:active {
     border-bottom: none !important
 }
 
+.b-dashed-Top {
+    border-top: 1px dashed #ebebeb
+}
+
+.b-dashed-Bottom {
+    border-bottom: 1px dashed #ebebeb
+}
+
+.link, .truncate_more_link {
+    position: relative
+}
+
+.link:after, .truncate_more_link:after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    transition: all .8s ease
+}
+
+.link:hover, .truncate_more_link:hover, .link:focus, .truncate_more_link:focus, .link:focus:active, .truncate_more_link:focus:active {
+    color: #149d5e;
+    text-decoration: none
+}
+
+.link:hover:after, .truncate_more_link:hover:after, .link:focus:after, .truncate_more_link:focus:after, .link:focus:active:after, .truncate_more_link:focus:active:after {
+    width: 100%;
+    background-color: #149d5e
+}
+
+.dTable {
+    display: table;
+    width: 100%
+}
+
+.dTable .dRow .dCell {
+    display: table-cell
+}
+
 .modal-dialog .modal-content {
     background-color: transparent;
     border: none;
@@ -12944,6 +13180,10 @@ pre.prettyprint {
     th.nameArtist {
         min-width: 90px
     }
+
+    .navbar.social {
+        margin-top: 0
+    }
 }
 
 @media all and (max-width: 1199px) {
@@ -12995,6 +13235,10 @@ pre.prettyprint {
 
     .time {
         max-width: 90px
+    }
+
+    .message .message-list tr td p {
+        width: 380px
     }
 }
 
@@ -13165,7 +13409,11 @@ pre.prettyprint {
     }
 
     .social {
-        margin-top: -25px !important
+        margin-top: -35px !important
+    }
+
+    .message .message-list tr td p {
+        width: 480px
     }
 }
 
@@ -13201,6 +13449,52 @@ pre.prettyprint {
 }
 
 @media all and (max-width: 767px) {
+    .message .message-list tr td p {
+        width: 100%;
+        white-space: normal
+    }
+
+    .message .message-list tr td img {
+        display: block
+    }
+
+    .message .message-list tr td .group-users {
+        display: block;
+        float: none;
+        margin: auto;
+        max-width: 30px
+    }
+
+    .message .message-list tr td span.nameFriend {
+        float: none
+    }
+
+    .message_list {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important
+    }
+
+    .message_list .message-head {
+        position: static;
+        top: 58px;
+        background-color: #fff;
+        z-index: 100
+    }
+
+    .message_list .message-dialogue {
+        margin-top: 0
+    }
+
+    .message_list .control_message {
+        position: static;
+        background-color: #fff
+    }
+
+    .message_list .footer {
+        position: static;
+        bottom: 0
+    }
+
     .upload_track .countBar {
         width: 100%;
         float: none;
@@ -13336,7 +13630,7 @@ pre.prettyprint {
         top: 0 !important
     }
 
-    .responsive-table td:nth-child(odd) {
+    .responsive-table tr:nth-child(odd) {
         background-color: #f1f1f1
     }
 

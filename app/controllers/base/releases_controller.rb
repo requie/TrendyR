@@ -17,7 +17,9 @@ module Base
 
     def show
       @releases = @profile.entity.releases
-      @release = @releases.find_by(id: params[:album_id]) || @releases.first
+      unless @releases.empty?
+        @release = @releases.find_by(id: params[:album_id]) || @releases.first
+      end
     end
 
     def index

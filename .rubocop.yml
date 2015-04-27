@@ -18,6 +18,9 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 20
 
+Style/GuardClause:
+  MinBodyLength: 2
+
 Style/Documentation:
   Enabled: false
 

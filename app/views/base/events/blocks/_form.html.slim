@@ -33,7 +33,7 @@
         = select_month event.started_at, {}, name: 'event[started_at(2i)]', class: 'form-control', data: { required: true, 'required-message' => 'Start month is empty', 'errors-container' => '.error-message' }
     .col-sm-2.col-md-3
       .form-group
-        = select_year event.started_at, {}, name: 'event[started_at(1i)]', class: 'form-control', data: { required: true, 'errors-messages-disabled' => true, 'errors-container' => '.error-message' }
+        = select_year event.started_at, { start_year: Award.start_year, end_year: Award.end_year }, name: 'event[started_at(1i)]', class: 'form-control', data: { required: true, 'errors-messages-disabled' => true, 'errors-container' => '.error-message' }
     .error-message
   .row#date-end
     .col-sm-2
@@ -46,7 +46,7 @@
         = select_month event.finished_at, {}, name: 'event[finished_at(2i)]', class: 'form-control', data: { required: true, 'required-message' => 'Start month is empty', 'errors-container' => '.error-message' }
     .col-sm-2.col-md-3
       .form-group
-        = select_year event.finished_at, {}, name: 'event[finished_at(1i)]', class: 'form-control', data: { required: true, 'required-message' => 'Start month is empty', 'errors-container' => '.error-message' }
+        = select_year event.finished_at, { start_year: Award.start_year, end_year: Award.end_year }, name: 'event[finished_at(1i)]', class: 'form-control', data: { required: true, 'required-message' => 'Start month is empty', 'errors-container' => '.error-message' }
   .row
     .col-sm-2
       p.text-color.p-t7 Price / USD
@@ -56,9 +56,7 @@
   .row
     .col-xs-12.m-b20
       button.btn.btn-primary.pull-right Submit
-
-  = render partial: 'base/events/blocks/progress'
-
+= render partial: 'base/events/blocks/progress'
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/event/new'
   = tinymce_assets

@@ -16,22 +16,20 @@ module ProfileHelper
 
   def avatar_url(model)
     if model.photo
-      model.photo.with_presets([:cropped, :private_hompage])
+      model.photo.with_presets([:cropped, :private_homepage])
     else
       asset_url(DEFAULT_PROFILE_AVATAR)
     end
   end
 
   def mini_url(model)
-    if model.photo
-      model.photo.with_presets([:cropped, :mini])
-    end
+    model.photo && model.photo.with_presets([:cropped, :mini])
   end
 
   private
 
   def days_in_this_month
-    Time.now.end_of_month.day
+    Time.now.days_in_month
   end
 
   def get_distance(started_at, finished_at)

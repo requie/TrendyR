@@ -2,7 +2,7 @@ class Profile < ActiveRecord::Base
   extend Photoable
   include Locationable
 
-  OWNED_OBJECTS = %i(photo_albums events gigs)
+  OWNED_OBJECTS = %i(photo_albums events gigs awards)
 
   belongs_to :user
   belongs_to :photo, class_name: 'Profile::Photo'
