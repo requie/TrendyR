@@ -7,7 +7,7 @@
       .pull-md-right.w-md-40
         = big_date(@event.started_at)
         = big_date(@event.finished_at)
-        p.m-t15.pull-left 
+        p.m-t15.pull-left
           = get_address(@event.location)
     .row
       .col-md-8
@@ -24,275 +24,50 @@
               source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm"
               source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg"
               track kind="captions" label="English" src="demo.captions.vtt" srclang="en"
-              track kind="subtitles" label="English" src="demo.captions.vtt" srclang="en"
+                track kind="subtitles" label="English" src="demo.captions.vtt" srclang="en"
       .col-md-4.map
         iframe frameborder="0" height="100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2352.063783685139!2d27.511812200000005!3d53.87729399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbd0730ed06439%3A0xc94428fae1cd043d!2z0JbQtdC70LXQt9C90L7QtNC-0YDQvtC20L3QsNGPINGD0LsuLCDQnNC40L3RgdC6LCDQkdC10LvQsNGA0YPRgdGM!5e0!3m2!1sru!2s!4v1416920313496" style="border:0" width="100%"
     .col-md-8
-      .row
-        .col-md-10.b-Right
-          .row
-            .col-sm-3.m-t5.clearfix
-              button.facebook
-                i.fa.fa-facebook
-                '
-                | FACEBOOK
-              .countLike
-                | 148 T.
-            .col-sm-3.m-t5.clearfix
-              button.twitter
-                i.fa.fa-twitter
-                '
-                | TWITTER
-              .countLike
-                | 148 T.
-            .col-sm-3.m-t5.clearfix
-              button.google
-                i.fa.fa-google-plus
-                '
-                | GOOGLE+
-              .countLike
-                | 148 T.
-            .col-sm-3.m-t5.m-b10.clearfix
-              button.like
-                i.fa.fa-thumbs-up
-                '
-                | LIKE
-              .countLike
-                | 148 T.
-        .col-md-2.sm-center
-          button.btn.btn-primary.m-b10 Buy ticket
+      = render 'base/blocks/overview/likesbar'
       .borderTop
         .clearfix.onTop
-          h4.regRoboto.headSize.standart Overview
-          = @event.description_text
+          h4.regRoboto.headSize.standart The band
+          .videoBlock
+            a.gallery-image href="#video1" rel="group"
+              img alt="" src="http://metaleater.com/images/music/videos/494/arch-enemy-you-will-know-my-name-video-1280.jpg"
+              i.icon-play
+            #video1.profileVideo
+              video#example_video_1.video-js.vjs-default-skin controls="" data-setup="{}" poster="http://video-js.zencoder.com/oceans-clip.png" preload="none"
+                source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4"
+                source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm"
+                source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg"
+                track kind="captions" label="English" src="demo.captions.vtt" srclang="en"
+                  track kind="subtitles" label="English" src="demo.captions.vtt" srclang="en"
+        .borderTop
+          .clearfix.onTop
+            h4.regRoboto.headSize.standart The Event
+            == @event.description_text
       .borderTop
-        .clearfix.onTop
-          h4.regRoboto.headSize.standart Some album name
-          .music-block
-            .responsive-table
-              table.table
-                tbody
-                  tr
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/03. War Eternal.mp3") href="#"  War Eternal
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/04. As the Pages Burn.mp3") href="#"  As the Pages Burn
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/09. Time Is Black.mp3") href="#"  Time Is Black
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/11. Avalanche.mp3") href="#"  Avalanche
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/06. Unchain Utopia.mp3") href="#"  Unchain Utopia
-                    td data-th="Time" class="track-details"
-                      p 4:30
-      .borderTop
-        .clearfix.onTop
-          h4.regRoboto.headSize.standart Terms and Conditions
-          p
-            | Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
-            | doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis
-            | et quasi architecto beatae vitae dicta sunt, explicabo.
-            | Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,
-            | sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt,
-            | neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur,
-            | adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam
-            | aliquam quaerat voluptatemullamco laboris nisi ut aliquip ex
-          = render partial: 'base/gigs/blocks/comments'
+        = render 'base/blocks/overview/album'
+        .borderTop
+          .clearfix.onTop
+            h4.regRoboto.headSize.standart Terms and Conditions
+            p
+              | Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
+              | doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis
+              | et quasi architecto beatae vitae dicta sunt, explicabo.
+              | Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit,
+              | sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt,
+              | neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur,
+              | adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam
+              | aliquam quaerat voluptatemullamco laboris nisi ut aliquip ex
+            = render 'base/blocks/overview/comments', comments: []
     .col-md-4
       .place.clearfix
-        a href=""
+        a href="javascript: void(0)"
           = image_tag 'album_image/album1.jpg', class: 'place_picture'
         h4.place_title Painesville Party In The Park
         a.link href=""  www.momoroots.de
         button.btn-contactMe Contact Me
-      .borderTop
-        .clearfix.onTop
-          h4.regRoboto.headSize.standart Artist
-          .music-block
-            .responsive-table
-              table.table
-                thead.table-header
-                  tr
-                    th.nameArtist
-                      p Name Artist
-                    th.title-track
-                      p Title Track
-                tbody
-                  tr
-                    td.nameArtist data-th=("Name Artist")
-                      = image_tag 'album_image/epica-logo.jpg'
-                      p
-                        strong Epica
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/03. War Eternal.mp3") href="#"  War Eternal
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.nameArtist data-th=("Name Artist")
-                      = image_tag 'album_image/epica-logo.jpg'
-                      p
-                        strong Epica
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/04. As the Pages Burn.mp3") href="#"  As the Pages Burn
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.nameArtist data-th=("Name Artist")
-                      = image_tag 'album_image/epica-logo.jpg'
-                      p
-                        strong Epica
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/09. Time Is Black.mp3") href="#"  Time Is Black
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.nameArtist data-th=("Name Artist")
-                      = image_tag 'album_image/epica-logo.jpg'
-                      p
-                        strong Epica
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/11. Avalanche.mp3") href="#"  Avalanche
-                    td data-th="Time" class="track-details"
-                      p 4:30
-                  tr
-                    td.nameArtist data-th=("Name Artist")
-                      = image_tag 'album_image/epica-logo.jpg'
-                      p
-                        strong Epica
-                    td.album-track colspan="2" data-th=("Title Track")
-                      .audiojs.audioTrack
-                        .play-pause
-                          p.play
-                          p.error
-                        .scrubber
-                          .progress
-                          .loaded
-                        .time
-                          em.played 00:00
-                          | \
-                          strong.duration 03:56
-                      .audioTrack
-                        a.audioTrack_link data-src=("/dest/media/06. Unchain Utopia.mp3") href="#"  Unchain Utopia
-                    td data-th="Time" class="track-details"
-                      p 4:30
-      = render partial: 'base/events/blocks/similar_festivals'
+      = render 'base/blocks/overview/artists', artists: []
+      = render 'base/blocks/overview/similar_festivals', events: []

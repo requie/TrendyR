@@ -19,8 +19,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, length: { maximum: MAX_LENGTH }, format: { with: NAME_FORMAT }, allow_blank: true
   validates :roles, presence: true
 
-  accepts_nested_attributes_for :identity
-  accepts_nested_attributes_for :user_contacts, :email_notifications
+  accepts_nested_attributes_for :identity, :user_contacts, :email_notifications
 
   delegate :entity, to: :profile
 

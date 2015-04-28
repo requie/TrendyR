@@ -64,11 +64,16 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :payments, :press_kit, only: :index
+      resources :payments, :artists, only: :index
+      resources :press_kits, path: :press_kit, only: :index
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do
-      resource :events, :gallery, only: :show
+      resource :events, only: :show do
+        member do
+          get '/:id' => :overview, as: :overview
+        end
+      end
       resource :gigs, only: :show, as: :public_gigs do
         member do
           get '/:id' => :overview, as: :overview
@@ -78,15 +83,15 @@ Rails.application.routes.draw do
       resource :awards, only: :show, as: :public_awards
       resource :releases, only: :show, as: :public_releases
       resource :bookings, only: [:show, :create]
-      resources :artists
+      resource :press_kit, :gallery, only: :show
+      resource :artists, only: :show
     end
   end
 
   namespace :admin do
     post 'artists/featured_update' => 'artists#featured_update'
     post 'gigs/featured_update' => 'gigs#featured_update'
-    resources :features
-    resources :dashboard, :artists, :gigs
+    resources :features, :dashboard, :artists, :gigs
   end
 
   # Test routes for uploads, must remove it before rolling out to production

@@ -1,4 +1,4 @@
-= render partial: 'base/blocks/profile_header', locals: { profile: @profile }
+= render 'base/blocks/profile_header', profile: @profile
 .container.onTop.onBottom
   .col-md-8.borderRight
     h5.regRoboto.headSize.standart All events
@@ -19,11 +19,11 @@
             = f.input :location_address_eq, as: :hidden
     .borderTop.p-t10.clearfix
       - if without_filters?
-        = render partial: 'base/events/blocks/events_without_filter'
+        = render(partial: 'base/events/blocks/events_without_filter')
       - else
-        = render partial: 'base/events/blocks/events_with_filter', locals: { events: @events }
+        = render(partial: 'base/profiles/blocks/event', collection: events) || render_empty(:events)
   .col-md-4.col-xs-12
-    = render partial: 'base/blocks/sidebar', locals: { profile: @profile }
+    = render 'base/blocks/sidebar', profile: @profile
 
 - content_for :javascript do
   = javascript_include_tag 'controllers/base/gig/show'

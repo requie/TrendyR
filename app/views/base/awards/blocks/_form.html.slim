@@ -1,4 +1,4 @@
-= simple_form_for [:base, :profile, @award], html: { class: 'award-form' }, defaults: { input_html: { class: 'form-control' } } do |f|
+= simple_form_for [:base, :profile, @award], defaults: { input_html: { class: 'form-control' } } do |f|
   = f.input_field(:photo_id,
     as: :string,
     id: 'photo-id',
@@ -7,14 +7,18 @@
   = f.input :title, placeholder: 'Title'
   = f.input :description_text, placeholder: 'Description', input_html: { rows: 10 }
   .form-group.row
-    .col-sm-3
+    .col-sm-3.col-md-4.col-lg-3
       .well.image-error
         .drop-files
           .cover
             .btn.btn-primary.fileSelect
               p Upload image
             p Png, Jpg
-    .col-sm-3
+    .col-sm-3.col-md-4.col-lg-3 data-display-block=""
+      .editAward
+        = image_tag @award.photo.try(:cropped)
+        i.icon-removePicture data-remove-img=""
+    .col-sm-3.col-md-4.col-lg-3
       = f.input_field(:earned_at,
         as: :date,
         order: [:year],
@@ -26,4 +30,4 @@
       button.btn.btn-primary.pull-right Submit
 input.form-control.uploadbtn name="photo[attachment]" type="file"
 = render 'base/blocks/private/crop'
-= javascript 'controllers/base/awards/edit.dep'
+- javascript 'controllers/base/awards/edit.dep'

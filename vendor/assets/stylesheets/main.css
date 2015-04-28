@@ -53,7 +53,7 @@
 }
 
 [class^="icon-"], [class*="icon-"] {
-    background-image: url("../../../app/assets/images/icons/sprite.png")
+    background-image: url("../images/icons/sprite.png")
 }
 
 .icon-circle {
@@ -78,19 +78,19 @@
 }
 
 .icon-globe {
-    background-position: -1px -1px;
+    background-position: 0px -1px;
     width: 16px;
     height: 16px
 }
 
 .icon-add {
-    background-position: -1px -20px;
+    background-position: 0px -20px;
     width: 16px;
     height: 16px
 }
 
 .icon-magnify {
-    background-position: -1px -39px;
+    background-position: 0px -39px;
     width: 16px;
     height: 16px
 }
@@ -163,19 +163,19 @@
 }
 
 .icon-social.facebook {
-    background-position: -82px -65px
+    background-position: -81px -65px
 }
 
 .icon-social.twitter {
-    background-position: -80px -1px
+    background-position: -79px -1px
 }
 
 .icon-social.google-plus {
-    background-position: -81px -33px
+    background-position: -80px -33px
 }
 
 .icon-social.instagram {
-    background-position: -81px -97px
+    background-position: -80px -97px
 }
 
 html {
@@ -576,7 +576,7 @@ div.input-group .btn {
 
 .callout-banner.banner-intro {
     padding-top: 175px;
-    background-image: url("../../../app/assets/images/banners/landing-banner.jpg")
+    background-image: url("../images/banners/landing-banner.jpg")
 }
 
 .callout-banner.banner-intro .main-banner-title {
@@ -633,7 +633,7 @@ div.input-group .btn {
 .callout-banner.banner-bottom {
     padding-top: 55px;
     padding-bottom: 40px;
-    background-image: url("../../../app/assets/images/banners/bottom-banner.jpg")
+    background-image: url("../images/banners/bottom-banner.jpg")
 }
 
 .callout-banner.banner-bottom .banner-title {
