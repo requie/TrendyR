@@ -81,6 +81,7 @@ Rails.application.configure do
     host: Rails.application.secrets['host'],
     port: Rails.application.secrets['port']
   }
+
   config.action_mailer.delivery_method = :smtp
 
   # Set mail sender
@@ -90,9 +91,11 @@ Rails.application.configure do
     port: Rails.application.secrets['mail']['port'],
     user_name: Rails.application.secrets['mail']['username'],
     password: Rails.application.secrets['mail']['password'],
-    authentication: :login,
+    domain: 'yourdomain.com',
+    authentication: :plain,
     enable_starttls_auto: true
   }
+
   # Set mailer default options
   config.action_mailer.default_options = {
     from: Rails.application.secrets['mail']['from'],
