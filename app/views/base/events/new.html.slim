@@ -1,6 +1,5 @@
-= render partial: 'base/blocks/private/crop'
 .col-md-8.col-md-offset-2.custom-form
   .row
     .col-xs-12
       h2.head_text Create new event
-  = render partial: 'base/events/blocks/form', locals: { event: @event }
+  = render 'base/events/blocks/form', event: @event

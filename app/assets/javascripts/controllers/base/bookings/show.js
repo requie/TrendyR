@@ -1,3 +1,7 @@
+//= require utils/parsley_setup
+//= require parsley
+//= require utils/parsley-init
+
 (function($) {
   $(function() {
     var $form = $('.parsley-form'),

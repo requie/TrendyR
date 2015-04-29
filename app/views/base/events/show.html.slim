@@ -21,7 +21,7 @@
       - if without_filters?
         = render(partial: 'base/events/blocks/events_without_filter')
       - else
-        = render(partial: 'base/profiles/blocks/event', collection: events) || render_empty(:events)
+        = render(partial: 'base/profiles/blocks/event', collection: @events) || render_empty(:events)
   .col-md-4.col-xs-12
     = render 'base/blocks/sidebar', profile: @profile
 

@@ -19,6 +19,8 @@
   border:1px solid red !important
 }
 
-.hidden {
-  display: none !important;
+.has-down-error .error-message {
+  position: static;
+  text-align: left;
+  margin-top: 10px;
 }

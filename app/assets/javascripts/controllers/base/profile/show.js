@@ -1,6 +1,10 @@
 (function($) {
   $(function() {
     function initialize() {
+      if (!(gon && gon.location)) {
+        return;
+      }
+
       var markerCenter = new google.maps.LatLng(gon.location.latitude, gon.location.longitude);
 
       var mapProp = {

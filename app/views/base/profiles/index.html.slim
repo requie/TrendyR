@@ -19,7 +19,7 @@
       h5.static-content
         | Genres
       = f.collection_check_boxes :genre_ids, Genre.all, :id, :name  do |cb|
-        = cb.label(class: 'cb-checkbox') { cb.check_box + cb.text } + ' '
+        = cb.label(class: 'cb-checkbox') { cb.check_box('data-ui-enabled' => false) + cb.text } + ' '
 
       - if policy(:ProfileHeadless).show_music_links?
         h5.static-content
@@ -52,3 +52,4 @@
           = f.input :instagram_url, input_html: { class: 'form-control' }, placeholder: 'Instagram link'
       .form-group
         button.btn.btn-primary.pull-right Save updates
+- javascript 'controllers/users/validation.dep'

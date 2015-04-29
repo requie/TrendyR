@@ -1,10 +1,29 @@
+//= require parsley
+//= require utils/parsley_setup
+//= require utils/parsley-init
+//= require jquery_fileupload/jquery.fileupload
+//= require jquery_fileupload/jquery.fileupload-process
+//= require jquery_fileupload/jquery.fileupload-validate
+//= require jquery_fileupload/jquery.iframe-transport
+//= require jquery_fileupload/jquery.ui.widget
+//= require jquery/jquery.Jcrop.min
+//= require utils/jcrop_setup
+//= require tinymce
+
 (function($) {
   $(function () {
     var $eventAvatar = $('.create-event');
     var $photoButton = $eventAvatar.find('button');
     var $crop_progress = $('#crop-progress');
     var $count_bar = $crop_progress.find('.countBar');
-    var $line_bar = $crop_progress.find('.lineBar');
+    var $line_bar = $crop_progress.find('.lineBar'),
+      $foto = $('#photo_url');
+
+    tinymce.init({ selector: '.editor' });
+
+    if ($foto.val()) {
+      $eventAvatar.backstretch($foto.val());
+    }
 
     function clearPhotoDiv(){
       $eventAvatar.find('.fa-picture-o').remove();

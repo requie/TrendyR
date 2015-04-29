@@ -4,57 +4,34 @@
   will appear after this file
  */
 
-//= require jquery.min
-//= require jquery-ui.min
-//= require jquery.ui.touch-punch.min
-//= require jquery.fancybox.pack
-//= require jquery.jtruncate
-//= require jquery.Jcrop.min
-//= require jquery.backstretch.min
+//= require modernizr.custom
+//= require jquery
 //= require bootstrap.min
-//= require tinynav.min
+//= require jquery/jquery-ui.min
+//= require jquery/jquery.ui.touch-punch.min
+//= require jquery/jquery-te-1.4.0.min
+//= require jquery/jquery.backstretch.min
+//= require jquery/jquery.fancybox.pack
+//= require jquery/jquery.jtruncate
+//= require jquery/jquery.maskMoney.min
+//= require checkBo
 //= require slick
-//= require function
-//= require scripts
-//= require checkBo.min
-//= require parsley_setup
-//= require parsley
-//= require audio
-//= require player
-//= require video
-//= require jquery-file-upload/vendor/jquery.ui.widget
-//= require jquery-file-upload/jquery.iframe-transport
-//= require jquery-file-upload/jquery.fileupload
-//= require jquery-file-upload/jquery.fileupload-process
-//= require jquery-file-upload/jquery.fileupload-validate
-//= require jquery_ujs
+//= require tinynav.min
 //= require underscore
-//= require jcrop_setup
-//= require tinymce
-//= require jquery-te-1.4.0.min
-//= require jquery.maskMoney.min
-//= require url_parameters
-//= require id3.min
+//= require custom/function
+//= require custom/main
+//= require custom/scripts
 
 window.utils = {};
 
 (function($) {
   $(function() {
-
-    var $parsleyForm = $('.parsley-form');
-
-    if ($parsleyForm.length) {
-      $parsleyForm.parsley();
-
-      $.listen('parsley:field:success', function(e) {
-        e.$element.closest('.form-group').find('input, select, .mce-tinymce, textarea').removeClass('error-border');
-      });
-
-      $.listen('parsley:field:error', function(e) {
-        e.$element.closest('.form-group').find('input, select, .mce-tinymce, textarea').addClass('error-border');
-      });
-
-    }
+    // CSRF token
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
 
     // fit the height of the document
     var fitHeight = function () {

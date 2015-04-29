@@ -51,12 +51,10 @@
     .col-sm-2
       p.text-color.p-t7 Price / USD
     .col-sm-2
-      .form-group
-        = form.input :price, as: :string, input_html: { class: 'form-control', data: { required: true } }
+      = form.input :price, as: :string, input_html: { class: 'form-control', data: { required: true } }, wrapper_html: { class: 'has-down-error' }
   .row
     .col-xs-12.m-b20
       button.btn.btn-primary.pull-right Submit
-= render partial: 'base/events/blocks/progress'
-- content_for :javascript do
-  = javascript_include_tag 'controllers/base/event/new'
-  = tinymce_assets
+= render 'base/events/blocks/progress'
+= render 'base/blocks/private/crop'
+- javascript 'controllers/base/event/new'

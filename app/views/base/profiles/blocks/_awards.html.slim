@@ -2,7 +2,7 @@
   - if profile.owned_awards.any?
     .clearfix.onTop
       h4.regRoboto.headSize.standart.pull-left Recent awards
-      a.pull-right.link View all
+      = link_to 'View all', base_public_profile_public_awards_path(@profile), class: 'pull-right link'
     = render partial: 'base/profiles/blocks/award', collection: profile.owned_awards
   - else
     h4.regRoboto.headSize.standart Recent awards

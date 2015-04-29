@@ -11,6 +11,8 @@ SimpleNavigation::Configuration.run do |navigation|
                  if: proc { show_private_artists?(@profile) }
     primary.item :events, 'My events', base_profile_events_path,
                  if: proc { show_private_events?(@profile) }
+    primary.item :releases, 'Releases', list_base_profile_releases_path,
+                 if: proc { show_private_releases_list?(@profile) }
     primary.item :awards, 'Awards', base_profile_awards_path,
                  if: proc { show_private_awards?(@profile) }
     primary.item :press_kit, 'Press kit', base_profile_press_kits_path,

@@ -3,16 +3,16 @@ module BaseHelper
     private: {
       artist: [:home, :gigs, :music, :events, :press_kit],
       venue: [:home, :gigs, :events, :gallery],
-      producer: [:home, :artists, :releases, :awards],
+      producer: [:home, :artists, :releases_list, :awards],
       manager: [:home, :artists],
       label: [:home, :artists, :releases, :events, :awards]
     },
     public: {
       artist: [:home, :gigs, :releases, :events, :press_kit, :photos, :music, :videos],
-      venue: [:home, :gigs, :calendar, :gallery, :photos, :location],
+      venue: [:home, :gigs, :events, :calendar, :gallery, :photos, :location],
       producer: [:home, :artists, :releases, :awards, :location],
-      manager: [:home, :artists, :calendar, :location],
-      label: [:home, :artists, :releases, :calendar, :awards, :videos, :location]
+      manager: [:home, :artists, :calendar, :location, :events],
+      label: [:home, :artists, :releases, :calendar, :awards, :videos, :location, :events]
     }
   }
 

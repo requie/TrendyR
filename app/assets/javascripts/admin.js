@@ -1,6 +1,6 @@
-//= require jquery.min
+//= require jquery.min.js
 //= require jquery_ujs
-//= require bootstrap.min
+//= require bootstrap.min.js
 //= require controllers/admin/metis-menu.min
 
 $(function() {

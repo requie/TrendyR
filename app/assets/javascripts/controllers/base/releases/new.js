@@ -1,3 +1,15 @@
+//= require parsley
+//= require utils/parsley_setup
+//= require utils/parsley-init
+//= require jquery_fileupload/jquery.fileupload
+//= require jquery_fileupload/jquery.fileupload-process
+//= require jquery_fileupload/jquery.fileupload-validate
+//= require jquery_fileupload/jquery.iframe-transport
+//= require jquery_fileupload/jquery.ui.widget
+//= require audio/audio
+//= require audio/player
+//= require audio/id3.min
+
 (function($) {
   $(function () {
     var $songUpload = $('#song-upload'),
