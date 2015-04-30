@@ -46,6 +46,7 @@ gem 'gon'
 gem 'tinymce-rails'
 gem 'ransack'
 gem 'taglib-ruby'
+gem 'mailboxer'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

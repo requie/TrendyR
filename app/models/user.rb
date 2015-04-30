@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable, :rememberable, :trackable
   devise :database_authenticatable, :registerable, :recoverable, :validatable, :confirmable
   devise :omniauthable, omniauth_providers: [:twitter, :facebook, :google_oauth2]
+  acts_as_messageable
 
   has_one :profile
   has_one :identity
