@@ -65,6 +65,11 @@ GEM
       capistrano (~> 3.0)
       sshkit (~> 1.2)
     capistrano-stats (1.1.1)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     colorize (0.7.5)
     daemons (1.1.9)
@@ -124,6 +129,10 @@ GEM
     kgio (2.9.2)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mailboxer (0.12.5)
+      carrierwave (>= 0.5.8)
+      foreigner (>= 0.9.1)
+      rails (>= 3.2.0)
     mailcatcher (0.2.4)
       eventmachine
       haml
@@ -325,6 +334,7 @@ DEPENDENCIES
   js_assets (~> 0.0.9)
   jshint_on_rails
   kaminari (~> 0.16.1)
+  mailboxer
   mailcatcher
   meta_request
   omniauth (~> 1.2.2)

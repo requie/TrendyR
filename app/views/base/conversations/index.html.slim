@@ -1,0 +1,33 @@
+.col-md-8.col-md-offset-2
+  .pg-content.message.clearfix
+    h2
+      strong Messages
+    h3
+      strong
+        = "Inbox (#{current_user.unread_inbox_count})"
+    .row
+      .col-xs-12
+        table.table.responsive-table.table-condensed.message-list
+          thead.table-header
+            tr
+              th
+                p From
+              th
+                p Messages
+          tbody
+            - @conversations.each do |conversation|
+              - last_message = conversation.last_message
+              tr.newMessage
+                td data-th="From"
+                  .nameMessage
+                    a href="javascript: void()"
+                      = image_tag mini_url(last_message.sender.profile), class: 'mobile-center'
+                    span.nameFriend
+                      = last_message.sender.first_name
+                    span.messageTime
+                      = last_message.created_at
+                td data-th="Messages"
+                  .nameMessage
+                    p
+                      = last_message.body
+                  i.icon-delete

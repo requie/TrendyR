@@ -13,10 +13,10 @@
               th.title-track
                 p Title Track
           tbody
-            - @artists.each do |artits|
+            - 10.times do
               tr
                 td.nameArtist data-th="Name Artist"
-                  img src=""
+                  = image_tag 'album_image/epica-logo.jpg'
                   p
                     strong Epica
                 td.location data-th="Location"
@@ -31,7 +31,7 @@
                       .loaded
                     .time
                       em.played> 00:00
-                      | \/
+                      ' /
                       strong.duration 03:56
                   .audioTrack
-                    a.audioTrack_link data-src="" href="#" War Eternal
+                    a.audioTrack_link data-src="/dest/media/03. War Eternal.mp3" href="javascript: void(0)" War Eternal

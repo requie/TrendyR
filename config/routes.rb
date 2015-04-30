@@ -70,6 +70,7 @@ Rails.application.routes.draw do
 
       resources :payments, :artists, only: :index
       resources :press_kits, path: :press_kit, only: :index
+      resources :conversations, only: :index
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do
