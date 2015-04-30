@@ -1,5 +1,5 @@
 .manadgmentFoto.clearfix
-  = hidden_field_tag 'background-image', wallpaper_url(@profile)
+  = hidden_field_tag 'background-image', wallpaper_url(@profile), id: 'wallpaper'
   .col-md-8.col-md-offset-2
     .text-center
       input.form-control.uploadfile name="photo[attachment]" type="file"
@@ -12,8 +12,5 @@
 .manadgMenu.clearfix
   .col-md-8.col-md-offset-2
     = render_navigation(context: :private_profile)
-
 = render 'base/blocks/private/crop'
-
-- content_for :javascript do
-  = javascript_include_tag 'controllers/base/profile/private_profile_header'
+- javascript 'controllers/base/profile/private_profile_header'

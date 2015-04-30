@@ -9,7 +9,9 @@
     $removeButton.on('click', function(e) {
       e.preventDefault();
       $photoId.val('');
-      $imageContainer.attr('src', '');
+      $imageContainer.remove();
+      $imageContainer = $('<img>');
+      $displayBlock.find('.editAward').prepend($imageContainer);
     });
 
     new window.utils.photoUpload($('.uploadbtn'), {

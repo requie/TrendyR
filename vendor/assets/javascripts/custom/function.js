@@ -82,7 +82,7 @@ var resizeFooter = function ($mainBlock) {
 			$windows 	= window.innerHeight;
 	if($mainBlock.height() + $footer.height() + $header.height() < $windows){
 		$mainBlock.height($windows - $footer.height() + 'px');
-	}
+	} 
 }
 
 // [ Height ]
@@ -139,3 +139,41 @@ var Tabs = function Tabs($box) {
      
     })
 }
+
+CountGoods = {
+	numericValidationString: /^[0-9]+$/
+};
+function ValidateNumeric(input){
+	return CountGoods.numericValidationString.test(input);
+}
+$.fn.quantityInput = function(){
+    $(this).each(function(){
+        var $decrement = $(this).find('.decrementGoods'),
+            $quantity = $(this).find('.goodsQuantity'),
+            $incriment = $(this).find('.incrementGoods');
+
+        $incriment.on('click', function () {
+            if (ValidateNumeric($quantity.val())) {
+                var number = parseInt($quantity.val());
+                number--;
+                if (number < 0) number = 0;
+                $quantity.val(number);
+            }
+            else $quantity.val(0);
+
+            return false;
+
+        });
+     	$decrement.on('click', function () {
+            if (ValidateNumeric($quantity.val())) {
+                var number = parseInt($quantity.val());
+                number++;
+                if (number < 0) number = 0;
+                $quantity.val(number);
+            }
+            else $quantity.val(0);
+
+            return false;
+        });
+    });
+};

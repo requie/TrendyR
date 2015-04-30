@@ -29,7 +29,7 @@ module ProfileHelper
   private
 
   def days_in_this_month
-    Time.now.days_in_month
+    Time.days_in_month(Date.current.month)
   end
 
   def get_distance(started_at, finished_at)

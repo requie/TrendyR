@@ -75,6 +75,10 @@
 	max-height: 100%;
 }
 
+.fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: url('../../images/icons/sprite.png');
+}
+
 #fancybox-loading {
 	position: fixed;
 	top: 50%;
@@ -111,6 +115,7 @@
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
+	background: transparent url('../../images/icons/blank.gif'); /* helps IE */
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	z-index: 8040;
 }
@@ -184,6 +189,7 @@
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
+	background: url('../../images/icons/fancybox_overlay.png');
 }
 
 .fancybox-overlay-fixed {

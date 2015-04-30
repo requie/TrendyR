@@ -1,3 +1,6 @@
+//= require audio/audio
+//= require audio/player
+
 (function($) {
   $(function () {
     $('[data-th="Action"]').on('click', '.red', function(e){

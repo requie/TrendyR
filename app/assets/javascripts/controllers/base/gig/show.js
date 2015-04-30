@@ -1,3 +1,5 @@
+//= require utils/url_parameters
+
 (function($) {
   $(function () {
 
@@ -24,18 +26,12 @@
     });
 
     $date.datepicker({
-      dateFormat: 'dd/mm/yy',
-      onSelect: function(inputText) {
-        $finish_gt.val(this.value);
-        $form.submit();
-      }
+      dateFormat: 'dd/mm/yy'
     });
 
-    $date.change(function() {
-      if (!this.value) {
-        $(this).val('');
-        $finish_gt.val('');
-      }
+    $date.on('change', function() {
+      $finish_gt.val(this.value);
+      $form.submit();
     });
 
     if($.urlParam('q\\[location_source_place_id_eq\\]')) {

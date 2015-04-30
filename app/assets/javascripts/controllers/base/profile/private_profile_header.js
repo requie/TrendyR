@@ -1,3 +1,11 @@
+//= require jquery_fileupload/jquery.fileupload
+//= require jquery_fileupload/jquery.fileupload-process
+//= require jquery_fileupload/jquery.fileupload-validate
+//= require jquery_fileupload/jquery.iframe-transport
+//= require jquery_fileupload/jquery.ui.widget
+//= require jquery/jquery.Jcrop.min
+//= require utils/jcrop_setup
+
 (function($) {
   $(function(){
 

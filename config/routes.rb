@@ -56,7 +56,11 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :releases, except: :show
+      resources :releases, except: :show do
+        collection do
+          get :list
+        end
+      end
 
       resources :bookings, only: :index do
         member do

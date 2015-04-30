@@ -4,15 +4,16 @@
   Override paths from original styles in paths.scss
 
  *= require fonts
+  *= require checkBo.min
+ *= require effects
+  *= require jquery-te
+ *= require jquery.Jcrop.min
+ *= require jquery.fancybox
+ *= require video-js
  *= require main
  *= require ik
  *= require style
- *= require jquery.Jcrop.min
- *= require import/responsive
- *= require bootstrap/bootstrap
- *= require import/checkBo
- *= require import/jquery.fancybox
- *= require video-js
+ *= require bootstrap
  *= require font-awesome
  *= require paths
  *= require dev

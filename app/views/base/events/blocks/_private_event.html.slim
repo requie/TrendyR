@@ -2,10 +2,10 @@
   .col-xs-12
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
-        = check_box_tag "event_ids[]", private_event.id
+        = check_box_tag 'event_ids[]', private_event.id
     .promo_more.mobile-center.gigs.clearfix
       .promo-logo-now
-        = link_to base_profile_event_path(@profile, 'javascript: void(0)')
+        = link_to 'javascript: void(0)' do
           = image_tag private_event.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
       h4.static-content
         = private_event.title
@@ -29,4 +29,4 @@
         li
           a href="javascript: void(0)"
             i.icon-deleteGallery
-    = render partial: 'base/events/blocks/status', locals: { status: status(private_event) }
+    = render 'base/events/blocks/status', status: status(private_event)

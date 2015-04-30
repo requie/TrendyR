@@ -4,15 +4,13 @@ module Base
 
     SEARCH_ATTRIBUTES = %i(title_cont)
 
-    def new
-      @release = Release.new
+    def index
+      @q = @profile.entity.songs.includes(:release).search(search_params)
+      @songs = @q.result
     end
 
-    def create
-      @release = Release.new(release_params)
-      @release.artist = @profile.entity
-      @release.save
-      respond_with @release, location: base_profile_releases_path
+    def list
+      @songs = Song.none
     end
 
     def show
@@ -22,9 +20,15 @@ module Base
       end
     end
 
-    def index
-      @q = @profile.entity.songs.includes(:release).search(search_params)
-      @songs = @q.result
+    def new
+      @release = Release.new
+    end
+
+    def create
+      @release = Release.new(release_params)
+      @release.artist = @profile.entity
+      @release.save
+      respond_with @release, location: base_profile_releases_path
     end
 
     def edit
