@@ -5,37 +5,38 @@
         = link_to root_path, class: 'navbar-brand'
           = image_tag 'logo.png', alt: 'Trendy Reggae', title: 'Trendy Reggae'
       .pull-right
-        button.mob-menu.navbar-toggle.collapsed data-target="" data-toggle="collapse" type="button"
+        button.mob-menu.navbar-toggle.collapsed.funny-menu data-target="" data-toggle="collapse" type="button" data-funny-menu=".mobile-menu"
           span.sr-only Toggle navigation
           span.icon-bar
           span.icon-bar
           span.icon-bar
-      .mobile-menu.menu
+      .mobile-menu.menu data-funny-dropdown=""
         ul.head-icon.nav.navbar-nav.navbar-right
           li
-            a href="#"
+            = link_to base_profile_conversations_path do
               i.icon-message.inbox
-                span.count 3
+                span.count
+                  = current_user.unread_inbox_count
           li
-            a href="#"
+            a href="javascript: void(0)"
               i.icon-ring.inbox
-                span.count 5
+                span.count 0
           li
-            a href="#"
-              img.avatar.avatar-xs.pull-left alt="UserName" src=image_path('users/xs-avatar.png')
+            a href="javasript: void(0)"
+              = image_tag mini_url(@profile), class: 'avatar avatar-xs pull-left'
               span.m-l5
                 = current_user.username
         ul.nav.navbar-nav.text-uc
           li.active.m-l1
-            a href="#"
+            a href="javasript: void(0)"
               i.icon-globe
               span Discover
           li.active.m-l1
-            a href="#"
+            a href="javasript: void(0)"
               i.icon-add
               span Post a gig
           li.active.m-l1
-            a href="#"
+            a href="javasript: void(0)"
               i.icon-magnify
               span Search
       .descktop-menu
@@ -55,22 +56,23 @@
                 span Search
         ul.nav.navbar-nav.navbar-right
           li
-            a href="#"
-              i.icon-message.inbox
-                span.count 0
-            .inboxMess
+            .dropdown
+              i.icon-message.inbox data-toggle="dropdown"
+                span.count
+                  = current_user.unread_inbox_count
+              ul.dropdown-menu.inboxMess aria-labelledby="dLabel" role="menu"
+                = render 'layouts/base/blocks/inbox_messages_menu', inbox: @inbox_messages
           li
-            a href="#"
-              i.icon-ring.inbox
+            .dropdown
+              i.icon-ring.inbox data-toggle="dropdown"
                 span.count 0
-            .inboxRing
           li
-            a.nameUser href="#"
-              = image_tag mini_url(@profile), class: 'avatar avatar-xs pull-left'
-              span.m-l5
-                = current_user.username
-            .userInform
-              ul
+            .dropdown
+              a.nameUser.clickBlock data-toggle="dropdown" href=""
+                = image_tag mini_url(@profile), class: 'avatar avatar-xs pull-left'
+                span.m-l5
+                  = current_user.username
+              ul.dropdown-menu.userInform aria-labelledby="dLabel" role="menu"
                 li
                   - if current_user.role?(:artist)
                     = link_to base_profile_bookings_path do

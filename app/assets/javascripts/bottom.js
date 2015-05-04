@@ -6,6 +6,7 @@
 
 //= require modernizr.custom
 //= require jquery
+//= require jquery_ujs
 //= require bootstrap.min
 //= require jquery/jquery-ui.min
 //= require jquery/jquery.ui.touch-punch.min
@@ -26,6 +27,9 @@ window.utils = {};
 
 (function($) {
   $(function() {
+    var $loginBlock = $('.login'),
+      $strBlock = $('.strPage');
+
     // CSRF token
     $.ajaxSetup({
       headers: {
@@ -33,15 +37,15 @@ window.utils = {};
       }
     });
 
-    // fit the height of the document
-    var fitHeight = function () {
-      $('.fit-height').css('height', window.innerHeight);
-    };
+    resizeFooter($loginBlock);
+    resizeFooter($strBlock);
+    message_list();
 
-    fitHeight();
-
-    $(window).resize(function () {
-      fitHeight();
+    $(window).resize(function() {
+      resizeFooter($loginBlock);
+      resizeFooter($strBlock);
+      message_list();
+      $('.crop_picture').css('width', $(window).width() + 'px');
     });
 
     $('.logFacebook, .logTwitter, .logGoogle').on('click', function(e) {
@@ -53,6 +57,8 @@ window.utils = {};
     $('.alert-message').delay(3000).fadeOut(500, function() {
       $(this).remove();
     });
+
+    $('.funny-menu').funnyMenu();
 
   });
 })(jQuery);

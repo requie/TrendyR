@@ -70,7 +70,15 @@ Rails.application.routes.draw do
 
       resources :payments, :artists, only: :index
       resources :press_kits, path: :press_kit, only: :index
-      resources :conversations, only: :index
+      resources :conversations, only: [:index, :show, :destroy] do
+        collection do
+          get ':recipient_id/new' => :new, as: :new
+          post ':recipient_id/create' => :create, as: :create
+        end
+        member do
+          post :update
+        end
+      end
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do

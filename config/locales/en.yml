@@ -22,3 +22,5 @@
 en:
   settings:
     success: 'Settings updated successfully!'
+  conversations:
+    success: 'Message has been successfully sent'

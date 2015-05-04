@@ -34,4 +34,12 @@ module BaseHelper
       "No #{name_sym.downcase}"
     end
   end
+
+  def container_class
+    css_class = 'container pg'
+    if controller_name == 'conversations' && action_name == 'show'
+      css_class << ' message_list'
+    end
+    css_class
+  end
 end

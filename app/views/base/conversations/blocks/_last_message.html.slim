@@ -1,0 +1,15 @@
+tr class=last_message_class(message)
+  td data-th="From"
+    .nameMessage
+      a href="javascript: void(0)"
+        = image_tag mini_url(message.sender.profile), class: 'mobile-center'
+      span.nameFriend
+        = message_sender(message.sender)
+      span.messageTime.pull-right
+        = message_time(message.created_at)
+  td data-th="Messages"
+    .nameMessage data-url="#{base_profile_conversation_path(message.conversation)}"
+      p
+        = message.body
+    = link_to base_profile_conversation_path(message.conversation), method: :delete do
+      i.icon-delete
