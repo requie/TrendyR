@@ -418,7 +418,9 @@ p strong {
     height: 25px;
     background-position: -46px -175px;
     float: left;
-    cursor: pointer
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 20px
 }
 
 .icon-ring {
@@ -426,7 +428,8 @@ p strong {
     height: 25px;
     background-position: -75px -175px;
     float: left;
-    cursor: pointer
+    cursor: pointer;
+    margin-top: 20px
 }
 
 .icon-more-user {
@@ -543,31 +546,31 @@ p strong {
 }
 
 .icon-settings {
-    background-position: -114px -385px;
+    background-position: -113px -385px;
     width: 12px;
     height: 11px;
     margin-top: 4px
 }
 
 .icon-mes {
-    background-position: -93px -386px;
+    background-position: -92px -386px;
     width: 12px;
     height: 9px;
     margin-top: 5px
 }
 
 .icon-pay {
-    background-position: -68px -385px;
+    background-position: -67px -385px;
     width: 12px;
     height: 10px;
     margin-top: 5px
 }
 
 .icon-logOut {
-    background-position: -47px -385px;
+    background-position: -46px -385px;
     width: 10px;
     height: 12px;
-    margin-top: 5px
+    margin-top: 3px
 }
 
 .icon-play {
@@ -925,6 +928,10 @@ p strong {
     overflow: hidden
 }
 
+.message_list {
+    height: 100% !important
+}
+
 .message_list .message-head {
     position: fixed;
     top: 58px;
@@ -932,8 +939,12 @@ p strong {
     z-index: 100
 }
 
+.message_list .message-head h3 {
+    margin-bottom: 0
+}
+
 .message_list .message-dialogue {
-    margin-top: 123px
+    margin-top: 127px
 }
 
 .message_list .control_message {
@@ -953,6 +964,11 @@ p strong {
 .discovery h1, .discovery h2, .discovery h3, .discovery h4, .discovery h5, .discovery h6, .discovery b, .discovery strong {
     font-family: Roboto, sans-serif !important;
     font-weight: 700 !important
+}
+
+.discovery .responsive-table td:before {
+    font-family: Roboto, sans-serif;
+    font-weight: 500 !important
 }
 
 .discovery-banner, .discovery-gigs-banner, .discovery-music-banner, .discovery-promoters-banner, .discovery-managers-banner, .discovery-producer-banner, .discovery-label-banner {
@@ -995,6 +1011,10 @@ p strong {
 
 .top-menu {
     margin-top: 30px
+}
+
+.top-menu ul {
+    margin-left: 0
 }
 
 .top-menu ul li {
@@ -1292,24 +1312,14 @@ p strong {
     padding: 0
 }
 
-.event .calendar a {
-    padding: 5px 10px 5px 10px;
-    color: #fff;
-    border: 1px solid #fff;
-    text-decoration: none
-}
-
-.event .calendar {
-    float: right
-}
-
 .artist h3 {
     border: none !important
 }
 
 .artist img {
     width: 60px;
-    height: 60px
+    height: 60px;
+    margin-bottom: 10px
 }
 
 .artist ul {
@@ -1505,17 +1515,19 @@ p strong {
 }
 
 .music-block .table tr td .genres li {
-    margin-bottom: 5px !important;
-    padding: 5px 15px;
-    border-radius: 4px;
-    border: 1px solid #ccc
+    border-radius: 4px
 }
 
 .music-block .table tr td .genres li a {
     color: #ababab !important;
     font-size: 14px;
-    border: none !important;
-    padding: 0 !important
+    padding: 5px 15px;
+    display: block;
+    border: 1px solid #ccc
+}
+
+.music-block .table tr td .genres li a:hover {
+    color: #fff !important
 }
 
 .music-block .table tr td.album-track {
@@ -1603,10 +1615,6 @@ p strong {
     margin-left: 10px
 }
 
-.djs-content .head-content .search {
-    margin-right: 20px
-}
-
 .djs-content .head-content .search p {
     float: left
 }
@@ -1625,7 +1633,8 @@ p strong {
 }
 
 .djs-content .all-content .sorting h4 {
-    padding: 20px 0
+    padding: 20px 0;
+    margin-top: 5px
 }
 
 .djs-content .all-content .sorting .chekbox input {
@@ -1641,7 +1650,9 @@ p strong {
     border-bottom: 1px solid #e2e2e2;
     padding-bottom: 10px;
     box-sizing: border-box;
-    position: relative
+    position: relative;
+    padding-right: 15px;
+    margin-left: -15px
 }
 
 .djs-content .all-content .promoter_content:last-child {
@@ -1666,7 +1677,8 @@ p strong {
 
 .djs-content .all-content .gigs_content {
     border-bottom: 1px solid #e2e2e2;
-    padding-bottom: 10px
+    padding-bottom: 10px;
+    margin-left: -15px
 }
 
 .djs-content .all-content .gigs_content:last-child {
@@ -1814,61 +1826,59 @@ p strong {
     height: 26px
 }
 
+.discovery .responsive-table .table tr td.nameArtist {
+    padding-right: 5px !important
+}
+
+.discovery .responsive-table .table thead th {
+    padding-right: 3px !important
+}
+
 .userInform {
     position: absolute;
     width: 160px;
-    top: 55px;
+    top: 38px !important;
     background-color: #fff;
     border-radius: 4px;
     border: 1px solid #cfcfcf;
-    display: none
+    display: none;
+    padding-left: 0;
+    right: -20px !important
 }
 
-.userInform ul {
-    padding-left: 0
+.userInform li:last-child a {
+    margin-bottom: 5px
 }
 
-.userInform ul li {
+.userInform li a {
     padding-top: 5px;
     padding-left: 10px;
     padding-bottom: 5px
 }
 
-.userInform ul li:last-child {
-    margin-bottom: 5px
+.userInform li a:hover {
+    color: #fff !important;
+    background-color: #149d5e !important
 }
 
-.userInform ul li a {
-    color: #777;
-    text-decoration: none
-}
-
-.userInform ul li:hover {
-    background-color: #149d5e
-}
-
-.userInform ul li:hover .icon-invitation {
+.userInform li a:hover .icon-invitation {
     background-position: -131px -406px
 }
 
-.userInform ul li:hover .icon-settings {
-    background-position: -114px -405px
+.userInform li a:hover .icon-settings {
+    background-position: -113px -405px
 }
 
-.userInform ul li:hover .icon-mes {
-    background-position: -93px -406px
+.userInform li a:hover .icon-mes {
+    background-position: -92px -406px
 }
 
-.userInform ul li:hover .icon-pay {
-    background-position: -68px -405px
+.userInform li a:hover .icon-pay {
+    background-position: -67px -405px
 }
 
-.userInform ul li:hover .icon-logOut {
-    background-position: -47px -405px
-}
-
-.userInform ul li:hover a {
-    color: #fff
+.userInform li a:hover .icon-logOut {
+    background-position: -46px -405px
 }
 
 .userInform:before {
@@ -1906,8 +1916,8 @@ p strong {
     padding: 10px;
     background-color: #fff;
     border-radius: 4px;
-    left: -143px;
-    top: 55px;
+    left: -158px !important;
+    top: 55px !important;
     border: 1px solid #cfcfcf
 }
 
@@ -1916,16 +1926,24 @@ p strong {
     margin-right: 10px
 }
 
-.inboxMess span, .inboxRing span {
+.inboxMess .nameFriend, .inboxRing .nameFriend {
     float: left;
     margin-right: 20px;
-    color: #777
+    color: #777;
+    padding-top: 5px
 }
 
 .inboxMess p, .inboxRing p {
     color: #ababab;
     height: 21px !important;
-    overflow: hidden
+    overflow: hidden;
+    padding-top: 5px;
+    margin-bottom: 5px
+}
+
+.inboxMess a, .inboxRing a {
+    display: block;
+    padding: 5px 20px !important
 }
 
 .inboxMess ul, .inboxRing ul {
@@ -1958,6 +1976,38 @@ p strong {
     border-left: 10px solid rgba(255, 241, 190, 0);
     border-right: 10px solid rgba(255, 241, 190, 0);
     border-bottom: 10px solid #fff
+}
+
+.inboxMess.active, .inboxRing.active {
+    display: block
+}
+
+.descktop-menu ul li {
+    position: relative
+}
+
+.inboxRing {
+    left: -160px !important
+}
+
+.nameUser {
+    margin-top: 18px;
+    color: #fff;
+    display: block;
+    margin-left: 10px;
+    background: none !important
+}
+
+.nameUser:hover, .nameUser:focus, .nameUser:active, .nameUser:focus:active {
+    background: none !important;
+    color: #fff
+}
+
+.nameUser span {
+    padding-top: 4px;
+    display: block;
+    float: left;
+    margin-left: 10px
 }
 
 .goods {
@@ -3734,6 +3784,26 @@ button:focus, button:active, button:focus:active {
 .btn-primary {
     font-family: Roboto, sans-serif;
     font-weight: 300 !important
+}
+
+.btn-calendar {
+    border: 1px solid #fff;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    background: 0 0;
+    color: #fff;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+    padding: 6px 12px
+}
+
+.btn-calendar:hover, .btn-calendar:active, .btn-calendar:focus {
+    background-color: #fff;
+    color: #000
 }
 
 .ui-datepicker {
@@ -12454,6 +12524,10 @@ button:focus, button:active, button:focus:active {
     display: table-cell
 }
 
+.green-color {
+    color: #149d5e
+}
+
 .modal-dialog .modal-content {
     background-color: transparent;
     border: none;
@@ -13295,6 +13369,14 @@ pre.prettyprint {
         float: none !important
     }
 
+    .sidePlayer .audiojs .scrubber {
+        width: 100%
+    }
+
+    .sidePlayer .audiojs .time {
+        display: none
+    }
+
     #moveUp {
         right: 15%
     }
@@ -13614,7 +13696,7 @@ pre.prettyprint {
 
     .responsive-table td:before {
         font-weight: 700;
-        display: inline-block;
+        display: block;
         content: attr(data-th) ": "
     }
 
@@ -13622,20 +13704,24 @@ pre.prettyprint {
         text-align: center
     }
 
-    .music-block tr td img {
-        display: none
-    }
-
     .music-block tr td strong {
         top: 0 !important
     }
 
-    .responsive-table tr:nth-child(odd) {
-        background-color: #f1f1f1
+    .music-block tr td.music_genres {
+        text-align: center
     }
 
-    .music-block tr:hover {
-        background: none !important
+    .music-block tr td.music_genres .genres {
+        display: inline-block
+    }
+
+    .music-block tr td.track-status p {
+        text-align: center !important
+    }
+
+    .music-block tr:nth-child(odd) {
+        background-color: #f1f1f1
     }
 
     .music-block .track-list {
@@ -13644,6 +13730,14 @@ pre.prettyprint {
 
     .music-block .table tr td {
         padding-bottom: 10px !important
+    }
+
+    .music-block .table tr td img {
+        float: none
+    }
+
+    .djs-content .all-content .sorting {
+        text-align: center
     }
 
     .descktop-menu {
@@ -13676,7 +13770,7 @@ pre.prettyprint {
         display: none
     }
 
-    #foo-menu {
+    #foo-menu, .music-menu ul {
         display: none
     }
 
@@ -13794,6 +13888,64 @@ pre.prettyprint {
 
     .title_profile .static-content {
         float: none
+    }
+
+    .djs-block .album-logo-manager, .gigs-block .album-logo-manager {
+        float: none;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .djs-block .album-preview, .gigs-block .album-preview {
+        text-align: center
+    }
+
+    .djs-block .eventName, .gigs-block .eventName {
+        text-align: left
+    }
+
+    .djs-block.manager h2, .gigs-block.manager h2 {
+        margin-top: 10px
+    }
+
+    .djs-content .all-content .gigs_content {
+        margin-left: 0
+    }
+
+    .djs-content .all-content .gigs_content .promo-logo-now {
+        text-align: center
+    }
+
+    .djs-content .all-content .gigs_content .promo-logo-now img {
+        float: none !important;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 10px
+    }
+
+    .djs-content .all-content .gigs_content h3, .djs-content .all-content .gigs_content .eventName {
+        text-align: center
+    }
+
+    .djs-content .all-content .promoter_content {
+        text-align: center;
+        margin-left: 0
+    }
+
+    .djs-content .all-content .promoter_content img {
+        float: none !important;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 10px
+    }
+
+    .djs-content .all-content .promoter_content .eventName, .djs-content .all-content .promoter_content h3 .text-left {
+        position: static;
+        top: 0
+    }
+
+    .sorting {
+        min-height: inherit !important
     }
 }
 

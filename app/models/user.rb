@@ -55,4 +55,17 @@ class User < ActiveRecord::Base
   def username
     "#{first_name} #{last_name}"
   end
+
+  def conversation_with(recipient)
+    recipient_conversation_ids = recipient.mailbox.conversations.unscope(:order).pluck(:id)
+    mailbox.conversations.where(mailboxer_conversations: { id: recipient_conversation_ids }).first
+  end
+
+  def recipient(conversation)
+    conversation.recipients.where.not(id: self).first
+  end
+
+  def unread_messages(count = 5)
+    mailbox.inbox(unread: true).order(created_at: :desc).limit(count)
+  end
 end

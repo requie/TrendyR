@@ -3,9 +3,7 @@
  *  Author: @IkantamCorp - @InessaKukushkina
  */
 $(document).ready(function(){
-	resizeFooter($('.login'));
-	resizeFooter($('.strPage'));
-	$('.column').equivalent(); 
+	$('.column').equivalent();
 
 	$('.custom-form').checkBo();
 
@@ -22,11 +20,6 @@ $(document).ready(function(){
 	//$("td .nameMessage p").correctLines( 1, '&nbsp;...' );		
 	//$(".inboxMess p").correctLines( 1, '&nbsp;...' );
 
-	hideBlock ($('.mob-menu'), $('.mobile-menu'));
-	hideBlock ($('a .icon-message'), $('.inboxMess'));
-	hideBlock ($('a .icon-ring'), $('.inboxRing'));
-	hideBlock ($('a.nameUser'), $('.userInform'));
-	
 	$('tr.message .icon-delete').on('click', function(){
 		$(this).closest('tr.message').remove();			
 	})
@@ -81,15 +74,14 @@ $(document).ready(function(){
     });  
 	
 
-	$('.faqQuestion').on('click',function(){	
-        $(this).find('p').slideToggle(100);    
-        
-        if($(this).find('i').hasClass('icon-plus')){
-            $(this).find('i').removeClass('icon-plus').toggleClass('icon-minus');
-        }
-        else{
-            $(this).find('i').removeClass('icon-minus').toggleClass('icon-plus');;                       
-        }					
+	$('.faqQuestion').on('click',function(){
+    $(this).find('p').slideToggle(100);
+
+    if ($(this).find('i').hasClass('icon-plus')) {
+      $(this).find('i').removeClass('icon-plus').toggleClass('icon-minus');
+    } else {
+      $(this).find('i').removeClass('icon-minus').toggleClass('icon-plus');
+    }
 	});	
 	
 	$('.manadgMenu').find('ul li a').on('click',function(){
@@ -99,12 +91,14 @@ $(document).ready(function(){
 		else{
 			$(this).toggleClass('menuActive');
 		}
-	})	
-	if($(this).scrollTop()>100) {
-		$('a#moveUp').fadeIn();
-	} else {
-		$('a#moveUp').fadeOut(400);
-	}
+	});
+
+  if ($(this).scrollTop() > 100) {
+    $('a#moveUp').fadeIn();
+  } else {
+    $('a#moveUp').fadeOut(400);
+  }
+
 	$(window).scroll(function(){
 		if($(this).scrollTop()>100) {
 			$('a#moveUp').fadeIn();
@@ -112,6 +106,7 @@ $(document).ready(function(){
 			$('a#moveUp').fadeOut(400);
 		}		
 	});
+
 	$('a#moveUp').on('click',function(){
 		$('body,html').animate({scrollTop: 0}, 450);
 		return false;
@@ -120,7 +115,7 @@ $(document).ready(function(){
 	$('.addMore').on('click', function(e){
 		e.preventDefault();
 		$(this).prev().clone(true).insertBefore($(this));
-	})
+	});
 
 	// [ Custom file input ]
 	if(document.querySelector('.fileSelect')){
@@ -150,38 +145,19 @@ $(document).ready(function(){
 			$concertVis.next().removeClass('visible');
 			timeConcert();
 		}
-	})
+	});
+
 	$(document).on('click', '.addQuestion', function(e){
 		e.preventDefault();
 		$(this).closest('.row').prev().clone(true).insertBefore($(this).closest('.row'));
+	});
+
+	$('.icon-right').on('click', function(){
+    var $concertVis = $('.concert.visible').next();
+    if ($concertVis.is('.concert')) {
+      $concertVis.addClass('visible');
+      $concertVis.prev().removeClass('visible');
+      timeConcert();
+    }
 	})
-
-	$('.icon-right').on('click', function(){	
-		var $concertVis = 	$('.concert.visible').next();
-		if($concertVis.is('.concert')){
-			$concertVis.addClass('visible');
-			$concertVis.prev().removeClass('visible');
-			timeConcert();
-		}
-	})
-
-//	$('.control_message').width($('.message').width());
-//	$('.message_list .footer').width($('.message_list').width());
-//	$('.message_list .message-head').width($('.message').width());
-//	$('.control_message').css('bottom', $('.footer').height() + 'px');
-//	$('.message_list').css('padding-bottom', $('.footer').height() + $('.control_message').height() + 'px');
-
-	$(window).resize(function () {
-		resizeFooter($('.login'));
-		resizeFooter($('.strPage'));
-		$('.crop_picture').css('width', $(window).width() + 'px');
-
-		$('.control_message').width($('.message').width());
-		$('.control_message').css('bottom', $('.footer').height() + 'px');
-		$('.message_list .message-head').width($('.message').width());
-		$('.message_list .footer').width($('.message_list').width());
-		$('.message_list').css('padding-bottom', $('.footer').height() + $('.control_message').height() + 'px');
-	})
-
-})//close Ready
-
+});

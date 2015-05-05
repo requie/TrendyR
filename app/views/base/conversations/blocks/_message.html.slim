@@ -1,0 +1,10 @@
+div class="#{message_class(message)}"
+  .messageInform
+    = image_tag mini_url(message.sender.profile), class: 'pull-left'
+    span.name_user.pull-left
+      = message.sender == current_user ? 'Me' : message.sender.first_name
+    p.dateMessage.pull-right
+      = message.created_at.to_s(:full_dotted)
+  .clear
+  p.textMessage
+    = message.body

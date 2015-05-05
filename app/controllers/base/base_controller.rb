@@ -9,6 +9,7 @@ module Base
     before_action :set_entity
     before_action :authorize_user!
     before_action :set_profile
+    before_action :set_inbox_messages, if: proc { !request.xhr? }
     before_action :set_location_for_js, only: [:index, :show]
 
     private
@@ -29,6 +30,10 @@ module Base
     def set_profile
       id = params[:profile_id] || params[:public_profile_id]
       @profile = id.present? ? Profile.find(id) : current_user.profile
+    end
+
+    def set_inbox_messages
+      @inbox_messages = current_user.unread_messages
     end
 
     def set_location_for_js

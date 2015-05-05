@@ -11,7 +11,7 @@
             i.icon-kit
             p.text-uc press kit
       div
-        a href="#"
+        = link_to new_base_profile_conversations_path(@profile.user) do
           i.icon-mess
           p.text-uc message
     = render_navigation(context: :profile)

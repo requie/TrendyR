@@ -17,6 +17,6 @@
             = get_address(profile.location)
         - if profile.website.present?
           = link_to profile.website, url_with_protocol(profile.website), target: :blank
-= render partial:'base/blocks/manadgMenu', locals: { profile: profile }
+= render 'base/blocks/manadgMenu', profile: profile
 
 - javascript 'controllers/base/profile/profile_header'

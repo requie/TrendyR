@@ -24,3 +24,11 @@
   text-align: left;
   margin-top: 10px;
 }
+
+.message-list tr {
+  cursor: pointer;
+}
+
+.scroll-to {
+  visibility: hidden;
+}
