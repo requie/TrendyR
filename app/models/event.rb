@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
 
   SAFE_SCOPES = %w(started pending past)
 
-  paginates_per 12
+  paginates_per 10
 
   scope :upcoming, -> { where('finished_at > ?', Date.today).order('started_at') }
   scope :started, -> { where('started_at < :today and finished_at > :today',  today: Date.today) }

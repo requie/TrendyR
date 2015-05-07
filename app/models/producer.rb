@@ -4,4 +4,8 @@ class Producer < ActiveRecord::Base
   def releases
     Release.none
   end
+
+  def artists
+    Artist.none
+  end
 end

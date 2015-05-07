@@ -1,0 +1,37 @@
+.row
+  .col-xs-12
+    .gigs_content.clearfix
+      .row
+        .col-xs-12.col-md-9
+          .promo_more.gigs
+            .promo-logo-now
+              = link_to overview_base_public_profile_public_gigs_path(gig.owner_profile, gig) do
+                = image_tag gig.photo.url
+            h3
+              span.text-left
+                = gig.title
+              span.view.pull-right Contest
+            .eventName
+              p
+                i.icon-dark-calendar
+                = "#{gig.started_at.to_s(:date)} - #{gig.finished_at.to_s(:date)}"
+              p
+                i.icon-dark-place
+                = gig.location.address
+            ul.genres.clearfix
+              li: a href="javascript: void(0)" Pop
+              li: a href="javascript: void(0)" Reggae-Pop
+              li: a href="javascript: void(0)" Calypso
+              li: a href="javascript: void(0)" Soca
+            p.row.col-sm-12
+              == gig.overview_text
+        .col-xs-12.col-md-3
+          .poster.clearfix
+            .main-poster.clearfix
+              = image_tag mini_url(gig.owner_profile)
+              p
+                | Posted by
+                br
+                b
+                  = gig.owner_profile.name
+            = gig_apply_block(gig)

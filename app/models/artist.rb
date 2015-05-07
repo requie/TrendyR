@@ -3,8 +3,12 @@ class Artist < ActiveRecord::Base
 
   has_many :bookings, -> { order(created_at: :desc) }
   has_many :gigs, through: :bookings
-  has_many :releases
-  has_many :songs, through: :releases
+  has_many :releases, -> { order(created_at: :desc) }
+  has_many :songs, through: :releases do
+    def last_song
+      order(created_at: :desc).first
+    end
+  end
 
   def self.batch_update(ids, values)
     ActiveRecord::Base.transaction do
@@ -28,5 +32,13 @@ class Artist < ActiveRecord::Base
       ON t BETWEEN bookings.started_at AND bookings.finished_at
     }
     bookings.confirmed.select(select_query).joins(join_query).order('day ASC')
+  end
+
+  def last_release
+    releases.first
+  end
+
+  def upcoming_event
+    Event.none.first
   end
 end

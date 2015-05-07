@@ -1,0 +1,43 @@
+.row
+  .col-xs-12
+    .gigs_content.clearfix
+      .row
+        .col-xs-12.col-md-9
+          .promo_more.gigs
+            .promo-logo-now
+              = link_to overview_base_public_profile_events_path(event.owner_profile, event) do
+                = image_tag event.photo.url
+              .logo-now NOW
+            h3
+              span.text-left
+                = event.title
+              span.view.pull-right Concert
+            .eventName
+              p
+                i.icon-dark-calendar
+                = "#{event.started_at.to_s(:date)} - #{event.finished_at.to_s(:date)}"
+              p
+                i.icon-dark-place
+                = event.location.address
+              p
+                i.icon-dark-money
+                = "$ #{event.price}"
+            .row.col-sm-12
+              == event.description_text
+        .col-xs-12.col-md-3
+          .poster.clearfix
+            .main-poster.clearfix
+              = image_tag mini_url(event.owner_profile)
+              p
+                | Posted by
+                br
+                b
+                  = event.owner_profile.name
+            .applied
+              p Artists
+              = image_tag 'album_image/poster1.png'
+              = image_tag 'album_image/poster1.png'
+              = image_tag 'album_image/poster1.png'
+              = image_tag 'album_image/poster1.png'
+              .button-poster
+                = link_to 'Buy ticket', 'javascript: void(0)', class: 'btn btn-primary'

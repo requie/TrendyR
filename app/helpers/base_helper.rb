@@ -8,7 +8,7 @@ module BaseHelper
       label: [:home, :artists, :releases, :events, :awards]
     },
     public: {
-      artist: [:home, :gigs, :releases, :events, :press_kit, :photos, :music, :videos],
+      artist: [:home, :gigs, :releases, :events, :calendar, :press_kit, :photos, :music, :videos],
       venue: [:home, :gigs, :events, :calendar, :gallery, :photos, :location],
       producer: [:home, :artists, :releases, :awards, :location],
       manager: [:home, :artists, :calendar, :location, :events],

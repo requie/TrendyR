@@ -91,3 +91,7 @@ group :development, :production do
   # Use PostgreSQL as a primary database engine
   gem 'pg', '~> 0.17.1'
 end
+
+group :development, :test do
+  gem 'faker'
+end

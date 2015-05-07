@@ -1,0 +1,44 @@
+- return if artist.nil?
+.djs-block
+  - if release = artist.last_release
+    .album-logo
+      = link_to image_tag(release.photo.with_preset(:standard), class: 'img-responsive'), base_public_profile_public_releases_path(artist.profile, release)
+    .clearfix
+      .album-preview
+        h2
+          = release.title
+        small Release date: #{release.published_at.to_s(:date)}
+        p
+          = release.description_text
+        .follow
+          button.btn.btn-primary
+            i.icon-follow
+            | Follow me
+        .star
+          a href="javascript: void(0)"
+            i.icon-star
+            i.icon-star
+            i.icon-star
+            i.icon-star
+            i.icon-empty
+  .row
+    .col-xs-12.col-md-6.col-lg-7
+      .event
+        h3 Upcoming event
+        - if upcoming = artist.upcoming_event
+          h4
+            = upcoming.title
+          .eventName.col-xs-7
+            i.icon-calendar
+            p
+              = "#{upcoming.started_at.to_s(:date)} - #{upcoming.finished_at.to_s(:date)}"
+            i.icon-place
+            p
+              = upcoming.location.address
+          = link_to 'Calendar', base_public_profile_events_path(artist), class: 'pull-right btn-calendar'
+    .col-xs-12.col-md-6.col-lg-5
+      .mixes.clearfix
+        h3 Releases
+        - artist.releases.first(3).each do |album|
+          = image_tag album.photo.url, class: 'img-responsive'
+    .clear

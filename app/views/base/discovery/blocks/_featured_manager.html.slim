@@ -1,0 +1,26 @@
+.djs-block.manager
+  .row
+    .album-logo-manager
+      = link_to image_tag(manager.profile.photo.try(:url), class: 'img-responsive promo'), base_public_profile_path(manager.profile)
+    .col-md-9
+      .album-preview
+        h2
+          = manager.profile.name
+        .eventName
+          - if manager.profile.location
+            i.icon-place
+            p.empty
+              = manager.profile.location.address
+          - if manager.profile.website.present?
+            = link_to(manager.profile.website, url_with_protocol(manager.profile.website), target: :blank)
+    p.col-xs-12.col-md-9
+      = manager.profile.description_text
+  .clear
+  .row
+    .col-sm-12
+      .event.artist
+        h3 Artist
+        ul
+          - 8.times do
+            li
+              = link_to image_tag('album_image/artist1.jpg'), 'javascript: void(0)'

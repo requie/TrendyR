@@ -1,0 +1,18 @@
+tr data-url=base_public_profile_path(manager.profile)
+  td.nameArtist data-th="Record label"
+    = image_tag mini_url(manager.profile)
+    strong
+      = manager.profile.name
+  td.location data-th="Location"
+    p
+      = manager.profile.location.address if manager.profile.location.present?
+  td.type_band data-th="Producing Type"
+    p Artist
+  td.variation data-th="Producing Variation"
+    p Concert
+  td.music_genres data-th="Genres"
+    ul.genres
+      - manager.profile.genres.each do |genre|
+        li
+          a href="javascript: void(0)"
+            = genre.name

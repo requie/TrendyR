@@ -386,7 +386,8 @@ p strong {
 }
 
 .icon-dark-money {
-    background-position: -130px -312px
+    background-position: -130px -312px;
+    height: 20px
 }
 
 .icon-close {
@@ -624,6 +625,12 @@ p strong {
     width: 27px;
     height: 28px;
     display: inline-block
+}
+
+.icon-big-search {
+    background-position: -6px -570px;
+    width: 40px;
+    height: 39px
 }
 
 .box-sizing {
@@ -1078,7 +1085,8 @@ p strong {
 
 .music-menu ul li.active {
     border: 1px solid #fff;
-    border-radius: 4px
+    border-radius: 4px;
+    float: none
 }
 
 .music-menu ul li a {
@@ -1340,6 +1348,10 @@ p strong {
     padding-bottom: 10px
 }
 
+.gigs-block .album-preview .fa {
+    margin-right: 13px !important
+}
+
 .gigs-block .poster {
     padding-left: 15px;
     border-left: 1px solid #e2e2e2;
@@ -1420,6 +1432,66 @@ p strong {
     background-color: #ababab !important;
     color: #fff !important;
     text-decoration: none
+}
+
+.promo-logo-now a, .promo-logo-days a, .promo-logo-month a {
+    position: relative
+}
+
+.promo-logo-now img, .promo-logo-days img, .promo-logo-month img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 127px
+}
+
+.logo-now, .logo-days, .logo-month {
+    color: #fff;
+    position: absolute;
+    left: -10px;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    top: 10px
+}
+
+.logo-featured {
+    height: 35px;
+    width: 80px;
+    position: absolute;
+    background: url(../images/icons/sprite.png) -70px -141px;
+    top: 15px;
+    left: -10px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff
+}
+
+.logo-now {
+    background: url(../images/icons/sprite.png) -102px -201px;
+    height: 25px;
+    width: 45px
+}
+
+.logo-days {
+    background: url(../images/icons/sprite.png) -41px -201px;
+    width: 63px;
+    height: 35px
+}
+
+.logo-month {
+    background: url(../images/icons/sprite.png) no-repeat -93px -355px;
+    width: 51px;
+    height: 26px
+}
+
+.discovery .responsive-table .table tr td.nameArtist {
+    padding-right: 5px !important
+}
+
+.discovery .responsive-table .table thead th {
+    padding-right: 3px !important
 }
 
 .music-block .table {
@@ -1515,14 +1587,14 @@ p strong {
 }
 
 .music-block .table tr td .genres li {
-    border-radius: 4px
+    border-radius: 4px;
+    float: none
 }
 
 .music-block .table tr td .genres li a {
     color: #ababab !important;
     font-size: 14px;
     padding: 5px 15px;
-    display: block;
     border: 1px solid #ccc
 }
 
@@ -1574,6 +1646,10 @@ p strong {
 
 .music-block .table tr:hover {
     background-color: #f1f1f1
+}
+
+.music-block .manager_table tr td .genres li {
+    float: left
 }
 
 .djs-content {
@@ -1650,20 +1726,16 @@ p strong {
     border-bottom: 1px solid #e2e2e2;
     padding-bottom: 10px;
     box-sizing: border-box;
-    position: relative;
-    padding-right: 15px;
-    margin-left: -15px
-}
-
-.djs-content .all-content .promoter_content:last-child {
-    padding-bottom: 60px;
-    border: none
+    position: relative
 }
 
 .djs-content .all-content .promoter_content img {
     float: left;
     margin-bottom: 10px;
-    margin-top: 20px
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 200px;
+    height: 127px
 }
 
 .djs-content .all-content .promoter_content h3 {
@@ -1675,15 +1747,30 @@ p strong {
     color: #fda100
 }
 
-.djs-content .all-content .gigs_content {
-    border-bottom: 1px solid #e2e2e2;
-    padding-bottom: 10px;
-    margin-left: -15px
+.djs-content .all-content .promoter_content .promoter_text, .djs-content .all-content .promoter_content .promoter_text {
+    margin-left: 220px
 }
 
-.djs-content .all-content .gigs_content:last-child {
-    padding-bottom: 60px;
+.djs-content .all-content .timeConcert {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 15px
+}
+
+.djs-content .all-content .timeConcert span {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 15px
+}
+
+.djs-content .all-content .timeConcert.gray-date {
+    padding-bottom: 0;
+    margin-bottom: -5px;
     border: none
+}
+
+.djs-content .all-content .gigs_content {
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 20px
 }
 
 .djs-content .all-content .gigs_content img {
@@ -1698,6 +1785,11 @@ p strong {
 
 .djs-content .all-content .gigs_content h3 .view {
     color: #fda100
+}
+
+.djs-content .all-content .gigs_content .logo-now {
+    top: 30px;
+    left: 6px
 }
 
 .djs-content .all-content .gigs_content .gigs img {
@@ -1725,7 +1817,7 @@ p strong {
 .djs-content .all-content .gigs_content .poster {
     padding-left: 15px;
     border-left: 1px solid #e2e2e2;
-    width: 190px;
+    width: 100%;
     margin-top: 20px
 }
 
@@ -1757,6 +1849,11 @@ p strong {
     margin-top: 0 !important
 }
 
+.djs-content .all-content .gigs_content .poster .applied .applied_more {
+    margin-left: 10px;
+    float: left
+}
+
 .djs-content .all-content .gigs_content .poster .btn {
     border: none;
     width: 100%
@@ -1770,68 +1867,29 @@ p strong {
 }
 
 .djs-content .all-content .gigs_content .poster .button-poster {
-    width: 175px;
+    width: 100%;
     float: right
 }
 
-.promo-logo-now a, .promo-logo-days a, .promo-logo-month a {
-    position: relative
+.all-content {
+    padding-top: 7px;
+    display: table
 }
 
-.promo-logo-now img, .promo-logo-days img, .promo-logo-month img {
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    width: 200px;
-    height: 127px
+.all-content .sorting {
+    width: 16.66666666%;
+    display: table-cell;
+    vertical-align: top;
+    background-color: #f5f9f7
 }
 
-.logo-now, .logo-days, .logo-month {
-    color: #fff;
-    position: absolute;
-    left: -10px;
-    text-align: center;
-    font-size: 12px;
-    text-transform: uppercase;
-    top: 10px
-}
-
-.logo-featured {
-    height: 35px;
-    width: 80px;
-    position: absolute;
-    background: url(../images/icons/sprite.png) -70px -141px;
-    top: 15px;
-    left: -10px;
-    text-align: center;
-    font-size: 12px;
-    color: #fff
-}
-
-.logo-now {
-    background: url(../images/icons/sprite.png) -102px -201px;
-    height: 25px;
-    width: 45px
-}
-
-.logo-days {
-    background: url(../images/icons/sprite.png) -41px -201px;
-    width: 63px;
-    height: 35px
-}
-
-.logo-month {
-    background: url(../images/icons/sprite.png) no-repeat -93px -355px;
-    width: 51px;
-    height: 26px
-}
-
-.discovery .responsive-table .table tr td.nameArtist {
-    padding-right: 5px !important
-}
-
-.discovery .responsive-table .table thead th {
-    padding-right: 3px !important
+.all-content .music-block {
+    width: 83.33333%;
+    background-color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: table-cell;
+    vertical-align: top
 }
 
 .userInform {
@@ -3678,6 +3736,230 @@ label {
     font-size: 12px
 }
 
+.search_block {
+    margin-top: 80px
+}
+
+.search_block .form-group {
+    border-bottom: 1px solid #ebebeb;
+    padding-left: 50px;
+    position: relative
+}
+
+.search_block .form-group .search_input {
+    border: none !important;
+    height: auto;
+    color: #777;
+    font-size: 48px;
+    -webkit-box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    -o-box-shadow: 0 0 0 transparent;
+    box-shadow: 0 0 0 transparent
+}
+
+.search_block .form-group .search_input::-webkit-input-placeholder, .search_block .form-group .search_input::-moz-placeholder, .search_block .form-group .search_input:-moz-placeholder, .search_block .form-group .search_input:-ms-input-placeholder {
+    font-style: italic;
+    font-size: 22px !important;
+    color: #777 !important
+}
+
+.search_block .form-group:before {
+    content: '';
+    background-position: -6px -570px;
+    width: 40px;
+    height: 39px;
+    top: 25px;
+    left: 10px;
+    position: absolute;
+    background-image: url(../images/icons/sprite.png)
+}
+
+.search_block .form-group .search_input::-webkit-input-placeholder {
+    font-style: italic;
+    font-size: 22px !important;
+    color: #777 !important;
+    padding-top: 25px
+}
+
+.search_block .form-group .search_input::-moz-placeholder {
+    font-style: italic;
+    font-size: 22px !important;
+    color: #777 !important
+}
+
+.search_block .form-group .search_input:-moz-placeholder {
+    font-style: italic;
+    font-size: 22px !important;
+    color: #777 !important
+}
+
+.search_block .form-group .search_input:-ms-input-placeholder {
+    font-style: italic;
+    font-size: 22px !important;
+    color: #777 !important
+}
+
+.search_results {
+    margin-bottom: 20px;
+    padding: 20px 20px 10px 20px
+}
+
+.search_results .search_title {
+    color: #777;
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
+    font-family: Roboto, sans-serif;
+    font-weight: 300 !important
+}
+
+.search_results .search_list {
+    padding-left: 0
+}
+
+.search_results .search_list .search_list_item {
+    list-style: none;
+    margin-bottom: 10px
+}
+
+.search_results .search_list .search_list_avatar {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 20px
+}
+
+.search_results .search_list .search_list_name {
+    color: #474747;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Roboto, sans-serif;
+    display: block
+}
+
+.search_results .search_list .search_list_location {
+    font-family: Roboto, sans-serif;
+    font-weight: 300 !important;
+    color: #777;
+    font-size: #4d4d4d;
+    display: block
+}
+
+.search_results .search_list .search_list_link:hover {
+    text-decoration: none
+}
+
+.search_results:hover {
+    background-color: #f6f6f6;
+    cursor: pointer
+}
+
+.top_result {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+.top_result .top_result_name {
+    color: #474747;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Roboto, sans-serif;
+    display: block
+}
+
+.top_result .top_result_location {
+    font-family: Roboto, sans-serif;
+    font-weight: 300 !important;
+    color: #777;
+    font-size: #4d4d4d;
+    display: block
+}
+
+.top_result .top_result_avatar {
+    max-width: 100%;
+    margin-bottom: 20px
+}
+
+.top_result .top_result_link:hover {
+    text-decoration: none
+}
+
+.top_result:hover {
+    background: 0 0
+}
+
+.search_sidebar_list {
+    margin-left: -15px;
+    padding-left: 0
+}
+
+.search_sidebar_list .search_sidebar_item {
+    list-style: none
+}
+
+.search_sidebar_list .search_sidebar_item .search_sidebar_link {
+    padding-left: 15px;
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-weight: 300 !important;
+    color: #777;
+    font-size: 16px
+}
+
+.search_sidebar_list .search_sidebar_item .search_sidebar_link.active {
+    border-left: 4px solid #149d5e;
+    padding-left: 11px;
+    color: #474747;
+    font-family: Roboto, sans-serif;
+    font-weight: 700 !important;
+    display: block;
+    float: none
+}
+
+.search_sidebar_list .search_sidebar_item .search_sidebar_link:hover, .search_sidebar_list .search_sidebar_item .search_sidebar_link:focus, .search_sidebar_list .search_sidebar_item .search_sidebar_link:active {
+    color: #474747;
+    font-family: Roboto, sans-serif;
+    font-weight: 700 !important;
+    text-decoration: none
+}
+
+.search_results_title {
+    font-family: Roboto, sans-serif;
+    color: #777;
+    font-size: 22px;
+    margin-top: 0
+}
+
+.result_search {
+    position: relative;
+    height: 200px;
+    margin-bottom: 20px
+}
+
+.result_search .result_search_picture {
+    height: 100%;
+    max-width: 100%
+}
+
+.result_search .result_search_name {
+    background: url(../images/background/public-name.png) repeat;
+    width: 100%;
+    padding: 10px 10px 5px 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: #fff
+}
+
+.result_search:hover .result_search_name {
+    bottom: 1px
+}
+
 .videoBlock {
     height: 200px;
     overflow: hidden;
@@ -3809,7 +4091,6 @@ button:focus, button:active, button:focus:active {
 .ui-datepicker {
     margin-top: 15px;
     z-index: 10 !important;
-    margin-left: -20px;
     border: 1px solid #cfcfcf;
     background: #fff;
     width: 220px;
@@ -12487,11 +12768,11 @@ button:focus, button:active, button:focus:active {
     border-bottom: 1px dashed #ebebeb
 }
 
-.link, .truncate_more_link {
+.link, .truncate_more_link, .orange_link {
     position: relative
 }
 
-.link:after, .truncate_more_link:after {
+.link:after, .truncate_more_link:after, .orange_link:after {
     content: "";
     position: absolute;
     bottom: -1px;
@@ -12505,14 +12786,27 @@ button:focus, button:active, button:focus:active {
     transition: all .8s ease
 }
 
-.link:hover, .truncate_more_link:hover, .link:focus, .truncate_more_link:focus, .link:focus:active, .truncate_more_link:focus:active {
+.link:hover, .truncate_more_link:hover, .orange_link:hover, .link:focus, .truncate_more_link:focus, .orange_link:focus, .link:focus:active, .truncate_more_link:focus:active, .orange_link:focus:active {
     color: #149d5e;
     text-decoration: none
 }
 
-.link:hover:after, .truncate_more_link:hover:after, .link:focus:after, .truncate_more_link:focus:after, .link:focus:active:after, .truncate_more_link:focus:active:after {
+.link:hover:after, .truncate_more_link:hover:after, .orange_link:hover:after, .link:focus:after, .truncate_more_link:focus:after, .orange_link:focus:after, .link:focus:active:after, .truncate_more_link:focus:active:after, .orange_link:focus:active:after {
     width: 100%;
     background-color: #149d5e
+}
+
+.orange_link {
+    color: #fda100
+}
+
+.orange_link:hover, .orange_link:focus, .orange_link:focus:active {
+    color: #fda100
+}
+
+.orange_link:hover:after, .orange_link:focus:after, .orange_link:focus:active:after {
+    width: 100%;
+    background-color: #fda100
 }
 
 .dTable {
@@ -13479,6 +13773,29 @@ pre.prettyprint {
     .sign-in .login-block {
         margin-top: 0 !important
     }
+
+    .djs-content .all-content .sorting {
+        width: 25%
+    }
+
+    .djs-content .all-content .music-block {
+        width: 75%
+    }
+
+    .djs-content .all-content .promoter_content .promoter_text {
+        margin-left: 0;
+        clear: both
+    }
+
+    .djs-content .gigs_content .poster .button-poster {
+        width: auto;
+        clear: both
+    }
+
+    .djs-content .gigs_content .poster .button-poster button {
+        float: none;
+        width: auto !important
+    }
 }
 
 @media all and (min-width: 768px) and (max-width: 991px) {
@@ -13736,8 +14053,24 @@ pre.prettyprint {
         float: none
     }
 
+    .djs-content .all-content {
+        display: block
+    }
+
     .djs-content .all-content .sorting {
-        text-align: center
+        width: 100%;
+        text-align: center;
+        display: block
+    }
+
+    .djs-content .all-content .music-block {
+        width: 100%;
+        display: block
+    }
+
+    .djs-content .all-content .gigs_content .logo-now {
+        left: -10px;
+        top: 10px
     }
 
     .descktop-menu {
@@ -13946,6 +14279,11 @@ pre.prettyprint {
 
     .sorting {
         min-height: inherit !important
+    }
+
+    .event h4 span {
+        float: none;
+        display: block
     }
 }
 

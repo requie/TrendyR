@@ -1,0 +1,44 @@
+- return if label.nil?
+.djs-block
+  .album-logo-promo
+    = link_to image_tag(label.profile.photo.try(:url), class: 'img-responsive promo'), base_public_profile_path(label.profile)
+  .clearfix
+    .album-preview
+      h2
+        = label.profile.name
+      .eventName
+        - if label.profile.location
+          i.icon-place
+          p.empty
+            = label.profile.location.address
+        - if label.profile.website.present?
+          = link_to(label.profile.website, url_with_protocol(label.profile.website), target: :blank)
+      p
+        - label.profile.description_text
+      .follow
+        button.btn.btn-primary
+          i.icon-follow
+          | Follow me
+      .star
+        a href="javascript: void(0)"
+          i.icon-star
+          i.icon-star
+          i.icon-star
+          i.icon-star
+          i.icon-empty
+  .clear
+  .row
+    .col-xs-12.col-md-6.col-lg-7
+      .event
+        h3 Awards
+        - label.profile.owned_awards.first(3).each do |award|
+          h4
+            = award.title
+            span Year: #{award.earned_at.year}
+    .col-xs-12.col-md-6.col-lg-5
+      .mixes.clearfix
+        h3 Releases
+        = image_tag 'album_image/small-album3.jpg', class: 'img-responsive'
+        = image_tag 'album_image/small-album2.jpg', class: 'img-responsive'
+        = image_tag 'album_image/small-album1.jpg', class: 'img-responsive'
+    .clear
