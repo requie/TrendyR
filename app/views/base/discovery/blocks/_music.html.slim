@@ -1,0 +1,23 @@
+.top-menu.clearfix
+  ul
+    li.active
+      = link_to 'javascript: void(0)' do
+        strong Top albums
+    li
+      = link_to 'javascript: void(0)' do
+        strong Top singles
+    li
+      = link_to 'javascript: void(0)' do
+        strong Top listening
+.top-music
+  ul
+    - albums.each do |album|
+      li
+        = image_tag album.photo.with_preset(:standard)
+        = link_to base_public_profile_public_releases_path(album.artist.profile) do
+          p
+            strong
+              = album.artist.profile.name
+            br
+            = album.title
+.clear

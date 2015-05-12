@@ -1,0 +1,40 @@
+.discovery
+  .container.discovery-banner.clearfix
+    .row
+      .col-sm-3.col-md-2
+        .music-menu
+          = render_navigation(context: :discovery)
+      .col-sm-9.col-md-10
+        = render 'base/discovery/blocks/featured_artist', artist: @resources.first
+  .djs-content
+    .head-content.clearfix
+      .col-sm-3.col-md-2
+        p.p-t8
+          strong> Catalog
+          | #{@resources.total_count} results
+      .col-sm-9.col-md-10
+        .row
+          .search
+            p.col-sm-2.col-md-1
+              strong Location
+            .col-sm-10.col-md-11
+              .form-group
+                input.form-control placeholder="Search Location" type="text"
+    .all-content.clearfix
+      = render 'base/discovery/blocks/sidebar'
+      .music-block
+        .responsive-table
+          table.table.sidePlayer
+            thead.table-header
+              tr
+                th.nameArtist: p Name Artist
+                th.location: p Location
+                th.music_genres: p Genres
+                th.title-track colspan="2": p Title Track
+                th.track-status: p Status
+            tbody#root
+              = render partial: 'base/discovery/blocks/artist', collection: @resources[1..-1]
+        .row
+          .col-xs-12.infinite-loader
+
+- javascript 'controllers/base/discovery/artist'

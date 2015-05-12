@@ -1,0 +1,32 @@
+- return if gig.nil?
+.gigs-block
+  .row
+    .col-sm-12.col-md-8.col-lg-9
+      .album-preview
+        h2
+          = gig.title
+        .eventName.clearfix
+          i.icon-calendar
+          p
+            = "#{gig.started_at.to_s(:date)} - #{gig.finished_at.to_s(:date)}"
+          i.icon-place
+          p
+            = gig.location.address
+        ul.genres.clearfix
+          li: a href="javascript: void(0)" Pop
+          li: a href="javascript: void(0)" Reggae-Pop
+          li: a href="javascript: void(0)" Calypso
+          li: a href="javascript: void(0)" Soca
+        p
+          == gig.overview_text
+    .col-sm-12.col-md-4.col-lg-3
+      .poster.clearfix
+        .main-poster.clearfix
+          = image_tag mini_url(gig.owner_profile)
+          p
+            | Posted by
+            br
+            b
+              = gig.owner_profile.name
+        = gig_apply_block(gig)
+    .clear

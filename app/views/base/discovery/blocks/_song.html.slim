@@ -1,0 +1,30 @@
+tr data-url=base_public_profile_public_releases_path(song.artist.profile)
+  td.nameArtist data-th="Name Artist"
+    = image_tag mini_url(song.artist.profile)
+      strong
+        = song.artist.profile.name
+  td.location data-th="Location"
+    p
+      = song.artist.profile.location.address if song.artist.profile.location.present?
+  td.type_band data-th="Type"
+    p Band
+  td.music_genres data-th="Genres"
+    ul.genres
+      - song.artist.profile.genres.each do |genre|
+        li
+          = link_to genre.name, 'javascript: void(0)'
+  td.album-track colspan="2" data-th="Title Track"
+    .audiojs.audioTrack
+      .play-pause
+        p.play
+        p.error
+      .scrubber
+        .progress
+        .loaded
+      .time
+        em.played> 00:00 /
+        strong.duration 00:00
+    .audioTrack
+      = link_to song.title, 'javascript: void(0)', class: 'audioTrack_link', 'data-src' => song.attachment.url
+  td.track-status data-th="Status"
+    p.top: strong Top

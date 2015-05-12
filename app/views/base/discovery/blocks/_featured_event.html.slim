@@ -1,0 +1,40 @@
+- return if event.nil?
+.gigs-block
+  .row
+    .col-sm-12.col-md-8.col-lg-9
+      .album-logo
+        = link_to overview_base_public_profile_events_path(event.owner_profile, event) do
+          = image_tag event.photo.url
+      .album-preview
+        h2
+          = event.title
+        .eventName.clearfix
+          i.icon-calendar
+          p
+            = "#{event.started_at.to_s(:date)} - #{event.finished_at.to_s(:date)}"
+          i.icon-place
+          p
+            = event.location.address
+          i.color_white.pull-left.fa.fa-database
+          p
+            = "$ #{event.price}"
+        p.m-t20
+          == event.description_text
+    .col-sm-12.col-md-4.col-lg-3
+      .poster.clearfix
+        .main-poster.clearfix
+          = image_tag mini_url(event.owner_profile)
+          p
+            | Posted by
+            br
+            b
+              = event.owner_profile.name
+        .applied
+          p Artist
+          = image_tag 'album_image/poster1.png'
+          = image_tag 'album_image/poster1.png'
+          = image_tag 'album_image/poster1.png'
+          = image_tag 'album_image/poster1.png'
+          .button-poster
+            = link_to 'Buy ticket', 'javascript: void(0)', class: 'btn btn-primary'
+          h5.col-sm-2.col-md-12 Concert

@@ -1,5 +1,5 @@
 class Booking < ActiveRecord::Base
-  AVAILABLE_STATUSES = %w(confirmed rejected pending started)
+  AVAILABLE_STATUSES = %w(confirmed rejected pending)
 
   paginates_per 15
 

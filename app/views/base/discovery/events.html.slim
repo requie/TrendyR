@@ -1,0 +1,35 @@
+.discovery
+  .container.discovery-gigs-banner
+    .row
+      .col-sm-3.col-md-2
+        .music-menu
+          = render_navigation(context: :discovery)
+      .col-sm-9.col-md-10
+        = render 'base/discovery/blocks/featured_event', event: @resources.first
+  .djs-content
+    .row
+      .head-content.clearfix
+        .col-sm-3.col-md-2
+          p.results
+            strong> Catalog
+            | #{@resources.total_count} results
+        .col-sm-9.col-md-10
+          .search
+            p.col-sm-2.col-md-1
+              strong Where
+            .col-sm-4.col-md-3
+              .form-group.date
+                input.form-control placeholder="Select date" type="text"
+            p.col-sm-2.col-md-1
+              strong Location
+            .col-sm-4.col-md-7
+              .form-group
+                input.form-control placeholder="Search Location" type="text"
+    .all-content.clearfix
+      = render 'base/discovery/blocks/sidebar'
+      .music-block
+        = render partial: 'base/discovery/blocks/event', collection: @resources[1..-1]
+        .row
+          .col-xs-12.infinite-loader
+
+- javascript 'controllers/base/discovery/event'

@@ -1,0 +1,26 @@
+- return if producer.nil?
+.djs-block.manager
+  .row
+    .album-logo-manager
+      = link_to image_tag(producer.profile.photo.try(:url), class: 'img-responsive promo'), base_public_profile_path(producer.profile)
+    .col-md-9
+      .album-preview
+        h2
+          = producer.profile.name
+        .eventName
+          - if producer.profile.location
+            i.icon-place
+            p.empty
+              = producer.profile.location.address
+          - if producer.profile.website.present?
+            = link_to(producer.profile.website, url_with_protocol(producer.profile.website), target: :blank)
+    p.col-xs-12.col-md-9
+      = producer.profile.description_text
+  .row
+    .col-sm-12
+      .event.artist
+        h3 Artist
+        ul
+          - producer.artists.first(10).each do |artist|
+            li
+              = link_to image_tag(artist.profile.photo.url), base_public_profile_path(artist.profile)

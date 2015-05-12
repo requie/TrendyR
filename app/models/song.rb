@@ -1,9 +1,13 @@
-class Song < ActiveRecord::Base
-  require 'taglib'
+require 'taglib'
 
+class Song < ActiveRecord::Base
   belongs_to :uploader, class_name: 'User'
   belongs_to :release
+
   dragonfly_accessor :attachment
+
+  delegate :artist, to: :release
+
   before_save :set_fields
 
   def uploaded_by?(user)

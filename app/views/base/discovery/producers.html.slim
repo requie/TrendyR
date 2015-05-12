@@ -1,0 +1,41 @@
+.discovery
+  .container.discovery-producer-banner
+    .row
+      .col-sm-3.col-md-2
+        .music-menu
+          = render_navigation(context: :discovery)
+      .col-sm-9.col-md-10
+        = render 'base/discovery/blocks/featured_producer', producer: @resources.first
+  .clear
+  .djs-content
+    .head-content.clearfix
+      .col-sm-3.col-md-2
+        p.p-t8
+          strong> Catalog
+          | #{@resources.total_count} results
+      .col-sm-9.col-md-10
+        .row
+          .search
+            p.col-sm-2.col-md-1
+              strong Location
+            .col-sm-10.col-md-11
+              .form-group
+                input.form-control placeholder="Search Location" type="text"
+    .all-content.clearfix
+      = render 'base/discovery/blocks/sidebar'
+      .music-block
+        .responsive-table
+          table.table
+            thead.table-header
+              tr
+                th: p Name producer
+                th: p Location
+                th: p Producing Type
+                th: p Producing Variation
+                th: p Genres
+            tbody#root
+              = render partial: 'base/discovery/blocks/producer', collection: @resources[1..-1]
+        .row
+          .col-xs-12.infinite-loader
+
+- javascript 'controllers/base/discovery/producer'

@@ -79,6 +79,12 @@ Rails.application.routes.draw do
           post :update
         end
       end
+
+      resources :discovery, only: [] do
+        collection do
+          get :artists, :gigs, :events, :labels, :music, :managers, :producers, :venues
+        end
+      end
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do

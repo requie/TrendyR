@@ -15,8 +15,7 @@
           i.icon-place
           p.empty
             = get_address(profile.location)
-        - if profile.website.present?
-          = link_to profile.website, url_with_protocol(profile.website), target: :blank
+        = link_to(profile.website, url_with_protocol(profile.website), target: :blank) if profile.website.present?
 = render 'base/blocks/manadgMenu', profile: profile
 
 - javascript 'controllers/base/profile/profile_header'

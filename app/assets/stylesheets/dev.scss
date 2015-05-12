@@ -25,10 +25,18 @@
   margin-top: 10px;
 }
 
-.message-list tr {
+#root tr, .message-list tr {
   cursor: pointer;
 }
 
 .scroll-to {
   visibility: hidden;
+}
+
+.music-menu ul li.active a.active {
+  float: none;
+}
+
+.album-logo {
+  min-height: 160px;
 }
