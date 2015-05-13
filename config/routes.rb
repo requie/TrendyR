@@ -82,7 +82,8 @@ Rails.application.routes.draw do
 
       resources :discovery, only: [] do
         collection do
-          get :artists, :gigs, :events, :labels, :music, :managers, :producers, :venues
+          get ':resource' => :resource, constraints: { resource: /artists|labels|managers|producers|venues/ }, as: ''
+          get :gigs, :events, :music
         end
       end
     end

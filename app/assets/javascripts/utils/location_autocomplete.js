@@ -3,7 +3,7 @@
 
     function initialize() {
       var autocompleteInput = document.getElementById('autocomplete'),
-        autocomplete = new google.maps.places.Autocomplete(autocompleteInput, { types: ['geocode'] });
+        autocomplete = new google.maps.places.Autocomplete(autocompleteInput, { types: ['(cities)'] });
 
       function clearLocationFields() {
         $('input[id^="location_"]').val('');

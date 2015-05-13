@@ -15,7 +15,6 @@ module Base
     def create
       @booking = Booking.new(booking_params)
       @booking.artist = @profile.entity
-      binding.pry
       if @booking.save
         redirect_to base_public_profile_path(@profile), notice: 'Your booking invitation has been successfully sent'
       else

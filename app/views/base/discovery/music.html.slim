@@ -5,7 +5,7 @@
         .music-menu
           = render_navigation(context: :discovery)
       .col-sm-10.col-md-10
-        = render 'base/discovery/blocks/music', albums: @albums
+        = render 'base/discovery/blocks/featured/music', albums: @albums
   .djs-content
     .head-content.clearfix
       .col-xs-12
@@ -13,7 +13,7 @@
           strong> Catalog
           | #{@resources.total_count} results
     .all-content.clearfix
-      = render 'base/discovery/blocks/sidebar'
+      = sidebar(:music)
       .music-block
         .responsive-table
           table.table.sidePlayer
@@ -26,8 +26,8 @@
                 th.title-track colspan="2": p Title Track
                 th.track-status: p Status
             tbody#root
-              = render partial: 'base/discovery/blocks/song', collection: @resources
+              = render partial: 'base/discovery/blocks/templates/song', collection: @resources
         .row
           .col-xs-12.infinite-loader
 
-- javascript 'controllers/base/discovery/music'
+- javascript 'controllers/base/discovery/music', 'controllers/base/releases/show'

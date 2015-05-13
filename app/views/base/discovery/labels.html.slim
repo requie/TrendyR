@@ -5,7 +5,7 @@
         .music-menu
           = render_navigation(context: :discovery)
       .col-sm-9.col-md-10
-        = render 'base/discovery/blocks/featured_label', label: @resources.first
+        = render 'base/discovery/blocks/featured/label', label: @resources.first
   .clear
   .djs-content
     .head-content.clearfix
@@ -14,15 +14,9 @@
           strong> Catalog
           | #{@resources.total_count} results
       .col-sm-9.col-md-10
-        .row
-          .search
-            p.col-sm-2.col-md-1
-              strong Location
-            .col-sm-10.col-md-11
-              .form-group
-                input.form-control placeholder="Search Location" type="text"
+        = render 'base/discovery/blocks/filter/location', url: labels_base_profile_discovery_index_path
     .all-content.clearfix
-      = render 'base/discovery/blocks/sidebar'
+      = sidebar(:label)
       .music-block
         .responsive-table
           table.table.manager_table
@@ -34,7 +28,7 @@
                 th: p Producing Variation
                 th: p Genres
             tbody#root
-              = render partial: 'base/discovery/blocks/label', collection: @resources[1..-1]
+              = render partial: 'base/discovery/blocks/templates/label', collection: @resources
         .row
           .col-xs-12.infinite-loader
 
