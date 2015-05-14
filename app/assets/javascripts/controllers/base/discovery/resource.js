@@ -20,7 +20,7 @@
     }
 
     $root.infinitescroll({
-      debug: true,
+      debug: false,
       loading: {
         finishedMsg: '',
         selector: '.infinite-loader',

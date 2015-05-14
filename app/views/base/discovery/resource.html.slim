@@ -20,16 +20,7 @@
       .music-block
         - unless @type == 'venue'
           .responsive-table
-            table.table
-              thead.table-header
-                tr
-                  th: p Name producer
-                  th: p Location
-                  th: p Producing Type
-                  th: p Producing Variation
-                  th: p Genres
-              tbody#root
-                = render partial: "base/discovery/blocks/templates/#{@type}", collection: @resources
+            = render "base/discovery/blocks/table/#{@type}", resources: @resources
         - else
           = render partial: "base/discovery/blocks/templates/#{@type}", collection: @resources
         .row

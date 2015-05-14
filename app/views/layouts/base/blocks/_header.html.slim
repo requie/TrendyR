@@ -23,7 +23,7 @@
                 span.count 0
           li
             a href="javasript: void(0)"
-              = image_tag mini_url(@profile), class: 'avatar avatar-xs pull-left'
+              = image_tag mini_url(current_user.profile), class: 'avatar avatar-xs pull-left'
               span.m-l5
                 = current_user.username
         = render_navigation(context: :header_nav)

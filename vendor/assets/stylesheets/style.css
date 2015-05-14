@@ -3,7 +3,7 @@
 }
 
 .text-release {
-    color: gray
+    color: grey
 }
 
 .text-color {
@@ -23,27 +23,15 @@ a.red:hover {
     color: #fff
 }
 
-.color_green {
+.color_green, .color_green:hover {
     color: #009952
 }
 
-.color_green:hover {
-    color: #009952
-}
-
-.color_blue {
+.color_blue, .color_blue:hover {
     color: #0a7fbc
 }
 
-.color_blue:hover {
-    color: #0a7fbc
-}
-
-.color_orange {
-    color: #fda100
-}
-
-.color_orange:hover {
+.color_orange, .color_orange:hover {
     color: #fda100
 }
 
@@ -73,7 +61,7 @@ a.red:hover {
     position: relative
 }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input::-moz-placeholder, textarea::-moz-placeholder, input:-moz-placeholder, textarea:-moz-placeholder, input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+input:-moz-placeholder, input:-ms-input-placeholder, input::-moz-placeholder, input::-webkit-input-placeholder, textarea:-moz-placeholder, textarea:-ms-input-placeholder, textarea::-moz-placeholder, textarea::-webkit-input-placeholder {
     color: #a9a9a9 !important;
     font-weight: 400 !important;
     font-family: Roboto-light
@@ -136,7 +124,7 @@ p strong {
 }
 
 .mobile-menu ul li a {
-    background: none !important
+    background: 0 0 !important
 }
 
 .active {
@@ -205,11 +193,7 @@ p strong {
     width: auto
 }
 
-.music_private .audiojs .time {
-    color: #fff
-}
-
-.music_private .audiojs .time em, .music_private .audiojs .time strong {
+.music_private .audiojs .time, .music_private .audiojs .time em, .music_private .audiojs .time strong {
     color: #fff
 }
 
@@ -273,9 +257,8 @@ p strong {
 
 .crop .crop_progress {
     width: 50%;
-    margin: auto;
-    text-align: left;
-    margin-top: 20%
+    margin: 20% auto auto;
+    text-align: left
 }
 
 .payments {
@@ -329,12 +312,12 @@ p strong {
     transition: all .8s ease
 }
 
-#foo-menu li a:hover, #foo-menu li a:focus, #foo-menu li a:focus:active {
+#foo-menu li a:focus, #foo-menu li a:focus:active, #foo-menu li a:hover {
     color: #777;
     text-decoration: none
 }
 
-#foo-menu li a:hover:after, #foo-menu li a:focus:after, #foo-menu li a:focus:active:after {
+#foo-menu li a:focus:active:after, #foo-menu li a:focus:after, #foo-menu li a:hover:after {
     width: 100%;
     background-color: #777
 }
@@ -371,7 +354,7 @@ p strong {
     float: left
 }
 
-.icon-place, .icon-dark-place, .icon-dark-money {
+.icon-dark-money, .icon-dark-place, .icon-place {
     width: 20px;
     height: 25px;
     float: left
@@ -466,7 +449,7 @@ p strong {
     font-style: normal
 }
 
-.icon-enterFacebook, .icon-enterTwitter, .icon-enterGoogle {
+.icon-enterFacebook, .icon-enterGoogle, .icon-enterTwitter {
     width: 25px;
     height: 20px;
     position: absolute;
@@ -486,7 +469,7 @@ p strong {
     background-position: -30px -230px
 }
 
-.icon-facebook-gray, .icon-twitter-gray, .icon-google-gray, .icon-insta-gray {
+.icon-facebook-gray, .icon-google-gray, .icon-insta-gray, .icon-twitter-gray {
     width: 35px;
     height: 35px;
     float: left
@@ -668,11 +651,7 @@ p strong {
     color: #e34a50 !important
 }
 
-.top {
-    color: #0fa15e !important
-}
-
-.newMessage {
+.newMessage, .top {
     color: #0fa15e !important
 }
 
@@ -689,42 +668,6 @@ p strong {
 
 .vis {
     display: block !important
-}
-
-.p-t7 {
-    padding-top: 7px
-}
-
-.p-t60 {
-    padding-top: 60px
-}
-
-.m-t0 {
-    margin-top: 0
-}
-
-.m-t5 {
-    margin-top: 4px
-}
-
-.m-t10 {
-    margin-top: 10px
-}
-
-.m-t15 {
-    margin-top: 15px
-}
-
-.m-t20 {
-    margin-top: 20px
-}
-
-.m-t25 {
-    margin-top: 25px
-}
-
-.m-t30 {
-    margin-top: 30px
 }
 
 .message h2 {
@@ -784,7 +727,7 @@ p strong {
 }
 
 .message .message-list thead tr:hover, .message .message-list thead tr:hover p {
-    background: none !important
+    background: 0 0 !important
 }
 
 .message .message-list tr td {
@@ -849,11 +792,7 @@ p strong {
     clear: both
 }
 
-.message .message-list tr:hover {
-    background-color: #f1f1f1
-}
-
-.message .message-list tr:hover p, .message .message-list tr:hover td {
+.message .message-list tr:hover, .message .message-list tr:hover p, .message .message-list tr:hover td {
     background-color: #f1f1f1
 }
 
@@ -872,16 +811,16 @@ p strong {
     margin-bottom: 20px !important
 }
 
-.message .newMessageUser img, .message .newMessageMe img, .message .newMessageUser span, .message .newMessageMe span {
+.message .newMessageMe img, .message .newMessageMe span, .message .newMessageUser img, .message .newMessageUser span {
     float: left
 }
 
-.message .newMessageUser span, .message .newMessageMe span {
+.message .newMessageMe span, .message .newMessageUser span {
     margin-right: 10px;
     font-size: 16px
 }
 
-.message .newMessageUser img, .message .newMessageMe img {
+.message .newMessageMe img, .message .newMessageUser img {
     margin-right: 20px;
     width: 26px;
     height: 26px
@@ -893,13 +832,13 @@ p strong {
     color: #000
 }
 
-.message .message-dialogue .messageUser, .message .message-dialogue .messageMe {
+.message .message-dialogue .messageMe, .message .message-dialogue .messageUser {
     padding: 10px 20px;
     margin-top: 10px;
     margin-bottom: 5px
 }
 
-.message .message-dialogue .messageUser img, .message .message-dialogue .messageMe img {
+.message .message-dialogue .messageMe img, .message .message-dialogue .messageUser img {
     margin-right: 20px;
     margin-bottom: 10px;
     width: 34px;
@@ -907,21 +846,21 @@ p strong {
     float: left
 }
 
-.message .message-dialogue .messageUser span, .message .message-dialogue .messageMe span {
+.message .message-dialogue .messageMe span, .message .message-dialogue .messageUser span {
     margin-top: 5px
 }
 
-.message .message-dialogue .messageUser p, .message .message-dialogue .messageMe p {
+.message .message-dialogue .messageMe p, .message .message-dialogue .messageUser p {
     text-align: justify;
     color: #777 !important;
     font-family: Roboto-light
 }
 
-.message .message-dialogue .messageUser p.textMessage, .message .message-dialogue .messageMe p.textMessage {
+.message .message-dialogue .messageMe p.textMessage, .message .message-dialogue .messageUser p.textMessage {
     padding-right: 10px
 }
 
-.message .message-dialogue .messageUser p.dateMessage, .message .message-dialogue .messageMe p.dateMessage {
+.message .message-dialogue .messageMe p.dateMessage, .message .message-dialogue .messageUser p.dateMessage {
     font-size: 12px !important
 }
 
@@ -968,7 +907,7 @@ p strong {
     font-family: Roboto-light !important
 }
 
-.discovery h1, .discovery h2, .discovery h3, .discovery h4, .discovery h5, .discovery h6, .discovery b, .discovery strong {
+.discovery b, .discovery h1, .discovery h2, .discovery h3, .discovery h4, .discovery h5, .discovery h6, .discovery strong {
     font-family: Roboto, sans-serif !important;
     font-weight: 700 !important
 }
@@ -978,7 +917,7 @@ p strong {
     font-weight: 500 !important
 }
 
-.discovery-banner, .discovery-gigs-banner, .discovery-music-banner, .discovery-promoters-banner, .discovery-managers-banner, .discovery-producer-banner, .discovery-label-banner {
+.discovery-banner, .discovery-gigs-banner, .discovery-label-banner, .discovery-managers-banner, .discovery-music-banner, .discovery-producer-banner, .discovery-promoters-banner {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -1092,7 +1031,7 @@ p strong {
 .music-menu ul li a {
     color: #fff;
     font-size: 16px;
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px;
     font-weight: 300;
     text-decoration: none
 }
@@ -1151,7 +1090,7 @@ p strong {
 }
 
 .djs-block .album-logo-promo:after, .gigs-block .album-logo-promo:after {
-    background: none !important;
+    background: 0 0 !important;
     content: '';
     height: 20px;
     width: 20px
@@ -1192,7 +1131,7 @@ p strong {
 }
 
 .djs-block .album-logo-manager:after, .gigs-block .album-logo-manager:after {
-    background: none !important;
+    background: 0 0 !important;
     content: '';
     height: 20px;
     width: 20px
@@ -1228,7 +1167,7 @@ p strong {
     font-weight: 600
 }
 
-.djs-block [class*=album-preview] p, .gigs-block [class*=album-preview] p, .djs-block [class*=album-preview] small, .gigs-block [class*=album-preview] small {
+.djs-block [class*=album-preview] p, .djs-block [class*=album-preview] small, .gigs-block [class*=album-preview] p, .gigs-block [class*=album-preview] small {
     color: #fff
 }
 
@@ -1292,7 +1231,6 @@ p strong {
 
 .event h3 {
     color: #fff;
-    font-weight: 400;
     padding-bottom: 20px;
     font-weight: 600;
     border-bottom: 1px solid #fff;
@@ -1434,11 +1372,11 @@ p strong {
     text-decoration: none
 }
 
-.promo-logo-now a, .promo-logo-days a, .promo-logo-month a {
+.promo-logo-days a, .promo-logo-month a, .promo-logo-now a {
     position: relative
 }
 
-.promo-logo-now img, .promo-logo-days img, .promo-logo-month img {
+.promo-logo-days img, .promo-logo-month img, .promo-logo-now img {
     float: left;
     margin-right: 20px;
     margin-bottom: 10px;
@@ -1446,7 +1384,7 @@ p strong {
     height: 127px
 }
 
-.logo-now, .logo-days, .logo-month {
+.logo-days, .logo-month, .logo-now {
     color: #fff;
     position: absolute;
     left: -10px;
@@ -1481,7 +1419,7 @@ p strong {
 }
 
 .logo-month {
-    background: url(../images/icons/sprite.png) no-repeat -93px -355px;
+    background: url(../images/icons/sprite.png) -93px -355px no-repeat;
     width: 51px;
     height: 26px
 }
@@ -1500,7 +1438,7 @@ p strong {
 }
 
 .music-block .table thead tr th {
-    padding: 10px 0 0 0 !important;
+    padding: 10px 0 0 !important;
     border-bottom: none !important
 }
 
@@ -1539,11 +1477,11 @@ p strong {
 }
 
 .music-block .table thead tr:hover {
-    background: none !important
+    background: 0 0 !important
 }
 
 .music-block .table tr td {
-    padding: 10px 0 0 0 !important
+    padding: 10px 0 0 !important
 }
 
 .music-block .table tr td:first-child {
@@ -1611,11 +1549,7 @@ p strong {
     padding-top: 5px
 }
 
-.music-block .table tr td.track-details p span {
-    color: #474747 !important
-}
-
-.music-block .table tr td .track-details p span {
+.music-block .table tr td .track-details p span, .music-block .table tr td.track-details p span {
     color: #474747 !important
 }
 
@@ -1747,7 +1681,7 @@ p strong {
     color: #fda100
 }
 
-.djs-content .all-content .promoter_content .promoter_text, .djs-content .all-content .promoter_content .promoter_text {
+.djs-content .all-content .promoter_content .promoter_text {
     margin-left: 220px
 }
 
@@ -1873,7 +1807,8 @@ p strong {
 
 .all-content {
     padding-top: 7px;
-    display: table
+    display: table;
+    position: relative
 }
 
 .all-content .sorting {
@@ -2053,11 +1988,11 @@ p strong {
     color: #fff;
     display: block;
     margin-left: 10px;
-    background: none !important
+    background: 0 0 !important
 }
 
-.nameUser:hover, .nameUser:focus, .nameUser:active, .nameUser:focus:active {
-    background: none !important;
+.nameUser:active, .nameUser:focus, .nameUser:focus:active, .nameUser:hover {
+    background: 0 0 !important;
     color: #fff
 }
 
@@ -2149,7 +2084,7 @@ p strong {
     background-color: #e34a50
 }
 
-.logTwitter, .logFacebook, .logGoogle {
+.logFacebook, .logGoogle, .logTwitter {
     margin-top: 10px;
     position: relative;
     text-align: center;
@@ -2167,20 +2102,20 @@ p strong {
     transition: all .3s ease
 }
 
-.logTwitter p, .logFacebook p, .logGoogle p {
+.logFacebook p, .logGoogle p, .logTwitter p {
     margin: 0 !important;
     font-family: Roboto
 }
 
-.logTwitter p span, .logFacebook p span, .logGoogle p span {
+.logFacebook p span, .logGoogle p span, .logTwitter p span {
     font-weight: 700
 }
 
-.logTwitter p:hover, .logFacebook p:hover, .logGoogle p:hover {
+.logFacebook p:hover, .logGoogle p:hover, .logTwitter p:hover {
     cursor: pointer
 }
 
-.logTwitter .icon-enterFacebook, .logFacebook .icon-enterFacebook, .logGoogle .icon-enterFacebook, .logTwitter .icon-enterTwitter, .logFacebook .icon-enterTwitter, .logGoogle .icon-enterTwitter, .logTwitter .icon-enterGoogle, .logFacebook .icon-enterGoogle, .logGoogle .icon-enterGoogle {
+.logFacebook .icon-enterFacebook, .logFacebook .icon-enterGoogle, .logFacebook .icon-enterTwitter, .logGoogle .icon-enterFacebook, .logGoogle .icon-enterGoogle, .logGoogle .icon-enterTwitter, .logTwitter .icon-enterFacebook, .logTwitter .icon-enterGoogle, .logTwitter .icon-enterTwitter {
     margin-left: 10px;
     padding-top: 10px;
     height: 38px;
@@ -2376,7 +2311,7 @@ ul.navbar-nav {
     position: relative
 }
 
-.faqQuestion .icon-plus, .faqQuestion .icon-minus {
+.faqQuestion .icon-minus, .faqQuestion .icon-plus {
     width: 20px;
     height: 20px;
     margin-top: 10px;
@@ -2566,7 +2501,7 @@ label {
 }
 
 .cb-checkbox .cb-inner {
-    background: none !important;
+    background: 0 0 !important;
     border: 1px solid #e1e1e1 !important
 }
 
@@ -2582,11 +2517,7 @@ label {
     height: 12px
 }
 
-.cb-checkbox.checked i:before {
-    height: 0 !important
-}
-
-.cb-checkbox.checked i:after {
+.cb-checkbox.checked i:after, .cb-checkbox.checked i:before {
     height: 0 !important
 }
 
@@ -2594,10 +2525,6 @@ label {
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #e8e8e8
-}
-
-.gallery .gallery-mainFoto {
-    float: left
 }
 
 .gallery .gallery-mainFoto img {
@@ -2761,9 +2688,9 @@ label {
 }
 
 .venueGallery .nameGallery {
-    background: url(../images/background/public-name.png) repeat;
+    background: url(../images/background/public-name.png);
     width: 100%;
-    padding: 10px 10px 5px 10px;
+    padding: 10px 10px 5px;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -2880,7 +2807,7 @@ label {
 
 .profile-public .public-foto img {
     width: 160px;
-    padding: 5px 5px 0 5px;
+    padding: 5px 5px 0;
     height: 200px
 }
 
@@ -2896,7 +2823,7 @@ label {
 }
 
 .profile-public .public-name {
-    background: url(../images/background/public-name.png) repeat;
+    background: url(../images/background/public-name.png);
     bottom: 0;
     position: absolute;
     width: 100%;
@@ -2940,7 +2867,7 @@ label {
 }
 
 .menu-press div {
-    padding: 0 10px 10px 10px !important;
+    padding: 0 10px 10px !important;
     margin: 0 !important;
     text-align: center;
     float: left;
@@ -2967,12 +2894,12 @@ label {
     transition: all .8s ease
 }
 
-.menu-press div a:hover, .menu-press div a:focus, .menu-press div a:focus:active {
+.menu-press div a:focus, .menu-press div a:focus:active, .menu-press div a:hover {
     color: #777;
     text-decoration: none
 }
 
-.menu-press div a:hover:after, .menu-press div a:focus:after, .menu-press div a:focus:active:after {
+.menu-press div a:focus:active:after, .menu-press div a:focus:after, .menu-press div a:hover:after {
     width: 100%;
     background-color: #777
 }
@@ -3010,7 +2937,7 @@ label {
 .date:after {
     content: '';
     position: absolute;
-    background: url(../images/icons/sprite.png) no-repeat -24px -68px;
+    background: url(../images/icons/sprite.png) -24px -68px no-repeat;
     width: 16px;
     height: 16px;
     right: 15px;
@@ -3052,11 +2979,11 @@ label {
     color: #afaeae
 }
 
-.releases .release_item li:hover, .releases .release_item li.item_active, .releases .release_item li:focus {
+.releases .release_item li.item_active, .releases .release_item li:focus, .releases .release_item li:hover {
     border-bottom: 1px solid #39b54a
 }
 
-.releases .release_item li:hover a, .releases .release_item li.item_active a, .releases .release_item li:focus a {
+.releases .release_item li.item_active a, .releases .release_item li:focus a, .releases .release_item li:hover a {
     color: #777;
     text-decoration: none
 }
@@ -3067,7 +2994,7 @@ label {
 
 .promo_more .promoDate h4 {
     font-size: 12px;
-    color: gray;
+    color: grey;
     margin-top: 5px
 }
 
@@ -3104,10 +3031,9 @@ label {
     height: 100px
 }
 
-.slider .slick-prev, .slider .slick-next {
+.slider .slick-next, .slider .slick-prev {
     border: 1px solid transparent;
     position: absolute;
-    top: 5px;
     text-indent: -9999px;
     background-image: url(../images/icons/sprite.png);
     top: 45px;
@@ -3168,7 +3094,7 @@ label {
 
 .eventDate h4 {
     font-size: 12px;
-    color: gray;
+    color: grey;
     margin-bottom: 0;
     margin-top: 0
 }
@@ -3205,9 +3131,9 @@ label {
 }
 
 .public-event .nameVideo {
-    background: url(../images/background/public-name.png) repeat;
+    background: url(../images/background/public-name.png);
     width: 100%;
-    padding: 10px 10px 5px 10px;
+    padding: 10px 10px 5px;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -3219,7 +3145,7 @@ label {
     color: #fff
 }
 
-.public-event .facebook, .public-event .twitter, .public-event .google, .public-event .like {
+.public-event .facebook, .public-event .google, .public-event .like, .public-event .twitter {
     border: 1px solid transparent;
     text-transform: uppercase;
     font-size: 8px;
@@ -3229,7 +3155,7 @@ label {
     border-radius: 4px
 }
 
-.public-event .facebook i, .public-event .twitter i, .public-event .google i, .public-event .like i {
+.public-event .facebook i, .public-event .google i, .public-event .like i, .public-event .twitter i {
     font-size: 9px
 }
 
@@ -3320,7 +3246,7 @@ label {
     padding: 10px;
     background-color: #f5f9f7;
     position: relative;
-    color: gray
+    color: grey
 }
 
 .comment .comment_text:before {
@@ -3358,11 +3284,11 @@ label {
     display: none
 }
 
-.bookMe th:first-child, .bookMe td:first-child {
+.bookMe td:first-child, .bookMe th:first-child {
     width: 25%
 }
 
-.bookMe th, .bookMe td {
+.bookMe td, .bookMe th {
     font-family: Roboto, sans-serif;
     font-weight: 300 !important
 }
@@ -3395,28 +3321,20 @@ label {
 }
 
 .audiojs {
-    width: 460px;
     height: 36px;
     background: #404040;
     overflow: hidden;
     font-family: Roboto, sans-serif;
     font-size: 12px;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #444), color-stop(0.5, #555), color-stop(0.51, #444), color-stop(1, #444));
-    background-image: -moz-linear-gradient(center top, #444 0, #555 50%, #444 51%, #444 100%);
-    -webkit-box-shadow: 1px 1px 8px rgba(0, 0, 0, .3);
-    -moz-box-shadow: 1px 1px 8px rgba(0, 0, 0, .3);
-    -o-box-shadow: 1px 1px 8px rgba(0, 0, 0, .3);
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, .3)
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #444), color-stop(.5, #555), color-stop(.51, #444), color-stop(1, #444));
+    background-image: -moz-linear-gradient(center top, #444 0, #555 50%, #444 51%, #444 100%)
 }
 
 .audiojs .play-pause {
-    width: 25px;
-    height: 40px;
     padding: 4px 6px;
     margin: 0;
     float: left;
-    overflow: hidden;
-    border-right: 1px solid #000
+    overflow: hidden
 }
 
 .audiojs p {
@@ -3434,13 +3352,7 @@ label {
 .audiojs .scrubber {
     position: relative;
     float: left;
-    width: 280px;
     background: #5a5a5a;
-    height: 14px;
-    margin: 10px;
-    border-top: 1px solid #3f3f3f;
-    border-left: 0;
-    border-bottom: 0;
     overflow: hidden
 }
 
@@ -3452,8 +3364,8 @@ label {
     width: 0;
     background: #ccc;
     z-index: 1;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ccc), color-stop(0.5, #ddd), color-stop(0.51, #ccc), color-stop(1, #ccc));
-    background-image: -moz-linear-gradient(center top, #ccc 0, #ddd 50%, #ccc 51%, #ccc 100%)
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ccc), color-stop(.5, #ddd), color-stop(.51, #ccc), color-stop(1, #ccc)) #ccc;
+    background: -moz-linear-gradient(center top, #ccc 0, #ddd 50%, #ccc 51%, #ccc 100%) #ccc
 }
 
 .audiojs .loaded {
@@ -3463,24 +3375,19 @@ label {
     height: 14px;
     width: 0;
     background: #000;
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #222), color-stop(0.5, #333), color-stop(0.51, #222), color-stop(1, #222));
-    background-image: -moz-linear-gradient(center top, #222 0, #333 50%, #222 51%, #222 100%)
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #222), color-stop(.5, #333), color-stop(.51, #222), color-stop(1, #222)) #000;
+    background: -moz-linear-gradient(center top, #222 0, #333 50%, #222 51%, #222 100%) #000
 }
 
 .audiojs .time {
-    float: left;
     height: 36px;
     line-height: 36px;
     margin: 0 0 0 6px;
-    padding: 0 6px 0 12px;
-    border-left: 1px solid #000;
-    color: #ddd;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, .5)
+    padding: 0 6px 0 12px
 }
 
 .audiojs .time em {
     padding: 0 2px 0 0;
-    color: #f9f9f9;
     font-style: normal
 }
 
@@ -3515,7 +3422,7 @@ label {
     white-space: wrap
 }
 
-.playing .play, .playing .loading, .playing .error {
+.playing .error, .playing .loading, .playing .play {
     display: none
 }
 
@@ -3523,7 +3430,7 @@ label {
     display: block
 }
 
-.loading .play, .loading .pause, .loading .error {
+.loading .error, .loading .pause, .loading .play {
     display: none
 }
 
@@ -3531,7 +3438,7 @@ label {
     display: block
 }
 
-.error .time, .error .play, .error .pause, .error .scrubber, .error .loading {
+.error .loading, .error .pause, .error .play, .error .scrubber, .error .time {
     display: none
 }
 
@@ -3585,7 +3492,7 @@ label {
     position: relative
 }
 
-.audiojs .play:before, .audiojs .play:after {
+.audiojs .play:after, .audiojs .play:before {
     width: 0;
     height: 0;
     content: "";
@@ -3599,7 +3506,7 @@ label {
 
 .audiojs .play:before {
     border: solid transparent;
-    border-color: transparent;
+    border-color: rgba(0, 0, 0, 0);
     border-left-color: #fff;
     top: 3px;
     left: 5px;
@@ -3629,9 +3536,7 @@ label {
     position: relative
 }
 
-.audiojs .pause:before, .audiojs .pause:after {
-    width: 0;
-    height: 0;
+.audiojs .pause:after, .audiojs .pause:before {
     content: "";
     position: absolute;
     display: inline-block;
@@ -3667,7 +3572,7 @@ label {
     height: 3px;
     background-color: #00a651;
     border: none !important;
-    margin: 20px 10px 0 10px;
+    margin: 20px 10px 0;
     width: 50%
 }
 
@@ -3751,13 +3656,13 @@ label {
     height: auto;
     color: #777;
     font-size: 48px;
-    -webkit-box-shadow: 0 0 0 transparent;
-    -moz-box-shadow: 0 0 0 transparent;
-    -o-box-shadow: 0 0 0 transparent;
-    box-shadow: 0 0 0 transparent
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -o-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0)
 }
 
-.search_block .form-group .search_input::-webkit-input-placeholder, .search_block .form-group .search_input::-moz-placeholder, .search_block .form-group .search_input:-moz-placeholder, .search_block .form-group .search_input:-ms-input-placeholder {
+.search_block .form-group .search_input:-moz-placeholder, .search_block .form-group .search_input:-ms-input-placeholder, .search_block .form-group .search_input::-moz-placeholder, .search_block .form-group .search_input::-webkit-input-placeholder {
     font-style: italic;
     font-size: 22px !important;
     color: #777 !important
@@ -3801,14 +3706,13 @@ label {
 
 .search_results {
     margin-bottom: 20px;
-    padding: 20px 20px 10px 20px
+    padding: 20px 20px 10px
 }
 
 .search_results .search_title {
     color: #777;
     font-size: 18px;
-    margin: 0;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid #ebebeb;
     font-family: Roboto, sans-serif;
@@ -3857,10 +3761,7 @@ label {
 }
 
 .top_result {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 20px;
-    padding-bottom: 20px
+    padding: 20px 0
 }
 
 .top_result .top_result_name {
@@ -3920,7 +3821,7 @@ label {
     float: none
 }
 
-.search_sidebar_list .search_sidebar_item .search_sidebar_link:hover, .search_sidebar_list .search_sidebar_item .search_sidebar_link:focus, .search_sidebar_list .search_sidebar_item .search_sidebar_link:active {
+.search_sidebar_list .search_sidebar_item .search_sidebar_link:active, .search_sidebar_list .search_sidebar_item .search_sidebar_link:focus, .search_sidebar_list .search_sidebar_item .search_sidebar_link:hover {
     color: #474747;
     font-family: Roboto, sans-serif;
     font-weight: 700 !important;
@@ -3946,9 +3847,9 @@ label {
 }
 
 .result_search .result_search_name {
-    background: url(../images/background/public-name.png) repeat;
+    background: url(../images/background/public-name.png);
     width: 100%;
-    padding: 10px 10px 5px 10px;
+    padding: 10px 10px 5px;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -4013,7 +3914,7 @@ label {
     font-size: 16px
 }
 
-button:focus, button:active, button:focus:active {
+button:active, button:focus, button:focus:active {
     outline: 0 !important
 }
 
@@ -4083,7 +3984,7 @@ button:focus, button:active, button:focus:active {
     padding: 6px 12px
 }
 
-.btn-calendar:hover, .btn-calendar:active, .btn-calendar:focus {
+.btn-calendar:active, .btn-calendar:focus, .btn-calendar:hover {
     background-color: #fff;
     color: #000
 }
@@ -4142,13 +4043,13 @@ button:focus, button:active, button:focus:active {
     color: #fff
 }
 
-.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+.ui-datepicker .ui-datepicker-next, .ui-datepicker .ui-datepicker-prev {
     width: 8px;
     height: 14px;
     position: relative
 }
 
-.ui-datepicker .ui-datepicker-prev .ui-icon, .ui-datepicker .ui-datepicker-next .ui-icon {
+.ui-datepicker .ui-datepicker-next .ui-icon, .ui-datepicker .ui-datepicker-prev .ui-icon {
     position: absolute;
     width: 100%;
     height: 100%
@@ -4535,7 +4436,7 @@ button:focus, button:active, button:focus:active {
 }
 
 @media all and (max-width: 992px) {
-    .w-md-10, .w-md-20, .w-md-30, .w-md-40, .w-md-50, .w-md-60, .w-md-70, .w-md-80, .w-md-90, .w-md-100 {
+    .w-md-10, .w-md-100, .w-md-20, .w-md-30, .w-md-40, .w-md-50, .w-md-60, .w-md-70, .w-md-80, .w-md-90 {
         width: 100%
     }
 }
@@ -10708,10 +10609,6 @@ button:focus, button:active, button:focus:active {
     margin: 0
 }
 
-.m-t0 {
-    margin-top: 0
-}
-
 .m-tr0 {
     margin-top: 0;
     margin-right: 0
@@ -10727,10 +10624,6 @@ button:focus, button:active, button:focus:active {
     margin-left: 0
 }
 
-.m-r0 {
-    margin-right: 0
-}
-
 .m-rb0 {
     margin-right: 0;
     margin-bottom: 0
@@ -10741,16 +10634,8 @@ button:focus, button:active, button:focus:active {
     margin-left: 0
 }
 
-.m-l0 {
-    margin-left: 0
-}
-
 .m-bl0 {
     margin-left: 0;
-    margin-bottom: 0
-}
-
-.m-b0 {
     margin-bottom: 0
 }
 
@@ -12718,11 +12603,7 @@ button:focus, button:active, button:focus:active {
     position: relative
 }
 
-.blockRelative .time {
-    display: none
-}
-
-.blockRelative .scrubber {
+.blockRelative .scrubber, .blockRelative .time {
     display: none
 }
 
@@ -12768,11 +12649,11 @@ button:focus, button:active, button:focus:active {
     border-bottom: 1px dashed #ebebeb
 }
 
-.link, .truncate_more_link, .orange_link {
+.link, .orange_link, .truncate_more_link {
     position: relative
 }
 
-.link:after, .truncate_more_link:after, .orange_link:after {
+.link:after, .orange_link:after, .truncate_more_link:after {
     content: "";
     position: absolute;
     bottom: -1px;
@@ -12786,25 +12667,21 @@ button:focus, button:active, button:focus:active {
     transition: all .8s ease
 }
 
-.link:hover, .truncate_more_link:hover, .orange_link:hover, .link:focus, .truncate_more_link:focus, .orange_link:focus, .link:focus:active, .truncate_more_link:focus:active, .orange_link:focus:active {
+.link:focus, .link:focus:active, .link:hover, .orange_link:focus, .orange_link:focus:active, .orange_link:hover, .truncate_more_link:focus, .truncate_more_link:focus:active, .truncate_more_link:hover {
     color: #149d5e;
     text-decoration: none
 }
 
-.link:hover:after, .truncate_more_link:hover:after, .orange_link:hover:after, .link:focus:after, .truncate_more_link:focus:after, .orange_link:focus:after, .link:focus:active:after, .truncate_more_link:focus:active:after, .orange_link:focus:active:after {
+.link:focus:active:after, .link:focus:after, .link:hover:after, .orange_link:focus:active:after, .orange_link:focus:after, .orange_link:hover:after, .truncate_more_link:focus:active:after, .truncate_more_link:focus:after, .truncate_more_link:hover:after {
     width: 100%;
     background-color: #149d5e
 }
 
-.orange_link {
+.orange_link, .orange_link:focus, .orange_link:focus:active, .orange_link:hover {
     color: #fda100
 }
 
-.orange_link:hover, .orange_link:focus, .orange_link:focus:active {
-    color: #fda100
-}
-
-.orange_link:hover:after, .orange_link:focus:after, .orange_link:focus:active:after {
+.orange_link:focus:active:after, .orange_link:focus:after, .orange_link:hover:after {
     width: 100%;
     background-color: #fda100
 }
@@ -12823,12 +12700,12 @@ button:focus, button:active, button:focus:active {
 }
 
 .modal-dialog .modal-content {
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0);
     border: none;
-    -webkit-box-shadow: 0 0 transparent;
-    -moz-box-shadow: 0 0 transparent;
-    -o-box-shadow: 0 0 transparent;
-    box-shadow: 0 0 transparent
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    -o-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0)
 }
 
 .modal-dialog .modal-content .modal-body {
@@ -13534,7 +13411,7 @@ button:focus, button:active, button:focus:active {
 }
 
 pre.prettyprint {
-    padding: 20px 20px 0 20px !important;
+    padding: 20px 20px 0 !important;
     border: 0 !important;
     font-family: consolas;
     font-size: 13.5px
@@ -13611,11 +13488,7 @@ pre.prettyprint {
 }
 
 @media all and (min-width: 992px) {
-    .icon-globe, .icon-add, .icon-magnify {
-        float: left
-    }
-
-    .icon-globe, .icon-add, .icon-magnify {
+    .icon-add, .icon-globe, .icon-magnify {
         float: left
     }
 
@@ -13634,10 +13507,6 @@ pre.prettyprint {
 }
 
 @media all and (max-width: 991px) {
-    .footer .inner-footer .navbar-left li + li {
-        margin-left: 20px !important
-    }
-
     .social-gray {
         width: 160px
     }
@@ -13647,7 +13516,7 @@ pre.prettyprint {
         margin-bottom: 10px
     }
 
-    .comment .dCell, .comment .comment_time {
+    .comment .comment_time, .comment .dCell {
         text-align: center
     }
 
@@ -13669,18 +13538,6 @@ pre.prettyprint {
 
     .sidePlayer .audiojs .time {
         display: none
-    }
-
-    #moveUp {
-        right: 15%
-    }
-
-    .album-logo, .album-logo-promo {
-        display: none
-    }
-
-    .subscribe {
-        float: left !important
     }
 
     .videoBlock {
@@ -13710,7 +13567,7 @@ pre.prettyprint {
         display: none
     }
 
-    .top-music ul li:nth-child(4), .top-music ul li:nth-child(5), .gigs .view {
+    .gigs .view, .top-music ul li:nth-child(4), .top-music ul li:nth-child(5) {
         display: none
     }
 
@@ -13718,11 +13575,7 @@ pre.prettyprint {
         border-left: none !important
     }
 
-    .applied button {
-        float: right
-    }
-
-    .applied h5 {
+    .applied button, .applied h5 {
         float: right
     }
 
@@ -13752,7 +13605,7 @@ pre.prettyprint {
         margin-top: 0 !important
     }
 
-    .promoter_content h3 .text-left, .promoter_content .eventName {
+    .promoter_content .eventName, .promoter_content h3 .text-left {
         position: relative;
         top: 30px
     }
@@ -13803,7 +13656,7 @@ pre.prettyprint {
         display: none
     }
 
-    .manadgmentFoto, .backNone {
+    .backNone, .manadgmentFoto {
         background-position: -200px 0
     }
 
@@ -13821,11 +13674,11 @@ pre.prettyprint {
         display: none
     }
 
-    .promo-logo-now a, .promo-logo-days a, .promo-logo-month a {
+    .promo-logo-days a, .promo-logo-month a, .promo-logo-now a {
         float: left
     }
 
-    .logo-now, .logo-days, .logo-month {
+    .logo-days, .logo-month, .logo-now {
         top: 15px
     }
 
@@ -13919,40 +13772,20 @@ pre.prettyprint {
         position: absolute
     }
 
-    #moveUp {
-        right: 5%
-    }
-
-    .active {
-        float: left
-    }
-
-    .navbar-header {
-        float: left
-    }
-
     .social {
         width: 145px
-    }
-
-    .social {
-        margin: 0 !important
     }
 
     .form-group .error-message {
         position: static
     }
 
-    .bookMe th:first-child, .bookMe td:first-child {
+    .bookMe td:first-child, .bookMe th:first-child {
         width: 100%
     }
 
     .bookMe .btn-primary {
         margin-top: 0
-    }
-
-    .p-l0 {
-        margin-left: 0 !important
     }
 
     p.nameTrack {
@@ -13978,7 +13811,7 @@ pre.prettyprint {
     }
 
     .audiojs {
-        margin: -17px auto 0 auto;
+        margin: -17px auto 0;
         width: 300px
     }
 
@@ -13996,11 +13829,7 @@ pre.prettyprint {
         background-position: -400px 0
     }
 
-    .audiojs .time {
-        display: none
-    }
-
-    .responsive-table .table-header {
+    .audiojs .time, .responsive-table .table-header {
         display: none
     }
 
@@ -14077,7 +13906,7 @@ pre.prettyprint {
         display: none !important
     }
 
-    .promo-logo-now .logo-now, .promo-logo-days .logo-days, .promo-logo-month .logo-month {
+    .promo-logo-days .logo-days, .promo-logo-month .logo-month, .promo-logo-now .logo-now {
         bottom: 100%
     }
 
@@ -14085,7 +13914,7 @@ pre.prettyprint {
         text-align: center
     }
 
-    .icon-dark-calendar, .icon-dark-place, .icon-dark-money {
+    .icon-dark-calendar, .icon-dark-money, .icon-dark-place {
         display: none
     }
 
@@ -14099,11 +13928,7 @@ pre.prettyprint {
         width: 165px
     }
 
-    .mini-gallery {
-        display: none
-    }
-
-    #foo-menu, .music-menu ul {
+    #foo-menu, .mini-gallery, .music-menu ul {
         display: none
     }
 
@@ -14115,16 +13940,12 @@ pre.prettyprint {
         right: 5%
     }
 
-    .active {
-        float: left
-    }
-
-    .navbar-header {
+    .active, .navbar-header {
         float: left
     }
 
     .social {
-        margin: 10px 0 0 0 !important
+        margin: 10px 0 0 !important
     }
 
     .p-l0 {
@@ -14143,21 +13964,21 @@ pre.prettyprint {
         min-height: 0 !important
     }
 
-    .logFacebook, .logTwitter, .logGoogle {
+    .logFacebook, .logGoogle, .logTwitter {
         width: 40px !important;
         float: left;
         margin-left: 10px
     }
 
-    .logFacebook p, .logTwitter p, .logGoogle p {
+    .logFacebook p, .logGoogle p, .logTwitter p {
         display: none
     }
 
-    .logFacebook i, .logTwitter i, .logGoogle i {
+    .logFacebook i, .logGoogle i, .logTwitter i {
         border-right: none !important
     }
 
-    .log-pass p, .log-pass h4 {
+    .log-pass h4, .log-pass p {
         text-align: center
     }
 
@@ -14256,7 +14077,7 @@ pre.prettyprint {
         margin-top: 10px
     }
 
-    .djs-content .all-content .gigs_content h3, .djs-content .all-content .gigs_content .eventName {
+    .djs-content .all-content .gigs_content .eventName, .djs-content .all-content .gigs_content h3 {
         text-align: center
     }
 
@@ -14285,10 +14106,14 @@ pre.prettyprint {
         float: none;
         display: block
     }
+
+    .loading_block {
+        width: 100%
+    }
 }
 
 @media all and (max-width: 600px) {
-    .manadgmentFoto, .backNone {
+    .backNone, .manadgmentFoto {
         background-position: -500px 0
     }
 
@@ -14304,7 +14129,7 @@ pre.prettyprint {
         float: none
     }
 
-    .public-event .videoBlock, .public-event .map {
+    .public-event .map, .public-event .videoBlock {
         height: 200px
     }
 
@@ -14316,7 +14141,7 @@ pre.prettyprint {
         margin-left: 25%
     }
 
-    .manadgmentFoto, .backNone {
+    .backNone, .manadgmentFoto {
         background-position: -600px 0
     }
 
@@ -14325,7 +14150,7 @@ pre.prettyprint {
     }
 
     .audiojs {
-        margin: -10px auto 0 auto;
+        margin: -10px auto 0;
         width: 160px
     }
 

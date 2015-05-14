@@ -7,7 +7,7 @@
       msgTemplate = $('<div class="text-center p-tb20"><img alt="Loading" src="' + imgLoader + '"></div>');
 
     $('.music-block table tbody').infinitescroll({
-      debug: true,
+      debug: false,
       loading: {
         finishedMsg: '',
         selector: '.infinite-loader',

@@ -11,8 +11,8 @@ select, textarea, input, option{
     border-radius: 4px;
 }
 .footer{
-    bottom: 0px;	
-	position:relative;
+    bottom: 0px;
+    position:relative;
 }
 #moveUp{
     right:20%;
@@ -40,8 +40,8 @@ select, textarea, input, option{
 .navbar-nav li{
     list-style: none;
 }
-.pg-content {    
-    min-height: 100%;    
+.pg-content {
+    min-height: 100%;
 }
 .page{
     background-color: #e3e3e3;
@@ -51,7 +51,7 @@ select, textarea, input, option{
     box-shadow:10px 0px 15px 0 rgba(0, 0, 0, 0.1), -10px 0px 15px 0 rgba(0, 0, 0, 0.1);
     padding-left:0 !important;
     padding-right:0 !important;
-	position:relative;
+    position:relative;
     /*border-right:1px solid black;
     border-left:1px solid black;*/
 }
