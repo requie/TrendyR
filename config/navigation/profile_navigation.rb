@@ -1,5 +1,6 @@
 SimpleNavigation::Configuration.run do |navigation|
   navigation.selected_class = 'menuActive'
+  navigation.auto_highlight = true
 
   navigation.items do |primary|
     primary.item :profile, 'Home', base_public_profile_path(@profile)

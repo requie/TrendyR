@@ -1,0 +1,10 @@
+table.table.sidePlayer
+  thead.table-header
+    tr
+      th.nameArtist: p Name Artist
+      th.location: p Location
+      th.music_genres: p Genres
+      th.title-track colspan="2": p Title Track
+      th.track-status: p Status
+  tbody#root
+    = render partial: 'base/discovery/blocks/templates/artist', collection: resources
