@@ -1,7 +1,19 @@
 module Base
   class DiscoveryController < BaseController
-    before_action :set_page
+    before_action :set_page, except: :resource
 
+    def resource
+      @type = params[:resource].singularize.downcase
+      @q = @type.capitalize.constantize.ransack(filter_params)
+      page = request.xhr? ? params[:page] : 1
+      @resources = @q.result.includes(profile: [:location, :genres]).page(page)
+      respond_to do |format|
+        format.html
+        format.json { render json: html_template }
+      end
+    end
+
+    # deprecated
     def artists
       @q = Artist.ransack(filter_params)
       @resources = @q.result.includes(profile: [:location, :genres]).page(@page)
@@ -11,6 +23,7 @@ module Base
       end
     end
 
+    # deprecated
     def labels
       @q = Label.ransack(filter_params)
       @resources = @q.result.includes(profile: [:location, :genres]).page(@page)
@@ -20,6 +33,7 @@ module Base
       end
     end
 
+    # deprecated
     def managers
       @q = Manager.ransack(filter_params)
       @resources = @q.result.includes(profile: [:location, :genres]).page(@page)
@@ -29,6 +43,7 @@ module Base
       end
     end
 
+    # deprecated
     def producers
       @q = Producer.ransack(filter_params)
       @resources = @q.result.includes(profile: [:location, :genres]).page(@page)
@@ -38,6 +53,7 @@ module Base
       end
     end
 
+    # deprecated
     def venues
       @q = Venue.ransack(filter_params)
       @resources = @q.result.includes(profile: [:location, :genres]).page(@page)
@@ -77,17 +93,17 @@ module Base
     private
 
     def filter_params
-      {}
+      params[:q] && params[:q].permit(:profile_location_source_place_id_eq)
     end
 
     def set_page
       @page = request.xhr? ? params[:page] : 1
     end
 
-    def html_template(resource_name)
+    def html_template(resource_name = @type)
       {
         template: render_to_string(
-          partial: "base/discovery/blocks/#{resource_name}",
+          partial: "base/discovery/blocks/templates/#{resource_name}",
           collection: @resources,
           formats: :html
         )

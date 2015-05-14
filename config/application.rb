@@ -29,8 +29,8 @@ module TrendyReggae
     end
 
     config.autoload_paths += Dir[
-      "#{config.root}/lib/",
-      "#{config.root}/app/navigation_renderers/"
+                             "#{config.root}/lib/",
+                             "#{config.root}/app/navigation_renderers/"
     ]
   end
 end

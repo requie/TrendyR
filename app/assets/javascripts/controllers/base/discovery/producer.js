@@ -26,9 +26,9 @@
       }
     });
 
-    $('#root').on('click', 'tr', function(e) {
+    $('#root').on('click', 'td.nameArtist', function(e) {
       e.preventDefault();
-      var url = $(this).attr('data-url');
+      var url = $(this).parents('tr').attr('data-url');
       location.href = url;
     });
   });

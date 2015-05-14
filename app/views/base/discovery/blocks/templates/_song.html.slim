@@ -1,8 +1,8 @@
 tr data-url=base_public_profile_public_releases_path(song.artist.profile)
   td.nameArtist data-th="Name Artist"
     = image_tag mini_url(song.artist.profile)
-      strong
-        = song.artist.profile.name
+    strong
+      = song.artist.profile.name
   td.location data-th="Location"
     p
       = song.artist.profile.location.address if song.artist.profile.location.present?

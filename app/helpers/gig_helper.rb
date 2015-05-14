@@ -11,7 +11,7 @@ module GigHelper
         end
       else
         concat content_tag(:p, 'Be the first', class: 'text-center')
-			  concat content_tag(:p, 'Apply this gig now!', class: 'text-center')
+        concat content_tag(:p, 'Apply this gig now!', class: 'text-center')
       end
       concat content_tag(
         :div,
