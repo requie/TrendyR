@@ -2,6 +2,10 @@ class Profile < ActiveRecord::Base
   extend Photoable
   include Locationable
 
+  %w(artist label manager producer venue).each do |type|
+    update_index("search##{type}") { entity if entity.class.to_s.downcase == type }
+  end
+
   OWNED_OBJECTS = %i(photo_albums events gigs awards)
 
   belongs_to :user

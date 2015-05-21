@@ -32,6 +32,9 @@ Rails.application.routes.draw do
         collection do
           delete :destroy
         end
+        member do
+          get '' => :overview, as: :overview
+        end
       end
       resources :photo_albums, except: [:index, :show, :destroy] do
         collection do
@@ -89,11 +92,7 @@ Rails.application.routes.draw do
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do
-      resource :events, only: :show do
-        member do
-          get '/:id' => :overview, as: :overview
-        end
-      end
+      resource :events, only: :show
       resource :gigs, only: :show, as: :public_gigs do
         member do
           get '/:id' => :overview, as: :overview
@@ -114,8 +113,14 @@ Rails.application.routes.draw do
     resources :features, :dashboard, :artists, :gigs
   end
 
-  # Test routes for uploads, must remove it before rolling out to production
-  resources :uploads
+  scope module: :guests do
+    resources :search, only: :index do
+      collection do
+        get ':resource' => :search, as: :resource, constraints: { resource: /artist|label|venue|producer|manager/ }
+        get :event
+      end
+    end
+  end
 
   resources :photos, only: [:create, :destroy] do
     member do

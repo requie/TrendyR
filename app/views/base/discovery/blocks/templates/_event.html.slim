@@ -5,7 +5,7 @@
         .col-xs-12.col-md-9
           .promo_more.gigs
             .promo-logo-now
-              = link_to overview_base_public_profile_events_path(event.owner_profile, event) do
+              = link_to overview_base_profile_event_path(event) do
                 = image_tag event.photo.url
               .logo-now NOW
             h3

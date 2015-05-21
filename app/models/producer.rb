@@ -1,5 +1,6 @@
 class Producer < ActiveRecord::Base
   include Rolable
+  include Indexable
 
   def releases
     Release.none

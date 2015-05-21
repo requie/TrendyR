@@ -3,7 +3,7 @@
   .row
     .col-sm-12.col-md-8.col-lg-9
       .album-logo
-        = link_to overview_base_public_profile_events_path(event.owner_profile, event) do
+        = link_to overview_base_profile_event_path(event) do
           = image_tag event.photo.url
       .album-preview
         h2

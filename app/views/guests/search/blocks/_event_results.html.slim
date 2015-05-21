@@ -1,0 +1,12 @@
+h3.search_results_title
+  | Event (#{@search_results.total_count})
+- results.each_slice(3) do |sliced_results|
+  .row
+    - sliced_results.each do |result|
+      .col-sm-4
+        .result_search
+          = link_to overview_base_profile_event_path(result.id), class: 'result_search_link' do
+            = image_tag result.big_logo, class: 'result_search_picture'
+            span.result_search_name
+              = result.name
+          = event_label(result)
