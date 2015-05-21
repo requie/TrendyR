@@ -6,7 +6,7 @@ h2.text-uc Sign up
       .row
         h4.pull-left.col-xs-12.col-sm-4.text-left Sign Up
         p.pull-right.col-xs-12.col-sm-8.text-right.clearfix
-          | Already have an account?
+          ' Already have an account?
           = link_to 'Sign in', new_user_session_path, class: 'link'
       .form-group
         = f.input :first_name, placeholder: 'First Name', autofocus: true,
@@ -23,10 +23,12 @@ h2.text-uc Sign up
           input_html: { 'data-required' => true, 'data-equalto' => '#user_password', 'data-equalto-message' => 'confirmation failed', 'data-trim-value' => true }
       .row
         span.pull-left.col-xs-9
-          | By signing up with Trendy Reggae, you are apply
-          a.link href="#"  Terms & Conditions
-          '  and
-          a.link href="#"  Privacy policy
+          ' By signing up with Trendy Reggae, you are apply
+          = link_to 'Terms & Conditions', static_page_path(:terms), class: 'link'
+          '
+          ' and
+          = link_to 'Privacy policy', static_page_path(:privacy), class: 'link'
+
         .pull-right.col-xs-3.text-right
           button.btn.btn-primary Submit
 - javascript 'controllers/users/validation.dep'
