@@ -1,8 +1,5 @@
 module Guests
   class SearchController < Guests::GuestsController
-    before_action :set_profile, if: proc { user_signed_in? }
-    before_action :set_inbox_messages, if: proc { user_signed_in? && !request.xhr? }
-
     def index
       @search_results = SearchIndex.search_grouped_by_type(params[:q], 5)
       respond_to do |format|
@@ -28,14 +25,6 @@ module Guests
     end
 
     private
-
-    def set_profile
-      @profile = current_user.profile
-    end
-
-    def set_inbox_messages
-      @inbox_messages = current_user.unread_messages
-    end
 
     def json_response(partial)
       { template: render_to_string(partial: "guests/search/blocks/#{partial}", locals: { results: @search_results }, formats: :html) }
