@@ -1,0 +1,9 @@
+- if results.empty?
+  .row
+    .col-xs-12
+      p.search_empty Your search did not return any results. Please try again
+- else
+  - results.each_slice(3).with_index do |results, index|
+    .row
+      = render 'guests/search/blocks/top_result', result: results.first.last.first if index.zero?
+      = render partial: 'guests/search/blocks/result', collection: results

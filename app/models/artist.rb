@@ -1,5 +1,7 @@
 class Artist < ActiveRecord::Base
   include Rolable
+  include Indexable
+
 
   has_many :bookings, -> { order(created_at: :desc) }
   has_many :gigs, through: :bookings

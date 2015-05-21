@@ -1,6 +1,20 @@
-doctype html
+= render 'layouts/blocks/doctype'
 html
   = render 'layouts/blocks/head'
   body
-    = yield
-    = render 'layouts/blocks/footer'
+    - if user_signed_in?
+      = render 'layouts/base/blocks/header'
+    - else
+      = render 'layouts/users/blocks/header'
+    #page-wrapper
+      .container-fluid.page
+        div class=container_class
+          .strPage
+            .p-t60
+              = yield
+            .clearfix
+            a#moveUp href="#"
+              i class="icon-up"
+          .clearfix
+          = render 'layouts/blocks/footer'
+    = render 'layouts/blocks/js'

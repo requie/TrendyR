@@ -153,3 +153,11 @@
 .public-event .nameVideo {
   background:  asset-url('background/public-name.png') repeat;
 }
+
+.result_search .result_search_name {
+  background: asset-url('background/public-name.png');
+}
+
+.search_block .form-group:before {
+  background: asset-url('icons/sprite.png') -6px -570px;
+}

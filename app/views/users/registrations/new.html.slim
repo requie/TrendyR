@@ -7,7 +7,7 @@ h2.text-uc Sign up
         h4.pull-left.col-xs-12.col-sm-4.text-left Sign Up
         p.pull-right.col-xs-12.col-sm-8.text-right.clearfix
           | Already have an account?
-          a.link href="#{new_user_session_path}"  Sign in
+          = link_to 'Sign in', new_user_session_path, class: 'link'
       .form-group
         = f.input :first_name, placeholder: 'First Name', autofocus: true,
           input_html: { 'data-required' => true, 'data-maxlength' => '100', 'data-pattern' => '^[aA-zZаА-яЯЁё \-\.]+$', 'data-trim-value' => true }

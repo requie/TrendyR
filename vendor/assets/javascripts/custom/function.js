@@ -80,6 +80,7 @@ var resizeFooter = function ($mainBlock) {
   var $footer 	= $('footer'),
     $header		= $('#nav'),
     $windows 	= window.innerHeight;
+  $mainBlock.removeAttr('style');
   if($mainBlock.height() + $footer.height() + $header.height() < $windows){
     $mainBlock.height($windows - $footer.height() + 'px');
   }

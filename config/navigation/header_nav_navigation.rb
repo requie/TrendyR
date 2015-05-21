@@ -8,8 +8,8 @@ SimpleNavigation::Configuration.run do |navigation|
 
   navigation.items do |menu|
     menu.item :discover, 'Discover', base_profile_discovery_index_path(:artists), icon: 'icon-globe', class: 'active m-l1'
-    menu.item :discover, 'Post a gig', 'javasript: void(0)', icon: 'icon-add', class: 'active m-l1'
-    menu.item :discover, 'Search', 'javasript: void(0)', icon: 'icon-magnify', class: 'active m-l1'
+    menu.item :discover, 'Post a gig', 'javascript: void(0)', icon: 'icon-add', class: 'active m-l1'
+    menu.item :discover, 'Search', search_index_path, icon: 'icon-magnify', class: 'active m-l1'
 
     menu.dom_attributes = { class: 'nav navbar-nav text-uc' }
   end

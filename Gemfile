@@ -47,6 +47,10 @@ gem 'tinymce-rails'
 gem 'ransack'
 gem 'taglib-ruby'
 gem 'mailboxer'
+gem 'sidekiq', '~> 3.3.4'
+gem 'chewy', git: 'https://github.com/toptal/chewy.git'
+gem 'foreman'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
