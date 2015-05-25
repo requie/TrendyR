@@ -83,13 +83,6 @@ Rails.application.routes.draw do
           post :update
         end
       end
-
-      resources :discovery, only: [] do
-        collection do
-          get ':resource' => :resource, constraints: { resource: /artists|labels|managers|producers|venues/ }, as: ''
-          get :gigs, :events, :music
-        end
-      end
     end
 
     resources :profiles, path: 'profile', only: :show, as: :public_profile do
@@ -121,6 +114,13 @@ Rails.application.routes.draw do
       collection do
         get ':resource' => :search, as: :resource, constraints: { resource: /artist|label|venue|producer|manager/ }
         get :event
+      end
+    end
+
+    resources :discovery, only: [] do
+      collection do
+        get ':resource' => :resource, constraints: { resource: /artists|labels|managers|producers|venues/ }, as: ''
+        get :gigs, :events, :music
       end
     end
   end

@@ -25,9 +25,10 @@ module Base
     def request_confirmation
       gig = Gig.find(params[:id])
       authorize gig
-      @booking = Booking.new(source: 'request')
-      @booking.gig = gig
-      @booking.artist = @profile.entity
+      @booking = Booking.new!(source: 'request') do |record|
+        record.gig = gig
+        record.artist = @entity
+      end
       @booking.save!
       head :ok
     end

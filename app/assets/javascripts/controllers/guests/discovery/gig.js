@@ -2,12 +2,12 @@
 
 (function($) {
   $(function() {
-    var path = Routes.labels_base_profile_discovery_index_path(),
+    var path = Routes.events_discovery_index_path(),
       imgLoader = '/assets/loading.gif',
       msgTemplate = $('<div class="text-center p-tb20"><img alt="Loading" src="' + imgLoader + '"></div>');
 
-    $('.music-block table tbody').infinitescroll({
-      debug: true,
+    $('.all-content .music-block').infinitescroll({
+      debug: false,
       loading: {
         finishedMsg: '',
         selector: '.infinite-loader',
@@ -22,14 +22,21 @@
       navSelector: '#footer',
       dataType: 'json',
       path: function(page) {
-        return [path, '?page=', page].join('');
+        var params = _.defaults({ page: page }, gon.q || {});
+        return [path, '?', $.param(params)].join('');
       }
     });
 
-    $('#root').on('click', 'td.nameArtist', function(e) {
+    $('body').on('click', 'a.request', function(e) {
       e.preventDefault();
-      var url = $(this).parents('tr').attr('data-url');
-      location.href = url;
-    });
+      var $this = $(this);
+      $.ajax({
+        url: $this.attr('href'),
+        type: 'POST',
+        success: function() {
+          $this.parent().remove();
+        }
+      })
+    })
   });
 })(jQuery);

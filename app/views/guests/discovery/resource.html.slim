@@ -5,7 +5,7 @@
         .music-menu
           = render_navigation(context: :discovery)
       .col-sm-9.col-md-10
-        = render partial: "base/discovery/blocks/featured/#{@type}", object: @resources.first
+        = render "guests/discovery/blocks/featured/#{@type}", @type.to_sym => @resources.first
   .clear
   .djs-content
     .head-content.clearfix
@@ -14,17 +14,17 @@
           strong> Catalog
           | #{@resources.total_count} results
       .col-sm-9.col-md-10
-        = render 'base/discovery/blocks/filter/location', url: base_profile_discovery_index_path(@type.pluralize)
+        = render 'guests/discovery/blocks/filter/location', url: discovery_index_path(@type.pluralize)
     .all-content.clearfix
       = sidebar(@type)
       .music-block
         - unless @type == 'venue'
           .responsive-table
-            = render "base/discovery/blocks/table/#{@type}", resources: @resources
+            = render "guests/discovery/blocks/table/#{@type}", resources: @resources
         - else
-          = render partial: "base/discovery/blocks/templates/#{@type}", collection: @resources
+          = render partial: "guests/discovery/blocks/templates/#{@type}", collection: @resources
         .row
           .col-xs-12.infinite-loader
 
-- javascript 'controllers/base/discovery/resource'
+- javascript 'controllers/guests/discovery/resource'
 - javascript 'controllers/base/releases/show' if @type == 'artist'

@@ -6,10 +6,6 @@
 
     $form.find('[name="utf8"]').remove();
 
-    $form.on('submit', function(e) {
-      e.preventDefault();
-    });
-
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
       var place = autocomplete.getPlace();
 

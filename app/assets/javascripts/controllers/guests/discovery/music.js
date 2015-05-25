@@ -2,12 +2,12 @@
 
 (function($) {
   $(function() {
-    var path = Routes.artists_base_profile_discovery_index_path(),
+    var path = Routes.music_discovery_index_path(),
       imgLoader = '/assets/loading.gif',
       msgTemplate = $('<div class="text-center p-tb20"><img alt="Loading" src="' + imgLoader + '"></div>');
 
     $('.music-block table tbody').infinitescroll({
-      debug: true,
+      debug: false,
       loading: {
         finishedMsg: '',
         selector: '.infinite-loader',

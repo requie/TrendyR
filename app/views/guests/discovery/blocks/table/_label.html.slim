@@ -1,10 +1,10 @@
-table.table
+table.table.manager_table
   thead.table-header
     tr
-      th: p Name producer
+      th: p Record label
       th: p Location
       th: p Producing Type
       th: p Producing Variation
       th: p Genres
   tbody#root
-    = render partial: 'base/discovery/blocks/templates/producer', collection: resources
+    = render partial: 'guests/discovery/blocks/templates/label', collection: resources

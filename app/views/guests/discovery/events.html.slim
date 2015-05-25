@@ -5,7 +5,7 @@
         .music-menu
           = render_navigation(context: :discovery)
       .col-sm-9.col-md-10
-        = render 'base/discovery/blocks/featured/gigs', gig: @resources.first
+        = render 'guests/discovery/blocks/featured/event', event: @resources.first
   .djs-content
     .row
       .head-content.clearfix
@@ -14,12 +14,12 @@
             strong> Catalog
             | #{@resources.total_count} results
         .col-sm-9.col-md-10
-          = render 'base/discovery/blocks/filter/date_location', url: gigs_base_profile_discovery_index_path
+          = render 'guests/discovery/blocks/filter/date_location', url: events_discovery_index_path
     .all-content.clearfix
-      = sidebar(:gig)
+      = sidebar(:event)
       .music-block
-        = render partial: 'base/discovery/blocks/templates/gig', collection: @resources
+        = render partial: 'guests/discovery/blocks/templates/event', collection: @resources
         .row
           .col-xs-12.infinite-loader
 
-- javascript 'controllers/base/discovery/gig'
+- javascript 'controllers/guests/discovery/event'
