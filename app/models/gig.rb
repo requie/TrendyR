@@ -5,9 +5,11 @@ class Gig < ActiveRecord::Base
   SAFE_SCOPES = %w(started pending past)
 
   has_many :faqs, -> { order(:created_at) }, class_name: 'GigFaq'
-  has_many :bookings, dependent: :destroy
+  has_many :bookings, -> { where(source: 'request') }, dependent: :destroy
+  has_many :pending_bookings, -> { where(source: 'request', status: 'pending') }, dependent: :destroy, class_name: 'Booking'
   has_many :artists, -> { where('bookings.status' => 'confirmed') }, through: :bookings
   belongs_to :photo, class_name: 'Gig::Photo'
+  belongs_to :event, class_name: 'Event'
 
   accepts_nested_attributes_for :faqs, reject_if: ->(faq) { faq[:question].blank? || faq[:answer].blank? }
 

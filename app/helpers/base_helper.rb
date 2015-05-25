@@ -36,10 +36,6 @@ module BaseHelper
   end
 
   def container_class
-    css_class = 'container pg'
-    if controller_name == 'conversations' && action_name == 'show'
-      css_class << ' message_list'
-    end
-    css_class
+    'message_list' if controller_name == 'conversations' && action_name == 'show'
   end
 end

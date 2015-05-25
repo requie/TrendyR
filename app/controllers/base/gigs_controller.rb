@@ -3,7 +3,7 @@ module Base
     include LocationProcessing
 
     GIG_ATTRIBUTES = %i(
-      title price overview_text opportunity_text band_text
+      title price overview_text opportunity_text band_text event_id
       gig_text terms_text started_at finished_at photo_id
     )
     FAQ_ATTRIBUTES = %i(id question answer)
@@ -11,9 +11,9 @@ module Base
 
     skip_before_action :set_profile, only: :state
     before_action :set_gig, only: [:edit, :update, :overview]
-    before_action :set_gigs, only: :index
 
     def index
+      @gigs = @profile.owned_gigs.includes(:pending_bookings).with_status(params[:filter]).page(params[:page])
     end
 
     def show
@@ -64,10 +64,6 @@ module Base
 
     def set_gig
       @gig = Gig.find(params[:id])
-    end
-
-    def set_gigs
-      @gigs = @profile.owned_gigs.with_status(params[:filter]).page(params[:page])
     end
 
     def filter_params

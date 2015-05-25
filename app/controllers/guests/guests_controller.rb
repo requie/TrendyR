@@ -4,15 +4,11 @@ module Guests
   class GuestsController < ApplicationController
     layout 'guests/main'
 
+    skip_before_action :authenticate_user!
     before_action :authorize_namespace!
-    before_action :set_profile, if: proc { user_signed_in? }
     before_action :set_inbox_messages, if: proc { user_signed_in? && !request.xhr? }
 
     private
-
-    def set_profile
-      @profile = current_user.profile
-    end
 
     def set_inbox_messages
       @inbox_messages = current_user.unread_messages

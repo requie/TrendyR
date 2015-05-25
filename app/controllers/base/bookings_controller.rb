@@ -13,7 +13,7 @@ module Base
     end
 
     def create
-      @booking = Booking.new(booking_params)
+      @booking = Booking.new(booking_params.merge(source: 'offer'))
       @booking.artist = @profile.entity
       if @booking.save
         redirect_to base_public_profile_path(@profile), notice: 'Your booking invitation has been successfully sent'
@@ -22,11 +22,21 @@ module Base
       end
     end
 
+    def request_confirmation
+      gig = Gig.find(params[:id])
+      authorize gig
+      @booking = Booking.new(source: 'request')
+      @booking.gig = gig
+      @booking.artist = @profile.entity
+      @booking.save!
+      head :ok
+    end
+
     def state
       booking = Booking.find(params[:id])
       authorize booking
       state = booking.pending? && booking.update_attribute(:status, params[:status])
-      head status: state ? :ok : :unprocessable_entity
+      head status: (state ? :ok : :unprocessable_entity)
     end
 
     private

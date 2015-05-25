@@ -4,7 +4,7 @@ module Admin
   class AdminController < ApplicationController
     layout 'admin/main'
 
-    before_action :authenticate_user!, :authorize_namespace!
+    before_action :authorize_namespace!
 
     private
 

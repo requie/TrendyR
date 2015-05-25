@@ -1,28 +1,38 @@
 module GigHelper
   def gig_apply_block(gig)
-    is_artist = current_user.role?(:artist)
-    is_applied = is_artist && gig.artists.include?(current_user.entity)
     content_tag(:div, class: 'applied') do
-      concat content_tag(:p, 'Already applied') if is_applied
-      if gig.artists.any?
-        concat content_tag(:p, 'Artists') unless is_applied
-        gig.artists.first(4).each do |artist|
-          concat image_tag(mini_url(artist.profile))
-        end
+      if user_signed_in? && current_user.role?(:artist)
+        artist_block(gig, Booking.exists?(gig_id: gig, artist_id: current_user.entity))
       else
-        concat content_tag(:p, 'Be the first', class: 'text-center')
-        concat content_tag(:p, 'Apply this gig now!', class: 'text-center')
+        default_artist_block(gig)
       end
-      concat content_tag(
-        :div,
-        link_to(
-          "$#{gig.price.round} Apply now",
-          'javascript: void(0)',
-          class: 'btn btn-primary',
-          disabled: (!is_artist || is_applied)
-        ),
-        class: 'button-poster'
-      )
+    end
+  end
+
+  private
+
+  def default_artist_block(gig)
+    if gig.artists.any?
+      concat content_tag(:p, 'Artists')
+      gig.artists.first(4).each do |artist|
+        concat image_tag(mini_url(artist.profile))
+      end
+    end
+  end
+
+  def artist_block(gig, applied = false)
+    if gig.artists.any?
+      concat content_tag(:p, applied ? 'Already applied' : 'Artists')
+      gig.artists.first(4).each do |artist|
+        concat image_tag(mini_url(artist.profile))
+      end
+    elsif !applied
+      concat content_tag(:p, 'Be the first', class: 'text-center')
+      concat content_tag(:p, 'Apply this gig now!', class: 'text-center')
+    end
+    unless applied
+      content = link_to("$#{gig.price.round} Apply now", request_base_profile_booking_path(gig), class: 'btn btn-primary request')
+      concat content_tag(:div, content, class: 'button-poster')
     end
   end
 end

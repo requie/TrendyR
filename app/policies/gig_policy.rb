@@ -10,6 +10,10 @@ class GigPolicy
     false
   end
 
+  def request_confirmation?
+    @user.role?(:artist) && !Booking.exists?(artist_id: @user.entity, gig_id: @gig)
+  end
+
   def scope
     Pundit.policy_scope!(user, gig.class)
   end

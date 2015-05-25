@@ -25,5 +25,17 @@
         return [path, '?page=', page].join('');
       }
     });
+
+    $('body').on('click', 'a.request', function(e) {
+      e.preventDefault();
+      var $this = $(this);
+      $.ajax({
+        url: $this.attr('href'),
+        type: 'POST',
+        success: function() {
+          $this.parent().remove();
+        }
+      })
+    })
   });
 })(jQuery);

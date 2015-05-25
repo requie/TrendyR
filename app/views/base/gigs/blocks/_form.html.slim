@@ -19,6 +19,11 @@
       = form.input :title, input_html: { placeholder: 'Title', class: 'form-control', data: { required: true } }
   = render partial: 'base/blocks/location_autocomplete', locals: { location: gig.location }
   .row
+    .col-sm-2
+      p.text-color.p-t7 Event
+    .col-sm-2
+      = form.association :event, prompt: 'Select associated event', collection: @profile.owned_events, label_method: :title, include_blank: false, label: false, input_html: { multiple: false }
+  .row
     .col-xs-12
       .form-group.has-error
         #date-start-error
