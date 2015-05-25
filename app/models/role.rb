@@ -8,6 +8,12 @@ class Role < ActiveRecord::Base
 
   scope :is_public, -> { where(is_public: true) }
 
+  ALL.each do |role_name|
+    define_method "#{role_name}?" do
+      self.name == role_name
+    end
+  end
+
   # get role object by its name
   def self.instance(role_name)
     find_by(name: role_name.to_s)

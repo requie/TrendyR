@@ -33,7 +33,7 @@ Rails.application.routes.draw do
           delete :destroy
         end
         member do
-          get '' => :overview, as: :overview
+          get 'overview' => :overview, as: :overview
         end
       end
       resources :photo_albums, except: [:index, :show, :destroy] do
@@ -68,6 +68,7 @@ Rails.application.routes.draw do
       resources :bookings, only: :index do
         member do
           put ':status' => :state, constraints: { status: /confirmed|rejected/ }, as: :status
+          post 'request' => :request_confirmation
         end
       end
 

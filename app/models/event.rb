@@ -1,11 +1,15 @@
 class Event < ActiveRecord::Base
+  SAFE_SCOPES = %w(started pending past)
+
   include Ownable
   include Locationable
   include Indexable
 
-  SAFE_SCOPES = %w(started pending past)
-
   paginates_per 10
+
+  has_many :gigs, dependent: :nullify
+  has_many :artists, through: :gigs
+  belongs_to :photo, class_name: 'Event::Photo'
 
   scope :upcoming, -> { where('finished_at > ?', Date.today).order(:started_at) }
   scope :started, -> { where('started_at < :today and finished_at > :today', today: Date.today) }
@@ -13,8 +17,6 @@ class Event < ActiveRecord::Base
   scope :past, -> { where('finished_at < ?', Date.today) }
   scope :at_date, ->(date) { where('started_at < :date and finished_at > :date', date: date) }
   scope :since_date, ->(date) { where('started_at >= :date', date: date) }
-
-  belongs_to :photo, class_name: 'Event::Photo'
 
   validates :title, :description_text, :started_at, :finished_at, :photo, presence: true
 
