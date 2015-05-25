@@ -3,7 +3,7 @@
 (function($) {
   $(function() {
     var type = location.pathname.split('/').pop(),
-      path = Routes.base_profile_discovery_index_path(type),
+      path = Routes.discovery_index_path(type),
       imgLoader = '/assets/loading.gif',
       msgTemplate = $('<div class="text-center p-tb20"><img alt="Loading" src="' + imgLoader + '"></div>'),
       $root;
@@ -35,7 +35,8 @@
       navSelector: '#footer',
       dataType: 'json',
       path: function(page) {
-        return [path, '?page=', page].join('');
+        var params = _.defaults({ page: page }, gon.q || {});
+        return [path, '?', $.param(params)].join('');
       }
     });
   });

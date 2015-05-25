@@ -16,6 +16,6 @@
           p.empty
             = get_address(profile.location)
         = link_to(profile.website, url_with_protocol(profile.website), target: :blank) if profile.website.present?
-= render 'base/blocks/manadgMenu', profile: profile
+= render 'base/blocks/manadg_menu', profile: profile
 
 - javascript 'controllers/base/profile/profile_header'

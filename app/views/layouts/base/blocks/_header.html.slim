@@ -26,10 +26,10 @@
               = image_tag mini_url(current_user.profile), class: 'avatar avatar-xs pull-left'
               span.m-l5
                 = current_user.username
-        = render_navigation(context: :header_nav)
+        = render_navigation(context: :header)
       .descktop-menu
         .col-xs-4.centered.col-md-5
-          = render_navigation(context: :header_nav)
+          = render_navigation(context: :header)
         ul.nav.navbar-nav.navbar-right
           li
             .dropdown

@@ -5,7 +5,7 @@
         .music-menu
           = render_navigation(context: :discovery)
       .col-sm-10.col-md-10
-        = render 'base/discovery/blocks/featured/music', albums: @albums
+        = render 'guests/discovery/blocks/featured/music', albums: @albums
   .djs-content
     .head-content.clearfix
       .col-xs-12
@@ -26,8 +26,8 @@
                 th.title-track colspan="2": p Title Track
                 th.track-status: p Status
             tbody#root
-              = render partial: 'base/discovery/blocks/templates/song', collection: @resources
+              = render partial: 'guests/discovery/blocks/templates/song', collection: @resources
         .row
           .col-xs-12.infinite-loader
 
-- javascript 'controllers/base/discovery/music', 'controllers/base/releases/show'
+- javascript 'controllers/guests/discovery/music', 'controllers/base/releases/show'
