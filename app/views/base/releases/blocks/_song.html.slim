@@ -1,5 +1,5 @@
 tr data-song-id=song.id
-  td.nameArtist data-th=("Cover")
+  td.nameArtist data-th="Cover"
     = image_tag song.release.photo.with_preset(:tiny)
     p
       strong
@@ -13,15 +13,14 @@ tr data-song-id=song.id
         .progress
         .loaded
       .time
-        em.played> 00:00
-        | /
+        em.played> 00:00 /
         strong.duration
           = song.duration
     .audioTrack
       a.audioTrack_link data-src=song.attachment.url href="#"
         = song.title
   td data-th="Action"
-    = link_to 'Edit', edit_base_profile_release_path(song.release), class: 'dBlock pull-left p-r5 b-Right m-r5 color_orange'
+    = link_to 'Edit', edit_private_release_path(song.release), class: 'dBlock pull-left p-r5 b-Right m-r5 color_orange'
     a.dBlock.pull-left.p-r5.b-Right.m-r5.red href="" Remove
     - if song.is_active?
       = link_to 'Unpublish', publish_song_path(song, is_active: false), class: 'color_blue unpublish'

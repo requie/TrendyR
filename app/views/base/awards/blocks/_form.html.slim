@@ -1,4 +1,4 @@
-= simple_form_for [:base, :profile, @award], defaults: { input_html: { class: 'form-control' } } do |f|
+= simple_form_for [:private, @award], defaults: { input_html: { class: 'form-control' } } do |f|
   = f.input_field(:photo_id, as: :string, id: 'photo-id', class: 'hidden',
     data: { 'imagerequired' => '.image-error', 'validate-if-empty' => true, 'errors-messages-disabled' => true })
   = f.input :title, placeholder: 'Title'

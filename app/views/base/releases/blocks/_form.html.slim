@@ -1,6 +1,6 @@
 input.form-control.uploadbtn#image-upload name="photo[attachment]" type="file"
 input.form-control.uploadfile#song-upload name="song[attachment]" multiple="" type="file"
-= simple_form_for [:base, :profile, @release] do |f|
+= simple_form_for [:private, @release] do |f|
   = f.input :photo_id, input_html: { class: 'hidden', data: { required: true, 'required-message' => 'Please, upload image' } }
   .row
     .col-xs-12
@@ -22,7 +22,7 @@ input.form-control.uploadfile#song-upload name="song[attachment]" multiple="" ty
     .col-sm-11
       .input-group.form-group
         span.input-group-btn
-          button.btn.btn-default.newSelect#song-upload-button Browse
+          button.btn.btn-default.newSelect#song-upload-button type="button" Browse
         input.form-control.m-l-2 type="text"
   .row
     .col-sm-1
@@ -35,7 +35,7 @@ input.form-control.uploadfile#song-upload name="song[attachment]" multiple="" ty
   .row
     .col-xs-12
       .pull-right.m-t10
-        button.btn.btn-primary Submit
+        button.btn.btn-primary type="submit" Submit
 
 .well.cover.m-b10#empty-progress.hidden
   .countBar 0%

@@ -14,7 +14,7 @@ class Gig < ActiveRecord::Base
   accepts_nested_attributes_for :faqs, reject_if: ->(faq) { faq[:question].blank? || faq[:answer].blank? }
 
   scope :upcoming, -> { where('finished_at > ?', Date.today).order('started_at') }
-  scope :started, -> { where('started_at < ? AND finished_at > ?', Date.today) }
+  scope :started, -> { where('started_at < :date AND finished_at > :date', date: Date.today) }
   scope :pending, -> { where('started_at > ?', Date.today) }
   scope :past, -> { where('finished_at < ?', Date.today) }
   scope :at_date, ->(date) { where('started_at < ? AND finished_at > ?', date) }

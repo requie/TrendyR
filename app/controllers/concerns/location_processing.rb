@@ -1,12 +1,13 @@
 module LocationProcessing
   extend ActiveSupport::Concern
 
-  def create_location(model)
-    location = Location.find_or_create_by(location_params) do |l|
-      l.creator = @profile.user
+  def find_or_create_location
+    Location.find_or_create_by(source_place_id: params[:source_place_id]) do |l|
+      l.assign_attributes(location_params)
     end
-    model.location = location
   end
+
+  private
 
   def location_params
     params.require(:location).permit(*policy(:location).permitted_attributes)

@@ -1,0 +1,12 @@
+= render 'base/blocks/private/profile_header'
+.row.custom-form
+  .col-md-8.col-md-offset-2
+    .row
+      .col-xs-12
+        .b-Top.b-Bottom.clearfix.m-t20.p-tb10
+          h5.static-content.pull-sm-left.m-t7
+            | All list
+          = link_to 'Add award', new_private_award_path, class: 'btn btn-primary pull-sm-right'
+    = form_tag private_awards_path, method: :delete, id: 'awards-form'
+      = render(partial: 'base/awards/blocks/award', collection: @awards) || render_empty(:awards)
+- javascript 'controllers/base/awards/index'

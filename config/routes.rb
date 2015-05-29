@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     authenticated :user, ->(user) { user.role.is_public? } do
-      root 'base/profiles#index', as: :authenticated_root
+      root 'base/private/profiles#show', as: :authenticated_root
     end
 
     root to: 'devise/sessions#new'
@@ -21,90 +21,138 @@ Rails.application.routes.draw do
     get 'admin/sign_in' => 'devise/sessions#new'
   end
 
-  namespace :base, path: nil do
-    resource :profile, only: :update do
-      get '/' => :index
-      patch :update_photo, as: :update_photo
 
-      resource :settings, only: [:show, :update]
-      resources :galleries, path: 'gallery', only: :index
-      resources :events, except: :show do
-        collection do
-          delete :destroy
-        end
-        member do
-          get 'overview' => :overview, as: :overview
-        end
-      end
-      resources :photo_albums, except: [:index, :show, :destroy] do
-        collection do
-          delete :destroy
-        end
-      end
-      resources :photo_albums, only: [] do
-        member do
-          get '/' => :private_show
-        end
-      end
 
-      resources :gigs, except: :show do
-        member do
-          put :state, as: :status
-        end
-      end
-
-      resources :awards, except: [:show, :destroy] do
-        collection do
-          delete :destroy
-        end
-      end
-
-      resources :releases, except: :show do
-        collection do
-          get :list
-        end
-      end
-
-      resources :bookings, only: :index do
-        member do
-          put ':status' => :state, constraints: { status: /confirmed|rejected/ }, as: :status
-          post 'request' => :request_confirmation
-        end
-      end
-
-      resources :payments, :artists, only: :index
-      resources :press_kits, path: :press_kit, only: :index
-      resources :conversations, only: [:index, :show, :destroy] do
-        collection do
-          get ':recipient_id/new' => :new, as: :new
-          post ':recipient_id/create' => :create, as: :create
-        end
-        member do
-          post :update
-        end
-      end
-    end
-
-    resources :profiles, path: 'profile', only: :show, as: :public_profile do
-      resource :events, only: :show
-      resource :gigs, only: :show, as: :public_gigs do
-        member do
-          get '/:id' => :overview, as: :overview
-        end
-      end
-      resources :photo_albums, only: :show, as: :public_photo_album
-      resource :awards, only: :show, as: :public_awards
-      resource :releases, only: :show, as: :public_releases
-      resource :bookings, only: [:show, :create]
-      resource :press_kit, :gallery, only: :show
-      resource :artists, only: :show
-    end
-  end
+  # namespace :base, path: nil do
+  #   resource :profile, only: :update do
+  #     get '/' => :index
+  #     patch :update_photo, as: :update_photo
+  #
+  #     resource :settings, only: [:show, :update]
+  #     resources :galleries, path: 'gallery', only: :index
+  #     resources :events, except: :show do
+  #       collection do
+  #         delete :destroy
+  #       end
+  #       member do
+  #         get 'overview' => :overview, as: :overview
+  #       end
+  #     end
+  #     resources :photo_albums, except: [:index, :show, :destroy] do
+  #       collection do
+  #         delete :destroy
+  #       end
+  #     end
+  #     resources :photo_albums, only: [] do
+  #       member do
+  #         get '/' => :private_show
+  #       end
+  #     end
+  #
+  #     resources :gigs, except: :show do
+  #       member do
+  #         put :state, as: :status
+  #       end
+  #     end
+  #
+  #     resources :awards, except: [:show, :destroy] do
+  #       collection do
+  #         delete :destroy
+  #       end
+  #     end
+  #
+  #     resources :releases, except: :show do
+  #       collection do
+  #         get :list
+  #       end
+  #     end
+  #
+  #     resources :bookings, only: :index do
+  #       member do
+  #         put ':status' => :state, constraints: { status: /confirmed|rejected/ }, as: :status
+  #         post 'request' => :request_confirmation
+  #       end
+  #     end
+  #
+  #     resources :payments, :artists, only: :index
+  #     resources :press_kits, path: :press_kit, only: :index
+  #     resources :conversations, only: [:index, :show, :destroy] do
+  #       collection do
+  #         get ':recipient_id/new' => :new, as: :new
+  #         post ':recipient_id/create' => :create, as: :create
+  #       end
+  #       member do
+  #         post :update
+  #       end
+  #     end
+  #   end
+  #
+  #   resources :profiles, path: 'profile', only: :show, as: :public_profile do
+  #     resource :events, only: :show
+  #     resource :gigs, only: :show, as: :public_gigs do
+  #       member do
+  #         get '/:id' => :overview, as: :overview
+  #       end
+  #     end
+  #     resources :photo_albums, only: :show, as: :public_photo_album
+  #     resource :awards, only: :show, as: :public_awards
+  #     resource :releases, only: :show, as: :public_releases
+  #     resource :bookings, only: [:show, :create]
+  #     resource :press_kit, :gallery, only: :show
+  #     resource :artists, only: :show
+  #   end
+  # end
 
   namespace :admin do
     post 'artists/featured_update' => 'artists#featured_update'
     post 'gigs/featured_update' => 'gigs#featured_update'
     resources :features, :dashboard, :artists, :gigs
+  end
+
+  scope module: :base do
+    scope module: :public, as: :public do
+      resources :profiles, only: :show
+    end
+
+    scope module: :private, as: :private do
+      resource :profiles, only: [:show, :update], path: '', as: :profile do
+        patch :update_photo
+      end
+
+      resources :gigs, except: [:show, :destroy] do
+        collection do
+          delete :destroy
+        end
+      end
+
+      resources :events, except: [:show, :destroy] do
+        collection do
+          delete :destroy
+        end
+      end
+
+      resources :photo_albums, except: :destroy, path: 'gallery' do
+        collection do
+          delete :destroy
+        end
+      end
+
+      resources :releases, except: :destroy, path: 'music' do
+        collection do
+          get :list
+        end
+      end
+
+      resources :press_kits, only: :index
+
+      resources :awards, except: :destroy do
+        collection do
+          delete :destroy
+        end
+      end
+
+      resources :artists, only: :index
+    end
   end
 
   scope module: :guests do

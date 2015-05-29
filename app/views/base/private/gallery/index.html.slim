@@ -1,0 +1,19 @@
+= render 'base/blocks/private/profile_header'
+.col-md-8.col-md-offset-2.custom-form
+  .profile.clearfix
+    .title_profile.clearfix
+      h5.static-content.pull-sm-left.m-t0
+        ' Albums
+        span
+          | (#{@profile.owned_photo_albums.count})
+      .form-group.pull-sm-right
+        .text-right
+          = link_to new_base_profile_photo_album_path
+            button.btn.btn-primary Create new album
+    = form_tag base_profile_photo_albums_path, method: :delete
+      = render partial: 'base/galleries/blocks/private_photo_album', collection: @photo_albums, locals: { profile: @profile }
+    .col-xs-12
+      .pagination.pull-right
+        = paginate @photo_albums
+
+- javascript 'controllers/base/gallery/edit'

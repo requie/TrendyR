@@ -1,0 +1,39 @@
+= render partial: 'base/blocks/private/profile_header'
+.col-md-8.col-md-offset-2
+  .title_profile.clearfix
+    .form-group
+      ul.title_profile-list.clearfix.m-b0.pull-sm-left
+        li.title_profile-list_black
+          a href="javascript: void(0)"  My gigs
+        li.title_profile-list_gray
+          a href="javascript: void(0)"  Favorites
+      ul.title_profile-list.clearfix.m-b0.pull-sm-right
+        li.title_profile-list_black
+          a href="javascript: void(0)"  Last Week
+        li.title_profile-list_gray
+          a href="javascript: void(0)"  Last Month
+        li.title_profile-list_gray
+          a href="javascript: void(0)"  Last 3 Month
+    .row
+      = search_form_for @q, url: private_releases_path, html: { id: 'search' } do |f|
+        .col-sm-6.m-t10
+          .form-group
+            = f.input :title_cont, input_html: { class: 'form-control', placeholder: 'Search Artist / Album' }
+      .col-sm-6
+        = link_to new_private_release_path
+          button.btn.btn-primary.pull-sm-right.m-t12 Add new album
+  .music-block.music_private
+    .responsive-table
+      table.table
+        thead.table-header
+          tr
+            th.nameArtist
+              p Name Artist
+            th.title-track colspan="2"
+              p Title Track
+            th
+              p Action
+        tbody
+          = render partial: 'base/releases/blocks/song', collection: @songs
+
+- javascript 'controllers/base/releases/index'

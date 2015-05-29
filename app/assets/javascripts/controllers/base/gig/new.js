@@ -67,6 +67,7 @@
           $cropForm: $('#crop-container'),
           done: function (response, status, jqXHR) {
             var photo_url = response.photo.url;
+            (new Image()).src = response.photo.url;
             clearPhotoDiv();
             $gigPhoto.backstretch(photo_url);
             var $simpleForm = $('.simple_form');

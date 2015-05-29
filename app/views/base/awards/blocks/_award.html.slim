@@ -7,13 +7,13 @@
     .col-xs-12.col-md-7
       h4.m-b0
         = award.title
-      small "Year #{award.earning_year}"
+      small Year #{award.earning_year}
       p.m-t10
         = award.description_text
     .gallerySettings
       ul
         li
-          = link_to edit_base_profile_award_path(award) do
+          = link_to edit_private_award_path(award) do
             i.icon-changes
         li
           = link_to 'javascript: void(0)', class: 'delete-awards' do

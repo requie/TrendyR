@@ -9,7 +9,7 @@ class AwardPolicy
   end
 
   def index?
-    update?
+    create?
   end
 
   def new?
@@ -17,7 +17,7 @@ class AwardPolicy
   end
 
   def create?
-    true
+    user.roles?(['producer', 'label'])
   end
 
   def edit?
@@ -25,11 +25,11 @@ class AwardPolicy
   end
 
   def update?
-    @user.profile == @award.owner_profile
+    create? && user.profile == award.owner_profile
   end
 
   def destroy?
-    update?
+    create?
   end
 
   def permitted_attributes

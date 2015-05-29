@@ -18,13 +18,12 @@
           = get_address(private_event.location)
         p
           i.icon-dark-money
-          | $
-          '
+          ' $
           = private_event.price
     .gallerySettings
       ul
         li
-          = link_to edit_base_profile_event_path(private_event)
+          = link_to edit_private_event_path(private_event)
             i.icon-changes
         li
           a href="javascript: void(0)"

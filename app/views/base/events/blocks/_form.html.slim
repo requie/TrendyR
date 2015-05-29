@@ -8,7 +8,7 @@
         p.create-event-text Png, jpg
 = file_field_tag 'photo[attachment]', id: 'upload', class: 'hidden'
 
-= simple_form_for [:base, :profile, event] do |form|
+= simple_form_for [:private, event] do |form|
   = form.input :photo_id, input_html: { class: 'hidden', data: { required: true, 'required-message' => 'Please, upload image' } }
   .row
     .col-xs-12

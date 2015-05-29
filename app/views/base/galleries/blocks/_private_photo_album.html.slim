@@ -3,18 +3,16 @@
     .mobile-center.gallery-mainFoto
       label.mobile-center.cb-checkbox
         = check_box_tag 'photo_album_ids[]', private_photo_album.id
-      = link_to base_profile_photo_album_path(private_photo_album)
+      = link_to private_photo_album_path(private_photo_album)
         = image_tag private_photo_album.first_photo.with_preset(:medium), class: 'mobile-center'
     .col-xs-12.col-md-7
       h4
         = private_photo_album.title
       p
-        | Created:
-        '
+        ' Created:
         = private_photo_album.date_of_creation
         br
-        | Photos:
-        '
+        ' Photos:
         = private_photo_album.number_of_photos
     .col-xs-12.col-sm-8.col-md-7
       .mini-gallery.clearfix
@@ -23,7 +21,7 @@
     .gallerySettings
       ul
         li
-          = link_to edit_base_profile_photo_album_path(private_photo_album)
+          = link_to edit_private_photo_album_path(private_photo_album)
             i.icon-changes
         li
           a href="javascript: void(0)"
