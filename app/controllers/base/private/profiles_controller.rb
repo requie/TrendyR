@@ -1,6 +1,6 @@
 module Base
   module Private
-    class ProfilesController < Base::Private::BaseController
+    class ProfilesController < Private::BaseController
       include LocationProcessing
 
       before_action :authorize_profile

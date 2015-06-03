@@ -1,0 +1,15 @@
+.col-md-8.col-md-offset-2
+  .pg-content.message.clearfix
+    h2: strong Messages
+    h3: strong Inbox (#{current_user.unread_inbox_count})
+    .row
+      .col-xs-12
+        table.table.responsive-table.table-condensed.message-list
+          thead.table-header
+            tr
+              th: p From
+              th: p Messages
+          tbody
+            - @conversations.each do |conversation|
+              = render 'base/resources/conversations/blocks/last_message', message: conversation.last_message
+- javascript 'controllers/base/conversations/index'

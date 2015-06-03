@@ -15,7 +15,7 @@
         = link_to new_private_gig_path
           button.btn.btn-primary Post gig
     = form_tag private_gigs_path, method: :delete
-      = render(partial: 'base/gigs/blocks/private_gig', collection: @gigs, locals: { profile: @profile }) || render_empty(:gigs)
+      = render(partial: 'base/private/gigs/blocks/gig', collection: @gigs, locals: { profile: @profile }) || render_empty(:gigs)
     .col-xs-12
       .pagination.pull-right
         = paginate @gigs

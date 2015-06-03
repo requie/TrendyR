@@ -5,29 +5,19 @@ module Base
     layout 'base/main'
     respond_to :html, :json
 
+    before_action :authenticate_user!
     before_action :authorize_namespace!
-    before_action :set_entity
-    before_action :authorize_user!
+    before_action :set_profile
     before_action :set_location_for_js, only: [:index, :show]
 
     private
 
     def authorize_namespace!
-      authorize :base, :access?
-    end
-
-    def set_entity
-      @entity = current_user.entity
-    end
-
-    # feel free to override in children
-    def authorize_user!
-      true
+      fail 'Implement namespace authorization'
     end
 
     def set_profile
-      id = params[:profile_id] || params[:public_profile_id]
-      @profile = id.present? ? Profile.find(id) : current_user.profile
+      fail 'Implement namespace authorization'
     end
 
     def set_location_for_js

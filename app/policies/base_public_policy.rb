@@ -1,5 +1,5 @@
 class BasePublicPolicy < HeadlessPolicy
   def access?
-    true
+    user.present?
   end
 end

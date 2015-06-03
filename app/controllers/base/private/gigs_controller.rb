@@ -1,6 +1,6 @@
 module Base
   module Private
-    class GigsController < Base::Private::BaseController
+    class GigsController < Private::BaseController
       include LocationProcessing
 
       before_action :set_gig, only: [:edit, :update]

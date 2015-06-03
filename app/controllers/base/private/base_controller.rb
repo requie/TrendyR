@@ -1,12 +1,11 @@
 module Base
   module Private
-    class BaseController < ApplicationController
-      layout 'base/main'
-      respond_to :html, :json
-
-      before_action :authorize_namespace!
-
+    class BaseController < Base::BaseController
       private
+
+      def set_profile
+        @profile = current_user.profile
+      end
 
       def authorize_namespace!
         authorize :base_private, :access?

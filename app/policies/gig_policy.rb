@@ -4,7 +4,7 @@ class GigPolicy
       :title, :price, :overview_text, :opportunity_text, :band_text, :event_id, :gig_text,
       :terms_text, :started_at, :finished_at, :photo_id, faqs_attributes: [:id, :question, :answer]
   ]
-  FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq location_address_eq)
+  FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq)
 
   attr_reader :user, :gig
 

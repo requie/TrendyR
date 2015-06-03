@@ -1,0 +1,25 @@
+= render partial: 'base/blocks/profile_header', locals: { profile: @profile }
+.container.onTop.onBottom
+  .col-md-8.borderRight
+    h5.regRoboto.headSize.standart Book me
+    .row
+      p.col-xs-2.col-md-1.p-t7
+        strong When
+      .col-xs-10.col-sm-4.col-md-3
+        .form-group.date
+          input.form-control.inputDate placeholder="Select date" type="text"
+      p.col-xs-2.col-md-1.p-t7
+        strong Where
+      .col-xs-10.col-sm-4.col-md-7
+        .form-group
+          input.form-control placeholder="Type location" type="text"
+    .borderTop.p-t10.clearfix
+      .timeConcert.pull-left.mobile-center
+        = calendar_navigation(@date)
+      .pull-right
+        ul.dateTabs
+          li.active Day
+          li Month
+      = render 'base/public/bookings/blocks/calendar'
+  = render 'base/public/bookings/blocks/form'
+- javascript 'controllers/base/bookings/show'

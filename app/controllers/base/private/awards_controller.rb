@@ -1,6 +1,6 @@
 module Base
   module Private
-    class AwardsController < Base::Private::BaseController
+    class AwardsController < Private::BaseController
       before_action :authorize_award, except: [:edit, :update]
       before_action :set_award, only: [:edit, :update]
 

@@ -1,7 +1,7 @@
 module Base
   module Private
-    class PressKitsController < Base::BaseController
-      def index
+    class PressKitsController < Private::BaseController
+      def show
       end
     end
   end

@@ -1,11 +1,15 @@
 module Base
   module Private
-    class PhotoAlbumsController < Base::Private::BaseController
+    class PhotoAlbumsController < Private::BaseController
       before_action :set_photo_album, only: [:edit, :update]
       before_action :authorize_photo_album, only: [:index, :new, :create, :destroy]
 
       def index
         @photo_albums = @profile.owned_photo_albums.page(params[:page]).decorate
+      end
+
+      def show
+        @photo_album = PhotoAlbum.find(params[:id]).decorate
       end
 
       def new

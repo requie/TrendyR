@@ -1,0 +1,10 @@
+.borderTop
+  - if profile.owned_awards.any?
+    .clearfix.onTop
+      h4.regRoboto.headSize.standart.pull-left Recent awards
+      = link_to 'View all', public_profile_awards_path(@profile), class: 'pull-right link'
+    = render partial: 'base/public/profiles/blocks/award', collection: profile.owned_awards
+  - else
+    h4.regRoboto.headSize.standart Recent awards
+    p.emptyBlock
+      | No awards

@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-md-8.col-md-offset-2
+      .pg-content.message.clearfix
+        = simple_form_for @message, as: :message, url: create_conversations_path(recipient_id: @recipient) do |f|
+          h2
+            strong Messages
+          h3 New Message
+          .newMessageUser
+            = image_tag mini_url(@recipient.profile)
+            span To:
+            p.name_user
+              = @recipient.first_name
+          .newMessageMe
+            = image_tag mini_url(@profile)
+            span From:
+            p.name_user Me
+          .clear
+          .form-group
+            = f.input :body, input_html: { class: 'form-control', placeholder: 'Write a message...', rows: 10 }
+          .row
+            .col-sm-12
+              button.btn.btn-primary.pull-right Send Message

@@ -1,6 +1,6 @@
 module Base
   module Private
-    class ReleasesController < Base::Private::BaseController
+    class ReleasesController < Private::BaseController
       before_action :set_release, only: [:edit, :update]
 
       def index

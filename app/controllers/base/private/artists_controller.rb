@@ -1,6 +1,6 @@
 module Base
   module Private
-    class ArtistsController < Base::BaseController
+    class ArtistsController < BaseController
       def index
         @artists = []
       end

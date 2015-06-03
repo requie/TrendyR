@@ -1,8 +1,8 @@
 module Base
   module Public
-    class ProfilesController < Base::Public::BaseController
+    class ProfilesController < Public::BaseController
       def show
-        @profile = Profile.find(params[:id]).decorate
+        @profile = @profile.decorate
       end
     end
   end

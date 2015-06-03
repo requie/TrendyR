@@ -4,7 +4,6 @@ module Guests
   class GuestsController < ApplicationController
     layout 'guests/main'
 
-    skip_before_action :authenticate_user!
     before_action :authorize_namespace!
 
     private

@@ -15,7 +15,7 @@
         = link_to new_private_event_path
           button.btn.btn-primary Create event
     = form_tag private_events_path, method: :delete
-      = render(partial: 'base/events/blocks/private_event', collection: @events, locals: { profile: @profile }) || render_empty(:events)
+      = render(partial: 'base/private/events/blocks/event', collection: @events, locals: { profile: @profile }) || render_empty(:events)
     .col-xs-12
       .pagination.pull-right
         = paginate @events

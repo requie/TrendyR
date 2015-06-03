@@ -1,6 +1,6 @@
 module Base
   module Private
-    class EventsController < Base::Private::BaseController
+    class EventsController < Private::BaseController
       include LocationProcessing
 
       before_action :authorize_event, only: [:index, :new, :create, :destroy]

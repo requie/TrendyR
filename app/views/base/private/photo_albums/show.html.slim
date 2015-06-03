@@ -1,0 +1,15 @@
+.strPage
+  = render partial: 'base/blocks/private/profile_header'
+  .col-md-8.col-md-offset-2.custom-form
+    .profile.clearfix
+      .title_profile.clearfix
+        h5.static-content.mobile-center.m-t10.pull-sm-left
+          = @photo_album.title
+          span
+            | (#{@photo_album.number_of_photos} photos)
+        .form-group.pull-sm-right
+          .text-right.mobile-center
+            = link_to new_private_photo_album_path
+              button.btn.btn-primary Create new album
+      .big-gallery.clearfix
+        = render partial: 'base/private/photo_albums/blocks/gallery_image', collection: @photo_album.photos
