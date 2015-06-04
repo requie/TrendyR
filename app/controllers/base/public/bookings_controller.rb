@@ -16,7 +16,6 @@ module Base
         if @booking.save
           redirect_to public_profile_bookings_path(@profile), notice: 'Your booking invitation has been successfully sent'
         else
-          binding.pry
           redirect_to({ action: :index }, alert: 'Booking failed')
         end
       end

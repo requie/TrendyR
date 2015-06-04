@@ -2,8 +2,8 @@ module Base
   module Resources
     class SettingsController < Resources::BaseController
       USER_ATTRIBUTES = [
-          :first_name, :last_name, :email, email_notification_ids: [],
-          user_contacts_attributes: [:first_phone, :second_phone, :fax]
+        :first_name, :last_name, :email, email_notification_ids: [],
+                                         user_contacts_attributes: [:first_phone, :second_phone, :fax]
       ]
       PASSWORD_ATTRIBUTES = %i(current_password password password_confirmation)
 

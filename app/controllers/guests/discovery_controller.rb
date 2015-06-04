@@ -38,8 +38,8 @@ module Guests
 
     def music
       @albums = Release.first(5)
-      @resources = Song.eager_load(release: {artist: {profile: :location}})
-          .where.not(release: nil).page(@page)
+      @resources = Song.eager_load(release: { artist: { profile: :location } })
+                   .where.not(release: nil).page(@page)
       respond_to do |format|
         format.html
         format.json { render json: html_template(:song) }

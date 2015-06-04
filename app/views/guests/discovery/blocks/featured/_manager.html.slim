@@ -2,7 +2,7 @@
 .djs-block.manager
   .row
     .album-logo-manager
-      = link_to image_tag(manager.profile.photo.try(:url), class: 'img-responsive promo'), base_public_profile_path(manager.profile)
+      = link_to image_tag(manager.profile.photo.try(:url), class: 'img-responsive promo'), public_profile_path(manager.profile)
     .col-md-9
       .album-preview
         h2

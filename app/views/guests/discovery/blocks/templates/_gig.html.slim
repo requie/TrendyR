@@ -5,7 +5,7 @@
         .col-xs-12.col-md-9
           .promo_more.gigs
             .promo-logo-now
-              = link_to overview_base_public_profile_public_gigs_path(gig.owner_profile, gig) do
+              = link_to gig_path(gig) do
                 = image_tag gig.photo.url
             h3
               span.text-left

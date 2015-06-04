@@ -17,7 +17,7 @@ class AwardPolicy
   end
 
   def create?
-    user.roles?(['producer', 'label'])
+    user.roles?(%w(producer label))
   end
 
   def edit?

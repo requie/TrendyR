@@ -1,7 +1,7 @@
 - return if venue.nil?
 .djs-block
   .album-logo-promo
-    = link_to image_tag(venue.profile.photo.try(:url), class: 'img-responsive promo'), base_public_profile_path(venue.profile)
+    = link_to image_tag(venue.profile.photo.try(:url), class: 'img-responsive promo'), public_profile_path(venue.profile)
   .clearfix
     .album-preview
       h2
@@ -26,4 +26,4 @@
           p Jul 18, 2014 - Jul 20, 2014
           i.icon-place
           p Painesville, Ohio, USA
-        = link_to 'Calendar', base_public_profile_events_path(venue.profile), class: 'btn-calendar pull-right'
+        = link_to 'Calendar', public_profile_events_path(venue.profile), class: 'btn-calendar pull-right'

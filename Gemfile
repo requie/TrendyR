@@ -48,7 +48,7 @@ gem 'ransack'
 gem 'taglib-ruby'
 gem 'mailboxer'
 gem 'sidekiq', '~> 3.3.4'
-gem 'chewy', git: 'https://github.com/toptal/chewy.git'
+gem 'chewy', '~> 0.8.1'
 gem 'foreman'
 
 # Use ActiveModel has_secure_password

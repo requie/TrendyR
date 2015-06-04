@@ -20,7 +20,7 @@ class Booking < ActiveRecord::Base
   end
 
   validates :gig_id, :artist_id, presence: true
-  validates :started_at, :finished_at, presence: true, if: -> { source && source == 'offer'}
+  validates :started_at, :finished_at, presence: true, if: -> { source && source == 'offer' }
   validates :status, inclusion: AVAILABLE_STATUSES
   validates :source, inclusion: SOURCE_TYPES
   validate :booking_period, if: :allow_period_validation

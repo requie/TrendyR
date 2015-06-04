@@ -1,11 +1,11 @@
 class ProfilePolicy
   GENERAL_ATTRIBUTES = [
-      :name, :website, :description_text, :spotify_url, :rdio_url, :facebook_url,
-      :twitter_url, :google_plus_url, :instagram_url, genre_ids: []
+    :name, :website, :description_text, :spotify_url, :rdio_url, :facebook_url,
+    :twitter_url, :google_plus_url, :instagram_url, genre_ids: []
   ]
   MANAGER_ATTRIBUTES = [
-      :name, :website, :description_text, :facebook_url, :twitter_url,
-      :google_plus_url, :instagram_url, genre_ids: []
+    :name, :website, :description_text, :facebook_url, :twitter_url,
+    :google_plus_url, :instagram_url, genre_ids: []
   ]
 
   attr_reader :user, :profile

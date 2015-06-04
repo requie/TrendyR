@@ -2,7 +2,6 @@ class Artist < ActiveRecord::Base
   include Rolable
   include Indexable
 
-
   has_many :bookings, -> { where(source: 'offer').order(created_at: :desc) }
   has_many :gigs, through: :bookings
   has_many :releases, -> { order(created_at: :desc) }
