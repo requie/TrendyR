@@ -1,7 +1,11 @@
 class ProfilePolicy
-  PERMITTED_ATTRIBUTES = [
+  GENERAL_ATTRIBUTES = [
     :name, :website, :description_text, :spotify_url, :rdio_url, :facebook_url,
     :twitter_url, :google_plus_url, :instagram_url, genre_ids: []
+  ]
+  MANAGER_ATTRIBUTES = [
+    :name, :website, :description_text, :facebook_url, :twitter_url,
+    :google_plus_url, :instagram_url, genre_ids: []
   ]
 
   attr_reader :user, :profile
@@ -12,15 +16,11 @@ class ProfilePolicy
   end
 
   def show?
-    true
-  end
-
-  def index?
     update?
   end
 
   def update?
-    @profile.user == @user
+    @profile.user_id == @user.id
   end
 
   def update_photo?
@@ -28,11 +28,7 @@ class ProfilePolicy
   end
 
   def permitted_attributes
-    if @user.role?(:manager)
-      PERMITTED_ATTRIBUTES - [:spotify_url, :rdio_url]
-    else
-      PERMITTED_ATTRIBUTES
-    end
+    @user.role?(:manager) ? MANAGER_ATTRIBUTES : GENERAL_ATTRIBUTES
   end
 
   def scope

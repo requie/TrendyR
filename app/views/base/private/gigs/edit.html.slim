@@ -1,0 +1,9 @@
+= render 'base/blocks/private/crop'
+.col-md-8.col-md-offset-2.custom-form
+  = hidden_field_tag 'photo_url', @gig.photo.cropped
+  .row
+    .col-xs-12
+      h2.head_text Edit gig
+  = render 'base/private/gigs/blocks/form', gig: @gig
+
+- javascript 'controllers/base/event/edit'

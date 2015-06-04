@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
 
     authenticated :user, ->(user) { user.role.is_public? } do
-      root 'base/profiles#index', as: :authenticated_root
+      root 'base/private/profiles#show', as: :authenticated_root
     end
 
     root to: 'devise/sessions#new'
@@ -21,49 +21,63 @@ Rails.application.routes.draw do
     get 'admin/sign_in' => 'devise/sessions#new'
   end
 
-  namespace :base, path: nil do
-    resource :profile, only: :update do
-      get '/' => :index
-      patch :update_photo, as: :update_photo
+  namespace :admin do
+    post 'artists/featured_update' => 'artists#featured_update'
+    post 'gigs/featured_update' => 'gigs#featured_update'
+    resources :features, :dashboard, :artists, :gigs
+  end
 
-      resource :settings, only: [:show, :update]
-      resources :galleries, path: 'gallery', only: :index
-      resources :events, except: :show do
-        collection do
-          delete :destroy
-        end
-        member do
-          get 'overview' => :overview, as: :overview
-        end
+  scope module: :base do
+    scope module: :public, as: :public do
+      resources :profiles, only: :show, param: 'profile_id'
+      resources :profiles, only: [] do
+        resources :events, :awards, only: :index
+        resources :gigs, only: :index
+        resource :press_kit, only: :show
+        resources :photo_albums, path: 'gallery', only: [:index, :show]
+        resources :bookings, only: [:index, :create]
+        resources :artists, only: :index
+        resources :releases, only: :index
       end
-      resources :photo_albums, except: [:index, :show, :destroy] do
-        collection do
-          delete :destroy
-        end
-      end
-      resources :photo_albums, only: [] do
-        member do
-          get '/' => :private_show
-        end
-      end
+    end
 
-      resources :gigs, except: :show do
-        member do
-          put :state, as: :status
-        end
+    scope module: :private, as: :private do
+      resource :profiles, only: [:show, :update], path: '', as: :profile do
+        patch :update_photo
+        resource :press_kit, only: :show
       end
 
-      resources :awards, except: [:show, :destroy] do
+      resources :gigs, except: [:show, :destroy] do
         collection do
           delete :destroy
         end
       end
 
-      resources :releases, except: :show do
+      resources :events, except: [:show, :destroy] do
+        collection do
+          delete :destroy
+        end
+      end
+
+      resources :photo_albums, except: :destroy, path: 'gallery' do
+        collection do
+          delete :destroy
+        end
+      end
+
+      resources :releases, except: :destroy, path: 'music' do
         collection do
           get :list
         end
       end
+
+      resources :awards, except: :destroy do
+        collection do
+          delete :destroy
+        end
+      end
+
+      resources :artists, :payments, only: :index
 
       resources :bookings, only: :index do
         member do
@@ -71,9 +85,11 @@ Rails.application.routes.draw do
           post 'request' => :request_confirmation
         end
       end
+    end
 
-      resources :payments, :artists, only: :index
-      resources :press_kits, path: :press_kit, only: :index
+    scope module: :resources do
+      resources :gigs, :events, only: :show
+      resource :settings, only: [:show, :update]
       resources :conversations, only: [:index, :show, :destroy] do
         collection do
           get ':recipient_id/new' => :new, as: :new
@@ -83,28 +99,17 @@ Rails.application.routes.draw do
           post :update
         end
       end
-    end
-
-    resources :profiles, path: 'profile', only: :show, as: :public_profile do
-      resource :events, only: :show
-      resource :gigs, only: :show, as: :public_gigs do
+      resources :photos, only: [:create, :destroy] do
         member do
-          get '/:id' => :overview, as: :overview
+          put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/ }
         end
       end
-      resources :photo_albums, only: :show, as: :public_photo_album
-      resource :awards, only: :show, as: :public_awards
-      resource :releases, only: :show, as: :public_releases
-      resource :bookings, only: [:show, :create]
-      resource :press_kit, :gallery, only: :show
-      resource :artists, only: :show
+      resources :songs, only: [:create, :destroy] do
+        member do
+          put :publish
+        end
+      end
     end
-  end
-
-  namespace :admin do
-    post 'artists/featured_update' => 'artists#featured_update'
-    post 'gigs/featured_update' => 'gigs#featured_update'
-    resources :features, :dashboard, :artists, :gigs
   end
 
   scope module: :guests do
@@ -122,18 +127,6 @@ Rails.application.routes.draw do
         get ':resource' => :resource, constraints: { resource: /artists|labels|managers|producers|venues/ }, as: ''
         get :gigs, :events, :music
       end
-    end
-  end
-
-  resources :photos, only: [:create, :destroy] do
-    member do
-      put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/ }
-    end
-  end
-
-  resources :songs, only: [:create, :destroy] do
-    member do
-      put :publish
     end
   end
 end

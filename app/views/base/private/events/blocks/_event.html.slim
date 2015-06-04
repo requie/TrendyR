@@ -1,0 +1,30 @@
+.gallery.mobile-center.clearfix.main-events
+  .col-xs-12
+    .mobile-center.gallery-mainFoto
+      label.mobile-center.cb-checkbox
+        = check_box_tag 'event_ids[]', event.id
+    .promo_more.mobile-center.gigs.clearfix
+      .promo-logo-now
+        = link_to 'javascript: void(0)' do
+          = image_tag event.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
+      h4.static-content
+        = event.title
+      .eventName.mobile-center
+        p
+          i.icon-dark-calendar
+          = period(event)
+        p
+          i.icon-dark-place
+          = get_address(event.location)
+        p
+          i.icon-dark-money>
+          | $ #{event.price}
+    .gallerySettings
+      ul
+        li
+          = link_to edit_private_event_path(event)
+            i.icon-changes
+        li
+          a href="javascript: void(0)"
+            i.icon-deleteGallery
+    = render 'base/private/events/blocks/status', status: status(event)

@@ -7,10 +7,12 @@ SimpleNavigation::Configuration.run do |navigation|
   }
 
   navigation.items do |menu|
-    menu.item :booking, 'Booking Invitation', base_profile_bookings_path, icon: 'icon-invitation', if: proc { current_user.role?(:artist) }
-    menu.item :settings, 'Profile Settings', base_profile_settings_path, icon: 'icon-settings'
-    menu.item :messages, 'Messages', base_profile_conversations_path, icon: 'icon-mes'
-    menu.item :music, 'Payments', base_profile_payments_path, icon: 'icon-pay'
+    menu.item :booking, 'Booking Invitation', private_bookings_path, icon: 'icon-invitation',
+              if: proc { current_user.role?(:artist) }
+    menu.item :settings, 'Profile Settings', settings_path, icon: 'icon-settings'
+    menu.item :messages, 'Messages', conversations_path, icon: 'icon-mes'
+    menu.item :payments, 'Payments', private_payments_path, icon: 'icon-pay',
+              if: proc { current_user.role?(:artist) }
     menu.item :logout, 'Log Out', destroy_user_session_path, icon: 'icon-logOut'
 
     menu.dom_attributes = { class: 'dropdown-menu userInform', role: 'menu', 'aria-labelledby' => 'dLabel' }

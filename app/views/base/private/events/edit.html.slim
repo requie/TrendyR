@@ -1,0 +1,7 @@
+.col-md-8.col-md-offset-2.custom-form
+  = hidden_field_tag 'photo_url', @event.photo.cropped
+  .row
+    .col-xs-12
+      h2.head_text Edit event
+  = render partial: 'base/private/events/blocks/form', locals: { event: @event }
+- javascript 'controllers/base/event/edit'

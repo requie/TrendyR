@@ -1,0 +1,23 @@
+= render partial: 'base/blocks/private/profile_header'
+.col-md-8.col-md-offset-2.custom-form
+  .profile.clearfix
+    .title_profile.clearfix
+      ul.title_profile-list.clearfix.pull-sm-left
+        li.title_profile-list_black
+          = link_to 'All', private_gigs_path
+        li.title_profile-list_blue
+          = link_to 'Started', private_gigs_path(filter: :started)
+        li.title_profile-list_gray
+          = link_to 'Pending', private_gigs_path(filter: :pending)
+        li.title_profile-list_green
+          = link_to 'Past', private_gigs_path(filter: :past)
+      .form-group.pull-sm-right
+        = link_to new_private_gig_path
+          button.btn.btn-primary Post gig
+    = form_tag private_gigs_path, method: :delete
+      = render(partial: 'base/private/gigs/blocks/gig', collection: @gigs, locals: { profile: @profile }) || render_empty(:gigs)
+    .col-xs-12
+      .pagination.pull-right
+        = paginate @gigs
+
+- javascript 'controllers/base/gig/edit'

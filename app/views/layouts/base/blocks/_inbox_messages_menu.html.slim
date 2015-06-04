@@ -2,7 +2,7 @@
   - inbox.each do |conversation|
     - msg = conversation.last_message
     li
-      = link_to base_profile_conversation_path(conversation) do
+      = link_to conversations_path(conversation) do
         = image_tag mini_url(msg.sender.profile)
         span.nameFriend
           = msg.sender.first_name

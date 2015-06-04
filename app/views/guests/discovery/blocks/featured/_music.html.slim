@@ -14,7 +14,7 @@
     - albums.each do |album|
       li
         = image_tag album.photo.with_preset(:standard)
-        = link_to base_public_profile_public_releases_path(album.artist.profile) do
+        = link_to public_profile_releases_path(album.artist.profile) do
           p
             strong
               = album.artist.profile.name

@@ -1,0 +1,6 @@
+.strPage
+  = render partial: 'base/blocks/profile_header', locals: { profile: @profile }
+  .container.onTop.onBottom
+    .col-xs-12
+      h5.regRoboto.headSize.standart All gallery
+      = render partial: 'base/public/photo_albums/blocks/photo_album', collection: @photo_albums, locals: { profile: @profile }

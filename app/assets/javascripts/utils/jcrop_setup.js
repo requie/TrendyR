@@ -57,7 +57,7 @@
 
         this.dom.$cropTarget.Jcrop({
           aspectRatio: options.aspectRatio,
-          onSelect:   _.bind(this.updateCoords, this),
+          onSelect: _.bind(this.updateCoords, this),
           onChange: _.bind(this.updateCoords, this),
           boxWidth: options.boxWidth,
           boxHeight: options.boxHeight,

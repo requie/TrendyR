@@ -10,7 +10,7 @@ class Role < ActiveRecord::Base
 
   ALL.each do |role_name|
     define_method "#{role_name}?" do
-      self.name == role_name
+      name == role_name
     end
   end
 

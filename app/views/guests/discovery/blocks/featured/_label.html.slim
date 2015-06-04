@@ -1,7 +1,7 @@
 - return if label.nil?
 .djs-block
   .album-logo-promo
-    = link_to image_tag(label.profile.photo.try(:url), class: 'img-responsive promo'), base_public_profile_path(label.profile)
+    = link_to image_tag(label.profile.photo.try(:url), class: 'img-responsive promo'), public_profile_path(label.profile)
   .clearfix
     .album-preview
       h2

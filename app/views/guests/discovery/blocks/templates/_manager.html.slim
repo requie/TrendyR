@@ -1,4 +1,4 @@
-tr data-url=base_public_profile_path(manager.profile)
+tr data-url=public_profile_path(manager.profile)
   td.nameArtist data-th="Record label"
     = image_tag mini_url(manager.profile)
     strong
@@ -14,5 +14,4 @@ tr data-url=base_public_profile_path(manager.profile)
     ul.genres
       - manager.profile.genres.each do |genre|
         li
-          a href="javascript: void(0)"
-            = genre.name
+          = link_to genre.name, 'javascript: void(0)'

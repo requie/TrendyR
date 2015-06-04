@@ -1,0 +1,20 @@
+.gallery.mobile-center.clearfix
+  .col-xs-12
+    .mobile-center.gallery-mainFoto
+      label.mobile-center.cb-checkbox
+        = check_box_tag 'award_ids[]', award.id
+      = image_tag award.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
+    .col-xs-12.col-md-7
+      h4.m-b0
+        = award.title
+      small Year #{award.earning_year}
+      p.m-t10
+        = award.description_text
+    .gallerySettings
+      ul
+        li
+          = link_to edit_private_award_path(award) do
+            i.icon-changes
+        li
+          = link_to 'javascript: void(0)', class: 'delete-awards' do
+            i.icon-deleteGallery

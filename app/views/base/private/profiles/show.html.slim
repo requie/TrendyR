@@ -1,0 +1,55 @@
+= render partial: 'base/blocks/private/profile_header'
+.col-md-8.col-md-offset-2.custom-form
+  .profile.clearfix
+    h5.static-content
+      | About
+    = simple_form_for @profile, url: private_profile_path do |f|
+      .row
+        .col-sm-6
+          = f.input :name, input_html: { class: 'form-control', 'data-required' => true }, placeholder: @profile.name_placeholder
+        .col-sm-6
+          = f.input :website, input_html: { class: 'form-control', 'data-required' => true, 'data-type' => 'url' }, placeholder: 'Website'
+      = render partial: 'base/blocks/location_autocomplete', locals: { location: @profile.location }
+      h5.static-content
+        | Description
+      .row
+        .col-xs-12
+          = f.input :description_text,
+              input_html: { class: 'form-control', rows: '10', 'data-required' => true, 'data-trim-value' => true }
+      h5.static-content
+        | Genres
+      = f.collection_check_boxes :genre_ids, Genre.all, :id, :name  do |cb|
+        = cb.label(class: 'cb-checkbox') { cb.check_box('data-ui-enabled' => false) + cb.text } + ' '
+
+      - if policy(:ProfileHeadless).show_music_links?
+        h5.static-content
+          | Spoitfy link
+        .row
+          .col-xs-12
+            = f.input :spotify_url, input_html: { class: 'form-control' }
+        h5.static-content
+          | Rdio link
+        .row
+          .col-xs-12
+            = f.input :rdio_url, input_html: { class: 'form-control' }
+      h5.static-content
+        | Social links
+      .clearfix
+        i.icon-facebook-gray
+        .col-xs-8
+          = f.input :facebook_url, input_html: { class: 'form-control' }, placeholder: 'Facebook link'
+      .clearfix
+        i.icon-twitter-gray
+        .col-xs-8
+          = f.input :twitter_url, input_html: { class: 'form-control' }, placeholder: 'Twitter link'
+      .clearfix
+        i.icon-google-gray
+        .col-xs-8
+          = f.input :google_plus_url, input_html: { class: 'form-control' }, placeholder: 'Google link'
+      .clearfix
+        i.icon-insta-gray
+        .col-xs-8
+          = f.input :instagram_url, input_html: { class: 'form-control' }, placeholder: 'Instagram link'
+      .form-group
+        button.btn.btn-primary.pull-right Save updates
+- javascript 'controllers/users/validation.dep'

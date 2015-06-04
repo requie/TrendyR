@@ -1,0 +1,9 @@
+= render 'base/blocks/profile_header', profile: @profile
+.container.onTop.onBottom
+  .row
+    .col-md-8.borderRight
+      h5.regRoboto.headSize.standart All awards
+      = render(partial: 'base/public/awards/blocks/award', collection: @awards, as: :award) || render_empty(:awards)
+    .col-md-4
+      = render 'base/blocks/sidebar', profile: @profile
+= javascript 'controllers/base/awards/show'

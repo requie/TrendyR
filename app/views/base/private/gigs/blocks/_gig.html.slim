@@ -1,0 +1,35 @@
+.gallery.mobile-center.clearfix.main-events
+  .col-xs-12
+    .mobile-center.gallery-mainFoto
+      label.mobile-center.cb-checkbox
+        = check_box_tag 'gig_ids[]', gig.id
+    .promo_more.mobile-center.gigs.clearfix
+      .promo-logo-now
+        = link_to 'javascript: void(0)'
+          = image_tag gig.photo.with_presets([:cropped, :medium]), class: 'mobile-center'
+      h4.static-content
+        = gig.title
+      .eventName.mobile-center
+        p
+          i.icon-dark-calendar
+          = period(gig)
+        p
+          i.icon-dark-place
+          = get_address(gig.location)
+        p
+          i.icon-dark-money>
+          | $ #{gig.price}
+    - if gig.pending_bookings.any?
+      .confirmation
+        p.confirmation_title Confirmation
+        ul.confirmation_list.clearfix
+          = render partial: 'base/private/gigs/blocks/request', collection: gig.pending_bookings
+    .gallerySettings
+      ul
+        li
+          = link_to edit_private_gig_path(gig)
+            i.icon-changes
+        li
+          a href="javascript: void(0)"
+            i.icon-deleteGallery
+    = render partial: 'base/private/events/blocks/status', locals: { status: status(gig) }

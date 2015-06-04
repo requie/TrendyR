@@ -10,13 +10,11 @@ Chewy::Query.module_eval do
     @top_hits ||= begin
       (_response['aggregations'] || {}).each_with_object({}) do |(name, data), obj|
         obj[name] = data['buckets'].each_with_object({}) do |bucket, obj2|
-          hit_name = bucket.keys.find { |key| %r{_hit} =~ key }
+          hit_name = bucket.keys.find { |key| /_hit/ =~ key }
           next if hit_name.blank?
           obj2[bucket['key']] = bucket[hit_name]['hits']['hits'].map do |hit|
             attributes = (hit['_source'] || {}).merge(hit['highlight'] || {}, &self.class.const_get(:RESULT_MERGER))
-            attributes.reverse_merge!(id: hit['_id'])
-              .merge!(_score: hit['_score'])
-              .merge!(_explanation: hit['_explanation'])
+            attributes.reverse_merge!(id: hit['_id']).merge!(_score: hit['_score'], _explanation: hit['_explanation'])
 
             wrapper = _derive_index(hit['_index']).type_hash[hit['_type']].new(attributes)
             wrapper._data = hit

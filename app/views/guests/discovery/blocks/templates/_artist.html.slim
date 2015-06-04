@@ -1,4 +1,4 @@
-tr data-url=base_public_profile_path(artist.profile)
+tr data-url=public_profile_path(artist.profile)
   td.nameArtist data-th="Name Artist"
     = image_tag mini_url(artist.profile)
     strong
@@ -12,7 +12,7 @@ tr data-url=base_public_profile_path(artist.profile)
         li
           = link_to genre.name, 'javascript: void(0)'
   td.album-track colspan="2" data-th="Title Track"
-    - if song = artist.songs.last_song
+    - if (song = artist.songs.last_song)
       .audiojs.audioTrack
         .play-pause
           p.play

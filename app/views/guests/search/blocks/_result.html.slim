@@ -5,7 +5,7 @@
     ul.search_list
       - result[1].each do |entity|
         li.search_list_item.clearfix
-          = link_to base_public_profile_path(entity.profile_id), class: 'search_list_link' do
+          = link_to public_profile_path(entity.profile_id), class: 'search_list_link' do
             = image_tag entity.mini_logo, class: 'search_list_avatar'
             span.search_list_name
               = entity.name

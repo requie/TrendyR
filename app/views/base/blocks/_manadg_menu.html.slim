@@ -3,15 +3,16 @@
     .menu-press.mobile-center
       div
         - if profile.user.role?(:artist)
-          = link_to base_public_profile_bookings_path(profile) do
+          = link_to public_profile_bookings_path(@profile) do
             i.icon-kit
             p.text-uc book me
         - else
-          = link_to base_public_profile_press_kit_path(profile) do
+          = link_to public_profile_press_kit_path(@profile) do
             i.icon-kit
             p.text-uc press kit
       div
-        = link_to new_base_profile_conversations_path(@profile.user) do
+        /! TODO: change @profile variable
+        = link_to new_conversations_path(@profile.user) do
           i.icon-mess
           p.text-uc message
     = render_navigation(context: :profile)

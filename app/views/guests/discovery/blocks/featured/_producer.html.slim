@@ -2,7 +2,7 @@
 .djs-block.manager
   .row
     .album-logo-manager
-      = link_to image_tag(producer.profile.photo.try(:url), class: 'img-responsive promo'), base_public_profile_path(producer.profile)
+      = link_to image_tag(producer.profile.photo.try(:url), class: 'img-responsive promo'), public_profile_path(producer.profile)
     .col-md-9
       .album-preview
         h2
@@ -23,4 +23,4 @@
         ul
           - producer.artists.first(10).each do |artist|
             li
-              = link_to image_tag(artist.profile.photo.url), base_public_profile_path(artist.profile)
+              = link_to image_tag(artist.profile.photo.url), public_profile_path(artist.profile)

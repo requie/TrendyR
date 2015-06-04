@@ -1,0 +1,12 @@
+.borderTop
+  - if profile.owned_events.upcoming.any?
+    .clearfix.onTop
+      h4.regRoboto.headSize.standart.pull-left
+        = events_caption
+      = link_to 'View all', public_profile_events_path(@profile), class: 'pull-right link'
+    = render partial: 'base/public/events/blocks/event', collection: profile.owned_events.upcoming
+  - else
+    h4.regRoboto.headSize.standart
+      = events_caption
+    p.emptyBlock
+      | No events

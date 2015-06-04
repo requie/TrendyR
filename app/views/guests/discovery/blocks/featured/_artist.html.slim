@@ -1,8 +1,8 @@
 - return if artist.nil?
 .djs-block
-  - if release = artist.last_release
+  - if (release = artist.last_release)
     .album-logo
-      = link_to image_tag(release.photo.with_preset(:standard), class: 'img-responsive'), base_public_profile_public_releases_path(artist.profile, release)
+      = link_to image_tag(release.photo.with_preset(:standard), class: 'img-responsive'), public_profile_releases_path(artist.profile, release)
     .clearfix
       .album-preview
         h2
@@ -25,7 +25,7 @@
     .col-xs-12.col-md-6.col-lg-7
       .event
         h3 Upcoming event
-        - if upcoming = artist.upcoming_event
+        - if (upcoming = artist.upcoming_event)
           h4
             = upcoming.title
           .eventName.col-xs-7
@@ -35,7 +35,7 @@
             i.icon-place
             p
               = upcoming.location.address
-          = link_to 'Calendar', base_public_profile_events_path(artist), class: 'pull-right btn-calendar'
+          = link_to 'Calendar', public_profile_events_path(artist), class: 'pull-right btn-calendar'
     .col-xs-12.col-md-6.col-lg-5
       .mixes.clearfix
         h3 Releases

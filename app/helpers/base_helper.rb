@@ -1,12 +1,5 @@
 module BaseHelper
   ACCESS = {
-    private: {
-      artist: [:home, :gigs, :music, :events, :press_kit],
-      venue: [:home, :gigs, :events, :gallery],
-      producer: [:home, :artists, :releases_list, :awards],
-      manager: [:home, :artists],
-      label: [:home, :artists, :releases, :events, :awards]
-    },
     public: {
       artist: [:home, :gigs, :releases, :events, :calendar, :press_kit, :photos, :music, :videos],
       venue: [:home, :gigs, :events, :calendar, :gallery, :photos, :location],
@@ -30,9 +23,7 @@ module BaseHelper
   end
 
   def render_empty(name_sym)
-    content_tag(:p, class: 'emptyBlock m-t20') do
-      "No #{name_sym.downcase}"
-    end
+    content_tag(:p, "No #{name_sym.downcase}", class: 'emptyBlock m-t20')
   end
 
   def container_class
