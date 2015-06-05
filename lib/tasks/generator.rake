@@ -1,6 +1,6 @@
 namespace :generator do
   task fake_labels: :environment do
-    roles = Role.all
+    roles = Role.where(is_public: true)
     roles.each do |role|
       20.times do
         user = User.new do |u|
