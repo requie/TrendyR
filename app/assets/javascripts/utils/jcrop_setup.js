@@ -15,10 +15,13 @@
         this.dom.$cropTarget = this.dom.$modal.find('#croptarget');
         this.dom.$cropContent = this.dom.$modal.find('.modal-footer');
         this.dom.$cropbutton = this.dom.$modal.find('#cropbutton');
+        this.dom.$cropHolder = this.dom.$modal.find('.jcrop-holder');
         this.dom.$x = this.dom.$cropContent.find('#x');
         this.dom.$y = this.dom.$cropContent.find('#y');
         this.dom.$w = this.dom.$cropContent.find('#w');
         this.dom.$h = this.dom.$cropContent.find('#h');
+
+        
 
         if (this.api !== null) {
           this.api.destroy();
@@ -52,6 +55,9 @@
       },
       show: function(options){
         var that = this;
+        var width = options.trueSize[0] / 2;
+        var height = options.trueSize[1] / 2;
+
 
         this.dom.$cropTarget.attr('src', options.photo_url);
 
@@ -61,7 +67,10 @@
           onChange: _.bind(this.updateCoords, this),
           boxWidth: options.boxWidth,
           boxHeight: options.boxHeight,
-          trueSize: options.trueSize
+          trueSize: options.trueSize,
+
+          setSelect: [ width/2, height/2, width + width/2, height + height/2 ]
+
         }, function () {
           that.api = this;
         });
