@@ -1,4 +1,4 @@
-- if results.empty?
+- if results.empty? && params[:q].present?
   .row
     .col-xs-12
       p.search_empty Your search did not return any results. Please try again
