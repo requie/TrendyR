@@ -6,7 +6,7 @@
         span.view.pull-sm-right Event
       h3
         span.text-left
-          = venue.profile.name
+          = link_to venue.profile.name, public_profile_path(venue.profile) if venue.profile.name.present?
       .eventName
         - if venue.profile.location.present?
           i.icon-dark-place
