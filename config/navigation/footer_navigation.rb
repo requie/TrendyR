@@ -3,7 +3,7 @@ SimpleNavigation::Configuration.run do |navigation|
   navigation.auto_highlight = false
 
   navigation.items do |menu|
-    menu.item :booking, 'Discover', '#'
+    menu.item :booking, 'Discover', discovery_index_path(:artists)
     menu.item :settings, 'Post a gig', '#'
     menu.item :messages, 'How it works', '#'
     menu.item :music, 'Features', '#'
