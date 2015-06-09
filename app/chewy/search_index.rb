@@ -50,7 +50,7 @@ class SearchIndex < Chewy::Index
     end
 
     def search_grouped_by_type(query, limit = 10)
-      return Kaminari::PaginatableArray.new if query.nil?
+      return {} if query.nil?
       search(query).aggregations(
         type: {
           terms: { field: '_type' },
