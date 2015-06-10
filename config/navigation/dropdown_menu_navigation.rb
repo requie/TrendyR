@@ -11,7 +11,7 @@ SimpleNavigation::Configuration.run do |navigation|
               if: proc { current_user.role?(:artist) }
     menu.item :settings, 'Profile Settings', settings_path, icon: 'icon-settings'
     menu.item :messages, 'Messages', conversations_path, icon: 'icon-mes'
-    menu.item :payments, 'Payments', private_payments_path, icon: 'icon-pay',
+    menu.item :payments, 'Payments', payments_path, icon: 'icon-pay',
               if: proc { current_user.role?(:artist) }
     menu.item :logout, 'Log Out', destroy_user_session_path, icon: 'icon-logOut'
 

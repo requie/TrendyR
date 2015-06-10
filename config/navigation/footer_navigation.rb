@@ -4,7 +4,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
   navigation.items do |menu|
     menu.item :booking, 'Discover', discovery_index_path(:artists)
-    menu.item :settings, 'Post a gig', '#'
+    menu.item :settings, 'Post a gig', new_private_gig_path
     menu.item :messages, 'How it works', '#'
     menu.item :music, 'Features', '#'
     menu.item :logout, 'About', '#'

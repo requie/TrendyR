@@ -77,7 +77,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :artists, :payments, only: :index
+      resources :artists, only: :index
 
       resources :bookings, only: :index do
         member do
@@ -107,6 +107,12 @@ Rails.application.routes.draw do
       resources :songs, only: [:create, :destroy] do
         member do
           put :publish
+        end
+      end
+      resources :payments, path: 'payments', only: :index do
+        collection do
+          get 'event/:id' => :event_form, as: :ticket
+          post 'event/:id' => :event_charge
         end
       end
     end

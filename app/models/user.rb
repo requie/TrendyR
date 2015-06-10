@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :photos, foreign_key: :uploader_id
   has_many :email_notification_users
   has_many :email_notifications, through: :email_notification_users
+  has_many :orders
 
   validates :first_name, :last_name, length: { maximum: MAX_LENGTH }, format: { with: NAME_FORMAT }, allow_blank: true
   validates :roles, presence: true

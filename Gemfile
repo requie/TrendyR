@@ -50,9 +50,7 @@ gem 'mailboxer'
 gem 'sidekiq', '~> 3.3.4'
 gem 'chewy', '~> 0.8.1'
 gem 'foreman'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'stripe'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background.
