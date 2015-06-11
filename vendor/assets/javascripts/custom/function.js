@@ -161,11 +161,13 @@ $.fn.quantityInput = function(){
         number--;
         if (number < 0) number = 0;
         $quantity.val(number);
+      } else {
+        $quantity.val(0);
       }
-      else $quantity.val(0);
+
+      $quantity.trigger('change');
 
       return false;
-
     });
     $decrement.on('click', function () {
       if (ValidateNumeric($quantity.val())) {
@@ -173,8 +175,11 @@ $.fn.quantityInput = function(){
         number++;
         if (number < 0) number = 0;
         $quantity.val(number);
+      } else {
+        $quantity.val(0);
       }
-      else $quantity.val(0);
+
+      $quantity.trigger('change');
 
       return false;
     });

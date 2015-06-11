@@ -1,24 +1,25 @@
-- if flash[:notice].present?
-  - if flash[:notice].is_a?(Array)
-    - flash[:notice].each do |alert|
+.notification_block
+  - if flash[:notice].present?
+    - if flash[:notice].is_a?(Array)
+      - flash[:notice].each do |alert|
+        .validate-green.alert-message
+          p
+            = alert
+          i.icon-close-block
+    - else
       .validate-green.alert-message
         p
-          = alert
+          = flash[:notice]
         i.icon-close-block
-  - else
-    .validate-green.alert-message
-      p
-        = flash[:notice]
-      i.icon-close-block
-- if flash[:alert].present?
-  - if flash[:alert].is_a?(Array)
-    - flash[:alert].each do |alert|
+  - if flash[:alert].present?
+    - if flash[:alert].is_a?(Array)
+      - flash[:alert].each do |alert|
+        .validate-red.alert-message
+          p
+            = alert
+          i.icon-close-block
+    - else
       .validate-red.alert-message
         p
-          = alert
+          = flash[:alert]
         i.icon-close-block
-  - else
-    .validate-red.alert-message
-      p
-        = flash[:alert]
-      i.icon-close-block

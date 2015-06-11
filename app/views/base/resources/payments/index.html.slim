@@ -1,0 +1,63 @@
+.col-md-8.col-md-offset-2.pg-content
+  h2 Payments
+  = search_form_for @q, url: payments_path, id: 'search-form' do |f|
+    .row
+      .col-xs-12
+        .form-group
+          = f.search_field :charge_id_cont, class: 'form-control', placeholder: 'Search order number'
+    .row
+      .col-xs-12
+        .title_profile.clearfix.m-t0
+          ul.title_profile-list.clearfix
+            li.title_profile-list_black
+              a href="javascript: void(0)"  All
+            li.title_profile-list_gray
+              a href="javascript: void(0)"  Month
+            li.title_profile-list_gray
+              a href="javascript: void(0)"  Year
+          .row
+            .col-sm-4
+              .form-group.date
+                = f.search_field(:created_at_gteq, value: f.object.created_at_gteq && f.object.created_at_gteq.to_s(:datepicker),
+                  class: 'form-control inputDate', placeholder: 'Select date')
+            .text-center style="float: left": p.m-t5 -
+            .col-sm-4
+              .form-group.date
+                = f.search_field(:created_at_lteq, value: f.object.created_at_lteq && f.object.created_at_lteq.to_s(:datepicker),
+                  class: 'form-control inputDate', placeholder: 'Select date')
+  .music-block
+    .responsive-table
+      table.table
+        thead
+          tr
+            th
+              p Order #
+            th
+              p Type
+            th
+              p Date
+            th
+              p Price
+            th
+              p Status
+        tbody
+          - @orders.each do |order|
+            tr
+              td data-th="Order #:"
+                = link_to(order.charge_id, 'javascript:void(0)', class: 'color_green')
+              td data-th="Type:"
+                p
+                  = order.description
+              td data-th="Date:"
+                p
+                  = order.created_at.to_s(:short_date)
+              td data-th="Price:"
+                p $#{order.charge_amount}
+              td data-th="Status:"
+                p
+                  = order.charge_status
+  .row
+    .col-xs-12
+      .pagination.pull-right
+        = paginate @orders
+- javascript 'controllers/base/payments/index'

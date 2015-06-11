@@ -1,0 +1,23 @@
+.row
+  .col-xs-12
+    h2.head_text.b-Bottom.p-b20
+      ' Complete order:
+      span.color_green Buy ticket
+.row
+  .col-xs-12
+    .mobile-center.clearfix
+      .promo_more.mobile-center.gigs.clearfix
+        .promo-logo-now
+          = link_to image_tag(resource.photo.url, class: 'mobile-center'), event_path(resource)
+        h4.static-content.m-t5
+          = resource.title
+        .eventName.mobile-center
+          p
+            i.icon-dark-calendar
+            = resource.period
+          p
+            i.icon-dark-place
+            = resource.location.address
+          p
+            i.icon-dark-money
+            | $ #{resource.price}
