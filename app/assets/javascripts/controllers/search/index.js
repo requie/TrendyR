@@ -28,5 +28,13 @@
         })
       }, 500);
     });
+
+    $('body').on("click", '.orange_link', function (e) {
+      e.preventDefault();
+      var query = $('#search').val();
+      var newUrl = this.href + "?q=" + query;
+      document.location.href = newUrl;
+    });
+
   });
 })(jQuery);
