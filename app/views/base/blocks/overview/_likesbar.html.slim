@@ -26,4 +26,4 @@
         .countLike
           | 148 T.
   .col-md-2.sm-center
-    = link_to 'Buy ticket', ticket_payments_path(@event), class: 'btn btn-primary m-b10'
+    = link_to 'Buy ticket', ticket_payments_path(@event), class: 'btn btn-primary m-b10' if @event.present?
