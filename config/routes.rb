@@ -121,6 +121,8 @@ Rails.application.routes.draw do
   scope module: :guests do
     get ':page' => 'static_pages#index', as: :static_page, constraints: { page: /terms|faq|privacy|contact/ }
 
+    resources :subscriptions, only: :create
+
     resources :search, only: :index, shallow_path: 'search' do
       collection do
         get ':resource' => :search, as: :resource, constraints: { resource: /artist|label|venue|producer|manager/ }
