@@ -13,7 +13,7 @@
       .mobile-menu.menu data-funny-dropdown=""
         ul.head-icon.nav.navbar-nav.navbar-right
           li
-            = link_to '#' do
+            = link_to 'javascript: void(0)' do
               i.icon-message.inbox
                 span.count
                   = current_user.unread_inbox_count
@@ -44,10 +44,9 @@
                 span.count 0
           li
             .dropdown
-              a.nameUser.clickBlock data-toggle="dropdown" href=""
-                = image_tag mini_url(@profile), class: 'avatar avatar-xs pull-left'
+              a.nameUser.clickBlock data-toggle="dropdown" href="javascript: void(0)"
+                = image_tag mini_url(current_user.profile), class: 'avatar avatar-xs pull-left'
                 span.m-l5
                   = current_user.username
               = render_navigation(context: :dropdown_menu)
-
   = render 'blocks/flash'
