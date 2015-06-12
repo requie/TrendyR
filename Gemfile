@@ -51,6 +51,7 @@ gem 'sidekiq', '~> 3.3.4'
 gem 'chewy', '~> 0.8.1'
 gem 'foreman'
 gem 'stripe'
+gem 'acts_as_commentable'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background.

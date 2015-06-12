@@ -57,7 +57,7 @@
               | neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur,
               | adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam
               | aliquam quaerat voluptatemullamco laboris nisi ut aliquip ex
-            = render 'base/blocks/overview/comments', comments: []
+            = render 'base/blocks/overview/comments', comments: @comments, commentable: @event
     .col-md-4
       .place.clearfix
         a href="javascript: void(0)"

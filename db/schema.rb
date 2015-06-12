@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150611123232) do
+ActiveRecord::Schema.define(version: 20150615062643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +53,15 @@ ActiveRecord::Schema.define(version: 20150611123232) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title",            limit: 50, default: ""
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.string   "role",                        default: "comments"
   end
+
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
+  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
+  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
 
   create_table "email_notifications", force: true do |t|
     t.string   "title"
@@ -237,18 +244,6 @@ ActiveRecord::Schema.define(version: 20150611123232) do
   end
 
   add_index "orders", ["purchasable_id", "purchasable_type"], name: "index_orders_on_purchasable_id_and_purchasable_type", using: :btree
-
-  create_table "payments", force: true do |t|
-    t.string   "charge_id",        default: ""
-    t.string   "source",           default: ""
-    t.integer  "purchasable_id"
-    t.string   "purchasable_type"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "payments", ["purchasable_id", "purchasable_type"], name: "index_payments_on_purchasable_id_and_purchasable_type", using: :btree
 
   create_table "photo_albums", force: true do |t|
     t.string   "title"
