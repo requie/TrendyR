@@ -1,13 +1,15 @@
 footer#footer.footer
   .container-fluid.inner-footer
     = render_navigation(context: :footer)
-    .col-xs-12.col-sm-6.col-md-4
-      .subscribe
-        .m-0
-          .input-group
-            input.form-control placeholder="Enter your email" type="text"
-            span.input-group-btn
-              button.btn.btn-primary type="submit"  Subscribe
+    = simple_form_for(Subscription.new, defaults: { input_html: { class: 'form-control' } }) do |f|
+      .col-xs-12.col-sm-6.col-md-4
+        .subscribe
+          .m-0
+            .input-group
+              = f.input :email, placeholder: 'Enter your email',
+                        input_html: {'data-required' => true, 'data-type' => 'email', 'data-maxlength' => '100', 'data-trim-value' => true}
+              span.input-group-btn
+                button.btn.btn-primary type="submit"  Subscribe
     ul.mobile-center.navbar.navbar-nav.navbar-right.social
       li
         a href="#"
