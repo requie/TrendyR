@@ -4,6 +4,8 @@ class Gig < ActiveRecord::Base
 
   SAFE_SCOPES = %w(started pending past)
 
+  acts_as_commentable
+
   has_many :faqs, -> { order(:created_at) }, class_name: 'GigFaq'
   has_many :bookings, -> { where(source: 'request') }, dependent: :destroy
   has_many :pending_bookings, -> { where(source: 'request', status: 'pending') }, dependent: :destroy, class_name: 'Booking'

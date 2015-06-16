@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
 
   paginates_per 10
 
+  acts_as_commentable
+
   has_many :gigs, dependent: :nullify
   has_many :artists, through: :gigs
   belongs_to :photo, class_name: 'Event::Photo'

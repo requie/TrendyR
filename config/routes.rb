@@ -89,6 +89,7 @@ Rails.application.routes.draw do
 
     scope module: :resources do
       resources :gigs, :events, only: :show
+      resources :comments, only: :create
       resource :settings, only: [:show, :update]
       resources :conversations, only: [:index, :show, :destroy] do
         collection do

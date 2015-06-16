@@ -62,7 +62,7 @@
           .clearfix.onTop
             h4.regRoboto.headSize.standart Terms and Conditions
             == @gig.terms_text
-            = render 'base/blocks/overview/comments', comments: []
+            = render 'base/blocks/overview/comments', comments: @comments, commentable: @gig
     .col-md-4
       .place.clearfix
         a href="javascript: void(0)"
