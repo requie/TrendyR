@@ -71,7 +71,7 @@
               i.fa.fa-sort-desc
             button.decrementGoods
               i.fa.fa-sort-asc
-          button.btn.btn-primary type="submit" Apply now
+          button.btn.btn-primary type="submit" Order Now
 = form_tag(ticket_payments_path(@event), method: :post, class: 'hidden', id: 'stripe-token-form') do
   input type="hidden" name="stripe_token"
   input type="hidden" name="ticket_count"
