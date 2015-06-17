@@ -7,4 +7,4 @@ div class="#{message_class(message)}"
       = message.created_at.to_s(:full_dotted)
   .clear
   p.textMessage
-    = message.body
+    = wrap(simple_format(message.body))
