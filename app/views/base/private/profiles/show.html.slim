@@ -11,7 +11,7 @@
           = f.input :website, input_html: { class: 'form-control', 'data-required' => true, 'data-type' => 'url' }, placeholder: 'Website'
       = render partial: 'base/blocks/location_autocomplete', locals: { location: @profile.location }
       h5.static-content
-        | Description
+        | Bio
       .row
         .col-xs-12
           = f.input :description_text,
