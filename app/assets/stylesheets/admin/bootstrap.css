@@ -379,9 +379,6 @@ th {
 .glyphicon-download:before {
   content: "\e026";
 }
-.glyphicon-upload:before {
-  content: "\e027";
-}
 .glyphicon-inbox:before {
   content: "\e028";
 }

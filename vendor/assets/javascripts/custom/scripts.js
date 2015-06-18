@@ -93,25 +93,6 @@ $(document).ready(function(){
 		}
 	});
 
-  if ($(this).scrollTop() > 100) {
-    $('a#moveUp').fadeIn();
-  } else {
-    $('a#moveUp').fadeOut(400);
-  }
-
-	$(window).scroll(function(){
-		if($(this).scrollTop()>100) {
-			$('a#moveUp').fadeIn();
-		} else {
-			$('a#moveUp').fadeOut(400);
-		}		
-	});
-
-	$('a#moveUp').on('click',function(){
-		$('body,html').animate({scrollTop: 0}, 450);
-		return false;
-	});	
-
 	$('.addMore').on('click', function(e){
 		e.preventDefault();
 		$(this).prev().clone(true).insertBefore($(this));
