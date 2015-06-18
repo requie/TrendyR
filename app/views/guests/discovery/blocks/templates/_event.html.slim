@@ -21,7 +21,7 @@
                 = event.location.address
               p
                 i.icon-dark-money
-                = "$ #{event.price}"
+                = "$ #{format("%.2f", event.price)}"
             .row.col-sm-12
               == event.description_text
         .col-xs-12.col-md-3

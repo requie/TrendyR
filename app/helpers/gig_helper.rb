@@ -31,7 +31,8 @@ module GigHelper
       concat content_tag(:p, 'Apply this gig now!', class: 'text-center')
     end
     unless applied
-      content = link_to("$#{gig.price.round} Apply now", request_base_profile_booking_path(gig), class: 'btn btn-primary request')
+     #content = link_to("$#{gig.price.round} Apply now", request_base_profile_booking_path(gig), class: 'btn btn-primary request')
+      content = link_to("$#{format("%.2f", gig.price)} Apply now", gig, class: 'btn btn-primary request')
       concat content_tag(:div, content, class: 'button-poster')
     end
   end

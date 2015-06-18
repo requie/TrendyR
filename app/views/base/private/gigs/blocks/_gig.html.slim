@@ -18,7 +18,7 @@
           = get_address(gig.location)
         p
           i.icon-dark-money>
-          | $ #{gig.price}
+          | $ #{format("%.2f", gig.price)}
     - if gig.pending_bookings.any?
       .confirmation
         p.confirmation_title Confirmation
