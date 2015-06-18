@@ -18,7 +18,7 @@
           = get_address(event.location)
         p
           i.icon-dark-money>
-          | $ #{event.price}
+          | $ #{format("%.2f", event.price)}
     .gallerySettings
       ul
         li
