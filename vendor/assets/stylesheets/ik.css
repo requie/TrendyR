@@ -14,26 +14,6 @@ select, textarea, input, option{
     bottom: 0px;
     position:relative;
 }
-#moveUp{
-    right:20%;
-    bottom:120px;
-    position:fixed;
-    background-color: black;
-    width: 44px;
-    height: 44px;
-    z-index: 99;
-    display:none;
-}
-#moveUp:hover{
-    background-color: #777777;
-}
-.icon-up{
-    width: 34px;
-    height:18px;
-    background-position:-20px -18px;
-    top:13px;
-    left:9px;
-}
 .container{
     padding:0;
 }
