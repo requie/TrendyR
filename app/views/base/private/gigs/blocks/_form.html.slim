@@ -91,17 +91,23 @@
     .col-xs-12
       h3.head_settings Faq
   = form.fields_for :faqs, gig.faqs.present? ? gig.faqs : GigFaq.new do |faq_fields|
-    .row
-      .col-xs-12
-        .form-group
-          p.headEditor Questions
-          = faq_fields.input :id, as: :hidden
-          = faq_fields.input :question, as: :text, input_html: { class: 'editor form-control', rows: 10 }
-    .row
-      .col-xs-12
-        .form-group
-          p.headEditor Answer
-          = faq_fields.input :answer, as: :text, input_html: { class: 'editor form-control', rows: 10 }
+    .questions_block
+      .row
+        .col-xs-12
+          .form-group
+            p.headEditor Questions
+            = faq_fields.input :id, as: :hidden
+            = faq_fields.input :question, as: :text, input_html: { class: 'editor form-control', rows: 10 }
+      .row
+        .col-xs-12
+          .form-group
+            p.headEditor Answer
+            = faq_fields.input :answer, as: :text, input_html: { class: 'editor form-control', rows: 10 }
+      .remove_block
+        .row
+          .col-xs-12
+            .pull-right
+              a.red.remove_questions href="#" Remove questions
   .row
     .col-xs-12
       a.link.addQuestion href="#"  + Add new question
