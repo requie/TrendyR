@@ -128,11 +128,6 @@ $(document).ready(function(){
 		}
 	});
 
-	$(document).on('click', '.addQuestion', function(e){
-		e.preventDefault();
-		$(this).closest('.row').prev().clone(true).insertBefore($(this).closest('.row'));
-	});
-
 	$('.icon-right').on('click', function(){
     var $concertVis = $('.concert.visible').next();
     if ($concertVis.is('.concert')) {

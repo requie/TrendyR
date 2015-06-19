@@ -17,9 +17,10 @@
     var $crop_progress = $('#crop-progress');
     var $count_bar = $crop_progress.find('.countBar');
     var $line_bar = $crop_progress.find('.lineBar');
-    var questionsCount = $('textarea[id$=_question]').length;
-    var $faq = $('#faq').contents(),
+    var $faq = $('#faq'),
       $foto = $('#photo_url');
+    var $remove_faq = $('.remove_block');
+    var n = 1;
 
 
     tinymce.init({ selector: '.editor' });
@@ -112,6 +113,11 @@
 
     function addFaqQuestion(num){
       var $faq_question = $faq.clone();
+      var $remove_faq_question = $remove_faq.clone();
+      var $last_row = $('#new_gig .row').eq(-2);
+      var $new_q = $("<div class='questions_block'></div>");
+      $new_q.insertBefore($last_row);
+
 
       _.each(['question', 'answer'], function(field){
         var id = 'gig_faqs_attributes_' + num + '_' + field;
@@ -120,15 +126,21 @@
           id: id,
           name: 'gig[faqs_attributes][' + num + '][' + field + ']'
         });
-        $field.parents('.row').insertBefore('.addQuestion');
+        $field.parents('.row').appendTo($new_q);
         tinyMCE.execCommand('mceAddEditor', true, id);
       });
+      $remove_faq_question.appendTo($new_q);
     }
+
+    $('body').on('click', '.remove_questions', function(e){
+      e.preventDefault();
+      $(this).closest('.questions_block').remove();
+    });
 
     $(document).on('click', '.addQuestion', function(e){
       e.preventDefault();
-      questionsCount = $('textarea[id$=question]').length - 1;
-      addFaqQuestion(questionsCount);
+      n++;
+      addFaqQuestion(n);
     });
   });
 })(jQuery);
