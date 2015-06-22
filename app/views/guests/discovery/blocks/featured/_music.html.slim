@@ -13,11 +13,12 @@
   ul
     - albums.each do |album|
       li
-        = image_tag album.photo.with_preset(:standard)
-        = link_to public_profile_releases_path(album.artist.profile) do
-          p
-            strong
-              = album.artist.profile.name
-            br
-            = album.title
+        = image_tag album.photo.with_preset(:standard) if album.photo.present?
+        - if album.artist.present?
+          = link_to public_profile_releases_path(album.artist.profile) do
+            p
+              strong
+                = album.artist.profile.name
+              br
+              = album.title
 .clear

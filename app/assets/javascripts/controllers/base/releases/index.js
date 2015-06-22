@@ -4,7 +4,7 @@
 (function($) {
   $(function () {
     $('[data-th="Action"]').on('click', '.red', function(e){
-      e.preventDefault();
+      e.preventDefault();/*
       var $row = $(this).parents('tr');
       $.ajax({
         url: Routes.song_path($row.data('songId')),
@@ -12,7 +12,7 @@
         success: function(){
           $row.remove();
         }
-      })
+      })*/
     })
     .on('click', '.publish', function(e){
       e.preventDefault();

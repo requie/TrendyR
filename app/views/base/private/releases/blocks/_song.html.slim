@@ -21,7 +21,7 @@ tr data-song-id=song.id
         = song.title
   td data-th="Action"
     = link_to 'Edit', edit_private_release_path(song.release), class: 'dBlock pull-left p-r5 b-Right m-r5 color_orange'
-    a.dBlock.pull-left.p-r5.b-Right.m-r5.red href="" Remove
+    = link_to 'Remove', private_release_path(song.release), method: :delete, class: 'dBlock pull-left p-r5 b-Right m-r5 red'
     - if song.is_active?
       = link_to 'Unpublish', publish_song_path(song, is_active: false), class: 'color_blue unpublish'
     - else

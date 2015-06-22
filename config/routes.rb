@@ -65,7 +65,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :releases, except: :destroy, path: 'music' do
+      resources :releases, path: 'music' do
         collection do
           get :list
         end
