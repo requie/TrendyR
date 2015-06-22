@@ -1,7 +1,7 @@
 module Base
   module Private
     class ReleasesController < Private::BaseController
-      before_action :set_release, only: [:edit, :update]
+      before_action :set_release, only: [:edit, :update, :destroy]
 
       def index
         @q = @profile.entity.songs.includes(:release).ransack(search_params)
@@ -30,6 +30,12 @@ module Base
       def update
         @release.update(release_params)
         respond_with @release, location: private_releases_path
+      end
+
+      def destroy
+        @release.songs.each {|song| song.delete}
+        @release.delete
+        redirect_to action: :index
       end
 
       private
