@@ -1,5 +1,5 @@
 class GigPolicy
-  ACCESS_ROLES = %w(artist venue)
+  ACCESS_ROLES = %w(artist venue producer)
   PERMITTED_ATTRIBUTES = [
     :title, :price, :overview_text, :opportunity_text, :band_text, :event_id, :gig_text,
     :terms_text, :started_at, :finished_at, :photo_id, faqs_attributes: [:id, :question, :answer]
