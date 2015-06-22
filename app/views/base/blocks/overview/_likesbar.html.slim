@@ -9,11 +9,8 @@
       .col-sm-3.m-t5.clearfix
         .g-plusone data-href="http://trendyreggae.com/" data-size="medium"
       .col-sm-3.m-t5.m-b10.clearfix
-        button.like
-          i.fa.fa-thumbs-up
-          | LIKE
-        .countLike
-          | 148 T.
+        a href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark" data-pin-color="red" data-pin-height="28"
+          img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_red_28.png"
   .col-md-2.sm-center
     = link_to 'Buy ticket', ticket_payments_path(@event), class: 'btn btn-primary m-b10' if @event.present?
 javascript:
@@ -22,7 +19,7 @@ javascript:
     if (d.getElementById(id)) return;
     js = d.createElement(s);
     js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+    js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
@@ -35,10 +32,19 @@ javascript:
     s.parentNode.insertBefore(po, s);
   })();
 
-  !function(d,s,id){
-    var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-    if(!d.getElementById(id)){
-      js=d.createElement(s);
-      js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
-      fjs.parentNode.insertBefore(js,fjs);
-  }}(document, 'script', 'twitter-wjs');
+  !function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id = id;
+      js.src = p + '://platform.twitter.com/widgets.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+  }(document, 'script', 'twitter-wjs');
+
+  !function (a, b, c) {
+    var d, e, f;
+    f = "PIN_" + ~~((new Date).getTime() / 864e5), a[f] || (a[f] = !0, a.setTimeout(function () {
+      d = b.getElementsByTagName("SCRIPT")[0], e = b.createElement("SCRIPT"), e.type = "text/javascript", e.async = !0, e.src = c, d.parentNode.insertBefore(e, d)
+    }, 10))
+  }(window, document, "//assets.pinterest.com/js/pinit_main.js");
