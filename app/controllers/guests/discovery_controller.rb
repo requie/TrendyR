@@ -1,7 +1,7 @@
 module Guests
   class DiscoveryController < Guests::GuestsController
     FILTER_ATTRIBUTES = %i(
-      profile_location_source_place_id_eq started_at_lteq finished_at_gteq location_source_place_id_eq
+      profile_location_source_place_id_eq started_at_gteq finished_at_lteq location_source_place_id_eq
     )
 
     before_action :set_page, except: :resource

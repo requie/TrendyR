@@ -4,12 +4,17 @@
       strong Where
     .col-sm-4.col-md-3
       .form-group.date
-        input.form-control.datepicker placeholder="Select date" type="text"
-        = f.search_field :started_at_lteq, class: :hidden
-        = f.search_field :finished_at_gteq, class: :hidden
+        input.form-control.datepicker placeholder="Start date" type="text"
+        = f.search_field :started_at_gteq, class: :hidden
+    p
+      strong -
+    .col-sm-4.col-md-3
+      .form-group.date
+        input.form-control.datepicker placeholder="End date" type="text"
+        = f.search_field :finished_at_lteq, class: :hidden
     p.col-sm-2.col-md-1
       strong Location
-    .col-sm-4.col-md-7
+    .col-sm-10.col-md-3
       .form-group
         input.form-control#autocomplete placeholder="Search Location" type="text"
         = f.search_field :location_source_place_id_eq, class: :hidden
