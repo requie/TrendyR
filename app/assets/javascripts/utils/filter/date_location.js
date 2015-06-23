@@ -1,7 +1,9 @@
 (function($) {
   $(function() {
     var $form = $('#search-from'),
-      $date = $('.datepicker');
+      $date = $('.datepicker'),
+      $date_start = $date.first(),
+      $date_finish = $date.last();
 
     $form.find('[name="utf8"]').remove();
 
@@ -18,11 +20,29 @@
     });
 
     $date.datepicker({
-      dateFormat: 'dd/mm/yy'
+      dateFormat: 'yy-mm-dd'
     });
 
-    $date.on('change', function() {
-      $date.val(this.value);
+    var $q_start = $('#q_started_at_gteq'),
+        $q_finish = $('#q_finished_at_lteq');
+
+    if($q_start.val()) {
+      $date_start.val($q_start.val().substring(0,10));
+    }
+
+    if($q_finish.val()) {
+      $date_finish.val($q_finish.val().substring(0,10));
+    }
+
+    $date_start.on('change', function() {
+      $q_start.val(this.value);
+      $date_start.val(this.value);
+      $form.submit();
+    });
+
+    $date_finish.on('change', function() {
+      $q_finish.val(this.value);
+      $date_finish.val(this.value);
       $form.submit();
     });
   });
