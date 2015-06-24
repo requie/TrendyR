@@ -31,4 +31,12 @@ Genre::ALL.each do |name|
   puts "- #{name} genre"
 end
 
+# Create categories
+Category::ALL.each do |key, value|
+  value.each do |name|
+    Category.find_or_create_by(name: name, category_type: key)
+    puts "- #{key} - #{name} category"
+  end
+end
+
 puts 'Done.'

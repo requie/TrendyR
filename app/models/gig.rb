@@ -13,6 +13,9 @@ class Gig < ActiveRecord::Base
   belongs_to :photo, class_name: 'Gig::Photo'
   belongs_to :event, class_name: 'Event'
 
+  has_many :category_categorizable, as: :categorizable
+  has_many :category, through: :category_categorizable
+
   accepts_nested_attributes_for :faqs, reject_if: ->(faq) { faq[:question].blank? || faq[:answer].blank? }
 
   scope :upcoming, -> { where('finished_at > ?', Date.today).order('started_at') }
@@ -20,6 +23,7 @@ class Gig < ActiveRecord::Base
   scope :pending, -> { where('started_at > ?', Date.today) }
   scope :past, -> { where('finished_at < ?', Date.today) }
   scope :at_date, ->(date) { where('started_at < ? AND finished_at > ?', date) }
+
 
   class << self
     def with_status(status)

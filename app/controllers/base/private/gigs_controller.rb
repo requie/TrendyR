@@ -12,6 +12,7 @@ module Base
 
       def new
         @gig = Gig.new
+        @gig_categories = Category.where(category_type: "gigs")
       end
 
       def create

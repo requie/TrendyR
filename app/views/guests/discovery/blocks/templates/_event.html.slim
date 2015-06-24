@@ -11,7 +11,8 @@
             h3
               span.text-left
                 = event.title
-              span.view.pull-right Concert
+              span.view.pull-right
+                = event.category.first.name if event.category.first.present?
             .eventName
               p
                 i.icon-dark-calendar

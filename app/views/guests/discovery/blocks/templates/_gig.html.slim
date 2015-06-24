@@ -10,7 +10,8 @@
             h3
               span.text-left
                 = gig.title
-              span.view.pull-right Contest
+              span.view.pull-right
+                = gig.category.first.name if gig.category.first.present?
             .eventName
               p
                 i.icon-dark-calendar

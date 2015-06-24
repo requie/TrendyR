@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
   has_many :gigs, dependent: :nullify
   has_many :artists, through: :gigs
   belongs_to :photo, class_name: 'Event::Photo'
+  has_many :category_categorizable, as: :categorizable
+  has_many :category, through: :category_categorizable
 
   scope :upcoming, -> { where('finished_at > ?', Date.today).order(:started_at) }
   scope :started, -> { where('started_at < :today and finished_at > :today', today: Date.today) }

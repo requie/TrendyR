@@ -20,6 +20,11 @@
   = render partial: 'base/blocks/location_autocomplete', locals: { location: gig.location }
   .row
     .col-sm-2
+      p.text-color.p-t7 Type
+    .col-sm-2
+      = form.association :category, prompt: 'Select gig type', collection: @gig_categories, include_blank: false, label: false, input_html: {multiple: false, 'data-required' => true}
+  .row
+    .col-sm-2
       p.text-color.p-t7 Event
     .col-sm-2
       = form.association :event, prompt: 'Select associated event', collection: @profile.owned_events, label_method: :title, include_blank: false, label: false, input_html: { multiple: false }
