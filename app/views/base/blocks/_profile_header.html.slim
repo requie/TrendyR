@@ -5,12 +5,12 @@
       a href="javascript: void(0)"
         = image_tag avatar_url(@profile), alt: "User's avatar"
   .public-name
-    .col-md-9.col-xs-12
-      .name.mobile-center
+    .col-xs-12
+      .name.mobile-center.pull-sm-left
         h2
           = profile.name
-    .col-xs-12.col-sm-3.mobile-center
-      .eventName.pull-right
+          i.icon-check
+      .eventName.mobile-center.pull-sm-right
         - if profile.location.present?
           i.icon-place
           p.empty
