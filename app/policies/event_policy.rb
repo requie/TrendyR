@@ -1,6 +1,6 @@
 class EventPolicy
   ACCESS_ROLES = %w(artist venue label)
-  PERMITTED_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price)
+  PERMITTED_ATTRIBUTES = %i(photo_id title description_text started_at finished_at price category_ids)
   FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq)
 
   attr_reader :user, :event

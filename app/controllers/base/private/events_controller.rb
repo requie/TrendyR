@@ -12,6 +12,7 @@ module Base
 
       def new
         @event = Event.new
+        @event_categories = Category.where(category_type: "events")
       end
 
       def create
