@@ -31,7 +31,7 @@ class Role < ActiveRecord::Base
       label: 'Label',
       manager: 'Manager',
       producer: 'Producer',
-      venue: 'Venue'
+      venue: 'Venue Owner/Promoter/Event Planner'
     }
   end
 
