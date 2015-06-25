@@ -142,5 +142,25 @@
       n++;
       addFaqQuestion(n);
     });
+
+    var $date = $('.datepicker'),
+       $date_start = $date.first(),
+       $date_finish = $date.last(),
+       $q_start = $('#gig_started_at'),
+       $q_finish = $('#gig_finished_at');
+
+    $date.datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+
+    $date_start.on('change', function() {
+      $q_start.val(this.value);
+      $date_start.val(this.value);
+    });
+
+    $date_finish.on('change', function() {
+      $q_finish.val(this.value);
+      $date_finish.val(this.value);
+    });
   });
 })(jQuery);
