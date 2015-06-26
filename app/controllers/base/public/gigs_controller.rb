@@ -4,6 +4,7 @@ module Base
       def index
         @q = @profile.owned_gigs.ransack(filter_params)
         @gigs = @q.result.includes(:location)
+        @gigs = @gigs.where(private: false)
         @profile = @profile.decorate
       end
 

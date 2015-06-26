@@ -2,7 +2,7 @@ class GigPolicy
   ACCESS_ROLES = %w(artist venue producer)
   PERMITTED_ATTRIBUTES = [
     :title, :price, :overview_text, :opportunity_text, :band_text, :event_id, :gig_text, :category_ids,
-    :terms_text, :started_at, :finished_at, :photo_id, faqs_attributes: [:id, :question, :answer]
+    :terms_text, :started_at, :finished_at, :photo_id, :private, faqs_attributes: [:id, :question, :answer]
   ]
   FILTER_ATTRIBUTES = %i(started_at_lteq finished_at_gteq location_source_place_id_eq)
 

@@ -2,3 +2,5 @@
   i class="icon-#{status}"
   p class="galleryStatus_#{status}"
     = status
+    span class="private_#{private}_status"
+      = private ? "private" : "public"
