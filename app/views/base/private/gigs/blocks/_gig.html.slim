@@ -32,4 +32,9 @@
         li
           a href="javascript: void(0)"
             i.icon-deleteGallery
-    = render partial: 'base/private/events/blocks/status', locals: { status: status(gig), private: gig.private }
+    .galleryStatus
+      i class="icon-#{status(gig)}"
+      p class="galleryStatus_#{status(gig)}"
+        = status(gig)
+        span class="private_#{gig.private}_status"
+          = gig.private ? "private" : "public"
