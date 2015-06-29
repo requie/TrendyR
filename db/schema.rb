@@ -138,12 +138,6 @@ ActiveRecord::Schema.define(version: 20150625132027) do
     t.datetime "updated_at"
   end
 
-  create_table "gig_types", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "gigs", force: true do |t|
     t.string   "title"
     t.decimal  "price"
@@ -162,11 +156,8 @@ ActiveRecord::Schema.define(version: 20150625132027) do
     t.datetime "updated_at"
     t.boolean  "is_featured",      default: false
     t.integer  "event_id"
-    t.integer  "gig_type_id"
     t.boolean  "private",          default: false
   end
-
-  add_index "gigs", ["gig_type_id"], name: "index_gigs_on_gig_type_id", using: :btree
 
   create_table "identities", force: true do |t|
     t.string   "provider"

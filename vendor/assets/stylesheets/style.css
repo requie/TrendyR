@@ -3632,7 +3632,11 @@ label {
 .audioTrack_link {
     position: absolute;
     top: 7px;
-    left: 40px
+    left: 40px;
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .player .audiojs.audioTrack {
@@ -3645,7 +3649,7 @@ label {
 
 .sidePlayer .audiojs .time {
     font-size: 12px;
-    margin-top: -4px;
+    margin-top: 2px;
     color: #ababab
 }
 
@@ -13814,7 +13818,14 @@ pre.prettyprint {
     }
 
     .audioTrack_link {
-        position: static
+        position: static;
+        display: block;
+        /* margin-left: 66px; */
+        /* text-align: left; */
+         margin-top: -7px;
+        width: 120px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .audiojs .play-pause {
