@@ -14,16 +14,12 @@ $(function() {
     $('<audio preload></audio>').prependTo($(this).closest('td'));
     var a = audiojs.createAll({
       trackEnded: function () {
-        var next = $('.audioTrack.playing').closest('tr').next('tr').find('.audioTrack');
+        var next = $('.audioTrack.playing').closest('tr').next('tr').find('.audioTrack').first();
         if (!next.length) {
           next = $('.audioTrack').first();
           console.log('abab');
-        } else {
-          $('.audioTrack').removeClass('playing');
-          next.addClass('playing');
         }
-        audio.load($('a', next).attr('data-src'));
-        audio.play();
+        next.click();
       }
     });
     var audio = a[0],
@@ -44,16 +40,16 @@ $(function() {
     console.log($("div[id^='audiojs_']"));
   });
   //Keyboard shortcuts
-  $(document).on('keydown', ':not(input)', function (e) {
+  $(document).on('keydown', function (e) {
     var unicode = e.charCode ? e.charCode : e.keyCode;
     // right arrow
     if (unicode == 39) {
-      var next = $('.audioTrack.playing').next();
+      var next = $('.audioTrack.playing').closest('tr').next('tr').find('.audioTrack').first();
       if (!next.length) next = $('.audioTrack').first();
       next.click();
       // back arrow
     } else if (unicode == 37) {
-      var prev = $('.audioTrack.playing').prev();
+      var prev = $('.audioTrack.playing').closest('tr').prev('tr').find('.audioTrack').first();
       if (!prev.length) prev = $('.audioTrack').last();
       prev.click();
       // spacebar
@@ -61,4 +57,5 @@ $(function() {
       audio.playPause();
     }
   })
+
 });
