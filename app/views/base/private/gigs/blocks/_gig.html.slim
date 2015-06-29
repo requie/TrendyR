@@ -32,4 +32,4 @@
         li
           a href="javascript: void(0)"
             i.icon-deleteGallery
-    = render partial: 'base/private/events/blocks/status', locals: { status: status(gig) }
+    = render partial: 'base/private/events/blocks/status', locals: { status: status(gig), private: gig.private }

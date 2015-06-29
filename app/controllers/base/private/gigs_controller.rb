@@ -25,6 +25,7 @@ module Base
       end
 
       def edit
+        @gig_categories = Category.where(category_type: "gigs")
       end
 
       def update

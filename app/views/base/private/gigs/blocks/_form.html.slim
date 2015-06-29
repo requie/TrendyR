@@ -37,37 +37,19 @@
     .col-sm-4.col-md-3
       .form-group.date
         input.form-control.datepicker placeholder="Start date" type="text"
-        = form.search_field :started_at, class: :hidden, data: {required: true, dateLower: '{ "start": "#date-start", "end": "#date-end" }', 'dateLower-message' => 'Start date must be lower than finish date', 'errors-container' => '#date-start-error'}
+        = form.search_field :started_at, class: :hidden, data: {required: true, 'dateLower-message' => 'Start date must be lower than finish date', 'errors-container' => '#date-start-error'}
   .row#date-end
     p.col-sm-2.col-md-2 Date end
     .col-sm-4.col-md-3
       .form-group.date
         input.form-control.datepicker placeholder="End date" type="text"
         = form.search_field :finished_at, class: :hidden, data: {required: true, 'errors-messages-disabled' => true}
-  /.row#date-start
-    .col-sm-2
-      p.text-color.p-t7 Date start
-    .col-sm-2.col-md-3
+  .row
+    p.col-sm-2.col-md-2 Private
+    .col-sm-4.col-md-3
       .form-group
-        = select_month gig.started_at, {}, name: 'gig[started_at(2i)]', class: 'form-control', group: 'date'
-    .col-sm-2
-      .form-group
-        = select_day gig.started_at, {}, name: 'gig[started_at(3i)]', class: 'form-control', data: {required: true, dateLower: '{ "start": "#date-start", "end": "#date-end" }', 'dateLower-message' => 'Start date must be lower than finish date', 'errors-container' => '#date-start-error'}
-    .col-sm-2.col-md-3
-      .form-group
-        = select_year gig.started_at, { start_year: Award.start_year, end_year: Award.end_year }, name: 'gig[started_at(1i)]', class: 'form-control', group: 'date'
-  /.row#date-end
-    .col-sm-2
-      p.text-color.p-t7 Date end
-    .col-sm-2.col-md-3
-      .form-group
-        = select_month gig.finished_at, {}, name: 'gig[finished_at(2i)]', class: 'form-control', data: { required: true, 'errors-messages-disabled' => true }, group: 'date'
-    .col-sm-2
-      .form-group
-        = select_day gig.finished_at, {}, name: 'gig[finished_at(3i)]', class: 'form-control', data: {required: true, 'errors-messages-disabled' => true}, group: 'date'
-    .col-sm-2.col-md-3
-      .form-group
-        = select_year gig.finished_at, { start_year: Award.start_year, end_year: Award.end_year }, name: 'gig[finished_at(1i)]', class: 'form-control', data: { required: true, 'errors-messages-disabled' => true }, group: 'date'
+        = form.label :private, class: 'cb-checkbox' do
+          = form.input :private, as: :boolean, checked: params[:private], 'data-ui-enabled' => false
   .row
     .col-sm-2
       p.text-color.p-t7 Price / USD

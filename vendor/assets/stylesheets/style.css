@@ -2593,7 +2593,20 @@ label {
 .gallery .galleryStatus [class*=galleryStatus_] {
     text-transform: uppercase;
     font-size: 10px;
-    margin-top: 5px
+    margin-top: 5px;
+}
+.gallery .galleryStatus [class*=galleryStatus_] .private_false_status{
+    display:block;
+    color:#0a7fbc;
+    font-size:10px;
+    text-transform:uppercase;
+}
+
+.gallery .galleryStatus [class*=galleryStatus_] .private_true_status{
+    color:orange;
+    font-size:10px;
+    text-transform:uppercase;
+    display:block;
 }
 
 .gallery .galleryStatus .galleryStatus_start {

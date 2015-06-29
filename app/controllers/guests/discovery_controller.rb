@@ -19,7 +19,7 @@ module Guests
     end
 
     def gigs
-      @q = Gig.ransack(filter_params)
+      @q = Gig.where(private: false).ransack(filter_params)
       @resources = @q.result.page(@page)
       respond_to do |format|
         format.html
