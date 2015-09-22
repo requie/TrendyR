@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625132027) do
+ActiveRecord::Schema.define(version: 20150925114738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,15 +36,20 @@ ActiveRecord::Schema.define(version: 20150625132027) do
   end
 
   create_table "bookings", force: true do |t|
-    t.string   "status",      default: "pending"
+    t.string   "status",                                default: "pending"
     t.integer  "artist_id"
     t.integer  "gig_id"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.boolean  "is_active",   default: false
+    t.boolean  "is_active",                             default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "source"
+    t.string   "payout_option"
+    t.decimal  "total_fee",     precision: 8, scale: 2
+    t.string   "gig_title"
+    t.integer  "user_id"
+    t.integer  "event_id"
   end
 
   create_table "categories", force: true do |t|
@@ -144,19 +149,20 @@ ActiveRecord::Schema.define(version: 20150625132027) do
     t.text     "overview_text"
     t.text     "opportunity_text"
     t.text     "band_text"
-    t.text     "gig_text"
+    t.text     "venue_details_text"
     t.text     "terms_text"
     t.datetime "started_at"
     t.datetime "finished_at"
-    t.boolean  "is_active",        default: true
+    t.boolean  "is_active",          default: true
     t.integer  "owner_profile_id"
     t.integer  "location_id"
     t.integer  "photo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_featured",      default: false
+    t.boolean  "is_featured",        default: false
     t.integer  "event_id"
-    t.boolean  "private",          default: false
+    t.boolean  "private",            default: false
+    t.time     "start_time"
   end
 
   create_table "identities", force: true do |t|
@@ -412,6 +418,7 @@ ActiveRecord::Schema.define(version: 20150625132027) do
   add_foreign_key "awards", "profiles", name: "awards_owner_profile_id_fk", column: "owner_profile_id"
 
   add_foreign_key "bookings", "artists", name: "artists_gigs_artist_id_fk", dependent: :delete
+  add_foreign_key "bookings", "events", name: "bookings_event_id_fk", dependent: :delete
   add_foreign_key "bookings", "gigs", name: "artists_gigs_gig_id_fk", dependent: :delete
 
   add_foreign_key "comments", "users", name: "comments_author_id_fk", column: "author_id"

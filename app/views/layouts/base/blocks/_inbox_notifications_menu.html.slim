@@ -1,0 +1,13 @@
+- if inbox.any?
+  - inbox.each do |notification|
+    li
+      = link_to notifications_path do
+        = image_tag mini_url(notification.sender.profile)
+        span.nameFriend
+          = notification.sender.first_name
+        p
+          = notification.body
+- else
+  li
+    p.text-center
+      | No new notifications

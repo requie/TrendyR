@@ -1,0 +1,69 @@
+= form_tag('#', id: 'stripe-info-form', data: { 'errors-messages-disabled' => true }) do
+  .row
+    .col-sm-12
+      .form-group
+        = text_field_tag('name', nil, class: 'form-control', placeholder: 'Full Name', data: { stripe: 'name' })
+  .row
+    .col-xs-12
+      .form-group
+        = text_field_tag('address_line1', nil, class: 'form-control', placeholder: 'Address', data: { stripe: 'address_line1' })
+  .row
+    .col-sm-6
+      .form-group
+        = text_field_tag('address_country', nil, class: 'form-control', placeholder: 'Country', data: { stripe: 'address_country' })
+    .col-sm-6
+      .form-group
+        = text_field_tag('address_state', nil, class: 'form-control', placeholder: 'State / Province', data: { stripe: 'address_state' })
+  .row
+    .col-sm-6
+      .form-group
+        = text_field_tag('address_city', nil, class: 'form-control', placeholder: 'City', data: { stripe: 'address_city' })
+    .col-sm-3
+      .form-group
+        = text_field_tag('address_zip', nil, class: 'form-control', placeholder: 'Zip Code', data: { stripe: 'address_zip' })
+  .row
+    .col-xs-12
+      h3.head_settings Payment information
+  .row
+    .col-xs-12
+      = credit_cards_list
+  .row
+    .col-sm-12
+      .form-group
+        = text_field_tag('name', nil, class: 'form-control', placeholder: 'Full Name', data: { stripe: 'name' })
+  .row
+    .col-sm-6
+      .form-group
+        = text_field_tag('number', nil, class: 'form-control', placeholder: 'Card number', data: { stripe: 'number', required: true })
+    .col-sm-3
+      .form-group
+        = text_field_tag('cvc', nil, class: 'form-control', placeholder: 'CVC', data: { stripe: 'cvc', required: true })
+  .row
+    .col-lg-2.col-sm-3
+      p.light-gray.p-t7 Card expiration
+    .col-lg-4.col-sm-3
+      .form-group
+        = select_month(nil, { prompt: 'Month' }, class: 'form-control', data: { stripe: 'exp-month', required: true }, placeholder: 'Month')
+    .col-sm-3
+      .form-group
+        = text_field_tag(:year, nil, class: 'form-control', placeholder: 'Year', data: { stripe: 'exp-year', required: true })
+  .row
+    .col-xs-12
+      .b-Top.p-t20.clearfix.m-tb20
+        .clearfix
+          .pull-sm-left
+            label.cb-checkbox.m-t5
+              = check_box_tag(:terms, nil, false, data: { required: true })
+              ' By clicking the Purchase Button you agree to our
+              = link_to 'Terms & Conditions', static_page_path(:terms)
+          .pull-sm-right
+            p.pull-left.p-t5.m-r5.bold.middleSize
+              | Total: $
+              span#price
+                = @booking.total_fee
+        button.btn.btn-primary type="submit" Continue
+= form_tag(wizard_path, method: :patch, class: 'hidden', id: 'stripe-token-form', url: wizard_path) do
+  input type="hidden" name="stripe_token"
+  input type="hidden" name="ticket_count"
+- javascript 'https://js.stripe.com/v2/', 'controllers/users/validation.dep', 'utils/notification', 'controllers/base/bookings/stripe'
+

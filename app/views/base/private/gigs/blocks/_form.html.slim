@@ -14,36 +14,46 @@
     .col-xs-12
       h3.head_settings Main information
   .row
-    .col-xs-12
+    p.col-sm-2.col-md-2 Gig Title
+    .col-sm-4.col-md-10
       .form-group
-      = form.input :title, input_html: { placeholder: 'Title', class: 'form-control', data: { required: true } }
-  = render partial: 'base/blocks/location_autocomplete', locals: { location: gig.location }
+        = form.input :title, input_html: { placeholder: 'Title', class: 'form-control', data: { required: true } }
+  br
+  br
   .row
-    .col-sm-2
-      p.text-color.p-t7 Type
-    .col-sm-2
-      = form.association :category, prompt: 'Select gig type', collection: @gig_categories, include_blank: false, label: false,  input_html: {multiple: false, data: { required: true }}
+    p.col-sm-2.col-md-2 Category
+    .col-sm-4.col-md-10
+      .form-group
+        = form.association :category, prompt: 'Select gig type', collection: @gig_categories,
+                           include_blank: false, label: false,  input_html: {class: "form-control", multiple: false, data: { required: true }}
   .row
-    .col-sm-2
-      p.text-color.p-t7 Event
-    .col-sm-2
-      = form.association :event, prompt: 'Select associated event', collection: @profile.owned_events, label_method: :title, include_blank: false, label: false, input_html: { multiple: false }
+    p.col-sm-2.col-md-2
+    .col-sm-4.col-md-10
+      .form-group
+        = form.association :event, prompt: 'Select associated event', collection: @profile.owned_events,
+                           label_method: :title, include_blank: false, label: false, input_html: { class: "form-control", multiple: false }
+  br
   .row
-    .col-xs-12
-      .form-group.has-error
-        #date-start-error
-  .row#date-start
-    p.col-sm-2.col-md-2 Date start
-    .col-sm-4.col-md-3
+    p.col-sm-2.col-md-2 Location
+    .col-sm-4.col-md-10
+      .form-group
+        = render partial: 'base/blocks/location_autocomplete', locals: { location: gig.location }
+  br
+  .row
+    p.col-sm-2.col-md-2 Date / Time
+    .col-sm-4.col-md-3#date-start
       .form-group.date
         input.form-control.datepicker placeholder="Start date" type="text"
         = form.search_field :started_at, class: :hidden, data: {required: true, 'dateLower-message' => 'Start date must be lower than finish date', 'errors-container' => '#date-start-error'}
-  .row#date-end
-    p.col-sm-2.col-md-2 Date end
-    .col-sm-4.col-md-3
+    .col-sm-4.col-md-3#date-end
       .form-group.date
         input.form-control.datepicker placeholder="End date" type="text"
         = form.search_field :finished_at, class: :hidden, data: {required: true, 'errors-messages-disabled' => true}
+    .col-sm-4.col-md-3#time-start
+      .form-group
+        = form.input :start_time, as: :time, default: Time.parse('8:00'), data: {required: true, 'errors-messages-disabled' => true, class: "form-control"}
+  /= form.time_field :start_time, placeholder: "Start Time", data: {required: true, 'errors-messages-disabled' => true}
+  br
   .row
     p.col-sm-2.col-md-2 Private
     .col-sm-4.col-md-3
@@ -51,16 +61,16 @@
         = form.label :private, class: 'cb-checkbox' do
           = form.input :private, as: :boolean, checked: params[:private], 'data-ui-enabled' => false
   .row
-    .col-sm-2
-      p.text-color.p-t7 Price / USD
-    .col-sm-2
+    p.col-sm-2.col-md-2 Gig Payout
+    .col-sm-4.col-md-10
       .form-group
-        = form.input :price, as: :string, input_html: { class: 'form-control', data: { required: true, 'errors-container' => '#price-error' } }
+        = form.input :price, as: :string, placeholder: "0.00 $", input_html: {class: 'form-control', data: {required: true, 'errors-container' => '#price-error'}}
     .form-group.has-error
       #price-error
+
   .row
     .col-xs-12
-      h3.head_settings Description
+      h3.head_settings Overview
   .row
     .col-xs-12
       .form-group
@@ -68,24 +78,13 @@
         = form.input :overview_text, as: :text, input_html: { class: 'editor form-control', rows: 10, data: { required: true } }
   .row
     .col-xs-12
-      .form-group
-        p.headEditor The Opportunity
-        = form.input :opportunity_text, as: :text, input_html: { class: 'editor form-control', rows: 10, data: { required: true } }
+      h3.head_settings Venue Details
   .row
     .col-xs-12
       .form-group
-        p.headEditor The Band
-        = form.input :band_text, as: :text, input_html: { class: 'editor form-control', rows: 10, data: { required: true } }
-  .row
-    .col-xs-12
-      .form-group
-        p.headEditor The Gig
-        = form.input :gig_text, as: :text, input_html: { class: 'editor form-control', rows: 10, data: { required: true } }
-  .row
-    .col-xs-12
-      .form-group
-        p.headEditor Terms and Conditions
-        = form.input :terms_text, as: :text, input_html: { class: 'editor form-control', rows: 10, data: { required: true } }
+        p.headEditor Venue Details
+        = form.input :venue_details_text, as: :text, input_html: { class: 'editor form-control', rows: 10, data: { required: true } }
+
   .row
     .col-xs-12
       h3.head_settings Faq
@@ -107,6 +106,7 @@
           .col-xs-12
             .pull-right
               a.red.remove_questions href="#" Remove questions
+
   .row
     .col-xs-12
       a.link.addQuestion href="#"  + Add new question

@@ -1,0 +1,41 @@
+.col-md-6.col-md-offset-3.custom-form
+  .row
+    .col-xs-12.text-center
+      h2
+        ' Gig Overview
+      h3.head_settings Require your Gig request and sumit
+  .row
+    .col-xs-12
+      = simple_form_for @booking, url: wizard_path, defaults: { input_html: { 'data-errors-messages-disabled' => true, class: 'form-control'} }  do |f|
+        .row
+          .col-sm-3
+            p.text-color.p-t7 Gig
+          .col-sm-9
+            = f.input :gig_title, input_html: {value: @gig.title, 'data-required' => true}, :disabled => true
+        .row
+          .col-sm-3
+            p.text-color.p-t7 Artist/Dj
+          .col-sm-9
+            = f.input :artist_name, input_html: {value: @booking.artist.user.username, 'data-required' => true}, :disabled => true
+        .row
+          .col-sm-7
+            p.text-color.p-t7 Total including Booking fee, $
+          .col-sm-5
+            = f.input :total, as: :string, input_html: {value: @gig.price, class: 'form-control', data: { required: true, 'errors-container' => '#price-error' } }, :disabled => true
+        .row
+          .col-sm-7
+            p.text-color.p-t7 Date
+          .col-sm-5
+            = f.input :date, input_html: {value: @gig.started_at.strftime('%d/%m/%Y'), 'data-required' => true}, :disabled => true
+        .row
+          .col-xs-12.text-right
+            button.btn.btn-primary.m-t15 Continue
+
+  ul.overview_list
+    li
+      = link_to 'Booking Request', public_profile_bookings_path
+    li
+      = link_to 'Overwiev', wizard_path
+
+
+- javascript 'controllers/base/bookings/new'

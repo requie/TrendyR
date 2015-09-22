@@ -35,7 +35,12 @@ Rails.application.routes.draw do
         resources :gigs, only: :index
         resource :press_kit, only: :show
         resources :photo_albums, path: 'gallery', only: [:index, :show]
-        resources :bookings, only: [:index, :create]
+        resources :bookings, only: [:index, :create] do
+          collection do
+            post 'new_gig' => :create_new_gig, as: :create_new_gig
+          end
+        end
+        resources :booking_steps
         resources :artists, only: :index
         resources :releases, only: :index
       end
@@ -83,6 +88,7 @@ Rails.application.routes.draw do
         member do
           put ':status' => :state, constraints: { status: /confirmed|rejected/ }, as: :status
           post 'request' => :request_confirmation
+          patch 'cancel' => :cancel_booking_request
         end
       end
     end
@@ -100,6 +106,7 @@ Rails.application.routes.draw do
           post :update
         end
       end
+      resources :notifications, only: [:index, :show, :destroy]
       resources :photos, only: [:create, :destroy] do
         member do
           put 'crop/:preset' => 'photos#crop', as: :crop, constraints: { preset: /event_photo|avatar|wallpaper/ }
@@ -137,5 +144,21 @@ Rails.application.routes.draw do
         get :gigs, :events, :music
       end
     end
+
+
+    ###### without login booking
+    resources :profiles, only: :show, param: 'profile_id'
+    resources :profiles, only: [] do
+      resources :bookings, only: [:index, :create] do
+        collection do
+          post 'new_gig' => :create_new_gig, as: :create_new_gig
+        end
+      end
+      resources :artists, only: :index
+      resources :releases, only: :index
+    end
+    #####
+
+
   end
 end

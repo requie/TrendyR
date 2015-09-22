@@ -1,0 +1,10 @@
+.col-md-8.col-md-offset-2.custom-form
+  .row
+    .col-xs-12
+      h2
+        ' Confirmation
+  .row
+    .col-xs-12
+      p Your booking request was sent to "#{@booking.artist.user.username}" and Payment will be proceesed after "#{@booking.artist.user.username}"
+      | has accepted your request. you may submit other booking request or Post other Gigs
+      p = link_to 'My Bookings', private_bookings_path

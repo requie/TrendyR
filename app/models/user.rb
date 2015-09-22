@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :email_notification_users
   has_many :email_notifications, through: :email_notification_users
   has_many :orders
+  has_many :bookings
 
   validates :first_name, :last_name, length: { maximum: MAX_LENGTH }, format: { with: NAME_FORMAT }, allow_blank: true
   validates :roles, presence: true
@@ -69,4 +70,17 @@ class User < ActiveRecord::Base
   def unread_messages(count = 5)
     mailbox.inbox(unread: true).order(created_at: :desc).limit(count)
   end
+
+  def name
+    email
+  end
+
+  def mailboxer_email(object)
+    if object.class == Mailboxer::Notification
+      email
+    else
+      return nil
+    end
+  end
+
 end

@@ -8,9 +8,12 @@ class Booking < ActiveRecord::Base
 
   belongs_to :artist
   belongs_to :gig
+  belongs_to :evemt
+  belongs_to :user
   delegate :profile, to: :artist
 
   scope :with_status, ->(status) { where(status: status) }
+  scope :active, -> { where(is_active: true) }
 
   AVAILABLE_STATUSES.each do |status|
     scope status.to_sym, -> { where(status: status) }
@@ -20,10 +23,28 @@ class Booking < ActiveRecord::Base
   end
 
   validates :gig_id, :artist_id, presence: true
-  validates :started_at, :finished_at, presence: true, if: -> { source && source == 'offer' }
+  validates :started_at, :finished_at, presence: true, if: -> { source && source == 'request' }
   validates :status, inclusion: AVAILABLE_STATUSES
   validates :source, inclusion: SOURCE_TYPES
   validate :booking_period, if: :allow_period_validation
+
+  def send_booking_notify(sender, recipient, status, send_mail)
+    case status
+      when :created
+        subject = "Booking request from #{self.user.username}"
+        body = "Booking request from #{self.user.username}. Gig - #{self.gig.title}"
+      when :rejected
+        subject = "Booking request to #{self.artist.user.username} has been canceled"
+        body = "Booking request to #{self.artist.user.username} has been canceled"
+      when :confirmed
+        subject = "Booking request to #{self.artist.user.username} has been confirmed"
+        body = "Booking request to #{self.artist.user.username} has been confirmed"
+    end
+    recipient.notify(subject, body, self, true, nil, send_mail)
+    notification = recipient.mailbox.notifications.first
+    notification.sender = sender
+    notification.save
+  end
 
   private
 

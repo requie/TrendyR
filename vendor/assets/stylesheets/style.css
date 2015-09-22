@@ -12726,7 +12726,7 @@ button:active, button:focus, button:focus:active {
 }
 
 .modal-dialog .modal-content {
-    background-color: rgba(0, 0, 0, 0);
+    /*background-color: rgba(0, 0, 0, 0);*/
     border: none;
     -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     -moz-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
@@ -14186,4 +14186,28 @@ pre.prettyprint {
     .footer .pull-right {
         float: left !important
     }
+}
+
+.overview_list{
+    margin-bottom:0;
+    padding-left:0;
+}
+.overview_list li{
+    list-style:none;
+    display:inline;
+    padding-right:20px;
+    position:relative;
+    color:#777;
+}
+.overview_list li:before{
+    position:absolute;
+    content:'>';
+    right:5px;
+    top:-2px;
+}
+.overview_list li:last-child::before{
+    content:'';
+}
+.overview_list li a{
+    color:#0e7043;
 }
