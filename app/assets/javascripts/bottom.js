@@ -23,6 +23,7 @@
 //= require custom/main
 //= require custom/scripts
 
+
 window.utils = {};
 
 (function($) {

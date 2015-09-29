@@ -14,5 +14,6 @@ class ApplicationController < ActionController::Base
 
   def set_inbox_messages
     @inbox_messages = current_user.unread_messages
+    @inbox_notifications = current_user.mailbox.notifications(read: false).not_trashed
   end
 end

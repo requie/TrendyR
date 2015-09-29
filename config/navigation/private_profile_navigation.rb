@@ -12,6 +12,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :awards, 'Awards', private_awards_path, if: proc { policy(Award).index? }
     primary.item :press_kit, 'Press kit', private_profile_press_kit_path, if: proc { current_user.role?(:artist) }
     primary.item :gallery, 'My gallery', private_photo_albums_path, if: proc { policy(PhotoAlbum).index? }
+    primary.item :gallery, 'My Bookings', private_bookings_path
 
     primary.dom_attributes = { class: 'nav-page' }
   end

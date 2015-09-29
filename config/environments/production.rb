@@ -92,7 +92,7 @@ Rails.application.configure do
     user_name: Rails.application.secrets['mail']['username'],
     password: Rails.application.secrets['mail']['password'],
     domain: 'yourdomain.com',
-    authentication: :plain,
+    authentication: 'login',
     enable_starttls_auto: true
   }
 

@@ -1,0 +1,17 @@
+tr class=last_message_class(notification)
+  td data-th="From"
+    = link_to notification_path(notification) do
+    .nameMessage data-url=notification_path(notification)
+      a href="javascript: void(0)"
+        = image_tag mini_url(notification.sender.profile), class: 'mobile-center'
+      span.nameFriend
+        = message_sender(notification.sender)
+      span.messageTime.pull-right
+        = message_time(notification.created_at)
+  = link_to notification_path(notification), method: :post do
+    td data-th="Messages"
+      .nameMessage data-url=notification_path(notification)
+        p
+          = notification.body
+      = link_to notification_path(notification), method: :delete do
+        i.icon-delete

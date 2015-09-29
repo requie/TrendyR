@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
 
   validates :charge_id, :purchasable, :user, presence: true
-  validates :purchasable_type, inclusion: { in: %w(Event) }
+  validates :purchasable_type, inclusion: { in: %w(Event Booking Cancel) }
 
   def charge
     return nil if charge_id.nil?
@@ -25,8 +25,10 @@ class Order < ActiveRecord::Base
   def description
     if purchasable_type == 'Event'
       'Ticket purchased'
-    else
-      'Unknown type'
+    elsif purchasable_type == 'Booking'
+      'Booking request'
+    elsif purchasable_type == 'Cancel'
+      'Booking cancellation'
     end
   end
 end

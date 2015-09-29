@@ -37,21 +37,33 @@ Rails.application.configure do
 
   # Configure mailer
   # Mailcatcher gem is used to test emails locally
-  config.action_mailer.default_url_options = {
-    host: Rails.application.secrets['host'],
-    port: Rails.application.secrets['port']
-  }
-  config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.default_url_options = {
+  #  host: Rails.application.secrets['host'],
+  #  port: Rails.application.secrets['port']
+  #}
+ # config.action_mailer.delivery_method = :smtp
 
   # Mailcatcher settings, use either this or thing below
-  config.action_mailer.smtp_settings = {
-    address: 'localhost',
-    port: 1025
-  }
+  #config.action_mailer.smtp_settings = {
+  #  address: 'localhost',
+  #  port: 1025
+  #}
 
   # Set mailer default options
-  config.action_mailer.default_options = {
-    from: Rails.application.secrets['mail']['from'],
-    reply_to: Rails.application.secrets['mail']['reply_to']
+  #config.action_mailer.default_options = {
+  #  from: Rails.application.secrets['mail']['from'],
+  #  reply_to: Rails.application.secrets['mail']['reply_to']
+  #}
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => "reiro123@gmail.com",
+      :password  => "0Nh5c8xZBAarFjZ-69i41Q", # SMTP password is any valid API key
+      :authentication => 'login', # Mandrill supports 'plain' or 'login'
+      :domain => 'localhost', # your domain to identify your server when connecting
   }
 end

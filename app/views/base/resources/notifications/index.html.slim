@@ -1,0 +1,15 @@
+.col-md-8.col-md-offset-2
+  .pg-content.message.clearfix
+    h2: strong Notifications
+    h3: strong Inbox (#{current_user.mailbox.notifications.not_trashed.count})
+    .row
+      .col-xs-12
+        table.table.responsive-table.table-condensed.message-list
+          thead.table-header
+            tr
+              th: p From
+              th: p Messages
+          tbody
+            - @notifications.each do |notification|
+              = render 'base/resources/notifications/blocks/notification', notification: notification
+- javascript 'controllers/base/conversations/index'

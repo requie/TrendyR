@@ -41,7 +41,10 @@
           li
             .dropdown
               i.icon-ring.inbox data-toggle="dropdown"
-                span.count 0
+                span.count
+                  = current_user.mailbox.notifications(read: false).not_trashed.count
+              ul.dropdown-menu.inboxMess aria-labelledby="dLabel" role="menu"
+                = render 'layouts/base/blocks/inbox_notifications_menu', inbox: @inbox_notifications
           li
             .dropdown
               a.nameUser.clickBlock data-toggle="dropdown" href="javascript: void(0)"

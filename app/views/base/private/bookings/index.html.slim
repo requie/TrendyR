@@ -19,8 +19,9 @@
         .title_profile.p-t15.clearfix
           .form-group.pull-sm-left
             ul.title_profile-list.clearfix.m-b0.m-r20.pull-sm-left
-              li.title_profile-list_black: a href="javascript: void(0)" Gig invitations
-              li.title_profile-list_gray: a href="javascript: void(0)" My gig invitations
+              li.title_profile-list_black: a href="javascript: void(0)" id="gig_invintations" Gig invitations(#{@bookings.count})
+              - if @my_bookings
+                li.title_profile-list_gray: a href="javascript: void(0)" id="my_gig_invintations" My gig invitations(#{@my_bookings.count})
           .clearfix.w-sm-50.pull-sm-right
             .row
               .col-sm-6
@@ -31,7 +32,7 @@
                 .form-group
                   select.form-control
                     option value="javascript: void(0)" All statuses
-  .row
+  .row#bookings_table
     .col-xs-12
       .music-block
         .responsive-table
@@ -41,14 +42,13 @@
                 th: p Gig Name
                 th: p When
                 th: p Where
-                th: p Booked by
+                th: p Booked Artist
                 th: p Status
             tbody
               - @bookings.each do |booking|
                 tr
                   td data-th="Gig Name"
-                    a.link.p-t7.dBlock href="javascript: void(0)"
-                      = booking.gig.title
+                    = link_to booking.gig.title, gig_path(booking.gig), class: "link p-t7 dBlock"
                   td data-th="When"
                     p.p-t7
                       = booking.period
@@ -56,16 +56,90 @@
                     p.p-t7
                       = booking.gig.location_address
                   td data-th="Booked by"
-                    a.link.p-t7.dBlock href="javascript: void(0)"
-                      = booking.gig.booker_name
+                    = link_to booking.artist.user.profile.name, public_profile_path(booking.artist.user.profile), class: "link p-t7 dBlock"
                   td data-th="Status"
                     - if booking.pending?
-                      button.btn.btn-primary.pull-sm-left.apply-booking data-url=status_private_booking_path(booking, status: 'confirmed') Apply
-                      a.d-sm-Block.pull-sm-right.p-t7.m-b15.link.cancel-booking href=status_private_booking_path(booking, status: 'rejected') Cancel
+                      a.d-sm-Block.pull-sm.p-t7.m-b15.link data-toggle="modal" data-target="#cancelModal" href="#" Cancel
+                      .modal.fade#cancelModal tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        .modal-dialog
+                          .modal-content
+                            .modal-header
+                              button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                span aria-hidden="true" &times
+                              h4.modal-title#myModalLabel Cancellation
+                            .modal-body.center Are You Sure? If you cancel the booking request fee of $7.99 is charged.
+                            .modal-footer
+                              = link_to "Cancel", cancel_private_booking_path("#{booking.id}"), class: "btn btn-primary", method: :patch
+                              button type="button" class="btn btn-default" data-dismiss="modal" Close
                     - else
                       p.p-t7
                         = booking.status_label
+
     .col-xs-12
       .pagination.pull-right
         = paginate @bookings
-- javascript 'controllers/base/bookings/index'
+
+  - if @my_bookings
+    .row#my_bookings_table
+      .col-xs-12
+        .music-block
+          .responsive-table
+            table.table
+              thead.table-header
+                tr
+                  th: p Gig Name
+                  th: p When
+                  th: p Where
+                  th: p Booked by
+                  th: p Status
+              tbody
+                - @my_bookings.each do |booking|
+                  tr
+                    td data-th="Gig Name"
+                      a.link.p-t7.dBlock href="javascript: void(0)"
+                        = booking.gig.title
+                    td data-th="When"
+                      p.p-t7
+                        = booking.period
+                    td data-th="Where"
+                      p.p-t7
+                        = booking.gig.location_address
+                    td data-th="Booked by"
+                      a.link.p-t7.dBlock href="javascript: void(0)"
+                        = booking.user.profile.name unless booking.user.nil?
+                    td data-th="Status"
+                      - if booking.pending?
+
+                        button.btn.btn-primary.pull-sm-left.apply-booking data-toggle="modal" data-target="#applyModal" Apply
+                        .modal.fade#applyModal tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                          .modal-dialog
+                            .modal-content
+                              .modal-header
+                                button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                  span aria-hidden="true" &times
+                                h4.modal-title#myModalLabel Confirmation
+                              .modal-body.center Are You Sure?
+                              .modal-footer
+                                button type="button" class="btn btn-primary apply-booking" data-url=status_private_booking_path(booking, status: 'confirmed') Apply
+                                button type="button" class="btn btn-default" data-dismiss="modal" Close
+
+                        a.d-sm-Block.pull-sm.p-t7.m-b15.link.cancel-booking.btn data-toggle="modal" data-target="#cancelModal" href="#" Cancel
+                        .modal.fade#cancelModal tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                          .modal-dialog
+                            .modal-content
+                              .modal-header
+                                button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                  span aria-hidden="true" &times
+                                h4.modal-title#myModalLabel Cancellation
+                              .modal-body.center Are You Sure?
+                              .modal-footer
+                                button type="button" class="btn btn-primary cancel-booking" href=status_private_booking_path(booking, status: 'rejected') Cancel
+                                button type="button" class="btn btn-default" data-dismiss="modal" Close
+                      - else
+                        p.p-t7
+                          = booking.status_label
+      .col-xs-12
+        .pagination.pull-right
+          = paginate @my_bookings
+
+- javascript 'https://js.stripe.com/v2/', 'controllers/base/bookings/index', 'utils/notification'

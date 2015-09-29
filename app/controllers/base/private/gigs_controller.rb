@@ -21,7 +21,12 @@ module Base
           gig.location = find_or_create_location
         end
         @gig.save
-        respond_with @gig, location: private_gigs_path
+        if session[:redirect_to_booking].present?
+          redirect_to public_profile_bookings_path(session[:redirect_to_booking])
+          session[:redirect_to_booking] = nil
+        else
+          respond_with @gig, location: private_gigs_path
+        end
       end
 
       def edit

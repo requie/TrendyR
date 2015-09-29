@@ -1,0 +1,14 @@
+.col-md-8.col-md-offset-2.custom-form
+  .row
+    .col-xs-12
+      h2
+        ' Payment Information
+  .row
+    .col-xs-12
+      = render 'base/public/booking_steps/payment_form'
+
+      = link_to 'Booking Request >', public_profile_bookings_path
+      '
+      = link_to 'Overwiev >', previous_wizard_path
+      '
+      = link_to 'Payment Information >', wizard_path

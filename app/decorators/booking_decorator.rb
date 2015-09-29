@@ -12,8 +12,8 @@ class BookingDecorator < ApplicationDecorator
 
   def period
     [
-      model.started_at.to_s(:short_date),
-      model.finished_at.to_s(:short_date)
+      model.started_at.to_date.to_formatted_s(:short),
+      model.finished_at.to_date.to_formatted_s(:short)
     ].join(' - ')
   end
 end
