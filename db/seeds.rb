@@ -3,7 +3,7 @@ puts 'Growing seeds:'
 # Create user by role
 def create_user_by_role(role_name)
   email = "dev-#{role_name}@example.com"
-  return if User.find_by_email(email)
+  return if User.find_by(email: email)
   user = User.new(
     email: email,
     first_name: 'Dev',
