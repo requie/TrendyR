@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 ENV['RANSACK_FORM_BUILDER'] = '::SimpleForm::FormBuilder'
 
@@ -28,10 +28,10 @@ module TrendyReggae
       DeviseController.layout 'users/main'
     end
 
-    config.autoload_paths += Dir[
-      "#{config.root}/lib/",
-      "#{config.root}/app/navigation_renderers/",
-      "#{config.root}/app/services/"
-    ]
+    # Rails 7 uses Zeitwerk for autoloading
+    # Custom paths under app/ are auto-loaded
+    # For lib/, use: config.autoload_lib(ignore: %w[assets tasks])
+    config.eager_load_paths << Rails.root.join('app', 'navigation_renderers')
+    config.eager_load_paths << Rails.root.join('app', 'services')
   end
 end

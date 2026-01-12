@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << [:first_name, :last_name, :role_ids]
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :role_ids])
   end
 
   def set_inbox_messages

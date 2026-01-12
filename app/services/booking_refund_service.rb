@@ -2,7 +2,7 @@ class BookingRefundService < StripeService
   def call(*params)
 
     customer, booking = params
-    charge = Order.find_by_purchasable_id(booking.id).charge
+    charge = Order.find_by(purchasable_id: booking.id).charge
     re = Stripe::Refund.create(
         charge: charge.id,
         amount: cancel_amount(charge.amount, 7.99)

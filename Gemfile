@@ -1,101 +1,142 @@
 source 'https://rubygems.org'
 
+ruby '3.3.6'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '~> 7.1.0'
+
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '>= 4.2.0'
+
 # Ruby on Rails stylesheet engine for Sass
-# https://github.com/rails/sass-rails
-gem 'sass-rails', '~> 4.0.4'
-# Slim templates generator for Rails 3 and 4
+# Modern alternative to sass-rails
+gem 'sassc-rails', '~> 2.1'
+
+# Slim templates generator for Rails
 # https://github.com/slim-template/slim-rails
-gem 'slim-rails', '~> 2.1.5'
-# Use unicorn as the app server
-# https://github.com/defunkt/unicorn
-gem 'unicorn', '~> 4.8.3'
+gem 'slim-rails', '~> 3.6'
+
+# Use Puma as the app server (modern replacement for Unicorn)
+# https://github.com/puma/puma
+gem 'puma', '~> 6.4'
+
 # Brings Rails named routes to javascript
 # https://github.com/railsware/js-routes
-gem 'js-routes', '~> 0.9.9'
+gem 'js-routes', '~> 2.2'
+
 # Gem provides a helper asset_path in javascript.
 # https://github.com/kavkaz/js_assets
 gem 'js_assets', '~> 0.0.9'
-# Adds foreign key helpers to migrations and correctly dumps foreign keys to schema.rb
-# https://github.com/matthuhiggins/foreigner
-gem 'foreigner', '~> 1.6.1'
+
+# Modern Rails has native foreign key support, foreigner is deprecated
+
 # Minimal authorization through OO design and pure Ruby classes
-# https://github.com/elabs/pundit
-gem 'pundit', '~> 0.3.0'
+# https://github.com/varvet/pundit
+gem 'pundit', '~> 2.3'
+
 # A Ruby gem for on-the-fly processing - suitable for image uploading in Rails
 # https://github.com/markevans/dragonfly
-gem 'dragonfly', '~> 1.0.7'
+gem 'dragonfly', '~> 1.4'
+
 # Decorators/View-Models for Rails Applications
 # https://github.com/drapergem/draper
-gem 'draper', '~> 1.4.0'
+gem 'draper', '~> 4.0'
 
-gem 'devise', '~> 3.4.1'
-gem 'omniauth', '~> 1.2.2'
-gem 'omniauth-twitter', '~> 1.1.0'
-gem 'omniauth-facebook', '~> 2.0.0'
-gem 'omniauth-google-oauth2', '~> 0.2.6'
-gem 'simple_form', '~> 3.1.0'
-gem 'simple-navigation', '~> 3.13.0'
-gem 'kaminari', '~> 0.16.1'
-gem 'jquery-rails', '~> 3.1.2'
-gem 'jbuilder'
-gem 'gon'
-gem 'tinymce-rails'
-gem 'ransack'
-gem 'taglib-ruby'
-gem 'mailboxer'
-gem 'sidekiq', '~> 3.3.4'
-gem 'chewy', '~> 0.8.1'
+# Authentication & Authorization
+gem 'devise', '~> 4.9'
+gem 'omniauth', '~> 2.1'
+gem 'omniauth-twitter', '~> 1.4'
+gem 'omniauth-facebook', '~> 9.0'
+gem 'omniauth-google-oauth2', '~> 1.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0' # Required for OmniAuth 2.x
+
+# Forms and UI
+gem 'simple_form', '~> 5.3'
+gem 'simple-navigation', '~> 4.4'
+gem 'kaminari', '~> 1.2'
+
+# jQuery and JavaScript
+gem 'jquery-rails', '~> 4.6'
+gem 'jbuilder', '~> 2.11'
+gem 'gon', '~> 6.4'
+gem 'tinymce-rails', '~> 6.8'
+
+# Search and filtering
+gem 'ransack', '~> 4.1'
+gem 'taglib-ruby', '~> 1.1'
+
+# Messaging
+gem 'mailboxer', '~> 0.15'
+
+# Background jobs
+gem 'sidekiq', '~> 7.2'
+
+# Elasticsearch
+gem 'chewy', '~> 7.6'
+
+# Process management
 gem 'foreman'
-gem 'stripe'
-gem 'acts_as_commentable'
-gem 'wicked'
+
+# Payments
+gem 'stripe', '~> 10.0'
+
+# Comments
+gem 'acts_as_commentable', '~> 4.0'
+
+# Multi-step forms
+gem 'wicked', '~> 2.0'
+
+# Modern Rails dependencies
+gem 'sprockets-rails', '~> 3.4'
+gem 'importmap-rails', '~> 2.0'
+gem 'turbo-rails', '~> 2.0'
+gem 'stimulus-rails', '~> 1.3'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background.
   # https://github.com/rails/spring
   gem 'spring'
+
   # MailCatcher runs a super simple SMTP server which catches any message sent to it to display in a web interface
-  # https://github.com/sj26/mailcatcher
-  gem 'mailcatcher'
-  # Extract from RailsPanel
-  # https://github.com/qqshfox/meta_request
+  # Note: mailcatcher should be installed globally, not in Gemfile for modern Rails
+  # gem 'mailcatcher'
+
+  # Rails Panel support
   gem 'meta_request'
+
   # A Ruby static code analyzer, based on the community Ruby style guide.
-  # https://github.com/bbatsov/rubocop
-  gem 'rubocop', require: false
-  # Automate the bundle/migration tedium of Rails with Git hooks
-  # https://github.com/tpope/hookup
-  gem 'hookup', require: false
+  # https://github.com/rubocop/rubocop
+  gem 'rubocop', '~> 1.59', require: false
+  gem 'rubocop-rails', '~> 2.23', require: false
+
   # A static analysis security vulnerability scanner for Ruby on Rails applications
   # https://github.com/presidentbeef/brakeman
-  gem 'brakeman', require: false
+  gem 'brakeman', '~> 6.1', require: false
+
   # Better Errors replaces the standard Rails error page with a much better and more useful error page
-  # https://github.com/charliesome/better_errors
-  gem 'better_errors'
-  # work with JSHint - the js code check tool that does not tyrannize your code, by jshint community
-  # https://github.com/Bgouveia/jshint_on_rails
-  gem 'jshint_on_rails'
+  # https://github.com/BetterErrors/better_errors
+  gem 'better_errors', '~> 2.10'
+  gem 'binding_of_caller', '~> 1.0'
+
+  # Debugging
   gem 'pry-rails'
-  # Remote multi-server automation tool
+  gem 'debug', '~> 1.9'
+
+  # Deployment
   # https://github.com/capistrano/capistrano
-  gem 'capistrano', '~> 3.3.5'
-  # Official Ruby on Rails specific tasks for Capistrano
-  # https://github.com/capistrano/rails
-  gem 'capistrano-rails', '~> 1.1.2'
-  # RVM support for Capistrano v3
-  # https://github.com/capistrano/rvm
-  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano', '~> 3.18'
+  gem 'capistrano-rails', '~> 1.6'
+  gem 'capistrano-rvm', '~> 0.1'
+  gem 'capistrano3-puma', '~> 6.0'
 end
 
 group :development, :production do
   # Use PostgreSQL as a primary database engine
-  gem 'pg', '~> 0.17.1'
+  gem 'pg', '~> 1.5'
 end
 
 group :development, :test do
-  gem 'faker'
+  gem 'faker', '~> 3.2'
+  gem 'rspec-rails', '~> 6.1'
+  gem 'factory_bot_rails', '~> 6.4'
 end

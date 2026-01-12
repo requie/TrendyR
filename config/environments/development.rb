@@ -32,6 +32,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  # Enable public file server for development
+  config.public_file_server.enabled = true
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
@@ -55,15 +58,15 @@ Rails.application.configure do
   #  reply_to: Rails.application.secrets['mail']['reply_to']
   #}
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address   => "smtp.mandrillapp.com",
-      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
-      :enable_starttls_auto => true, # detects and uses STARTTLS
-      :user_name => "reiro123@gmail.com",
-      :password  => "0Nh5c8xZBAarFjZ-69i41Q", # SMTP password is any valid API key
-      :authentication => 'login', # Mandrill supports 'plain' or 'login'
-      :domain => 'localhost', # your domain to identify your server when connecting
+    address: ENV.fetch('SMTP_ADDRESS', 'smtp.mandrillapp.com'),
+    port: ENV.fetch('SMTP_PORT', 587),
+    enable_starttls_auto: true,
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD'],
+    authentication: 'login',
+    domain: ENV.fetch('SMTP_DOMAIN', 'localhost')
   }
 end
