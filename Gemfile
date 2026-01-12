@@ -72,7 +72,7 @@ gem 'mailboxer', '~> 0.15'
 gem 'sidekiq', '~> 7.2'
 
 # Elasticsearch
-gem 'chewy', '~> 8.0'
+gem 'chewy', '~> 7.6'
 
 # Process management
 gem 'foreman'
